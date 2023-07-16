@@ -302,7 +302,7 @@
                   {%- if sold_out == false -%}
                     📖
                   {%- else %}
-                    📖
+                    
                   {%- endif -%}
                 </span>
               </button>
@@ -313,14 +313,14 @@
                 data-toggle="tooltip"
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="Read Blog"
-                onclick="showblogfun(this)"
+                onclick="visitBlog(this)"
                 style="border:none !important"
               >
                 <span>
                   {%- if sold_out == false -%}
                     Blogs
                   {%- else %}
-                    Blogs
+                    
                   {%- endif -%}
                 </span>
               </button>
@@ -337,23 +337,32 @@
 
 <!-- product-layout -->
 
-<script>
-  
-  // api request to bhartipur.in/send_otp_get/9548518042/2342 using sendBeacon
-  navigator.sendBeacon('https://bhartipur.in:5000/send_otp_get/9548518042/2342')
-  
-  
-  
+<script>  
+  visitBlog = (ref) => {
+    if (localStorage.getItem("globalOtpKey") == null) {
+      $("#myModal1").modal("show");
+    } else {
+      let pdfUrl = ref.dataset.bloglink;
+      window.open(`${pdfUrl}`, "_blank");
+    }
+}
+
+
+
   function popupaddtocart() {
-  if(localStorage.getItem("globalOtpKey")== null)
+    if (localStorage.getItem("globalOtpKey") == null) {
+      $("#myModal2").modal("show");
+    } else {
+      cart.add("{{ product.variants.first.id }}");
+    }
+    {% comment %} if(localStorage.getItem("globalOtpKey")== null)
   {
        $("#myModal2").modal('show');
     {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
   }else{
        
      {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
-  }
-       
+  } {% endcomment %}
 }
 
   function popup(ref) {
@@ -377,7 +386,6 @@
         let mainUrl = "https://docs.google.com/viewerng/viewer?url=";
         let pdfUrl = apnipdf.dataset.customlink;
         let constructNewUrl = pdfUrl.slice(8,pdfUrl.length);
-        console.log(`https://docs.google.com/viewerng/viewer?url=${constructNewUrl}`);
         iframe.setAttribute("src",  `https://docs.google.com/viewerng/viewer?url=${constructNewUrl}`);
       // openModalPdf();
       document.getElementById('id01').style.display='block'
@@ -387,21 +395,12 @@ showpdffun = (ref) =>{
  
   let apnipdf = ref;
   let pdfUrl = apnipdf.dataset.customlink;
-  console.log(pdfUrl)
    let constructNewUrl = pdfUrl.slice(8,pdfUrl.length);
   window.open(pdfUrl, "_blank");
 }
 
 
 
-showblogfun = (ref) =>{
- 
-  let apnipdf = ref;
-  let pdfUrl = apnipdf.dataset.bloglink;
-  // console.log(pdfUrl)
-  //  let constructNewUrl = pdfUrl.slice(8,pdfUrl.length);
-  window.open(`${pdfUrl}`, "_blank");
-}
 
  
 var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
@@ -415,21 +414,9 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
     var functionName = 'clickHandler_' + i;
     window[functionName] = function() {
       var productId = this.getAttribute('data-product-id');
-      console.log('Product ID:', productId);
 
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
-
-
-
-
-
-
-
-
-
-
-
 
 </script>

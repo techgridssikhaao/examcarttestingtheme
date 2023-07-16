@@ -1,1 +1,25 @@
-{"sections":{"main":{"type":"collection-page","settings":{"product_count_per_page":"12","collection_view_default":"0","show_summary":true,"product_summary_words":"30","show_collection_sidebar":"left","show_sidebar_categories":true,"category_count":"1500","collection_sidebar_menu":"main-menu","show_sidebar_vendors":false,"collection_sidebar_filters":"tags","show_collection_side_image":false,"collection_side_link":"","show_collection_side_listing":false,"collection_side_listing_title":"","collection_side_listing":""}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "collection-page",
+      "settings": {
+        "product_count_per_page": "12",
+        "collection_view_default": "0",
+        "show_summary": true,
+        "product_summary_words": "30",
+        "show_collection_sidebar": "left",
+        "show_sidebar_categories": true,
+        "category_count": "1500",
+        "collection_sidebar_menu": "main-menu",
+        "show_sidebar_vendors": false,
+        "collection_sidebar_filters": "tags",
+        "show_collection_side_image": false,
+        "collection_side_link": "",
+        "show_collection_side_listing": false,
+        "collection_side_listing_title": "",
+        "collection_side_listing": ""
+      }
+    }
+  },
+  "order": ["main"]
+}

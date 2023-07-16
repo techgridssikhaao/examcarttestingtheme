@@ -1,1 +1,13 @@
-{"sections":{"main":{"type":"blog-page","settings":{"no_articles":"150","show_summary":true,"blog_summary_words":"30"}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "blog-page",
+      "settings": {
+        "no_articles": "150",
+        "show_summary": true,
+        "blog_summary_words": "30"
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -178,14 +178,9 @@
     style="display:table;"
   ></div>
 </body>
-<script type="text/javascript" src="https://pagination.js.org/dist/2.5.0/pagination.min.js">
+<script type="text/javascript" src="https://pagination.js.org/dist/2.5.0/pagination.min.js"></script>
 // <script type="text/javascript" src="https://pagination.js.org/dist/2.5.0/pagination.js"></script>
 <script>
-  
-  
-  
-  
-  
     document.addEventListener("DOMContentLoaded", function(event) {
       $('.topbar').remove();
      $('.hd3').html ( `
@@ -212,7 +207,6 @@
     
     });
 
-    console.log("we are here");
 
   function getAllArticles(){
        var list = [];
@@ -380,7 +374,6 @@
   function onStart(catVal,subCatVal,typeVal) {
   var list = getAllArticles();
   var selectedList = [];
-    console.log(catVal);
     
      if(catVal != undefined || catVal != 'all')
      {
@@ -422,19 +415,15 @@
     if(d != 'all-time'){
       if(d == 'last-month'){
         var newSelectedList = selectedList.slice(0, 30);
-        console.log(newSelectedList);
         selectedList = newSelectedList;
       }else if(d == 'last-three-months'){
         var newSelectedList = selectedList.slice(0, 90);
-        console.log(newSelectedList);
         selectedList = newSelectedList;
       }else if(d == 'last-six-months'){
         var newSelectedList = selectedList.slice(0, 180);
-        console.log(newSelectedList);
         selectedList = newSelectedList;
       }else if(d == 'last-month'){
         var newSelectedList = selectedList.slice(0, 365);
-        console.log(newSelectedList);
         selectedList = newSelectedList;
       }
     }
