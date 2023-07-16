@@ -1,0 +1,118 @@
+<footer {% if section.settings.footer_top_margin %}style="margin-top: 10px;" {% endif %}>
+<!--   <div class="footer-top ">
+    <div class="container">
+      <div class="container-inner">
+
+      </div>
+    </div>
+  </div> -->
+  <div class="footer-bottom ">
+    <div class="container">
+      <div class="row">
+          <div class="col col1  col-md-3 col-sm-6 col-xs-12 col-footer">
+            <div class="footer-title" >
+              <h5>{{ 'layout.footer.about' | t }}</h5>
+            </div>
+            <div class="footer-contact footer-content" >
+              <div class="">
+                {% if section.settings.image %}
+                <a href="/" itemprop="url" class="logo-footer" style="text-align: center;">
+                  <img src="{{ section.settings.image | img_url: 'master' }}"
+                       alt="{{ section.settings.image.alt | default: shop.name }}"
+                       itemprop="logo" style="width: 250px;">
+                </a>
+                {% endif %}
+                {% if section.settings.footer_about_us != blank %}
+                <p style="text-align: center;">{{ section.settings.footer_about_us }}</p>
+                {% endif %}
+                <ul class="list-unstyled text-content" style="margin-left: -74px;text-align:center;">
+                  {% if section.settings.footer_address != blank %}
+                  <li class="address">
+                    <p>{{ 'layout.footer.address' | t }}:</p><p>{{ section.settings.footer_address }}</p>
+                  </li>
+                  {% endif %}
+                  {% if section.settings.footer_phone != blank %}
+                  <li class="phone">
+                    <p>{{ 'layout.footer.phone' | t }}:</p><p>{{ section.settings.footer_phone }}</p>
+                  </li>
+                  {% endif %}
+                  {% if section.settings.footer_email != blank %}
+                  <li class="email">
+                    <p>{{ 'layout.footer.email' | t }}:</p><p>{{ section.settings.footer_email }}</p>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col col2 col-md-3 col-sm-6 col-xs-12 col-footer" style="padding-top: 50px;">
+            <div class="footer-title">
+              <h5 style="color: white;">{{ linklists[section.settings.footer_menu_1].title }}</h5>
+            </div>
+            <div class="footer-content" >
+              <ul class="list-unstyled text-content" >
+                {% for link in linklists[section.settings.footer_menu_1].links %}
+                <li><a href="{{link.url}}">{{link.title}}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="col col3 col-md-3 col-sm-6 col-xs-12 col-footer" style="padding-top: 50px;">
+            <div class="footer-title">
+              <h5 style="color: white;">{{ linklists[section.settings.footer_menu_2].title }}</h5>
+            </div>
+            <div class="footer-content">
+              <ul class="list-unstyled text-content">
+                {% for link in linklists[section.settings.footer_menu_2].links %}
+                <li><a href="{{link.url}}">{{link.title}}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="col4  col-md-3 col-sm-6 col-xs-12 col-footer">
+            {% include 'newsletter' %}
+            {% if section.settings.footer_social_enable %}
+            {% include 'social-button' %}
+            {% endif %}
+          </div>
+        </div>
+<!--       <div class="container-inner">
+        {% include 'payment' %}
+        <div class="footer-copyright">
+          <p>{{ section.settings.footer_content_text }}</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <div id="back-top"><i class="ion-ios-arrow-up"></i></div>
+</footer>
+<script >
+  $(document).ready(function(){
+    // hide #back-top first
+    $("#back-top").hide();
+    // fade in #back-top
+    $(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > $('body').height()/3) {
+          $('#back-top').fadeIn();
+        } else {
+          $('#back-top').fadeOut();
+        }
+      });
+      // scroll body to 0px on click
+      $('#back-top').click(function () {
+        $('body,html').animate({scrollTop: 0}, 800);
+        return false;
+      });
+    });
+    if (jQuery(window).width() < 768) {   
+      jQuery('.footer-top .footer-title').click(function(){     
+        jQuery(this).parent('.col').toggleClass('active').siblings().removeClass('active'); 
+        jQuery(this).next('.col .footer-content').toggle(300);
+        jQuery(this).parent('.col.active').siblings().children('.col .footer-content').slideUp(300); 
+      }); 
+
+    }
+  });
+</script>
+

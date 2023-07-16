@@ -1,0 +1,120 @@
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+<div id="instagram_block_home1" class="block">
+  {% if section.settings.insta_title != blank%}
+  <div class="title2">
+    <h5>{{ section.settings.insta_title }}</h5>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="row_items content_block owl-carousel owl-theme" id="instafeed">
+    </div>
+  </div>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      var feed = new Instafeed({        
+        get: "user",    
+        userId:{{ section.settings.insta_access_token | split:"." | first }}, 
+        accessToken: '{{ section.settings.insta_access_token }}', 
+        limit: "6",
+        resolution: "standard_resolution",
+        after: function() {
+        jQuery("#instafeed a").attr("target","_blank");
+        jQuery("#instafeed a").attr("href", $(this).find('img').attr('src'));
+        jQuery("#instafeed a img").addClass("fancybox");
+        jQuery("#instafeed a img").addClass("img-responsive");
+        jQuery("#instafeed a img").addClass("insta-size");
+        $("#instagram_block_home .content_block").owlCarousel({
+        autoPlay: false,
+        items : 6,
+        slideSpeed : 1000,
+        navigation : false,
+        pagination : false,
+        stopOnHover : true,
+        itemsDesktop : [1199, 3],
+        itemsDesktopSmall : [991, 3],
+        itemsTablet : [767, 4],
+        itemsMobile : [480, 2],
+      });
+    }
+                           });
+    feed.run();
+    });
+  </script>
+  <script type="text/javascript">
+    $('.content_block').magnificPopup({
+      type: 'image',
+      delegate: 'm',
+      gallery: {
+        enabled : true
+      }
+    });
+  </script>
+</div>
+{% comment %}
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+<div id="instagram_block_home1" class="block">
+  {% if section.settings.insta_title != blank%}
+  <div class="footer-title">
+    <h5>{{ section.settings.insta_title }}</h5>
+  </div>
+  {% endif %}
+  <div class="row_items content_block owl-carousel owl-theme" id="instafeed">
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var feed = new Instafeed({
+        get: "user",
+        userId: '{{ section.settings.insta_access_token | split: "." | first }}',
+        accessToken: '{{ section.settings.insta_access_token }}',
+        limit: "6",
+        resolution: "standard_resolution",
+        template: '<a href="\{\{image\}\}" target="_blank" class="fancybox" style="display: block;">'+ 
+        '<img src="\{\{image\}\}" class="insta-size1">'+ '</a>',
+        target: "instafeed",
+        after: function () {
+        $("#instagram_block_home1 .content_block").owlCarousel({
+        autoPlay: false,
+        items: 6,
+        loop: true,
+        navSpeed: 1000,
+        dotsSpeed: 1000,
+        autoplaySpeed: 1000,
+        nav: false,
+        dots: false,
+        autoplayHoverPause : true,
+        margin: 5,
+        navText: ['<i class="ion-chevron-left"></i>', '<i class="ion-chevron-right"></i>'],
+        responsive:{
+        0:{
+        items: 3
+      },
+                               480:{
+                               items: 3
+                               },
+                               768:{
+                               items: 3
+                               },
+                               992:{
+                               items: 3
+                               },
+                               1200:{
+                               items: 3
+                               },
+                               }
+                               });
+    }
+                      });
+    feed.run();
+    }); 
+  </script>
+  <script type="text/javascript">
+    $('.content_block').magnificPopup({
+      type: 'image',
+      delegate: 'm',
+      gallery: {
+        enabled : true
+      }
+    });
+  </script>
+</div>
+{% endcomment %}

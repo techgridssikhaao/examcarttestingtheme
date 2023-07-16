@@ -1,0 +1,48 @@
+<!--Newsletter Popup Start-->
+  <style>
+  #newsletter-pop-up{
+    padding: 0;
+  }
+  img{
+    height: 100%;
+    width:100%;
+    //object-fit: fill;
+  }
+</style> 
+<div id="newsletter-popup-conatiner" class="my-class" style="display:none;">
+<div id="newsletter-pop-up">
+  {% if settings.show_pupup_image %} 
+  <a href="https://examcart.in/collections/ctet" target="_blank" >
+  <img src= "{{ 'CTET SP NEW.jpg' | asset_url }})" id="image">
+  </a>
+   <span class="hide-popup" id="cross" onclick="hideImage()" >X</span>
+  {% endif %}
+    <!--<div class="subscribe-pop-up">
+      <div class="title-subscribe">
+        <h1>{{ settings.popup_heading }}</h1>
+      </div>
+      <div id="newsletter-form" class="content-subscribe">
+        <div class="form-subscribe-header">
+          <label>{{ settings.popup_description }}..</label>
+        </div>
+        {% include 'newsletter-form-popup' %}
+      </div>
+      <div class="subscribe-bottom">
+        <input type="checkbox" id="dont_show" name="dont_show">
+        <label for="dont_show">{{ settings.popup_no_link_text }}</label>
+      </div>
+    </div>
+  </div>-->
+</div>
+
+<!--End of Newsletter Popup-->
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js' | script_tag }}  
+
+<script>
+  
+  hideImage = () =>{
+    
+    document.getElementById("newsletter-popup-conatiner").style.display = "none";
+    document.getElementById("image").style.display = "none";
+  }
+</script>

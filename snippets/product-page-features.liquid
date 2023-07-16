@@ -1,0 +1,712 @@
+<style>
+  .extra-btn-for-popup{
+      position: absolute;
+    top: 19.2rem;
+    left: 17.7rem;
+      top: 22.5rem;
+      left: 14rem;
+  }
+
+  @media (min-width: 1200px){
+  .col-lg-12 {
+      width: 70%;
+  }}
+
+
+    @media screen and (max-width:480px)
+        {
+          #reviewtabBtn{
+            margin:10px !important;
+          }
+          .form-group{
+          margin-top:-28px;
+          }
+            #button-cart{
+          width:40% !important }
+
+          #ebook{width:40% !important}
+
+          #course{width:40% !important}
+
+          #SamplePaperbtn{width:90% !important}
+
+        }
+
+      .product-info-main ul.list-unstyled li{
+
+      line-height: 25.5px !important ;
+      }
+
+      a{
+      color:blue
+      }
+</style>
+
+<style>
+  #or {
+     width: 100%;
+     text-align: center;
+     border-bottom: 1px solid #ada5a5;
+     line-height: 0.1em;
+     margin: 10px 0 20px;
+    font-size:15px;
+    color:#ada5a5
+
+  }
+
+  h2 span {
+      background:#fff;
+      padding:0 0px;
+
+  }
+</style>
+
+<div class="inner">
+  {% if section.settings.show_tags_tab %}
+    <p class="product-tag">
+      {{ 'products.product.tags' | t }}:
+      {% for tag in product.tags %}
+        {% unless tag contains '_' %}
+          {% unless forloop.first %}, {% endunless %}
+          <a href="/collections/all/{{ tag }}">{{ tag }}</a>
+        {% endunless %}
+      {% endfor %}
+    </p>
+  {% endif %}
+  <h1 class="product-name" itemprop="name" style="font-size: 24px;line-height: 32.5px;">{{ product.title }}</h1>
+
+  {% include 'price', page: true %}
+  <div class="col-lg-12 ratings ">
+    <div class="col-lg-12 row rating-box">
+      {% include 'review' %}
+
+      <div id="reviewtabBtn" class="col-lg-5" style="margin: -12px;">
+        <button type="button" onclick="popupreview()" class="btn btn-success">
+          <a
+            href="#reviews"
+            aria-controls="reviews"
+            role="tab"
+            data-toggle="tab"
+            style="color: currentcolor;padding-top: 0px;"
+          >
+            View Reviews
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function reviewBtnFn(){
+
+      document.getElementById('reviewsTab').scrollIntoView({
+      behavior: 'smooth'
+    });
+      $('#descriptionTab').removeClass('active');
+      $('#reviewsTab').addClass('active');
+
+    }
+  </script>
+  <!-- end-rating -->
+  {% if section.settings.show_summary %}
+    <p class="short-des">
+      {% if product.description contains '[summary]' %}
+        {{ product.description | split: '[summary]' | last | split: '[/summary]' | first }}
+      {% else %}
+        {% assign product_summary_words = section.settings.product_summary_words | times: 1 %}
+        {{
+          product.content
+          | split: '[summary]'
+          | first
+          | split: '[video]'
+          | first
+          | split: '[tab]'
+          | first
+          | split: '[deal]'
+          | first
+          | strip_html
+          | truncatewords: product_summary_words
+        }}
+      {% endif %}
+    </p>
+  {% endif %}
+  {% if product.description contains '[deal]' %}
+    <div class="item-inner">
+      <div class="caption">
+        <div id="Countdown{{product.id}}" class="box-timer cc pp"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+        $('#Countdown{{product.id}}').countdown({
+          until: new Date('{{ product.description | split:'[deal]' | last | split :'[/deal]' | first }}'),
+          labels: ['Years', 'Months ', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'],
+          labels1: ['Year', 'Month ', 'Week', 'Day', 'Hr', 'Min', 'Sec'],
+          });
+      });
+    </script>
+  {% endif %}
+  <div id="product">
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="form_buy" name="form_buy">
+      <div
+        class="form-group"
+        {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+          style="display:none"
+        {% endif %}
+      >
+        <select name="id" id="productSelect" class="form-control">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <option
+                {% if variant == product.selected_or_first_available_variant %}
+                  selected="selected"
+                {% endif %}
+                data-sku="{{ variant.sku }}"
+                value="{{ variant.id }}"
+              >
+                {{ variant.title }} - {{ variant.price | money_with_currency }}
+              </option>
+            {% else %}
+              <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+        {% if section.settings.show_variant_swatches != 'false' %}
+          {% if product.available and product.variants.size > 1 %}
+            {% for option in product.options %}
+              {% include 'swatch' with option %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="form-group" style="padding: 15px;">
+        {% if section.settings.product_quantity_enable %}
+          <label class="control-label" for="Quantity"
+            ><b>{{ 'products.product.quantity' | t }} </b>:</label
+          >
+          <input
+            type="text"
+            name="quantity"
+            value="1"
+            size="2"
+            id="Quantity"
+            onkeyup="updatecartsticky(1)"
+            class="form-control"
+          >
+        {% endif %}
+        {% if section.settings.product_quantity_message %}
+          <span id="variantQuantity" class="variant-quantity hidden"></span>
+        {% endif %}
+        {% if template != 'product.pre-order' %}
+          <button
+            onclick="popupaddtocart()"
+            style="width:25%"
+            class="btn button button-cart"
+            type="button"
+            id="button-cart"
+            data-loading-text="{{ 'products.product.loading' | t }}"
+          >
+            {{ 'products.product.add_to_cart' | t }}
+          </button>
+        {% endif %}
+        {% if section.settings.show_buy_now or template == 'product.pre-order' %}
+          <button
+            class="btn button button-cart"
+            {% if template != 'product.pre-order' %}
+            {% endif %}
+            style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+            type="button"
+            id="button-cart-buy"
+            data-loading-text="{{ 'products.product.loading' | t }}"
+          >
+            {% if template == 'product.pre-order' -%}
+              {{- 'products.product.pre_order' | t }}
+            {% else -%}
+              {{- 'products.product.buy_now' | t -}}
+            {%- endif %}
+          </button>
+        {% endif %}
+        {% comment %} extra button {% endcomment %}
+
+        <button
+          onclick="popupbuy()"
+          class="btn button button-cart"
+          style="clear:none;margin-left:15px;padding:0 55px;"
+          type="button"
+          id="button-cart-buy-mine"
+          onclick="popupaddtocart()"
+        >
+          {% if template == 'product.pre-order' -%}
+            {{- 'products.product.pre_order' | t }}
+          {% else -%}
+            {{- 'products.product.buy_now' | t -}}
+          {%- endif %}
+        </button>
+
+        {% comment %} extra button {% endcomment %}
+        {% include 'product-wishlist' %}
+      </div>
+      <div>
+        {% assign ebook = '' %}
+        {% assign course = '' %}
+
+        {% assign testseries = '' %}
+
+        {% assign samplepaper = '' %}
+        {% assign amazonLink = '' %}
+        {% assign preOrderDate = '' %}
+
+        {% for tag in product.tags %}
+          {% if tag contains 'elscs\h' %}
+            {% assign course = tag | replace: 'elscs\', '' %}
+          {% endif %}
+          {% if tag contains 'elseb\h' %}
+            {% assign ebook = tag | replace: 'elseb\', '' %}
+          {% endif %}
+
+          {% if tag contains 'elsts\h' %}
+            {% assign testseries = tag | replace: 'elsts\', '' %}
+          {% endif %}
+
+          {% if tag contains 'elssp\h' %}
+            {% assign samplepaper = tag | replace: 'elssp\', '' %}
+          {% endif %}
+
+          {% if tag contains 'amztag\h' %}
+            {% assign amazonLink = tag | replace: 'amztag\', '' %}
+          {% endif %}
+          {% if tag contains 'preod\\' %}
+            {% assign preOrderDate = tag | replace: 'preod\', '' %}
+          {% endif %}
+        {% endfor %}
+
+        {% if course != '' or ebook != '' or testseries != '' or amazonLink != '' %}
+          <h2 id="or"><span>OR</span></h2>
+        {% endif %}
+      </div>
+      <div class="col-lg-12" style="margin-left: 1%;">
+        {% if ebook != '' %}
+          <a target="_blank" href="{{ebook}}">
+            <button
+              style="border: 1px solid #62ab00;color: black;"
+              class="btn button"
+              type="button"
+              id="ebook"
+              data-loading-text="{{ 'products.product.loading' | t }}"
+            >
+              E-Book
+            </button>
+          </a>
+        {% endif %}
+        {% if testseries != '' %}
+          <a target="_blank" href="{{testseries}}">
+            <button
+              style="overflow: hidden; border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
+              class="btn button"
+              type="button"
+              id="SamplePaperbtn"
+              data-loading-text=""
+            >
+              Test Series
+            </button>
+          </a>
+        {% endif %}
+
+        {% if course != '' %}
+          <a target="_blank" href="{{course}}">
+            <button
+              style="border: 1px solid #62ab00;color: black;margin-left:12px"
+              class="btn button"
+              type="button"
+              id="course"
+              data-loading-text="{{ 'products.product.loading' | t }}"
+            >
+              Course
+            </button>
+          </a>
+        {% endif %}
+
+        {% if amazonLink != '' %}
+          <a target="_blank" href="{{amazonLink}}">
+            <button
+              style="overflow: hidden;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
+              class="btn button"
+              type="button"
+              id=""
+              data-loading-text=""
+            >
+              Buy From Amazon
+            </button>
+          </a>
+        {% endif %}
+      </div>
+
+      <ul class="list-unstyled" style="font-size: 14px;">
+        {% if section.settings.product_vendor_enable %}
+        {% endif %}
+        <link
+          itemprop="availability"
+          href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
+        >
+      </ul>
+      {% if section.settings.product_show_sku %}
+        {% assign current_variant = product.selected_or_first_available_variant %}
+      {% endif %}
+      <table class="table" style="">
+        <tr>
+          <td style="border: none;width: 15%;">
+            <b>{{ 'products.product.sku' | t }}</b>
+          </td>
+          <td style="border: none;width: 2%;">:</td>
+          <td style="border: none;padding-left: 55px;">{{ current_variant.sku }}</td>
+        </tr>
+
+        {% assign catvar = '' %}
+        {% assign subcatvar = '' %}
+        {% assign booktypevar = '' %}
+        {% assign bookmediumvar = '' %}
+
+        {% for tag in product.tags %}
+          {% for link in linklists['main-menu'].links %}
+            {% assign test = link.title | uppercase %}
+            {% assign tagtest = tag | uppercase %}
+            {% if test == tagtest %}
+              {% assign catvar = tag %}
+            {% endif %}
+          {% endfor %}
+
+          {% for link in linklists['main-menu'].links %}
+            {% for sublink in link.links %}
+              {% if sublink.title contains tag %}
+                {% assign subcatvar = tag %}
+              {% endif %}
+              <!-- and tag != "Hindi" and tag != "English" -->
+            {% endfor %}
+          {% endfor %}
+
+          {% if tag contains 'Chapter-wise Q&A'
+            or tag contains 'Chapter-wise Solved Papers'
+            or tag contains 'GuideBook'
+            or tag contains 'Practice Sets'
+            or tag contains 'Solved Papers'
+            or tag contains 'TextBook'
+            or tag contains 'Objective Q&A'
+          %}
+            {% assign booktypevar = tag %}
+          {% endif %}
+          {% if tag contains 'Hindi' or tag contains 'English' or tag contains 'Bilingual' %}
+            {% assign bookmediumvar = tag %}
+          {% endif %}
+        {% endfor %}
+        <tr>
+          <td style="border: none;width: 15%;"><b>Category</b></td>
+          <td style="border: none;width: 2%;"><b>:</b></td>
+          <td style="border: none;padding-left: 55px;">{{ catvar }}</td>
+        </tr>
+        <tr>
+          <td style="border: none;width: 15%;"><b>Sub-Category</b></td>
+          <td style="border: none;width: 2%;"><b>:</b></td>
+          <td style="border: none;padding-left: 55px;">{{ subcatvar }}</td>
+        </tr>
+
+        {% assign catvar = '' %}
+        {% assign subcatvar = '' %}
+        <tr>
+          <td style="border: none;width: 15%;"><b>Book Type</b></td>
+          <td style="border: none;width: 2%;"><b>:</b></td>
+          <td style="border: none;padding-left: 55px;">{{ booktypevar }}</td>
+        </tr>
+        <tr>
+          <td style="border: none;width: 15%;"><b>Book Medium</b></td>
+          <td style="border: none;width: 2%;"><b>:</b></td>
+          <td style="border: none;padding-left: 55px;">{{ bookmediumvar }}</td>
+        </tr>
+
+        <tr>
+          <td style="border: none;width: 15%;">
+            <b>{{ 'products.product.availability' | t }}</b>
+          </td>
+          <td style="border: none;width: 2%;"><b>:</b></td>
+
+          {% if product.template_suffix == 'pre-order' %}
+            <td style="border: none;padding-left: 55px;">Available Soon</td>
+          {% elsif product.available == true %}
+            <td style="border: none;padding-left: 55px;">In Stock</td>
+          {% else %}
+            <td style="border: none;padding-left: 55px;">Available on Amazon</td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          <td style="border: none;width: 15%;">
+            <b> {{ 'products.product.brand' | t }}</b>
+          </td>
+          <td style="border: none;width: 2%;">:</td>
+          <td style="border: none;padding-left: 55px;">{{ product.vendor | link_to_vendor }}</td>
+        </tr>
+      </table>
+
+      <div style="margin-top:10px">
+        <a
+          href="whatsapp://send"
+          data-text="Hey I really liked this exam book. Check it out! {{ product.title }}, "
+          data-href="http://{{ shop.domain }}{{ product.url }}"
+          data-type="WhatsApp Share"
+          data-bdcolor="{{bdcolor}}"
+          data-fcolor="{{fcolor}}"
+          data-bgcolor="{{bgcolor}}"
+          data-temp="{{template_name}}"
+          data-image="{{ 'sp_whatsapp_icon.svg' | asset_url }}"
+          class="wa_btn wa_btn_s wp_share_btn"
+          style="display:none"
+          >Share karo!</a
+        >
+        {% assign t = '' %}
+        {% for tag in product.tags %}
+          {% if tag contains 'elssp\h' %}
+            {% assign t = tag | replace: 'elssp\', '' %}
+          {% endif %}
+        {% endfor %}
+        <div class="row ">
+          {% if t != '' %}
+            <div onclick="popup()">
+              <button
+                style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
+                class="btn button"
+                type="button"
+                id="SamplePaperbtn"
+                data-loading-text=""
+              >
+                Get Free Sample E-Book
+              </button>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+    <!-- end-button -->
+  </div>
+  {% if section.settings.trust_badge_image %}
+    <div>
+      <a href="#">
+        <img src="{{ section.settings.trust_badge_image | img_url: 'master' }}" class="img-responsive">
+      </a>
+    </div>
+  {% else %}
+
+  {% endif %}
+  {% if section.settings.product_sharing_links %}
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style" data-url="{{ product.url }}">
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a>
+      <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+    <!-- AddThis Button END -->
+  {% endif %}
+</div>
+
+<div
+  class="modal fade"
+  id="myModal2"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      {% include 'new-otp-form-add-to-cart' %}
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="myModal3"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      {% include 'new-otp-buy' %}
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="myModal1"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      {% include 'new-otp-form' %}
+    </div>
+  </div>
+</div>
+
+<div id="productTags" data-tags="{{ product.tags | escape }}"></div>
+
+<script type="text/javascript">
+  
+  
+
+  $( document ).ready(function() {
+    
+  var cartCount = {{ cart.item_count | json }}
+    document.getElementsByClassName('txt_number')[0].textContent = cartCount ;
+
+  });
+
+  
+  function samplePaper(val){
+  window.location.href = val;
+  }
+
+
+
+function popupaddtocart() {
+  if(localStorage.getItem("globalOtpKey")== null)
+  {
+       $("#myModal2").modal('show');
+  }else{
+       
+     
+  }
+       
+}
+
+function popupbuy() {
+  if(localStorage.getItem("globalOtpKey")== null)
+  {
+       $("#myModal3").modal('show');
+  }else{
+        document.getElementById('button-cart-buy').style.display = "block";
+           document.getElementById('button-cart-buy-mine').style.display = "none";
+    
+            const element = document.querySelector("#button-cart-buy");
+
+      // Create a new click event
+      const clickEvent = new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      
+      // Dispatch the click event on the element
+      element.dispatchEvent(clickEvent);
+     
+  }
+       
+}
+
+  
+
+  
+function popup() {
+  var t = {{ t | json }}
+         
+  if(localStorage.getItem("globalOtpKey")== null)
+  {
+       $("#myModal1").modal('show');
+  }else{
+       
+     window.open(t, "_blank");
+    
+  }
+       
+    }
+
+  function submitFn(){
+    
+    var nameInput = document.getElementById('nameInput');
+    var emailInput = document.getElementById('emailInput');
+    var mobileInput = document.getElementById('mobileInput');
+    var cityInput = document.getElementById('cityInput');
+    var stateInput = document.getElementById('stateInput');
+    var examPrepForInput = document.getElementById('examPrepForInput');
+    // var bookCode = '{{ current_variant.sku  }}' ; 
+    var bookCode = {{current_variant.sku | json}}
+
+    if(nameInput.value==''||emailInput.value==''||
+       mobileInput.value==''||cityInput.value==''||stateInput.value==''||examPrepForInput.value==''){
+            alert('Please Fill The Form Correctly.')
+            return null ; 
+       }
+
+    var urll = `https://script.google.com/macros/s/AKfycbzgmXuyNRmbKMFtGrBG1LUzJ7z_Dxb3Vx01n7JkIA9VOsZUpzJ6xvCZ489mvvsR0z_XeQ/exec?Name=${nameInput.value}&EmailAddress=${emailInput.value}&MobileNo.=${mobileInput.value}&City=${cityInput.value}&State=${stateInput.value}&ExamPreparingFor=${examPrepForInput.value}&BookCode=${bookCode}`
+
+// console.log(urll);
+
+    var settings = {
+          'cache': false,
+          "async": true,
+          "crossDomain": true,
+          "url": urll,
+          "method": "POST",
+          "body" : "",
+          "headers": {
+              // "accept": "text/html",
+              // "Access-Control-Allow-Origin":"*"
+          }
+      }
+      $.ajax(settings).done(function (response) {
+          console.log(response);
+          $('#myModal1').modal('hide');
+var t = {{ t | json }}
+          window.open(t, "_blank");});
+    sessionStorage.setItem("productPDFPopup", "true");
+    
+    
+    
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,85 @@
+<!-- Begin Recently Viewed Products -->
+{{ '//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js' | script_tag }}
+{{ 'jquery.products.min.js' | asset_url | script_tag }}
+
+{% if template contains 'product' %}
+<script>
+  Shopify.Products.recordRecentlyViewed();
+</script>
+{% endif %}
+<!-- End Recently Viewed Products -->
+<div class="module-title">
+  <h2>{{ 'products.general.recent_products' | t }}</h2>
+</div>
+<div id="recently-viewed-products" class="row" style="display:none">
+</div>
+{% raw %}
+<script id="recently-viewed-product-template"  type="text/x-jquery-tmpl">
+<div class="product-layout product-grid grid-style col-lg-3 col-md-3 col-sm-3 col-xs-6 product-item" id="product-${handle}">
+  <div class="product-thumb transition">
+    <div class="item">
+      <div class="item-inner">
+        
+        <div class="box-border">
+          <div class="image images-container">
+            <a href="${url}" class="product-image">
+              <img class="img-responsive has-rotator img-default-image" src="${Shopify.Products.resizeImage(featured_image, "medium")}" alt="${title}">
+            </a>
+            <div class="box-label"></div>
+            <div class="action-links">
+              <button class="button btn-cart {{if !available}} btn disabled{{/if}}" type="button" data-toggle="tooltip" data-loading-text="" title="" {{if available}}onclick="cart.add('${variants[0].id}');"{{/if}}>
+                  <span>{{if available}}{{/if}}{{if !available}}'Sold Out'{{/if}}</span>
+                </button>
+            </div>
+          </div>
+          <!-- image -->
+            <div class="caption-top">
+         
+          <h4 class="product-name">
+            <a href="${url}">
+				${title}
+  			</a>
+          </h4>
+        </div>
+       
+          <div class="caption">
+            <div class="inner">
+              <div class="ratings">
+                <div class="rating-box">
+                  <span class="shopify-product-reviews-badge" data-id="${id}"></span>
+                </div>
+              </div>
+              <div class="price-box">
+                <p class="special-price"><span class="price">{{html Shopify.formatMoney(price_min)}}</span></p>
+                {{if compare_at_price_min > price_min}} 
+                <p class="old-price"><span class="price">{{html Shopify.formatMoney(compare_at_price_min)}}</span></p>
+                {{/if}}
+              </div>
+             </div>
+          </div>
+        <!-- caption -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- product-thumb -->
+</div>
+</script>
+{% endraw %}
+
+<script>
+Shopify.Products.showRecentlyViewed( { howManyToShow:4 } );
+</script>
+
+<!--    <div class="caption-top">
+      
+          <h4 class="product-name">
+            <a href="${url}">
+				${title}
+  			</a>
+          </h4>
+        </div> -->
+<!-- 
+ <p class="manufacture-product">
+          	<a href="/collections/vendors?q=${vendor}">${vendor}</a>                
+          </p> -->

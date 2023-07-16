@@ -1,0 +1,208 @@
+<div class="sub-col col-sm-12 col-md-3">
+  <div class="tt_product_module multi-rows list-module3" id="product_module{{section.id}}1">
+    {% assign coll1 = section.settings.products_tab_collection1 %}
+    <div class="module-title">
+      <h2>{{ collections[coll1].title }}</h2>
+    </div>
+    <div class="box-style">
+      <div class="col-product">
+        <div class="owl-container">
+          <div class="tt-product  owl-carousel owl-theme ">
+            {% assign coll_products = collections[coll1].products %}
+            <!-- Grid -->
+            <div class="row_items">
+              {% for product in coll_products limit:section.settings.products_tab_count %}
+              {% include 'product-grid-item-list' %}
+              {% assign ind = forloop.index | times: 1 | modulo:4 %}
+              {% if  ind == 0 and forloop.last != true%}
+            </div><div class="row_items">
+            {% endif %}
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <script >
+    var product_owlCarousel = $("#product_module{{section.id}}1 .tt-product");
+                                product_owlCarousel.owlCarousel({
+                                loop:  false ,
+                                margin:  0 ,
+                                nav:  false ,
+                                dots:  true ,
+                                autoplay:   false ,
+                                autoplayTimeout:  1000 ,
+                                autoplayHoverPause: true,
+                                autoplaySpeed:  1000 ,
+                                navSpeed:  1000 ,
+                                dotsSpeed:  1000 ,
+                                lazyLoad: true,
+                                responsive:{
+                                0:{
+                                items: 1,
+                                nav: true
+                                },
+                                480:{
+                                items: 2,
+                                nav: true
+                                },
+                                768:{
+                                items: 2
+                                },
+                                992:{
+                                items: 1
+                                },
+                                1200:{
+                                items: 1
+                                },
+                                1600:{
+                                items: 1
+                                }
+                                },
+                                onInitialized: function() {
+      owlAction();
+      var i = 0;
+      $('.owl-dots > .owl-dot').each(function() {
+        $(this).addClass('clk-' + i);
+        i++;
+      });
+    },
+      onTranslated: function() {
+        owlAction();
+
+      }
+    });
+    function owlAction() {
+      $("#product_module{{section.id}}1 .tt-product .owl-item").removeClass('first');
+        $("#product_module{{section.id}}1 .tt-product .owl-item").removeClass('last');
+        $("#product_module{{section.id}}1 .tt-product .owl-item").removeClass('before-active');
+        $("#product_module{{section.id}}1 .tt-product .owl-item.active:first").addClass('first');
+        $("#product_module{{section.id}}1 .tt-product .owl-item.active:last").addClass('last');
+        $('#product_module{{section.id}}1 .tt-product .owl-item.active:first').prev().addClass('before-active');
+        }
+
+  </script>
+  {% if section.settings.image1 != blank %}
+  <div class="banner-static static-middle-smartbooks4">
+    <div class="image">
+      {% if section.settings.link1 != blank %}          
+      <a href="{{ section.settings.link1 }}" {{ section.shopify_attributes }}>
+        {% endif %}
+        <img src="{{ section.settings.image1 | img_url: 'master' }}" alt="" class="" />
+        {% if section.settings.link1 != blank %}          
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+<div class="sub-col col-sm-12 col-md-9">
+  {% capture tabs %}{{ section.settings.products_tab_collection2 }},{{ section.settings.products_tab_collection3 }},{{ section.settings.products_tab_collection4 }}{% endcapture %}
+  {% assign tabs_collection = tabs | split: "," %}
+  <div class="tt_tabsproduct_module multi-rows product-tabs-container-slider" id="product_module{{section.id}}">
+    <div class="module-title">
+      {% if section.settings.heading != blank %}  
+      <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      <div class="box-tab">
+        <ul class="tab-heading tabs-categorys">
+          {% for coll in tabs_collection %}
+          {% assign title = collections[coll].title %}
+          <li {% if forloop.first %} class="active" {% endif %}>
+            <a data-toggle="pill" href="#tab-{{ section.id }}{{ forloop.index0 }}"><span>{{ title }}</span></a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="box-style">
+      <div class="col-product">
+        <div class="owl-container">
+          <div class="tt-product ">
+            <div class="tab-content">
+              {% for coll in tabs_collection %}
+              {% assign coll_products = collections[coll].products %}
+              <div class="tab-container-{{section.id}} owl-carousel owl-theme tab-pane tab-product-container fade {% if forloop.first %} active in{% endif %}" id="tab-{{ section.id }}{{ forloop.index0 }}">
+                <div class="row_items">
+                  {% for product in coll_products limit:section.settings.products_tab_count %}
+                  {% include 'product-grid-item' %}
+                  {% assign ind = forloop.index | times: 1 | modulo:2 %}
+                  {% if  ind == 0 and forloop.last != true %}
+                </div><div class="row_items">
+                {% endif %}
+                {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <script >
+    $(document).ready(function() {
+      $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+        $(".tab-container-{{section.id}}").owlCarousel({
+        items: 3,
+        loop:  false ,
+        margin:  0 ,
+        nav:  false ,
+        dots:  true ,
+        autoplay:   false ,
+        autoplayTimeout:  1000 ,
+        autoplayHoverPause: true,
+        autoplaySpeed:  1000 ,
+        navSpeed:  1000 ,
+        dotsSpeed:  1000 ,
+        lazyLoad: true,
+        responsive:{
+        0:{
+        items: 1,
+        nav: false
+        },
+        480:{
+        items: 2,
+        nav: false
+        },
+        768:{
+        items: 2
+        },
+        992:{
+        items: 2
+        },
+        1200:{
+        items: 3
+        },
+        1600:{
+        items: 3
+        }
+        },
+        onInitialized: function() {
+        var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                      if(count == 1) {
+          $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+            $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+            } else {
+            $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+            $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+            }
+            },
+            onTranslated: function() {
+            var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                          if(count == 1) {
+              $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+                } else {
+                $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+                }
+                }
+                });
+            });
+  </script>
+</div>

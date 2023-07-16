@@ -1,0 +1,337 @@
+<style>
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .container{
+      color: #000000;
+      width: 100%;
+  }
+
+  .sidehistory {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10000000;
+    top: 0;
+    right: 0;
+    background-color: #EFEFEF;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidehistory a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidehistory a:hover {
+    /* color: #f1f1f1; */
+    color: #000000;
+  }
+
+  .sidehistory .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .order-history{
+      border-bottom: 3px solid #CBC8C8;
+      padding-top: 2em;
+      padding-bottom: 2em;
+  }
+
+  button{
+      padding: .5em  2em;
+      border-radius: 20px;
+      background-color: #4B4B4B;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      /* width: 40%; */
+  }
+
+  h3{
+      display: inline ;
+      margin: 0 0 .5em 0;
+      font-weight: bold;
+      font-size: 1.5rem;
+  }
+
+  .flex{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1em;
+      width: 100%;
+  }
+
+  .margin-right{
+      margin-right: 5em;
+      margin-left: 1em;
+      margin-bottom: .5em;
+  }
+
+  input{
+    margin-bottom: .5em;
+  }
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: black;
+    cursor: default;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    border-bottom-color: transparent;
+    border-bottom: 8px solid black;
+  }
+
+  .nav-tabs {
+    border-bottom: 3px solid #ddd;
+  }
+
+  .nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: none;
+    border-radius: 4px 4px 0 0;
+    color: black;
+    font-weight: bold;
+    /* font-size: 3vw; */
+    font-size: 1.5rem
+  }
+
+  .open-nav{
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .form{
+    padding: 1em;
+  }
+
+  #address{
+    width: 100%;
+  }
+  #phone{
+    width: 100%;
+  }
+  #email{
+    width: 100%;
+  }
+
+  #firstname,#lastname,#city,#state,#country,#pincode{
+    width: 100%;
+  }
+
+  .submit-btn{
+    display: block;
+    margin: 1em auto;
+  }
+  label{
+    display: block;
+  }
+
+  .flex-item{
+    flex: 1 1;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidehistory {padding-top: 15px;}
+    .sidehistory a {font-size: 18px;}
+  }
+</style>
+
+<div id="mysidehistory" class="sidehistory">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeMyAccount()">&times;</a>
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Order History</a></li>
+      <li><a data-toggle="tab" href="#menu1">Shipping Address</a></li>
+    </ul>
+
+    <div class="tab-content" id="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <!--
+          <div class="order-history">
+              <div class="margin-right">
+                  <div class="flex">
+                      <h3>Order No:</h3> <span>#30789</span>
+                  </div>
+
+                  <div class="flex">
+                      <h3>Order Date:</h3> <span>#30789</span>
+                  </div>
+                  <div class="flex">
+                      <h3>Payment Status:</h3> <span>#30789</span>
+                  </div>
+                  <div class="flex">
+                      <h3>Order Status:</h3> <span>#30789</span>
+                  </div>
+                  <div class="flex">
+                      <h3>Tracking Id:</h3> <span>#30789</span>
+                  </div>
+              </div>
+              <button>Invoice</button>
+              <button>Refund</button>
+              <button>Track</button>
+          </div>
+          <div class="order-history">
+              <div class="margin-right">
+                  <div class="flex">
+                      <h3>Order No:</h3> <span>#30789</span>
+                  </div>
+
+                  <div class="flex">
+                      <h3>Order Date:</h3> <span>#30789</span>
+                  </div>
+                  <div class="flex">
+                      <h3>Payment Status:</h3> <span>#30789</span>
+                  </div>
+                  <div class="flex">
+                      <h3>Order Status:</h3> <span>#30789</span>
+                  </div>
+                  <div class="flex">
+                      <h3>Tracking Id:</h3> <span>#30789</span>
+                  </div>
+              </div>
+              <button>Invoice</button>
+              <button>Refund</button>
+              <button>Track</button>
+          </div>
+        -->
+      </div>
+      <div id="menu1" class="tab-pane">
+        <div class="form">
+          <form action="">
+            <div class="flex">
+              <div class="flex-item">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname">
+              </div>
+              <div class="flex-item">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname">
+              </div>
+            </div>
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address">
+
+            <div class="flex">
+              <div class="flex-item">
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+              </div>
+              <div class="flex-item">
+                <label for="state">State</label>
+                <input type="text" name="state" id="state">
+              </div>
+            </div>
+            <div class="flex">
+              <div class="flex-item">
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country">
+              </div>
+              <div class="flex-item">
+                <label for="pincode">Pincode</label>
+                <input type="number" name="pincode" id="pincode">
+              </div>
+            </div>
+            <label for="phone">Phone number</label>
+            <input type="number" name="phone" id="phone">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+
+            <button type="submit" class="submit-btn">Save Changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+  <h2>Animated sidehistory Example</h2>
+  <p>Click on the element below to open the side navigation menu.</p>
+-->
+
+<script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  function myAccount() {
+    document.getElementById("mysidehistory").style.width = "80%";
+}
+
+function closeMyAccount() {
+    document.getElementById("mysidehistory").style.width = "0";
+}
+
+
+// API
+
+// const tabContent = document.getElementById("tab-content")
+
+const home=document.getElementById("home")
+
+fetch(`https://bhartipur.in:5000/customer_orders/919760923112`)
+   .then(res => res.json())
+   .then(data=>{
+    // console.log(data.data.customers.edges[0].node.orders.edges)
+    let getOrderHtml=""
+    for(let i=0; i < data.data.customers.edges[0].node.orders.edges.length; i++){
+        getOrderHtml += `
+        <div class="order-history">
+            <div class="margin-right">
+                <div class="flex">
+                    <h3>Order No:</h3> <span>${data.data.customers.edges[0].node.orders.edges[i].node.name}</span>
+                </div>
+
+                <div class="flex">
+                    <h3>Order Date:</h3> <span>${data.data.customers.edges[0].node.orders.edges[i].node.createdAt}</span>
+                </div>
+                <div class="flex">
+                    <h3>Payment Status:</h3> <span>${data.data.customers.edges[0].node.orders.edges[i].node.displayFinancialStatus}</span>
+                </div>
+                <div class="flex">
+                    <h3>Order Status:</h3> <span>#30789</span>
+                </div>
+                <div class="flex">
+                    <h3>Tracking Id:</h3> <span>#30789</span>
+                </div>
+            </div>
+            <button>Invoice</button>
+            <button>Refund</button>
+            <button>Track</button>
+        </div>`
+    }
+    home.innerHTML=getOrderHtml
+   })
+
+
+
+
+
+
+
+
+
+</script>

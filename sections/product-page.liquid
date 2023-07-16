@@ -1,0 +1,173 @@
+{% include 'product-page-section' %}
+{% schema %}
+{
+   "name": "Product Page",
+   "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_grid_img_carousel",
+        "label": "Slide All images in product grid?",
+        "default": false,
+        "info": "Used for Product grid carousel enable\/disable"
+      },
+	  {
+        "type": "select",
+        "id": "product_page_layout",
+        "label": "Page layout",
+        "options": [
+          {
+            "value": "horizontal_thumbs",
+            "label": "Horizontal Thumbs layout"
+          },
+          {
+            "value": "vertical_thumbs",
+            "label": "Vertical Thumbs layout"
+          },
+          {
+            "value": "vertical_thumbs_right",
+            "label": "Vertical Thumbs Right layout"
+          },
+          {
+            "value": "sticky_layout",
+            "label": "Sticky Layout"
+          }
+        ],
+        "default": "horizontal_thumbs"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_summary",
+        "label": "Show Product Summary",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_summary_words",
+        "label": "Words count on summary area",
+        "default": "50"
+      },
+      {
+        "type": "image_picker",
+        "id": "trust_badge_image",
+        "label": "Image",
+        "info": "Upload Trust Badge image to show on product page. Remove to hide"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_buy_now",
+        "label": "Show Buy Now button?",
+        "info": "This button will redirect direct to checkout page.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_third_tab",
+        "label": "Show Extra Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "third_tab_title",
+        "label": "Extra Tab Title",
+        "info": "Tab 1",
+        "default": "Custom Tab"
+      },
+      {
+        "type": "textarea",
+        "id": "third_tab_text",
+        "label": "Extra Tab Text",
+        "info": "Use basic HTML to format text",
+        "default": "You can add, text, html, images and videos as well to the tab from product settings area"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_tags_tab",
+        "label": "Show Tags",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "custom_tab_title",
+        "label": "Custom Tab Title(if added any)",
+        "default": "Additional Info"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_quantity_enable",
+        "label": "Show quantity selector",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_quantity_message",
+        "label": "Show remaining quantity message",
+        "info": "Shown when less than 10 items are in stock",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_vendor_enable",
+        "label": "Show product vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_sku",
+        "label": "Show SKU",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "related_products_enable",
+        "label": "Show related products",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "recent_products_enable",
+        "label": "Show recent viewed products",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "show_variant_swatches",
+        "label": "Variant Swatch",
+        "options": [
+          {
+            "value": "false",
+            "label": "Disable"
+          },
+          {
+            "value": "color",
+            "label": "Color Swatch"
+          },
+          {
+            "value": "thumb",
+            "label": "Product Thumb Swatch"
+          }
+        ],
+        "default": "color"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_sticky_cart",
+        "label": "Show Bottom Sticky Add to Cart Bar?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_sharing_links",
+        "label": "Show Sharing Links?",
+        "default": true
+      }
+   ],
+   "blocks": [],
+   "presets": []
+}
+{% endschema %}
+<!-- Start of Judge.me code --> 
+      <div style='clear:both'></div>
+      <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.widget }}
+      </div>
+      <!-- End of Judge.me code -->

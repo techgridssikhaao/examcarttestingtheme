@@ -1,0 +1,438 @@
+<!--
+  <style>
+
+  #CollectionSection .grid-uniform {
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+  </style>
+-->
+
+<style>
+    .btn-compare{
+        display: block !important;
+      }
+      .product-des{
+        display: block !important;
+      }
+
+  /*   span{
+      font-size: 3rem;
+    } */
+    @media screen and (max-width: 500px){
+      .btn-compare{
+        display: none !important;
+      }
+      .product-des{
+        display: none !important;
+      }
+    }
+</style>
+
+{% unless current_collection %}
+  {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% assign t = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'elssp\h' %}
+    {% assign t = tag | replace: 'elssp\', '' %}
+  {% endif %}
+{% endfor %}
+
+<div id="testelementdivforelssp" data-attrbute="{{ t }}"></div>
+{% assign blog = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'blog\h' %}
+    {% assign blog = tag | replace: 'blog\', '' %}
+  {% endif %}
+{% endfor %}
+
+{% comment %}Select the product image size from settings.{% endcomment %}
+{% assign img_size = settings.img_size_grid %}
+<div class="product-layout product-list col-xs-12 product-item">
+  <div class="product-thumb">
+    <div class="item item1">
+      <div class="item-inner">
+        <div class="box-border">
+          <div class="image images-container">
+            <div class="inner">
+              <div class="box-label"></div>
+              <div class="image rotate-image-container">
+                {% if section.settings.product_grid_img_carousel == true %}
+                  <div
+                    id="myCarousel{{ section.id }}-{{product.id}}"
+                    class="carousel slide img-other"
+                    data-ride="carousel"
+                    data-interval="false"
+                  >
+                    <!-- product inside carousel -->
+                    <div class="carousel-inner" role="listbox">
+                      {% for image in product.images %}
+                        <div class="item {% if forloop.first == true %}active{% endif %}">
+                          <a
+                            class="product-image"
+                            title="{{ product.title }}"
+                            href="{{ product.url | within: collection }}"
+                          >
+                            <img class="img-responsive lazy" src="{{ image.src | img_url: img_size }}" alt="">
+                          </a>
+                        </div>
+                      {% endfor %}
+                    </div>
+                    <!-- Left and right controls -->
+                    <a
+                      class="left carousel-control"
+                      href="#myCarousel{{ section.id }}-{{product.id}}"
+                      role="button"
+                      data-slide="prev"
+                    >
+                      <i class="fa fa-angle-left"></i>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a
+                      class="right carousel-control"
+                      href="#myCarousel{{ section.id }}-{{product.id}}"
+                      role="button"
+                      data-slide="next"
+                    >
+                      <i class="fa fa-angle-right"></i>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                {% else %}
+                  <a href="{{ product.url }}" class="">
+                    <img
+                      class="img-responsive has-rotator img-default-image img-cate-{{product.id}}{% if section %}-{{section.id}}{%endif %}"
+                      src="{{ product.featured_image.src | img_url: img_size }}"
+                      alt="{{ product.featured_image.alt | escape }}"
+                    >
+                    {% if settings.hide_hover != true %}
+                      <img
+                        class="img-r"
+                        src="{{ product.images.last | product_img_url: img_size }}"
+                        alt="{{ product.images.last.alt | escape }}"
+                      >
+                    {% endif %}
+                    {% if settings.grid_color_swatches != 'false' %}
+                      {% if product.available and product.variants.size > 1 %}
+                        {% include 'swatch-grid-img' with 'Color' %}
+                      {% endif %}
+                    {% endif %}
+                  </a>
+                {% endif %}
+                {% if section.settings.product_grid_img_carousel == false %}
+                  {% if settings.grid_color_swatches != 'false' %}
+                    {% if product.available and product.variants.size > 1 %}
+                      {% include 'swatch-grid' with 'Color' %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              </div>
+
+              <div class="action-links">
+                <!--
+                  <button class="button btn-cart {% if sold_out %} btn disabled {% endif %}" type="button" data-toggle="tooltip" data-loading-text="{{ 'products.product.loading' | t }}" title="{{ 'products.product.add_to_cart' | t }}" {% if sold_out == false %}onclick="{% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};"{% endif %}>
+                    <span>{% if sold_out == false %}{{ 'products.product.add_to_cart' | t }}{% else %} {{ 'products.product.sold_out' | t }}{% endif %}</span>
+                  </button>
+                -->
+                {% include 'product-wishlist' %}
+                <button
+                  class="button btn-compare"
+                  type="button"
+                  data-toggle="tooltip"
+                  title="{{ 'products.product.view_details' | t }}"
+                  onclick="location.href='{{ product.url }}';"
+                >
+                  <span>{{ 'products.product.view_details' | t }}</span>
+                </button>
+                <!--
+                  {% if settings.hide_quick_view == false %}
+                  <button class="button btn-quickview quickview" type="button" title="{{ 'products.product.quickview' | t }}" data-toggle="modal" data-target="#productModal" data-productinfo='{{ product | json | escape}}' data-original-title="{{ 'products.product.quickview' | t }}">
+                    <span>{{ 'products.product.quickview' | t }}</span>
+                  </button>
+                  {% endif %}
+                -->
+              </div>
+            </div>
+          </div>
+          <!-- image -->
+
+          {% if settings.grid_vendor_enable %}
+            <p class="manufacture-product">
+              {{ product.vendor | link_to_vendor }}
+            </p>
+          {% endif %}
+          <h4 class="product-name">
+            <a href="{{ product.url | within: collection }}" style="font-weight: bold; line-height:1.5">
+              {% if settings.limit_title_words == true %}{{ product.title }}{% else %}{{ product.title }}{% endif %}
+            </a>
+          </h4>
+          <div
+            class="modal fade"
+            id="myModal2"
+            data-backdrop="static"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+              <div id="mod">
+                {% include 'new-otp-form-add-to-cart' %}
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal fade"
+            id="myModal1"
+            data-backdrop="static"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+              <div id="mod">
+                {% include 'new-otp-form' %}
+              </div>
+            </div>
+          </div>
+
+          <div class="caption">
+            <div class="inner {% if settings.grid_color_swatches != 'false' and section.settings.product_grid_img_carousel != true %} swtch{% endif %}">
+              {% if section.settings.show_summary %}
+                {% assign product_summary_words = section.settings.product_summary_words | times: 1 %}
+                <p class="product-des">
+                  {% if product.description contains '[summary]' %}
+                    {{
+                      product.description
+                      | split: '[summary]'
+                      | last
+                      | split: '[/summary]'
+                      | first
+                      | strip_html
+                      | truncatewords: product_summary_words
+                    }}
+                  {% else %}
+                    {{
+                      product.content
+                      | split: '[summary]'
+                      | first
+                      | split: '[video]'
+                      | first
+                      | split: '[tab]'
+                      | first
+                      | split: '[deal]'
+                      | first
+                      | strip_html
+                      | truncatewords: product_summary_words
+                    }}
+                  {% endif %}
+                </p>
+              {% endif %}
+
+              {% include 'price' %}
+              <!-- price-container -->
+              <!--
+                {% if  product.template_suffix  == 'pre-order'%}
+
+                <div class="label-product label_sale" style="margin-bottom: 5px;margin-top: 5px;">
+                  <span>Pre-Order Now</span>
+                </div>
+                                 {% endif %}
+              -->
+              {% if settings.hide_review != true %}
+                <div class="ratings">
+                  <div class="rating-box">
+                    {% include 'review' %}
+                  </div>
+                </div>
+              {% endif %}
+
+              {% include 'product_label' %}
+              {% include 'deal' %}
+              <button
+                class="add-to-cart-new add-to-cart-event_tracker button btn-cart {% if sold_out %} btn disabled {% endif %}"
+                type="button"
+                data-toggle="tooltip"
+                data-product-id="{{ 'products.product.id' | t }}"
+                data-loading-text="{{ 'products.product.loading' | t }}"
+                title="{{ 'products.product.add_to_cart' | t }}"
+                {% if sold_out == false %}
+                  onclick="popupaddtocart()"
+                {% endif %}
+
+                style="border:none !important"
+              >
+                <span>
+                  {%- if sold_out == false -%}
+                    &#128722;
+                  {%- else %}
+                    &#128722;
+                  {%- endif -%}
+                </span>
+              </button>
+              <button
+                onclick="popup(this)"
+                data-customlink="{{ t }}"
+                class="add-to-cart-new button btn-cart {% if sold_out %} btn disabled {% endif %}"
+                type="button"
+                id="dsp"
+                data-toggle="tooltip"
+                data-loading-text="{{ 'products.product.loading' | t }}"
+                title="Download Sample PDF"
+                {% if sold_out == false %}
+                  onclick="{% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};"
+                {% endif %}
+                style="border:none !important"
+              >
+                <span>
+                  {%- if sold_out == false -%}
+                    📖
+                  {%- else %}
+                    📖
+                  {%- endif -%}
+                </span>
+              </button>
+              <button
+                data-bloglink="{{ blog }}"
+                class="add-to-cart-new button btn-cart"
+                type="button"
+                data-toggle="tooltip"
+                data-loading-text="{{ 'products.product.loading' | t }}"
+                title="Read Blog"
+                onclick="showblogfun(this)"
+                style="border:none !important"
+              >
+                <span>
+                  {%- if sold_out == false -%}
+                    Blogs
+                  {%- else %}
+                    Blogs
+                  {%- endif -%}
+                </span>
+              </button>
+            </div>
+            <!-- <button onclick="passLink(this)" data-customlink="{{ t }}" id="pdf-link-id">OPEN</button> -->
+          </div>
+        </div>
+        <!-- caption -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- product-thumb -->
+
+<!-- product-layout -->
+
+<script>
+  
+  
+  
+  
+  
+  
+  function popupaddtocart() {
+  if(localStorage.getItem("globalOtpKey")== null)
+  {
+       $("#myModal2").modal('show');
+    {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
+  }else{
+       
+     {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
+  }
+       
+}
+
+  function popup(ref) {
+  var t = {{ t | json }}
+         
+  if(localStorage.getItem("globalOtpKey")== null)
+  {
+       $("#myModal1").modal('show');
+  }else{
+       
+     showpdffun(ref)
+  }
+       
+    }
+  
+  
+  
+  passLink = (ref) =>{
+       let apnipdf = ref;
+        let iframe = document.getElementById('myiframe');
+        let mainUrl = "https://docs.google.com/viewerng/viewer?url=";
+        let pdfUrl = apnipdf.dataset.customlink;
+        let constructNewUrl = pdfUrl.slice(8,pdfUrl.length);
+        console.log(`https://docs.google.com/viewerng/viewer?url=${constructNewUrl}`);
+        iframe.setAttribute("src",  `https://docs.google.com/viewerng/viewer?url=${constructNewUrl}`);
+      // openModalPdf();
+      document.getElementById('id01').style.display='block'
+      }
+
+showpdffun = (ref) =>{
+ 
+  let apnipdf = ref;
+  let pdfUrl = apnipdf.dataset.customlink;
+  console.log(pdfUrl)
+   let constructNewUrl = pdfUrl.slice(8,pdfUrl.length);
+  window.open(pdfUrl, "_blank");
+}
+
+
+
+showblogfun = (ref) =>{
+ 
+  let apnipdf = ref;
+  let pdfUrl = apnipdf.dataset.bloglink;
+  // console.log(pdfUrl)
+  //  let constructNewUrl = pdfUrl.slice(8,pdfUrl.length);
+  window.open(`${pdfUrl}`, "_blank");
+}
+
+ 
+var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
+
+  for (var i = 0; i < buttons.length; i++) {
+    var functionName = 'clickHandler_' + i;
+    buttons[i].addEventListener('click', window[functionName]);
+  }
+
+  for (var i = 0; i < buttons.length; i++) {
+    var functionName = 'clickHandler_' + i;
+    window[functionName] = function() {
+      var productId = this.getAttribute('data-product-id');
+      console.log('Product ID:', productId);
+
+      // Make the API call or perform other actions as needed for the clicked product
+    };
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

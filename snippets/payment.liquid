@@ -1,0 +1,26 @@
+{% if section.settings.payment_image %}
+<div class="payment">
+  {% if section.settings.payment_info_box %}
+  <p>{{ section.settings.payment_info_box }}</p>
+  {% endif %}
+  <a href="#">
+    <img src="{{ section.settings.payment_image | img_url: 'master' }}" alt="payment">
+  </a>
+</div>
+{% else %}
+{% unless shop.enabled_payment_types == empty %}
+<div class="paypal-footer payment">
+  {% if section.settings.payment_info_box %}
+  <p>{{ section.settings.payment_info_box }}</p>
+  {% endif %}
+  <ul class="list-unstyled list-inline ct-socials text-center-sm ct-payment">
+    {% assign enabled_payment_types = 'visa,mastercard,amex,paypal' | remove: ' ' | split: ',' %}
+    {% for type in enabled_payment_types %}
+    <li>
+      <a class="f-payment  fa fa-cc-{{ type }} fa-2x" aria-hidden="true"></a>
+    </li>
+    {% endfor %}
+  </ul>
+</div> 
+{% endunless %}
+{% endif %}

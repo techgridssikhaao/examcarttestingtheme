@@ -1,0 +1,88 @@
+<div role="menu" id="oc-menu-v{{section.id}}" class="oc-menu vertical-menu visible-lg">
+  {% if c == true %}
+  <div class="container">
+    {% endif %}
+    <input type="hidden" id="menu-effect-{{section.id}}" class="menu-effect" value="none" />
+    <div class="oc-menu-bar">
+      <div class="left"><i class="fas fa-bars"></i> <span>{{ 'homepage.navigation.browse_categories' | t }}</span></div>
+      <div class="right"><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
+    </div>
+    <ul class="ul-top-items">
+      {% for link in linklists[section.settings.header_menu_ver].links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% assign megamenu = false %}
+      {% for block in section.blocks %}
+      {% if block.type == 'megamenu' %}
+      {% if child_list_handle == block.settings.mega_menu %}
+      {% include 'mega-menu-ver' %}
+      {% assign megamenu = true %}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      {% if megamenu == false %}
+      {% if linklists[child_list_handle].links != blank %}
+      <li class="li-top-item left has-child {% if forloop.index > section.settings.header_menu_ver_links %}over{% endif %}">
+        <a class="a-top-link a-item" href="{{link.url}}">
+          <span>{{link.title}}</span>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </a>
+        <!-- Flyout Menu -->
+        <div class="flyout-menu-container sub-menu-container  sub-category left">
+          <ul class="ul-second-items">
+            {% for childlink in linklists[child_list_handle].links %}
+            <!-- Nested Level Third -->
+            {% assign grand_child_list_handle = childlink.title | handleize %}
+            {% if linklists[grand_child_list_handle].links != blank %}
+            <li class="li-second-items">
+              <a href="{{childlink.url}}" class="a-second-link a-item">
+                <span class="a-second-title">{{ childlink.title | escape }}</span>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              </a>
+              <div class="flyout-third-items left">
+                <ul class="ul-third-items">
+                  {% for grand_childlink in linklists[grand_child_list_handle].links %}
+                  <li class="li-third-items">
+                    <a href="{{grand_childlink.url}}" class="a-third-link">
+                      <span class="a-third-title">{{ grand_childlink.title | escape }}</span>
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+            {% else %}
+            <li class="li-second-items">
+              <a href="{{childlink.url}}" class="a-second-link a-item">
+                <span class="a-second-title">{{ childlink.title | escape }}</span>
+              </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+      {% else %}
+      <li class="li-top-item left {% if forloop.index > section.settings.header_menu_ver_links %}over{% endif %}">
+        <a class="a-top-link a-item" href="{{link.url}}">
+          <span>{{link.title}}</span>
+        </a>
+      </li>
+      {% endif %}
+      {% endif %}
+      {% if forloop.index > section.settings.header_menu_ver_links %}
+      {% assign over = true %}
+      {% endif %}
+      {% endfor %}
+      {% if over %}
+      <li class="li-top-item li-over li-plus">
+        <a href="javascript:void(0);" class="a-top-link a-plus a-over"><span>{{ 'homepage.navigation.more_categories' | t }}</span></a>
+      </li>
+      <li class="li-top-item li-over li-minus over">
+        <a href="javascript:void(0);" class="a-top-link a-minus a-over"><span>{{ 'homepage.navigation.collapse' | t }}</span></a>
+      </li>
+      {% endif %}
+    </ul>
+    {% if c == true %}
+  </div>
+  {% endif %}
+</div>

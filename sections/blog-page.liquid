@@ -1,0 +1,270 @@
+<style>
+  #trun {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+                    line-clamp: 2;
+            -webkit-box-orient: vertical;
+         }
+
+
+                 .trapezoid {
+                       background: #62ab00;
+                       width: 40%;
+                       height:30px;
+                       display: flex;
+                       justify-content: center;
+                       clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+
+                     }
+
+                    .welcomeText {
+                       color: white;
+                       display: flex;
+                       font-size: 110%;
+                      margin:3%;
+                   }
+
+  @media screen and (max-width:480px)
+                   {
+                     #dropdownDiv{
+                       display:table !important
+                     }
+                     #blogCard{
+                       margin-bottom: 2% !important;
+                       margin-top:4% !important;
+                     }
+                      .trapezoid {
+                        width:50% !important;
+                      }
+                     #imgid{
+                          width:90% !important;
+                     }
+                      #blogLogo{
+                        max-width:100% !important;
+                      }
+                      #prodBtn{
+                        margin-top: 0% !important;
+                        font-size: 90% !important;
+                        padding: 4% !important;
+                        margin-bottom: 4% !important;
+                      }
+                      #imgdiv{
+                          margin-left:0% !important;
+                        }
+                      #linktext{
+                            margin-top:2.5% !important;
+                          }
+                   .hd3{  margin-bottom: 8% !important;
+        height:auto !important;
+      }
+      #shopify-section-header{
+        margin-bottom:0px !important ;
+      }
+                        }
+
+
+  @media screen and (min-width:980px){
+    .hd3{
+        height:80px !important;
+      }
+
+  }
+  .hd3{
+      margin-bottom: 1% !important;
+      }
+</style>
+<script>
+  
+  
+  
+  
+document.addEventListener("DOMContentLoaded", () => {
+    $('.topbar').remove();
+  $('.hd3').html ( `
+      <div class="header-inner col-lg-12 col-md-12 col-sm-12" style="background-color:black;margin-bottom:1%;display:flex">
+      
+      <div class="col-lg-6 col-md-6 col-sm-6" id="imgdiv"  style="margin-left: 4%;text-align: left;">
+      <a href="https://examcart.in/blogs/all-blogs">
+      <img id="blogLogo"
+        style="max-width:30% ;margin: 1%;"
+        src="https://cdn.shopify.com/s/files/1/2707/1762/files/Agrawal_Examcart_Blogs.png?v=1674314802"
+        >
+        </a>
+        </div>
+    
+       <div class="col-lg-4 col-md-4 col-sm-4" style="display:flex;margin-top: 0.5%;padding-left: 22%;" id="linktext">
+      
+      
+       <a href="https://examcart.in/" ><h4 style="color: #61AC00;font-family: inherit;font-weight: 600;font-size:large;">Books</h4></a>        
+       </div>
+    
+    </div>
+      `);
+    
+});
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+{% paginate blog.articles by section.settings.no_articles %}
+  <div class="container">
+    {% include 'breadcrumb' %}
+  </div>
+
+  <div class="container">
+    <div class="main">
+      <div class="row">
+        <div id="content" class="col-sm-12">
+          <h1>{{ 'blogs.title' | t }}</h1>
+          <div class="article-page">
+            {% for article in blog.articles %}
+              <a href="{{ article.url }}">
+                <div
+                  id="blogCard"
+                  class="col-lg-5 col-sm-6 col-md-6  "
+                  style="border:1px solid #cecece;border-radius: 10px;margin:0.5%"
+                >
+                  <div
+                    class="row container-fluid "
+                    style="display: flex;"
+                  >
+                    <div class="trapezoid">
+                      <h1 class="welcomeText">{{ article.updated_at | date: '%d %B %Y' }}</h1>
+                    </div>
+                    <p
+                      class=""
+                      style="margin: 5px;"
+                    >
+                      <b style="color:#62ab00;"> </b>
+                    </p>
+                  </div>
+                  <div class="">
+                    <div class="row" style="margin-top: 5px;display:flex">
+                      <div
+                        id="imgid"
+                        class="col-sm-3 col-lg-4 col-md-3 px-0"
+                        style="padding-bottom:1%"
+                      >
+                        <img
+                          style="border-radius:10px;margin-top:5px"
+                          src="{{ article.image.src | img_url: '412x240' }}"
+                          class="img-fluid"
+                        >
+                      </div>
+                      <div class="col-sm-8 col-lg-8 col-md-8">
+                        <h4 id="trun" style="">
+                          <b>{{ article.title }}</b>
+                        </h4>
+
+                        <h5 id="trun" style="">
+                          {% if section.settings.show_summary %}
+                            <div style="padding: 0px 0 0px;">
+                              {% if article.excerpt.size > 0 %}
+                                <p>{{ article.excerpt | truncatewords: section.settings.blog_summary_words, '' }}</p>
+                              {% else %}
+                                <p>
+                                  {{
+                                    article.content
+                                    | strip_html
+                                    | truncatewords: section.settings.blog_summary_words, ''
+                                  }}
+                                </p>
+                              {% endif %}
+                            </div>
+                          {% endif %}
+                        </h5>
+                        <h5 style="color:#62ab00;"><b>Read More...</b></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <!--
+                <div class="article-layout article-list">
+                  <div class="article-item {% cycle 'odd','even' %}">
+                    <div class="article-item-inner">
+                      <div class="article-intro">
+                        <div class="intro-content">
+                          {% if article.image %}
+                          <a href="{{ article.url }}">
+                            <img class=" lazy" src="{{ article.image.src | img_url: '412x240' }}" alt="{{ article.title }}">
+                          </a>
+                          {% endif %}
+                          <div class="article-name">
+                            <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                          </div>
+                          <p class="articledate">
+                            <time datetime="{{ article.published_at }}">{{ article.published_at | date: "%d/%m/%Y" }}</time>
+                            | {{ article.author }}
+                          </p>
+                          {% if section.settings.show_summary %}
+                          <div style="padding: 20px 0 10px;">
+                            {% if article.excerpt.size > 0 %}
+                            <p>{{ article.excerpt | truncatewords: section.settings.blog_summary_words,"" }}</p>
+                            {% else %}
+                            <p>{{ article.content | strip_html | truncatewords: section.settings.blog_summary_words,"" }}</p>
+                            {% endif %}
+                          </div>
+                          {% endif %}
+                        </div>
+                      </div>
+                      <a class="readmore-page" href="{{ article.url }}">{{ 'blogs.article.readmore' | t }}</a>
+                    </div>
+                  </div>
+                </div>
+              -->
+            {% endfor %}
+          </div>
+          {% if paginate.pages > 1 %}
+            {% include 'pagination' %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endpaginate %}
+
+{% schema %}
+{
+"name": "Blog Page",
+"settings": [
+{
+"type": "text",
+"id": "no_articles",
+"label": "No of articles to show (per page)",
+"default": "5"
+},
+{
+"type": "checkbox",
+"id": "show_summary",
+"label": "Show Summary in list view",
+"default": true
+},
+{
+"type": "text",
+"id": "blog_summary_words",
+"label": "Words count on summary area",
+"default": "30"
+}
+],
+"blocks": [],
+"presets": []
+}
+{% endschema %}

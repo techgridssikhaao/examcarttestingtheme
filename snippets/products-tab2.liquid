@@ -1,0 +1,515 @@
+<div class="sub-col col-sm-12 col-md-4">
+  <div class="tt_product_module occountdown_module1" id="product_module{{section.id}}1">
+    {% assign coll1 = section.settings.products_tab_collection1 %}
+    <div class="module-title">
+      <h2>{{ collections[coll1].title }}</h2>
+    </div>
+    <div class="box-style">
+      <div class="col-product">
+        <div class="owl-container">
+          <div class="tt-product  owl-carousel owl-theme ">
+            {% assign coll_products = collections[coll1].products %}
+            {% for product in coll_products limit:section.settings.products_tab_count %}
+            <!-- Grid -->
+            <div class="row_items {% cycle 'odd','even' %}">
+              {% include 'product-grid-item-deal' %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <script >
+    var product_owlCarousel = $("#product_module{{section.id}}1 .tt-product");
+                                product_owlCarousel.owlCarousel({
+                                loop:  false ,
+                                margin:  0 ,
+                                nav:  false ,
+                                dots:  true ,
+                                autoplay:   false ,
+                                autoplayTimeout:  1000 ,
+                                autoplayHoverPause: true,
+                                autoplaySpeed:  1000 ,
+                                navSpeed:  1000 ,
+                                dotsSpeed:  1000 ,
+                                lazyLoad: true,
+                                responsive:{
+                                0:{
+                                items: 1,
+                                nav: true
+                                },
+                                480:{
+                                items: 1,
+                                nav: true
+                                },
+                                768:{
+                                items: 2
+                                },
+                                992:{
+                                items: 1
+                                },
+                                1200:{
+                                items: 1
+                                },
+                                1600:{
+                                items: 1
+                                }
+                                },
+                                onInitialized: function() {
+      owlAction();
+      var i = 0;
+      $('.owl-dots > .owl-dot').each(function() {
+        $(this).addClass('clk-' + i);
+        i++;
+      });
+    },
+      onTranslated: function() {
+        owlAction();
+
+      }
+    });
+    function owlAction() {
+      $("#product_module{{section.id}}1 .tt-product .owl-item").removeClass('first');
+        $("#product_module{{section.id}}1 .tt-product .owl-item").removeClass('last');
+        $("#product_module{{section.id}}1 .tt-product .owl-item").removeClass('before-active');
+        $("#product_module{{section.id}}1 .tt-product .owl-item.active:first").addClass('first');
+        $("#product_module{{section.id}}1 .tt-product .owl-item.active:last").addClass('last');
+        $('#product_module{{section.id}}1 .tt-product .owl-item.active:first').prev().addClass('before-active');
+        }
+
+  </script>
+  {% comment %}<script>
+  $(".swiper-container-pimg-51").swiper({
+    spaceBetween: 0,
+    nextButton: '.pimg-button-next-51',
+    prevButton: '.pimg-button-prev-51',
+    speed: 300,
+    slidesPerView: 3,
+    slidesPerColumn: 1,
+    autoplay: false,
+    simulateTouch: false,
+    loop: false,
+    breakpoints: {
+      479: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 4
+      },
+      991: {
+        slidesPerView: 4
+
+      },
+      1199: {
+        slidesPerView: 3
+
+      }
+    }
+  });
+
+
+
+  $(".swiper-container-pimg-51 .img-slide").on('click', function() {
+    var img = $(this).data('img');
+    $('.img-main-51').attr('src', img);
+
+    $(".swiper-container-pimg-51 .img-slide").removeClass('active');
+    $(this).addClass('active');
+  });
+  $(".swiper-container-pimg-52").swiper({
+    spaceBetween: 0,
+    nextButton: '.pimg-button-next-52',
+    prevButton: '.pimg-button-prev-52',
+    speed: 300,
+    slidesPerView: 3,
+    slidesPerColumn: 1,
+    autoplay: false,
+    simulateTouch: false,
+    loop: false,
+    breakpoints: {
+      479: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 4
+      },
+      991: {
+        slidesPerView: 4
+
+      },
+      1199: {
+        slidesPerView: 3
+
+      }
+    }
+  });
+
+
+
+  $(".swiper-container-pimg-52 .img-slide").on('click', function() {
+    var img = $(this).data('img');
+    $('.img-main-52').attr('src', img);
+
+    $(".swiper-container-pimg-52 .img-slide").removeClass('active');
+    $(this).addClass('active');
+  });
+  $(".swiper-container-pimg-53").swiper({
+    spaceBetween: 0,
+    nextButton: '.pimg-button-next-53',
+    prevButton: '.pimg-button-prev-53',
+    speed: 300,
+    slidesPerView: 3,
+    slidesPerColumn: 1,
+    autoplay: false,
+    simulateTouch: false,
+    loop: false,
+    breakpoints: {
+      479: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 4
+      },
+      991: {
+        slidesPerView: 4
+
+      },
+      1199: {
+        slidesPerView: 3
+
+      }
+    }
+  });
+
+
+
+  $(".swiper-container-pimg-53 .img-slide").on('click', function() {
+    var img = $(this).data('img');
+    $('.img-main-53').attr('src', img);
+
+    $(".swiper-container-pimg-53 .img-slide").removeClass('active');
+    $(this).addClass('active');
+  });
+  $(".swiper-container-pimg-54").swiper({
+    spaceBetween: 0,
+    nextButton: '.pimg-button-next-54',
+    prevButton: '.pimg-button-prev-54',
+    speed: 300,
+    slidesPerView: 3,
+    slidesPerColumn: 1,
+    autoplay: false,
+    simulateTouch: false,
+    loop: false,
+    breakpoints: {
+      479: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 4
+      },
+      991: {
+        slidesPerView: 4
+
+      },
+      1199: {
+        slidesPerView: 3
+
+      }
+    }
+  });
+
+
+
+  $(".swiper-container-pimg-54 .img-slide").on('click', function() {
+    var img = $(this).data('img');
+    $('.img-main-54').attr('src', img);
+
+    $(".swiper-container-pimg-54 .img-slide").removeClass('active');
+    $(this).addClass('active');
+  });
+  $(".swiper-container-pimg-56").swiper({
+    spaceBetween: 0,
+    nextButton: '.pimg-button-next-56',
+    prevButton: '.pimg-button-prev-56',
+    speed: 300,
+    slidesPerView: 3,
+    slidesPerColumn: 1,
+    autoplay: false,
+    simulateTouch: false,
+    loop: false,
+    breakpoints: {
+      479: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 4
+      },
+      991: {
+        slidesPerView: 4
+
+      },
+      1199: {
+        slidesPerView: 3
+
+      }
+    }
+  });
+
+
+
+  $(".swiper-container-pimg-56 .img-slide").on('click', function() {
+    var img = $(this).data('img');
+    $('.img-main-56').attr('src', img);
+
+    $(".swiper-container-pimg-56 .img-slide").removeClass('active');
+    $(this).addClass('active');
+  });
+  $(".swiper-container-pimg-138").swiper({
+    spaceBetween: 0,
+    nextButton: '.pimg-button-next-138',
+    prevButton: '.pimg-button-prev-138',
+    speed: 300,
+    slidesPerView: 3,
+    slidesPerColumn: 1,
+    autoplay: false,
+    simulateTouch: false,
+    loop: false,
+    breakpoints: {
+      479: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 4
+      },
+      991: {
+        slidesPerView: 4
+
+      },
+      1199: {
+        slidesPerView: 3
+
+      }
+    }
+  });
+
+
+
+  $(".swiper-container-pimg-138 .img-slide").on('click', function() {
+    var img = $(this).data('img');
+    $('.img-main-138').attr('src', img);
+
+    $(".swiper-container-pimg-138 .img-slide").removeClass('active');
+    $(this).addClass('active');
+  });
+  </script>{% endcomment %}
+  {% if section.settings.image1 != blank %}
+  <div class="banner-static static-middle-smartbooks2">
+    <div class="image">
+      {% if section.settings.link1 != blank %}          
+      <a href="{{ section.settings.link1 }}" {{ section.shopify_attributes }}>
+        {% endif %}
+        <img src="{{ section.settings.image1 | img_url: '370x158' }}" alt="" class="" />
+        {% if section.settings.link1 != blank %}          
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+<div class="sub-col col-sm-12 col-md-8">
+  {% assign coll2 = section.settings.products_tab_collection2 %}
+  <div class="tt_tabsproduct_module tabs-category-slider " id="product_module{{section.id}}2">
+    <div class="module-title">
+      <h2>{{ collections[coll2].title }}</h2>
+      <div class="box-tab">
+        <ul class="tab-heading tabs-categorys">
+          <li>
+            <a data-toggle="pill" href="#tab-{{section.id}}0">
+              <span>{{ collections[coll2].title }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="box-style">
+      <div class="col-product">
+        <div class="owl-container">
+          <div class="tt-product ">
+            <div class="tab-content">
+              <div class="tab-container-{{section.id}}  owl-carousel owl-theme  tab-pane tab-product-container  fade " id="tab-{{section.id}}0">
+                {% for product in collections[coll2].products limit:section.settings.products_tab_count %}
+                <!-- Grid -->
+                <!-- List -->
+                <div class="row_items">
+                  {% include 'product-grid-item-list' %}
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <script >
+    $(document).ready(function() {
+      $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+        $(".tab-container-{{section.id}}").owlCarousel({
+        items: 2,
+        loop:  false ,
+        margin:  0 ,
+        nav:  false ,
+        dots:  true ,
+        autoplay:   false ,
+        autoplayTimeout:  1000 ,
+        autoplayHoverPause: true,
+        autoplaySpeed:  1000 ,
+        navSpeed:  1000 ,
+        dotsSpeed:  1000 ,
+        lazyLoad: true,
+        responsive:{
+        0:{
+        items: 1,
+        nav: false
+        },
+        480:{
+        items: 2,
+        nav: false
+        },
+        768:{
+        items: 2
+        },
+        992:{
+        items: 1
+        },
+        1200:{
+        items: 2
+        },
+        1600:{
+        items: 2
+        }
+        },
+        onInitialized: function() {
+        var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                      if(count == 1) {
+          $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+            $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+            } else {
+            $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+            $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+            }
+            },
+            onTranslated: function() {
+            var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                          if(count == 1) {
+              $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+                } else {
+                $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+                }
+                }
+                });
+            });
+  </script>
+  {% assign coll3 = section.settings.products_tab_collection3 %}
+  <div class="tt_tabsproduct_module tabs-category-slider module-grid" id="product_module{{section.id}}3">
+    <div class="module-title">
+      <h2>{{ collections[coll3].title }}</h2>
+      <div class="box-tab">
+        <ul class="tab-heading tabs-categorys">
+          <li>
+            <a data-toggle="pill" href="#tab-3-{{section.id}}0">
+              <span>{{ collections[coll3].title }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="box-style">
+      <div class="col-product">
+        <div class="owl-container">
+          <div class="tt-product ">
+            <div class="tab-content">
+              <div class="tab-container-3-{{section.id}}  owl-carousel owl-theme  tab-pane tab-product-container  fade " id="tab-3-{{section.id}}0">
+                {% for product in collections[coll3].products limit:section.settings.products_tab_count %}
+                <!-- Grid -->
+                <div class="row_items">
+                  {% include 'product-grid-item' %}
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <script >
+    $(document).ready(function() {
+      $('a[href="#tab-3-{{section.id}}0"]').trigger( "click" );
+        $(".tab-container-3-{{section.id}}").owlCarousel({
+        items: 3,
+        loop:  false ,
+        margin:  0 ,
+        nav:  false ,
+        dots:  true ,
+        autoplay:   false ,
+        autoplayTimeout:  1000 ,
+        autoplayHoverPause: true,
+        autoplaySpeed:  1000 ,
+        navSpeed:  1000 ,
+        dotsSpeed:  1000 ,
+        lazyLoad: true,
+        responsive:{
+        0:{
+        items: 1,
+        nav: false
+        },
+        480:{
+        items: 2,
+        nav: false
+        },
+        768:{
+        items: 2
+        },
+        992:{
+        items: 2
+        },
+        1200:{
+        items: 3
+        },
+        1600:{
+        items: 3
+        }
+        },
+        onInitialized: function() {
+        var count = $(".tab-container-3-{{section.id}} .owl-item.active").length;
+                      if(count == 1) {
+          $(".tab-container-3-{{section.id}} .owl-item").removeClass('first');
+            $(".tab-container-3-{{section.id}} .owl-item.active").addClass('first');
+            } else {
+            $(".tab-container-3-{{section.id}} .owl-item").removeClass('first');
+            $(".tab-container-3-{{section.id}} .owl-item.active:first").addClass('first');
+            }
+            },
+            onTranslated: function() {
+            var count = $(".tab-container-3-{{section.id}} .owl-item.active").length;
+                          if(count == 1) {
+              $(".tab-container-3-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-3-{{section.id}} .owl-item.active").addClass('first');
+                } else {
+                $(".tab-container-3-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-3-{{section.id}} .owl-item.active:first").addClass('first');
+                }
+                }
+                });
+            });
+  </script>
+</div>

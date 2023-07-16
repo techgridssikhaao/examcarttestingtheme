@@ -1,0 +1,13 @@
+{% assign current_first_item = paginate.current_offset | plus:1 %}
+{% if paginate.pages == paginate.current_page %}
+{% assign current_displayed = paginate.items | modulo:paginate.page_size %}
+{% assign current_last_item = paginate.items %}
+{% else %}
+{% assign current_displayed = paginate.page_size %}
+{% assign current_last_item = paginate.current_offset | plus:paginate.page_size %}
+{% endif %}
+<span id="collection-amount" style="font-weight: bold;">
+{{ paginate.items }}
+{{ 'products.pagination.items' | t }}
+displayed
+</span>

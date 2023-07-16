@@ -1,0 +1,22 @@
+{% comment %} {{ '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js'  | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css' | stylesheet_tag }}
+
+<script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "{{ settings.cookie_constent_background }}",
+          "text": "{{ settings.cookie_constent_text }}"
+        },
+        "button": {
+          "background": "{{ settings.cookie_constent_button_background }}",
+          "text": "{{ settings.cookie_constent_button_text }}",
+          "border": "{{ settings.cookie_constent_border_color }}"
+        }
+      },
+      "content": {
+        "href": "{{ settings.cookie_constent_url }}"
+      }
+    })});
+</script> {% endcomment %}

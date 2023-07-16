@@ -1,0 +1,343 @@
+<style>
+  td a {
+  color:blue;
+  }
+  	.popup-wrap{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.5);
+		display: none;
+		/*transition: all 1.7s ease;*/
+	}
+  input[type=text]{
+  width : 50%
+  }
+
+	.popup{
+		position: relative;
+		width: 90%;
+		height: 450px;
+		background-color: rgba(0,0,0,1);
+		margin: 40px auto;
+
+	}
+.popup img{width:100%;height:100%;}
+	.popup-timer{
+		width: auto;
+		height: 25px;
+		color: #fff;
+		position: absolute;
+		right: 10px;
+		line-height: 25px;
+		padding: 0px 10px;
+	}
+	.btn-close{
+		background-color: #fff;
+		width: 25px;
+		height: 25px;
+		text-align: center;
+		line-height: 22px;
+		position: absolute;
+		right: -10px;
+		top: -10px;
+		cursor: pointer;
+		transition: all 0.5s ease;
+		border-radius: 50%;
+	}
+	.btn-close:hover{
+		transform: rotate(360deg);
+	}
+</style>
+
+<div class="container">
+  {% include 'breadcrumb' %}
+  <div class="row">
+   
+    <div id="content" class="col-sm-12 contact-form">
+<!--       <h1>{{ 'customer.account.title' | t }}</h1> -->
+     <div class="row ">
+ <div class="col-6 col-sm-6 col-lg-6">
+      <h1>Order History</h1> 
+   </div>
+        <div class="col-6 col-sm-6 col-lg-6">
+      <a href="/account/addresses" style="color:blue;float: right;" >Update Account Details ({{ customer.addresses_count }})</a>
+      </div>
+      </div>
+<!--        <p>
+                    <a href="/account/addresses" style="color:blue">Update Account Details ({{ customer.addresses_count }})</a>
+                  </p>
+      -->
+<!--       <button onclick="abc()" style="float: right;">click</button> -->
+<!-- The Modal -->
+      
+     
+
+      
+<div class="popup-wrap" style="bottom: 0px; z-index: 100;">
+  <div class="popup" style="background: white;">
+
+ <div class="btn-close" onclick="clodemodal()">+</div>
+    <div style="text-align: center;padding-top: 1px;">
+         
+  
+      <h2 style="margin-bottom:15px"><b>Track Your Order</b></h2>
+     
+        <hr>
+      
+     
+     <input type="text" id="YQNum" maxlength="50" style="height: 45px;" />
+
+        <!--     <input type="button" value="TRACK"  />   -->
+      <button type="button" id="btn-search-category" onclick="doTrack()" style="background-color:#325b8f;height: 45px;line-height:0px" class="btn btn-default btn-lg">
+        <span>TRACK</span>
+      </button>
+      <div id="YQContainer" style="margin-top:10px"></div>
+    </div>
+    
+  </div>
+  
+  
+      </div>
+      
+      
+      <div class="grid">
+
+        <div class="grid-item two-thirds medium-down--one-whole" style="overflow: auto;">
+<!--           <h3>{{ 'customer.orders.title' | t }}</h3> -->
+
+          {% paginate customer.orders by 20 %}
+          {% if customer.orders.size != 0 %}
+          <table class="table table-bordered table-hover responsive">
+            <thead>
+              <tr>
+                <th class="text-center">{{ 'customer.orders.order_number' | t }}</th>
+                <th class="text-center">{{ 'customer.orders.date' | t }}</th>
+                <th class="text-center">{{ 'customer.orders.payment_status' | t }}</th>
+<!--                 <th class="text-center">{{ 'customer.orders.fulfillment_status' | t }}</th> -->
+                <th class="text-center">{{ 'customer.orders.total' | t }}</th>
+                <th class="text-center">Shipping Price</th>
+             
+                                          <th class="text-center">Order Status</th>
+        
+              <th class="text-center">Tracking ID</th>
+
+                
+                
+<!--                 <th class="text-center">Order Type</th>      -->
+                <th class="text-center">Total Tittle</th>
+                            <th class="text-center">Total Books</th>
+               
+                <th class="text-center">Courier Partner</th>
+      
+       
+                 <th class="text-center">Cancel Reason</th>
+        <th class="text-center">Track</th>
+              </tr> 
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+   
+       
+              <tr>
+                <td class="text-center"><b>{{ order.name | link_to: order.customer_url }}</b></td>
+                <td class="text-center">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                <td class="text-center">{{ order.financial_status_label }}</td>
+                <td class="text-center">{{ order.total_price | money }}</td>
+                <td class="text-center">{{ order.shipping_price | money }}</td>
+                {%if order.cancelled == false%}
+                <td class="text-center">{{ order.fulfillment_status  |capitalize }}</td>
+               
+        {%else%}
+         <td class="text-center">Canceled</td>        
+                {%endif%}
+                
+                {% assign skulist = ""%}
+                {% assign tracknum = ""%}
+                {% assign trackcomp = 0%}
+                               {% assign trackquan =  0%}
+                {% assign tracktest = 0%}
+                {% for line in order.line_items %}
+
+             {% assign skulist = line.sku | append: ','| append: skulist %}
+                
+         {% assign tracktest =  tracktest | plus: 1%}
+               
+              {% assign trackquan =  trackquan | plus: line.quantity%}
+     
+                {% if line.fulfillment.tracking_number or line.fulfillment.tracking_company %} 
+                {% assign tracknum =  line.fulfillment.tracking_number%}
+                {% assign trackcomp =  line.fulfillment.tracking_company%}
+                      
+   
+                {%else%}
+                {% assign tracknum = "Pending"%}
+                {% assign trackcomp = "Pending"%}
+                {% endif %}
+     
+   
+              {% endfor %}
+              
+                  <td class="text-center">{{ tracknum }} </td>
+               <td class="text-center">{{ tracktest }} </td>
+                     <td class="text-center">{{ trackquan }} </td>
+          
+                
+                <td class="text-center">{{trackcomp }}</td>
+              
+               
+              
+                 {%if order.cancelled == true%}
+                 <td class="text-center">{{ order.cancel_reason  |capitalize }} </td>
+    {%else%}
+                 <td class="text-center"> </td>
+               
+                            {%endif%}
+                 
+                      
+                {%if trackcomp contains "xpressbees" %}
+                <td class="text-center"><a href="https://www.xpressbees.com/track?isawb=Yes&trackid={{tracknum}}"> Track</a> </td>
+                {%elsif trackcomp == "Pending"%}
+                 <td class="text-center">Pending </td> 
+                {%else%}
+                <td class="text-center"> <a onclick="modalpopup('{{tracknum}}')" >Track</a> </td>
+                 
+<!--                 <td class="text-center">{{ tracknum }} </td> -->
+                {%endif%}
+                
+              {% endfor %}
+                   </tr>
+              
+            </tbody>
+          </table>
+
+          {% else %}
+
+          <p>{{ 'customer.orders.none' | t }}</p>
+
+          {% endif %}
+
+          {% if paginate.pages > 1 %}
+          <div class="text-center">
+            {% include 'pagination-custom' %}
+          </div>
+          {% endif %}
+          {% endpaginate %}
+        </div>
+<!-- 
+        <div class="grid-item one-third medium-down--one-whole">
+          <h3>{{ 'customer.account.details' | t }}</h3>
+
+          <table class="table table-bordered table-hover">
+            <tbody>
+              <tr>
+                <td class="text-left">
+                  <h5>{{ customer.name }}</h5>
+
+                  {% if customer.default_address != nil %}
+                  <p>
+                    {{ customer.default_address.address1 }}<br>
+
+                    {% if customer.default_address.address2 != "" %}
+                    {{ customer.default_address.address2 }}<br>
+                    {% endif %}
+
+                    {% if customer.default_address.city != "" %}
+                    {{ customer.default_address.city }}<br>
+                    {% endif %}
+
+                    {% if customer.default_address.province_code != "" %}
+                    {{ customer.default_address.province_code | upcase }}<br>
+                    {% endif %}
+
+                    {% if customer.default_address.zip != "" %}
+                    {{ customer.default_address.zip | upcase }}<br>
+                    {% endif %}
+
+                    {% if customer.default_address.country != "" %}
+                    {{ customer.default_address.country }}<br>
+                    {% endif %}
+
+                    {% if customer.default_address.phone != "" %}
+                    {{ customer.default_address.phone }}
+                    {% endif %}
+
+                  </p>
+
+                  {% endif %}
+                </td>
+                <td class="text-right">
+                  <p>
+                    <a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+                  </p>
+
+              </tr>
+            </tbody>
+          </table>
+
+        </div> -->
+
+ 
+
+<!--Script code can be put in the bottom of the page, wait until the page is loaded then execute.-->
+<script type="text/javascript" src="//www.17track.net/externalcall.js" ></script>
+<script type="text/javascript">// <![CDATA[
+function doTrack() {
+var num = document.getElementById("YQNum").value;
+if(num===""){
+alert("Enter your number.");
+return;
+}
+YQV5.trackSingle({
+//Required, Specify the container ID of the carrier content.
+YQ_ContainerId:"YQContainer",
+//Optional, specify tracking result height, max height 800px, default is 560px.
+YQ_Height:560,
+//Optional, select carrier, default to auto identify.
+YQ_Fc:"0",
+//Optional, specify UI language, default language is automatically detected based on the browser settings.
+YQ_Lang:"en",
+//Required, specify the number needed to be tracked.
+YQ_Num:num
+});
+  setTimeout(function(){
+ 
+// alert("Using setTimeout in jQuery");
+  $('#YQContainer #DA_V6-Extcall-Track').remove();
+  
+  }, 5000);
+  
+}
+
+
+function modalpopup (val){
+			$duration = 15;
+			$('.seconds').text($duration);
+			$('.popup-wrap').fadeIn(1500);
+
+// 			$myTimer = setInterval(function(){ startTimer() }, 1000);
+			
+  $('#YQNum').val(val);
+		
+		}
+  
+  function clodemodal(){
+  $('.popup .btn-close').on("click",function(){
+				
+				$('.popup-wrap').fadeOut(500);
+			});
+			
+  
+  }
+
+   
+// ]]></script>
+
+        
+  
+        
+        
+      </div>
+    </div>
+  </div>
+</div>

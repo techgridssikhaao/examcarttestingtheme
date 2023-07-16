@@ -1,0 +1,172 @@
+{% comment %}
+  <style>
+   .price-box{
+       width: 100% !important;
+     display: flex !important;
+     align-items: baseline;
+   }
+    .special-price{
+
+    }
+    .s-price{
+      font-size: 1.5rem !important;
+
+    }
+    .old-price{
+      margin-right: 0 !important;
+    }
+    .edit-price{
+      font-size: 1rem !important;
+      margin: 0 !important;
+    }
+    .my-edit{
+      background: none !important;
+      font-weight: normal !important;
+      color: black !important;
+      font-size: 1.4rem !important;
+    }
+    .label-product{
+
+    }
+  </style>
+
+  <div class="price-box" line-height:0.6px !important;>
+    {% if product.selected_or_first_available_variant.price < product.selected_or_first_available_variant.compare_at_price and settings.product_show_compare_at_price != false %}
+
+
+      <span class="special-price s-price price" style="font-size: 24px;"{% if page %}id="productPrice"{% endif %}>
+      {{ product.selected_or_first_available_variant.price | money  }}
+      </span>
+
+
+
+      <span class="old-price price edit-price" style="font-size: 18px;"{% if page %} id="comparePrice"{% endif %}>
+      {{ product.selected_or_first_available_variant.compare_at_price | money }}
+      </span>
+
+    {% else %}
+
+      <span class="price regular-price" {% if page %} id="productPrice"{% endif %}>
+      {{ product.selected_or_first_available_variant.price | money }}
+      </span>
+  <span
+          >
+          (-{{
+            product.compare_at_price
+            | minus: product.price
+            | times: 100.0
+            | divided_by: product.compare_at_price
+            | round
+          -}}%)
+          </span
+        >
+    {% endif %}
+     {% if on_sale %}
+      <div class="my-edit label-product label_sale" style="font-size: 150%;">
+
+      </div>
+
+    {% endif %}
+  </div>
+{% endcomment %}
+
+<style>
+  .price-box{
+      width: 100% !important;
+    display: flex !important;
+    align-items: baseline;
+  }
+   .special-price{
+
+   }
+   .s-price{
+     font-size: 1.6rem !important;
+
+   }
+   .old-price{
+     margin-right: 0 !important;
+   }
+   .edit-price{
+     font-size: 1.2rem !important;
+     margin: 0 !important;
+   }
+   .my-edit{
+     background: red !important;
+     font-weight: normal !important;
+     color: black !important;
+     font-size: 1.4rem !important;
+   }
+   .mydiscount{
+
+     color: maroon !important;
+     font-weight: 900 !important;
+
+   }
+   .mobile-price{
+     display: none !important;
+   }
+
+   @media screen and (max-width: 500px){
+     .mobile-price{
+       display: block !important;
+     }
+     .price-box{
+          width: 100% !important;
+        display: flex !important;
+        align-items: baseline;
+      }
+
+   }
+</style>
+
+<div class="price-box mobile-price" line-height:0.6px !important;>
+  {% if product.selected_or_first_available_variant.price < product.selected_or_first_available_variant.compare_at_price
+    and settings.product_show_compare_at_price != false
+  %}
+    <p class="special-price">
+      <span
+        class="s-price price"
+        style="font-size: 24px;"
+        {% if page %}
+          id="productPrice"
+        {% endif %}
+      >
+        &#x20B9;{{ product.selected_or_first_available_variant.price | money_without_currency }}
+      </span>
+    </p>
+
+    <p class="old-price">
+      <span
+        class="price edit-price"
+        style="font-size: 18px;"
+        {% if page %}
+          id="comparePrice"
+        {% endif %}
+      >
+        &#x20B9;{{ product.selected_or_first_available_variant.compare_at_price | money_without_currency }}
+      </span>
+    </p>
+  {% else %}
+    <p class="regular-price">
+      <span
+        class="price"
+        {% if page %}
+          id="productPrice"
+        {% endif %}
+      >
+        &#x20B9;{{ product.selected_or_first_available_variant.price | money_without_currency }}
+      </span>
+    </p>
+  {% endif %}
+  <span class="mydiscount">
+    -
+    {{-
+      product.compare_at_price
+      | minus: product.price
+      | times: 100.0
+      | divided_by: product.compare_at_price
+      | round
+    -}}
+    %
+  </span>
+</div>

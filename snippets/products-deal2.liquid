@@ -1,0 +1,85 @@
+<div class="tt_product_module multi-rows occountdown_module1 module-nav2 deal" id="product_module{{section.id}}">
+  <div class="module-title">
+    {% if section.settings.heading != blank %}  
+    <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+  <div class="owl-container">
+    <div class="tt-product owl-carousel owl-theme">
+      {% if section.blocks.size > 0 %}
+      <div class="row_items {% cycle 'odd','even' %}">
+        {% for block in section.blocks %}
+        {% assign product = all_products[block.settings.product_deal] %}
+        {% include 'product-grid-item-deal2' %}
+        {% if forloop.last == false %}
+        {% cycle '','</div><div class="row_items">' %}
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<script >
+  var product_owlCarousel = $("#product_module{{section.id}} .tt-product");
+                              product_owlCarousel.owlCarousel({
+                              loop:  false ,
+                              margin:  0 ,
+                              nav:  true ,
+                              dots:  false ,
+                              autoplay:   false ,
+                              autoplayTimeout:  1000 ,
+                              autoplayHoverPause: true,
+                              autoplaySpeed:  1000 ,
+                              navSpeed:  1000 ,
+                              dotsSpeed:  1000 ,
+                              lazyLoad: true,
+                              responsive:{
+                              0:{
+                              items: 1,
+                              nav: false
+                              },
+                              480:{
+                              items: 1,
+                              nav: false
+                              },
+                              768:{
+                              items: 1
+                              },
+                              992:{
+                              items: 1
+                              },
+                              1200:{
+                              items: 2
+                              },
+                              1600:{
+                              items: 2
+                              }
+                              },
+                              onInitialized: function() {
+    owlAction();
+    var i = 0;
+    $('.owl-dots > .owl-dot').each(function() {
+      $(this).addClass('clk-' + i);
+      i++;
+    });
+  },
+    onTranslated: function() {
+      owlAction();
+    }
+  });
+  function owlAction() {
+    $("#product_module{{section.id}} .tt-product .owl-item").removeClass('first');
+      $("#product_module{{section.id}} .tt-product .owl-item").removeClass('last');
+      $("#product_module{{section.id}} .tt-product .owl-item").removeClass('before-active');
+      $("#product_module{{section.id}} .tt-product .owl-item.active:first").addClass('first');
+      $("#product_module{{section.id}} .tt-product .owl-item.active:last").addClass('last');
+      $('#product_module{{section.id}} .tt-product .owl-item.active:first').prev().addClass('before-active');
+      }
+      function timerslider(x){
+      $(".list-thumb .thumb .row_thumb div").removeClass('active');
+      $('.thumbinner' + x).addClass('active');
+      $('.clk-' + x).trigger('click');
+    }
+</script>

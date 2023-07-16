@@ -1,0 +1,102 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100001 !important;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity: 1;
+}
+.labelCat{
+  color: black;
+  width: 90%;
+  
+  text-align: left;
+  font-size: 2rem;
+}
+.selectOption{
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 2rem;
+  text-align: left;
+}
+.parent-container{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+}
+.container-sidebar{
+  text-align: left;
+  margin-bottom: 2rem;
+  
+  width: 90%;
+  display: flex;
+ align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  font-size: 36px;
+  margin-left: 65px;
+  color: black;
+}
+
+#togglee{
+  border: 1px solid #a3a0a0;
+  font-size: 1.5rem;
+  height: 5rem;
+  display: none ;
+}
+@media screen and (max-width: 500px){
+  #togglee{
+    display: block;
+  }
+  .has-thumb{
+    text-align: center !important;
+  }
+  .dropdown-toggle{
+    background: #2d2a2a !important;
+  }
+}
+@media screen and (max-width: 480px) {
+    .btn{
+        width: 100%;
+        background-color: #2d2a2a;
+        height: 3rem;
+        font-size: 15px;
+        
+    }
+  #togglee{
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-height: 480px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

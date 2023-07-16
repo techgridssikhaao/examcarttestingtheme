@@ -1,0 +1,75 @@
+<div class="testimonial-container">
+  <div class="module-title">
+    {% if section.settings.heading %}
+    <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+  <div class="block-content">
+    <div class="owl-container">
+      <div id="slides" class="owl-carousel owl-theme">
+        {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+        <div class="row_items">
+          <div class="testimonial-content">
+            <div class="item">
+              <div class="item-inner">
+                {% if block.settings.image != blank %}
+                <div class="testimonial-images">
+                  <img class="" src="{{ block.settings.image | img_url: '100x100' }}" alt="{{ block.settings.author }}"/>
+                </div>
+                {% endif %}
+                <div class="testimonial-caption">
+                  <h4 class="title">
+                    <a href="#">{{ block.settings.title }}</a>
+                  </h4>
+                  <div class="testimonial-box">
+                    <a href="#">{{ block.settings.description }}</a>
+                  </div>
+                  <p class="testimonial-author">{{ block.settings.author }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--testimonial-content-->
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!--block-content-->
+</div>
+<!--testimonial-container-->
+<script >
+  $(document).ready(function() {
+    $("#slides").owlCarousel({
+      autoPlay :  1 ,
+      loop: false,
+      margin: 0,
+      navSpeed : 1000,
+      dotsSpeed : 1000,
+      autoplaySpeed : 1000,
+      nav :  false ,
+      dots : true ,
+      lazyLoad: true,
+      navText : ['<i class="ion-ios-arrow-left"></i>','<i class="ion-ios-arrow-right"></i>'],
+      responsive:{
+        0:{
+          items: 1
+        },
+        480:{
+          items: 1
+        },
+        640:{
+          items: 2
+        },
+        992:{
+          items: 2
+        },
+        1200:{
+          items : 3
+        }
+      }
+    });
+  });
+</script>

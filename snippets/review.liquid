@@ -1,0 +1,5 @@
+{% if settings.product_reviews_enable %}
+<div class="col-lg-5">
+<span class="shopify-product-reviews-badge" data-id="{% if template == 'search' %}{{ item.id }}{% else %}{{ product.id }}{% endif %}"></span>
+</div>
+  {% endif %}

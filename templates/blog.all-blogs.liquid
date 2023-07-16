@@ -1,0 +1,523 @@
+<style>
+      select {
+         -webkit-appearance:none;
+         -moz-appearance:none;
+         -ms-appearance:none;
+         appearance:none;
+         outline:0;
+         box-shadow:none;
+         border:0!important;
+         background: transparent;
+         background-image: none;
+         flex: 1;
+         padding: 0 .5em;
+         color:black;
+         cursor:pointer;
+         font-size: 1em;
+         font-family: 'Open Sans', sans-serif;
+      }
+      select::-ms-expand {
+         display: none;
+      }
+      .select {
+         position: relative;
+         display: flex;
+         width: 20em;
+         height: 3em;
+         line-height: 2.5;
+         background: transparent;
+         overflow: hidden;
+         border-radius: .25em;
+      }
+      .select::after {
+         content: '\25BC';
+         position: absolute;
+         top: 0;
+         right: 0;
+         padding: 0 1em;
+         background: transparent;
+         cursor:pointer;
+         pointer-events:none;
+         transition:.25s all ease;
+      }
+      .select:hover::after {
+         color: #23b499;
+      }
+
+
+    #trun {
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+                 display: -webkit-box;
+                 -webkit-line-clamp: 2;
+                         line-clamp: 2;
+                 -webkit-box-orient: vertical;
+              }
+    .trapezoid {
+                            background: #62ab00;
+                            width: 40%;
+                            height:30px;
+                            display: flex;
+                            justify-content: center;
+                            clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+
+                          }
+    .welcomeText {
+                            color: white;
+                            display: flex;
+                            font-size: 110%;
+                           margin:2%;
+                        }
+
+
+    @media screen and (max-width:480px)
+
+    {
+      #dropdownDiv{
+        display:table !important
+                           }
+                          #blogCard{
+                            margin-bottom: 2% !important;
+                            margin-top:4% !important;
+                          }
+                          .trapezoid {
+                             width:75% !important;
+                           }
+                          #imgid{
+                               width:90% !important;
+                          }
+                          #blogLogo{
+                            max-width:100% !important;
+                          }
+                          #prodBtn{
+    /*                         margin-top: 0% !important; */
+                            font-size: 90% !important;
+                            padding: 4% !important;
+                            margin-bottom: 4% !important;
+                          }
+                          #imgdiv{
+                            margin-left:0% !important;
+                          }
+                          #linktext{
+                            margin-top:2.5% !important;
+                          }
+
+       .hd3{
+        height:auto !important;
+      }
+      #shopify-section-header{
+        margin-bottom:0px !important ;
+      }
+                        }
+
+
+  @media screen and (min-width:980px){
+    .hd3{
+      height:80px !important;
+      margin-bottom: 8% !important;
+      }
+
+  }
+    .hd3{
+      margin-bottom: 1% !important;
+      }
+</style>
+<head>
+  <meta
+    name="description"
+    content="Stay up to date with the latest information and tips to improve your knowledge and skills in all Indian Government Exams & other Competitive exams like SSC, Bank, Railway and so on - Read all Examcart blogs now."
+  >
+</head>
+<body>
+  {% include 'breadcrumb' %}
+  <div id="dropdownDiv" class="container" style="display:flex;" style="margin-top:0px">
+    <div class="select" style="margin:2%;border:3px solid green;margin-top:0px">
+      <select onchange="dateSelect()" id="dateSelect">
+        <option value="all-time">All Time</option>
+        <option value="last-month">Last Month</option>
+        <option value="last-three-months"> Last 3 Months</option>
+        <option value="last-six-months"> Last 6 Months</option>
+        <option value="last-year"> Last Year</option>
+      </select>
+    </div>
+    <div class="select" style="margin:2%;border:3px solid green;margin-top:0px">
+      <select onchange="categorySelectfn(this.value)" id="categorySelect">
+        <option val="all">All Category</option>
+        <option val="central-exam">Central Exam</option>
+        <!-- <option val="ctet">CTET</option> -->
+        <option val="madhya-pradesh">Madhya Pradesh</option>
+        <!-- <option val="sarkari-naukri">Sarkari Naukri</option> -->
+        <option val="uttar-pradesh">Uttar Pradesh</option>
+        <option val="punjab">Punjab</option>
+        <option val="madhya-pradesh">Madhya Pradesh</option>
+        <option val="jharkhand">Jharkhand</option>
+        <option val="rajasthan">Rajasthan</option>
+        <option val="bihar">Bihar</option>
+        <option val="chhattisgarh">Chhattisgarh</option>
+        <option val="delhi">Delhi</option>
+        <option val="haryana">Haryana</option>
+        <option val="uttarakhand">Uttarakhand</option>
+      </select>
+    </div>
+    <div class="select" style="margin:2%;border:3px solid green;margin-top:0px">
+      <select id="subCategorySelect" onchange="subCategorySelectfn(this.value)">
+        <option>All Sub-Category</option>
+      </select>
+    </div>
+    <div class="select" style="margin:2%;border:3px solid green;margin-top:0px">
+      <select id="typeSelect" onchange="typeSelectFn(this.value)">
+        <option>All Types</option>
+      </select>
+    </div>
+    
+  </div>
+
+  <div
+    class="container row-eq-height"
+    id="mainDiv"
+    style="display:table;"
+  ></div>
+</body>
+<script type="text/javascript" src="https://pagination.js.org/dist/2.5.0/pagination.min.js">
+// <script type="text/javascript" src="https://pagination.js.org/dist/2.5.0/pagination.js"></script>
+<script>
+  
+  
+  
+  
+  
+    document.addEventListener("DOMContentLoaded", function(event) {
+      $('.topbar').remove();
+     $('.hd3').html ( `
+      <div class="header-inner col-lg-12 col-md-12 col-sm-12" style="background-color:black;margin-bottom:1%;display:flex">
+      
+      <div class="col-lg-6 col-md-6 col-sm-6" id="imgdiv"  style="margin-left: 4%;text-align: left;">
+      <a href="https://examcart.in/blogs/all-blogs">
+      <img id="blogLogo"
+        style="max-width:30% ;margin: 1%;"
+        src="https://cdn.shopify.com/s/files/1/2707/1762/files/Agrawal_Examcart_Blogs.png?v=1674314802"
+        >
+        </a>
+        </div>
+    
+       <div class="col-lg-4 col-md-4 col-sm-4" style="display:flex;margin-top: 0.5%;padding-left: 22%;" id="linktext">
+      
+      
+       <a href="https://examcart.in/" ><h4 style="color: #61AC00;font-family: inherit;font-weight: 600;font-size:large;">Books</h4></a>        
+       </div>
+    
+    </div>
+      `);
+      onStart();
+    
+    });
+
+    console.log("we are here");
+
+  function getAllArticles(){
+       var list = [];
+    // NEED TO UPDATE CATEGORY NAME HARE 
+    {% assign cate ="central-exam,madhya-pradesh,uttar-pradesh,uttarakhand,rajasthan,bihar,chhattisgarh,delhi,haryana,jharkhand,punjab"  | split: "," %}  
+    {% for cat in cate %}
+      var l = JSON.parse(JSON.stringify( {{ blogs[cat].articles | json}} ));
+    if(l != ''){ 
+    l.forEach((item,index)=>{  item.cat = {{cat| json}};    list.push(item)  });
+  }
+      {% endfor  %}
+    return list ;
+  }
+
+
+  function categorySelectfn (val){
+    var v =  $("#categorySelect  option:selected").attr('val');
+    if(v != "all"){
+      onStart(v);
+      
+    }
+    else{
+      var subSelect = document.getElementById('subCategorySelect');
+      $("#subCategorySelect").empty();
+      var o = document.createElement("option");
+      o.value = "all" ;
+      o.text = "All Sub-Category" ;
+      subSelect.appendChild(o);
+      onStart();
+    }
+    
+    var allArt = getAllArticles();
+    var subC = [] ;
+    var subL = [] ;
+    allArt.forEach((item,index)=>{
+      if(item.cat == v){
+       if(item.tags != ''){
+         subC.push(item.tags);
+       }
+      }
+    });
+
+    for(var i = 0 ; i < subC.length ; i++){
+      var splited  = subC[i].toString().split(',');
+      for(var ii = 0 ; ii < splited.length ; ii ++){
+        if(splited[ii].toString().includes('subcat://')){
+          splited[ii] = splited[ii].toString().replace("subcat://","")
+          subL.push(splited[ii]);
+        }
+      }      
+    }
+    subL = subL.filter( function( item, index, inputArray ) {
+           return inputArray.indexOf(item) == index;
+    });
+    // console.log(subL);
+    var subSelect = document.getElementById('subCategorySelect');
+    $("#subCategorySelect").empty();
+    var o = document.createElement("option");
+    o.value = "all" ;
+    o.text = "All Sub-Category" ;
+    subSelect.appendChild(o);
+
+    for(var i = 0 ; i < subL.length ; i++){
+      var o = document.createElement("option");
+    o.value = subL[i] ;
+    o.text = subL[i] ;
+    subSelect.appendChild(o);
+    }
+  }
+  
+  function subCategorySelectfn(val){
+     var v =  $("#subCategorySelect  option:selected").attr('value');
+     var c =  $("#categorySelect  option:selected").attr('val');
+    if(v == 'all'){
+      onStart(c);
+    }else{
+       onStart(c, v);
+    }
+    
+    var allArt = getAllArticles();
+    var subC = [] ;
+    var subL = [] ;
+    allArt.forEach((item,index)=>{
+      if(item.cat == c){
+       if(item.tags != '' && item.tags.toString().includes(v)){
+         subC.push(item.tags);
+       }
+      }
+    });
+
+    for(var i = 0 ; i < subC.length ; i++){
+      var splited  = subC[i].toString().split(',');
+      for(var ii = 0 ; ii < splited.length ; ii ++){
+        if(splited[ii].toString().includes('type://')){
+          splited[ii] = splited[ii].toString().replace("type://","")
+          subL.push(splited[ii]);
+        }
+      }      
+    }
+    subL = subL.filter( function( item, index, inputArray ) {
+           return inputArray.indexOf(item) == index;
+    });
+    // console.log(subL);
+    var typeSlct = document.getElementById('typeSelect');
+    $("#typeSelect").empty();
+    var o = document.createElement("option");
+    o.value = "all" ;
+    o.text = "All Types" ;
+    typeSlct.appendChild(o);
+
+    for(var i = 0 ; i < subL.length ; i++){
+      var o = document.createElement("option");
+    o.value = subL[i] ;
+    o.text = subL[i] ;
+    typeSlct.appendChild(o);
+    }
+   
+    
+  }
+
+  function typeSelectFn(val){
+     var t =  $("#typeSelect option:selected").attr('value');
+      var s =  $("#subCategorySelect option:selected").attr('value');
+     var c =  $("#categorySelect option:selected").attr('val');
+    if(t == 'all'){
+      onStart(c,s);
+    }else{
+      t = t.toString().trim();
+      onStart(c,s,t);
+    }
+    
+    
+  }
+
+  function dateSelect(){
+
+
+  //   var c = $("#categorySelect option:selected").attr('val');
+  // var s = $("#subCategorySelect option:selected").attr('value');
+  // var t = $("#typeSelect option:selected").attr('value');
+  // var d = $("#dateSelect option:selected").attr('value');
+
+     var c =  $("#categorySelect option:selected").attr('val');
+     var s =  $("#subCategorySelect option:selected").attr('value');
+     var t =  $("#typeSelect option:selected").attr('value');
+    
+    onStart();
+    
+    if(c != 'all'){
+      categorySelectfn();
+    }else if(s != 'all' && c != 'all'){
+      // categorySelectfn();
+      subCategorySelectfn();
+      // typeSelectFn();
+    }else if( c != 'all' && s !== undefined){
+      // onStart();
+      // categorySelectfn();
+      // subCategorySelectfn();
+      // typeSelectFn();
+
+    }
+}
+  
+
+  function onStart(catVal,subCatVal,typeVal) {
+  var list = getAllArticles();
+  var selectedList = [];
+    console.log(catVal);
+    
+     if(catVal != undefined || catVal != 'all')
+     {
+        list.forEach((item,index)=>{
+        if(item.cat == catVal){
+          selectedList.push(item);
+        }
+      });
+     }    
+    if(catVal == undefined || catVal == 'all'){
+      selectedList = list ;
+    }
+    
+    if(subCatVal != undefined ){
+      var l = [];
+      for(var i = 0 ; i < selectedList.length ; i++){
+        if(selectedList[i].tags.toString().includes(subCatVal)){
+         l.push(selectedList[i]);
+        }
+      }
+      selectedList = l ;
+    }
+    if(typeVal != undefined ){
+      var l = [];
+      for(var i = 0 ; i < selectedList.length ; i++){
+        if(selectedList[i].tags.toString().includes(typeVal) && selectedList[i].tags.toString().includes(subCatVal)){
+         l.push(selectedList[i]);
+        }
+      }
+      selectedList = l ;
+    }
+    
+    selectedList.sort(function(a,b){
+        return new Date(b.updated_at) - new Date(a.updated_at)
+    });
+
+    var d = $("#dateSelect option:selected").attr('value');
+
+    if(d != 'all-time'){
+      if(d == 'last-month'){
+        var newSelectedList = selectedList.slice(0, 30);
+        console.log(newSelectedList);
+        selectedList = newSelectedList;
+      }else if(d == 'last-three-months'){
+        var newSelectedList = selectedList.slice(0, 90);
+        console.log(newSelectedList);
+        selectedList = newSelectedList;
+      }else if(d == 'last-six-months'){
+        var newSelectedList = selectedList.slice(0, 180);
+        console.log(newSelectedList);
+        selectedList = newSelectedList;
+      }else if(d == 'last-month'){
+        var newSelectedList = selectedList.slice(0, 365);
+        console.log(newSelectedList);
+        selectedList = newSelectedList;
+      }
+    }
+
+    
+
+
+    
+    var html = '';
+    document.getElementById("mainDiv").innerHTML = "";
+      selectedList.forEach((item,index)=>{
+        var options = {   day: 'numeric', month: 'long',year: 'numeric' };
+        var published_at  = new Date(item.updated_at).toLocaleDateString("en-IN", options);
+    
+       // a.toString().split(',').forEach((item,index)=>{if(item.toString().includes('subcat://')){console.log(item.toString().replace('subcat://'))}})
+       var subCat ='' ;
+        item.tags.toString().split(',').forEach((itm,indx)=>{
+              itm = itm.toString().trim();
+              if(itm.toString().includes('subcat://')){
+              subCat = itm.toString().replace('subcat://','');
+              }
+            })
+        
+        html += `<a href="${item.cat}/${item.handle}"> <div
+        id="blogCard"
+        class="col-lg-5 col-sm-6 col-md-6  "
+        style="border:1px solid #cecece;border-radius: 10px;margin:0.5%"
+      >
+        <div
+          class="row container-fluid "
+          style="display: flex;"
+        >
+          <div class="trapezoid">
+            <h1 class="welcomeText"> ${published_at} </h1>
+          </div>
+          <p
+            class=""
+            style="margin: 5px;"
+          >
+            <b style="color:#62ab00;">${item.cat.toString().toUpperCase()} /
+            ${subCat} </b>
+          </p>
+        </div>
+        <div class="">
+          <div class="row" style="margin-top: 5px;display:flex">
+            <div id="imgid"
+              class="col-sm-3 col-lg-4 col-md-3 px-0"
+              style="padding-bottom:1%"
+            >
+              <img
+                style="border-radius:10px;margin-top:5px"
+                src="${item.image == undefined ?"":item.image.src}"
+                class="img-fluid"
+              >
+            </div>
+            <div class="col-sm-8 col-lg-8 col-md-8">
+              <h4 id="trun" style="">
+                <b>${ item.title }</b>
+              </h4>
+
+              <h5 style="color:#62ab00;"><b>Read More...</b></h5>
+            </div>
+          </div>
+        </div>
+      </div> </a> ` ;
+
+      });
+    
+    document.getElementById("mainDiv").insertAdjacentHTML("afterbegin",html);
+//    $('#mainDiv').pagination({
+//     dataSource: html,
+//     pageSize: 5,
+//     showSizeChanger: true,
+//     callback: function(data, pagination) {
+//         // template method of yourself
+//         var html1 = template(data);
+//       document.getElementById("mainDiv").insertAdjacentHTML("afterbegin",html1)
+//     }
+// })
+      
+      return;
+
+       }
+
+
+</script>

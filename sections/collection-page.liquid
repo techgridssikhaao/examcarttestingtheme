@@ -1,0 +1,702 @@
+<style>
+  .toolbar-products{
+    border: none !important;
+  }
+
+    @media screen and (max-width:480px)
+   {
+      #deskmode{
+     display:none;
+     }
+     #desktoolama
+     {
+       display:none;
+     }
+
+
+   }
+   @media screen and (max-width:820px)
+   {
+   #deskmode{
+     display:none;
+     }
+     #desktoolama
+     {
+       display:none;
+     }
+   }
+   @media screen and (min-width:980px)
+   {
+     #customsortrow{
+     display:none;
+     }
+     #mobtool{
+
+       display:none;
+
+     }
+     #customfiltertoolbardiv{
+     display : none;
+     }
+
+     #toolbardiv{
+     margin-bottom: 50px !important;
+     }
+
+   }
+   @media screen and (max-width: 500px){
+     .category-des{
+      display: none !important;
+     }
+     .filter-btn{
+       display: block !important;
+       margin-top: 5rem !important;
+       margin-bottom: 2rem !important;
+     }
+     .toolbar-amount{
+      width: 100% !important;
+      text-align: right !important;
+    }
+    .category-name{
+      font-size: 1.5rem !important;
+    }
+    #content{
+      margin-top: -5rem;
+    }
+    #sorting-according-to-alphabet{
+      width: 110% !important;
+      margin: -2rem !important;
+      text-align: right !important;
+    }
+    .toolbar-amount{
+      margin-top: -3rem !important;
+    }
+     #subcat{
+       display: none !important;
+     }
+     #customsortrow{
+       width: 100% important;
+       display: flex !important;
+     }
+     #input-sortsubcat{
+       width: 150px !important;
+     }
+     #input-booktype{
+       width: 130px !important;
+     }
+     #type-id{
+       display: none !important;
+     }
+  }
+</style>
+<!--
+  <script type="text/javascript">
+
+
+    $(".filter-attribute-container").find("a").addClass("advanced-filter a-filter add-filter");
+    $("#adil").find("a").addClass("active-filter a-filter add-filter");
+  </script>
+-->
+{% comment %}{% include 'iframe-popup-modal-pdf' %} {% endcomment %}
+
+<div id="product-category" class="container layer-category">
+  <div class="layered-navigation-block"></div>
+  {% comment %} {% include 'breadcrumb' %} {% endcomment %}
+  <div class="row">
+    <div class="col-order">
+      {% if section.settings.show_collection_sidebar == 'left' %}
+        {% include 'collection-sidebar' %}
+      {% endif %}
+
+      <div
+        id="content"
+        class="{% if section.settings.show_collection_sidebar != 'no' %}col-md-9{% else %}col-md-12{% endif %} col-sm-12 col-xs-12"
+      >
+        {% include 'filter-slidebar' %}
+        <div class="has-thumb">
+          {% if section.settings.collection_top != blank %}
+            <div class="thumb category-image">
+              <img
+                src="{{ section.settings.collection_top | img_url: '870x371' }}"
+                alt="{{ collection.title }}"
+                title="{{ collection.title }}"
+                class="img-thumbnail"
+              >
+            </div>
+          {% endif %}
+          <h1 class="category-name" style="margin-top: 0px;">{{ collection.title }}</h1>
+        </div>
+
+        <div class="custom-category">
+          <div id="wraper_ajax" class="loadding_ajaxcart"><i class="fa fa-spinner fa-spin"></i></div>
+          {% case template %}
+            {% when 'collection.10' %}
+              {% assign product_count_per_page = 10 %}
+            {% when 'collection.20' %}
+              {% assign product_count_per_page = 20 %}
+            {% when 'collection.30' %}
+              {% assign product_count_per_page = 30 %}
+            {% when 'collection.all' %}
+              {% assign product_count_per_page = 999 %}
+            {% else %}
+              {% assign product_count_per_page = section.settings.product_count_per_page %}
+          {% endcase %}
+          {% assign totalItems = 0 %}
+          {% paginate collection.products by product_count_per_page %}
+            {% assign totalItems = paginate.items %}
+          {% endpaginate %}
+
+          <div
+            class="toolbar toolbar-products"
+            style="text-align: left;border: 0px; margin-bottom:2px !important"
+            id="mobtool"
+          >
+            <div class="modes">{% include 'collection-views' %}</div>
+            <div class="toolbar-amount">
+              <b>{{ totalItems }}</b>{% include 'collection-amount' %}
+            </div>
+          </div>
+
+          <div class="toolbar toolbar-products" style="margin-bottom: 5px;text-align: left;" id="toolbardiv">
+            <div class="modes" id="deskmode">{% include 'collection-views' %}</div>
+            <div class="toolbar-amount" id="desktoolama">{% include 'collection-amount' %}</div>
+            <div class="sorter" id="sorting-according-to-alphabet">{% include 'collection-sorting' %}</div>
+            <!-- <div class="limiter">{% include 'collection-show-count' %}</div> -->
+
+            <div class="row" id="customsortrow" style="text-align: center;">
+              <div class="col-sm-5 sorter" style="" id="subcatsorterdiv">
+                <label class="" for="input-sort" id="subcat">{{ 'SubCat' }}:</label>
+                <select
+                  class="form-control"
+                  name="input-sort"
+                  style=" width: 70px;"
+                  id="input-sortsubcat"
+                  onchange="checkval1(this.value);"
+                >
+                  <option value="null" selected>Select</option>
+                  {% comment %}
+                    {% for l in linklists.main-menu.links %}
+
+                     {% for subl in l.links %}
+                    <option value={{subl.url}}>{{ subl.title  }}</option>
+                    {%endfor%}
+                    {%endfor%}
+                  {% endcomment %}
+
+                  {% for link in linklists['main-menu'].links %}
+                    {% assign linktitle = link.url | upcase %}
+
+                    {% assign reqPath = reqPath | upcase %}
+
+                    {% if reqPath == linktitle %}
+                      {% assign catbool = true %}
+                      {% assign bool = true %}
+
+                      {% break %}
+                    {% endif %}
+
+                    {% for child_link in link.links %}
+                      {% assign sublinktitle = child_link.url | upcase %}
+
+                      <!--
+                        <a class="a-filter add-filter {% if child_link.active %} active {% endif %}" href="{{child_link.url}}">{{reqPath}} "sss" {{sublinktitle}}</a>
+                      -->
+
+                      {% if sublinktitle contains reqPath %}
+                        {% assign subcatbool = true %}
+                        {% assign bool = true %}
+
+                        {% assign catstr = link.url %}
+
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    <!-- - child_link for - -->
+
+                    {% if bool == true %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                  <!-- - link for - -->
+
+                  <!--
+                    <a class="a-filter add-filter {% if child_link.active %} active {% endif %}" href="{{}}">{{catbool}} {{subcatbool}} {{sublinktitle}}</a>
+                  -->
+                  {% if catbool == true %}
+                    {% for link in linklists['main-menu'].links %}
+                      {% assign linktitle = link.url | upcase %}
+
+                      {% if reqPath contains linktitle %}
+                        {% for child_link in link.links %}
+                          <option value="{{child_link.url}}">{{ child_link.title }}</option>
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+
+                  {% elsif subcatbool == true %}
+                    {% for link in linklists['main-menu'].links %}
+                      {% assign li = catstr | upcase | replace: ' ', '-' %}
+                      {% assign l = link.title | upcase | replace: ' ', '-' %}
+
+                      <!--
+                        <a class="a-filter add-filter {% if child_link.active %} active {% endif %}" href="{{child_link.url}}">{{li}} {{l}}</a>
+                      -->
+
+                      {% if catstr contains link.url %}
+                        {% for child_link in link.links %}
+                          <option value="{{child_link.url}}">{{ child_link.title }}</option>
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                </select>
+              </div>
+
+              <div class="col-sm-5 sorter" style="" id="booktypesorterdiv">
+                <label class="" for="input-sort" id="type-id">{{ 'Type' }}:</label>
+                <select
+                  class="form-control"
+                  name="input-sort"
+                  id="input-booktype"
+                  style=" width: 70px;"
+                  onchange="checkvalss(this.value);"
+                >
+                  <option value="null" selected>Type</option>
+
+                  <div id="filter-group{{forloop.index}}">
+                    {% if template contains 'collection' and collection.all_tags.size > 0 %}
+                      {% comment %}
+                        Provide a 'catch-all' link at the top of the list,
+                        we'd check against the collection.handle, product type, and vendor.
+                      {% endcomment %}
+                      {% if current_tags %}
+                        {% comment %}
+                          Good for /collections/all collection and regular collections
+                        {% endcomment %}
+                        {% if collection.handle %}
+                          <!--
+                            <a href="/collections/{{ collection.handle }}">
+                              {{ 'collections.sidebar.all' | t }}
+                              {% unless collection.title == 'Products' %}
+                              {{ collection.title }} ({{ collection.count }})
+                              {% endunless %}
+                            </a>
+                          -->
+                          {% comment %}
+                            Good for automatic type collections
+                          {% endcomment %}
+                        {% elsif collection.current_type %}
+                          {% comment %}
+                            Good for automatic vendor collections
+                          {% endcomment %}
+                        {% elsif collection.current_vendor %}
+
+                        {% endif %}
+                      {% endif %}
+                      {% comment %}
+                        And for the good stuff, loop through the tags themselves.
+                        Strip the prepended categories if they happen to exist.
+                      {% endcomment %}
+                      {% for tag in collection.all_tags %}
+                        {% assign t = tag %}
+
+                        {% if t contains 'Chapter-wise Q&A'
+                          or t contains 'Chapter-wise Solved Papers'
+                          or t contains 'GuideBook'
+                          or t contains 'Practice Sets'
+                          or t contains 'Solved Papers'
+                          or t contains 'TextBook'
+                        %}
+                          {% assign is_advanced_tag = false %}
+                          {% assign cat = tag | split: '_' | first %}
+                          {% unless cat == tag %}
+                            {% if cat_array contains cat %}
+                              {% assign is_advanced_tag = true %}
+                              {% if current_tags contains tag %}
+                                <span class="active-filter">
+                                  {{ tag | remove_first: cat | remove_first: '_' }}
+                                </span>
+                              {% else %}
+                                <span>
+                                  {{ tag | remove_first: cat | remove_first: '_' | link_to_tag: tag }}
+                                </span>
+                              {% endif %}
+                            {% endif %}
+                          {% endunless %}
+                          {% if is_advanced_tag == false %}
+                            {% if current_tags contains tag %}
+                            {% else %}
+                              {% assign new_url = tag
+                                | link_to_tag: tag
+                                | split: 'href="'
+                                | last
+                                | split: '"'
+                                | first
+                              %}
+
+                              <option value="{{new_url}}">{{ tag | link_to_tag: tag }}</option>
+                            {% endif %}
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+
+                    {% else %}
+                      <p>{{ 'collections.sidebar.no_tags' | t }}</p>
+                    {% endif %}
+                  </div>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" id="custom-products">
+            {% for product in collection.products %}
+              {% if section.settings.show_collection_sidebar != false %}
+                {% include 'product-grid-item-collection' %}
+              {% else %}
+                {% include 'product-grid-item-collection' %}
+              {% endif %}
+            {% else %}
+              <div class="grid-item">
+                <p>{{ 'collections.general.no_matches' | t }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% if collection.description %}
+          <div class="category-des">
+            <p>{{ collection.description }}</p>
+          </div>
+        {% endif %}
+      </div>
+      {% if section.settings.show_collection_sidebar == 'right' %}
+        {% include 'collection-sidebar' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+   "name":"Collection",
+   "settings":[
+      {
+         "type":"text",
+         "id":"product_count_per_page",
+         "label":"Number of products to show",
+         "default":"12"
+      },
+      {
+         "type":"select",
+         "id":"collection_view_default",
+         "label":"Listing View",
+         "options":[
+            {
+               "value":"3",
+               "label":"grid 3"
+            },
+            {
+               "value":"4",
+               "label":"grid 4"
+            },
+            {
+               "value":"5",
+               "label":"grid 5"
+            },
+            {
+               "value":"0",
+               "label":"List"
+            }
+         ],
+         "default":"0"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_summary",
+        "label": "Show Product Summary in list view",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_summary_words",
+        "label": "Words count on summary area",
+        "default": "30"
+      },
+      {
+         "type":"image_picker",
+         "id":"collection_top",
+         "label":"Top image"
+      },
+      {
+         "type":"select",
+         "id":"show_collection_sidebar",
+         "label":"Sidebar position",
+         "options":[
+            {
+               "value":"no",
+               "label":"No Sidebar"
+            },
+            {
+               "value":"left",
+               "label":"Left Sidebar"
+            },
+            {
+               "value":"right",
+               "label":"Right Sidebar"
+            }
+         ],
+         "default":"left"
+      },
+      {
+         "type":"checkbox",
+         "id":"show_sidebar_categories",
+         "label":"Show Sidebar Categories",
+         "default":true
+      },
+      {
+         "type":"text",
+         "id":"category_count",
+         "label":"Categories count on sidebar",
+         "default":"5"
+      },
+      {
+         "type": "link_list",
+         "id": "collection_sidebar_menu",
+         "label": "Sidebar menu"
+      },
+      {
+         "type":"checkbox",
+         "id":"show_sidebar_vendors",
+         "label":"Show Sidebar Vendors/Merchants",
+         "default":true
+      },
+      {
+         "type":"radio",
+         "id":"collection_sidebar_filters",
+         "label":"Sidebar product filters",
+         "options":[
+            {
+               "value":"tags",
+               "label":"By tag"
+            },
+            {
+               "value":"groups",
+               "label":"By group"
+            }
+         ],
+         "default":"groups",
+         "info":"[Learn how to set up filter groups](https:\/\/\/docs.shopify.com\/manual\/more\/official-shopify-themes\/supply#enable-group-filtering)."
+      },
+      {
+         "type":"checkbox",
+         "id":"show_collection_side_image",
+         "label":"Show Sidebar Image",
+         "default":false,
+		 "info": "207x407px recommended"
+      },
+      {
+         "type":"image_picker",
+         "id":"collection_side_image",
+         "label":"Side image"
+      },
+      {
+         "type":"url",
+         "id":"collection_side_link",
+         "label":"Side image link"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_side_listing",
+        "label": "Show Sidebar Listings",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "collection_side_listing_title",
+        "label": "Heading"
+      },
+      {
+        "type": "collection",
+        "id": "collection_side_listing",
+        "label": "Collection to Show"
+      }
+   ],
+   "blocks":[
+
+   ],
+   "presets":[
+
+   ]
+}
+{% endschema %}
+
+<script>
+  function checkval(value){
+
+    var reqp = "{{shop.url}}{{request.path}}";
+
+    alert(reqp);
+
+    if(value.toString().includes("/chapter-wise-solved-papers"))
+    {
+      var aa = reqp.replace("/chapter-wise-solved-papers","");
+      alert(aa);
+      location.href= aa+value;
+      document.getelementbyid("input-sortcat").value = "/chapter-wise-solved-papers";
+    }
+     if(value.toString().includes("/chapter-wise-q-a"))
+    {
+      var aa = reqp.replace("/chapter-wise-q-a","");
+      alert(aa);
+      location.href= aa+value;
+      document.getelementbyid("input-sortcat").value = "/chapter-wise-q-a";
+    }
+    if(value.toString().includes("/guidebook"))
+    {
+      var aa = reqp.replace("/guidebook","");
+      alert(aa+value);
+      location.href= aa+value;
+    }
+    if(value.toString().includes("/practice-sets"))
+    {
+      var aa = reqp.replace("/practice-sets","");
+      alert(aa+value);
+      location.href= aa+value;
+    }
+    if(value.toString().includes("/solved-papers"))
+    {
+      var aa = reqp.replace("/solved-papers","");
+      alert(aa+value);
+      location.href= aa+value;
+    }
+    if(value.toString().includes("/textbook"))
+    {
+      var aa = reqp.replace("/textbook","");
+      alert(aa+value);
+      location.href= aa+value;
+    }
+
+  //            location.href= reqp;
+          //other logic will go here
+
+  }
+
+
+  function checkvalss(value){
+    if(value == "null"){}
+    else{
+       var a ="{{shop.url}}" + value ;
+     window.localStorage.setItem('typeb',value);
+    location.href= a;
+    }
+
+          //other logic will go here
+
+  }
+
+    function checkval1 (val){
+      if(val == "null"){}
+      else{
+            window.localStorage.setItem('subcat',val);
+           location.href= val;
+      }
+    }
+
+    $( document ).ready(function() {
+      var a = window.localStorage.getItem('subcat');
+      $('#input-sortsubcat').val(a);
+
+      var b = window.localStorage.getItem('typeb');
+      $('#input-booktype').val(b);
+
+
+       if ($(window).width() < 480 ) {
+         $('.sorter').addClass('col-sm-6');
+         $('.limiter').addClass('col-sm-6');
+       }
+
+       if ($(window).width() < 820 ) {
+         $('#subcatsorterdiv').removeClass('col-sm-5');
+         $('#booktypesorterdiv').removeClass('col-sm-5');
+       }
+
+       if ($(window).width() < 980 ) {
+         $('.sorter').removeClass('col-sm-6');
+         $('.limiter').removeClass('col-sm-6');
+       }
+
+  });
+</script>
+
+<!--
+  <div id="myModal" class="modal fade" role="dialog" style="z-index: 100000;display: block;margin-top: 200px;">
+    <div class="modal-dialog">
+
+     Modal content
+      <div> <button type="button" class="btn btn-default" data-dismiss="modal" style="margin: 10px;">Close</button></div>
+      <div class="modal-content responsive" style="padding:5px">
+     <a onclick="copy()">
+        <img src="https://cdn.shopify.com/s/files/1/2707/1762/files/0_2_4d4e8e96-e120-44ff-a2b6-ce4c876bd097.jpg?v=1673079170" >
+
+     </a>
+      </div>
+
+    </div>
+  </div>
+-->
+
+<script type="text/javascript">
+  // function copy() {
+
+  //    navigator.clipboard.writeText("PREP23");
+  //   alert("Coupon Coiped");
+
+
+  // }
+
+
+    window.onload = function () {
+        console.log("sss");
+        if( sessionStorage.getItem("popupKey")== null)
+    {
+       sessionStorage.setItem("popupKey", "true");
+      // $("#myModal").modal('show');
+    }
+    else
+    {
+      $("#myModal").remove();
+    }
+              // OpenBootstrapPopup();
+      };
+  function OpenBootstrapPopup() {
+
+        // <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  }
+
+    document.addEventListener("DOMContentLoaded", function(){
+      let dropdown = document.getElementById("input-sortsubcat");
+      let myVal = "null";
+      console.log("here"+dropdown.value);
+      for (var i = 0; i < dropdown.options.length; i++) {
+        console.log(dropdown.options[i].value);
+        if (dropdown.options[i].value === myVal) {
+          dropdown.options[i].selected = true;
+          break;
+        }
+      }
+
+    });
+
+    document.addEventListener("DOMContentLoaded", function(){
+      let dropdown = document.getElementById("input-booktype");
+      let myVal = "null";
+      console.log("here"+dropdown.value);
+      for (var i = 0; i < dropdown.options.length; i++) {
+        console.log(dropdown.options[i].value);
+        if (dropdown.options[i].value === myVal) {
+          dropdown.options[i].selected = true;
+          break;
+        }
+      }
+
+    });
+</script>

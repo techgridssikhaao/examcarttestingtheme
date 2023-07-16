@@ -1,0 +1,213 @@
+{{ 'filter-slidebar.css' | asset_url | stylesheet_tag }}
+
+<div id="mySidenav" class="sidenav">
+  <div class="parent-container">
+    <a href="javascript:void(1)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <div class="container-sidebar">
+      <label for="Category" class="labelCat">Category:</label>
+
+      <select name="Category" id="Category" class="selectOption">
+        <option>{{ collection.title }}</option>
+      </select>
+    </div>
+    <br>
+    <div class="container-sidebar">
+      <label for="Category" class="labelCat">Sub Category:</label>
+
+      <select name="Category" id="Category" class="selectOption" onchange="checkval1(this.value);">
+        <!-- Sub category started -->
+        <option value="null">Sub Category</option>
+        {% for link in linklists['main-menu'].links %}
+          {% assign linktitle = link.url | upcase %}
+
+          {% assign reqPath = reqPath | upcase %}
+
+          {% if reqPath == linktitle %}
+            {% assign catbool = true %}
+            {% assign bool = true %}
+
+            {% break %}
+          {% endif %}
+
+          {% for child_link in link.links %}
+            {% assign sublinktitle = child_link.url | upcase %}
+
+            <!--
+              <a class="a-filter add-filter {% if child_link.active %} active {% endif %}" href="{{child_link.url}}">{{reqPath}} "sss" {{sublinktitle}}</a>
+            -->
+
+            {% if sublinktitle contains reqPath %}
+              {% assign subcatbool = true %}
+              {% assign bool = true %}
+
+              {% assign catstr = link.url %}
+
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <!-- - child_link for - -->
+
+          {% if bool == true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        <!-- - link for - -->
+
+        <!--
+          <a class="a-filter add-filter {% if child_link.active %} active {% endif %}" href="{{}}">{{catbool}} {{subcatbool}} {{sublinktitle}}</a>
+        -->
+        {% if catbool == true %}
+          {% for link in linklists['main-menu'].links %}
+            {% assign linktitle = link.url | upcase %}
+
+            {% if reqPath contains linktitle %}
+              {% for child_link in link.links %}
+                <option value="{{child_link.url}}">{{ child_link.title }}</option>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+
+        {% elsif subcatbool == true %}
+          {% for link in linklists['main-menu'].links %}
+            {% assign li = catstr | upcase | replace: ' ', '-' %}
+            {% assign l = link.title | upcase | replace: ' ', '-' %}
+
+            <!--
+              <a class="a-filter add-filter {% if child_link.active %} active {% endif %}" href="{{child_link.url}}">{{li}} {{l}}</a>
+            -->
+            {% assign asr = 0 %}
+            {% if catstr contains link.url %}
+              {% for child_link in link.links %}
+                {% if asr == 0 %}
+                  <option value="{{child_link.url}}">{{ child_link.title }}</option>
+                  {% assign asr = asr | plus: 1 %}
+                {% else %}
+                  <option value="{{child_link.url}}">{{ child_link.title }}</option>
+                  {% assign asr = asr | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        <!-- sub category  end -->
+      </select>
+    </div>
+    <br>
+
+    <!--
+      <div class="container-sidebar">
+        <label for="type">Type:</label>
+
+        <select name="type" id="type" onchange="checkvalss(this.value);">
+          <option value="null">Type</option>
+          {% if template contains 'collection' and collection.all_tags.size > 0 %}
+            {% comment %}
+              Provide a 'catch-all' link at the top of the list,
+              we'd check against the collection.handle, product type, and vendor.
+            {% endcomment %}
+            {% if current_tags %}
+              {% comment %}
+                Good for /collections/all collection and regular collections
+              {% endcomment %}
+              {% if collection.handle %}
+                <a href="/collections/{{ collection.handle }}">
+                  {{ 'collections.sidebar.all' | t }}
+                  {% unless collection.title == 'Products' %}
+                    {{ collection.title }} ({{ collection.count }})
+                  {% endunless %}
+                </a>
+
+                {% comment %}
+                  Good for automatic type collections
+                {% endcomment %}
+              {% elsif collection.current_type %}
+                {% comment %}
+                  Good for automatic vendor collections
+                {% endcomment %}
+              {% elsif collection.current_vendor %}
+
+              {% endif %}
+            {% endif %}
+            {% comment %}
+              And for the good stuff, loop through the tags themselves.
+              Strip the prepended categories if they happen to exist.
+            {% endcomment %}
+            {% for tag in collection.all_tags %}
+              {% assign t = tag %}
+
+              {% if t contains 'Chapter-wise Q&A'
+                or t contains 'Chapter-wise Solved Papers'
+                or t contains 'GuideBook'
+                or t contains 'Practice Sets'
+                or t contains 'Solved Papers'
+                or t contains 'TextBook'
+              %}
+                {% assign is_advanced_tag = false %}
+                {% assign cat = tag | split: '_' | first %}
+                {% unless cat == tag %}
+                  {% if cat_array contains cat %}
+                    {% assign is_advanced_tag = true %}
+                    {% if current_tags contains tag %}
+                      <span class="active-filter">
+                        {{ tag | remove_first: cat | remove_first: '_' }}
+                      </span>
+                    {% else %}
+                      <span>
+                        {{ tag | remove_first: cat | remove_first: '_' | link_to_tag: tag }}
+                      </span>
+                    {% endif %}
+                  {% endif %}
+                {% endunless %}
+                {% if is_advanced_tag == false %}
+                  {% if current_tags contains tag %}
+                  {% else %}
+                    {% assign new_url = tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first %}
+
+                    <option value="{{new_url}}">{{ tag | link_to_tag: tag }}</option>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+          {% else %}
+
+          {% endif %}
+        </select>
+      </div>
+    -->
+  </div>
+</div>
+<button id="togglee" class="btn" onclick="openNav()"><i class="fa fa-filter"></i> Filter</button>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "90%";
+    document.getElementById('togglee').style.display = 'none';
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("togglee").style.display = "block";
+  }
+
+    function checkval1 (val){
+      if(val == "null"){
+
+      }
+      else{
+            window.localStorage.setItem('subcat',val);
+     location.href= val;
+      }
+    }
+
+    function checkvalss(value){
+    if(value == "null"){
+
+    }else{
+      var a ="{{shop.url}}" + value ;
+     window.localStorage.setItem('typeb',value);
+    location.href= a;
+    }
+  }
+</script>

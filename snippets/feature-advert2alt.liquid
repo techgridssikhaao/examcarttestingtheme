@@ -1,0 +1,37 @@
+<div class="banner-static static-middle-smartbooks1">
+  <div class="inner">
+    {% if section.blocks.size > 0 %}
+    {% for block in section.blocks limit:2 %}
+    <div class="col col{{forloop.index}}">
+      <div class="image">
+        {% if block.settings.link != blank %}          
+        <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+          {% endif %}
+          {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: 'master' }}" class="" alt=""/>
+          {% endif %}
+          {% if block.settings.link != blank %}          
+        </a>
+        {% endif %}
+        <div class="text text-{{ block.settings.ad_align }}" style="text-align:{{ block.settings.ad_align }}">
+          {% if block.settings.sale_heading != blank %} 
+          <p>{{ block.settings.sale_heading }}</p>
+          {% endif %}
+          {% if block.settings.heading != blank %} 
+          <h4 style="color:{{ block.settings.heading_color }}">{{ block.settings.heading }}</h4>
+          {% endif %}
+          {% if block.settings.description != blank %} 
+          <p style="color:{{ block.settings.description_color }}">{{ block.settings.description }}</p>
+          {% endif %}
+          {% if block.settings.link != blank %} 
+          <a class="" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+            {{ block.settings.link_text }}
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>

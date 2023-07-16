@@ -1,0 +1,405 @@
+<style>
+      .parent-newsletter{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          margin-top: -9rem;
+      }
+      .child-newsletter{
+          display: flex;
+          font-family: Arial, Helvetica, sans-serif;
+          align-items: center;
+          flex-direction: column;
+          background-color: rgb(236, 233, 233);
+          height: 55rem;
+          padding: 1.5rem;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      .top-div-newsletter{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+      }
+      .middle-div-newsletter{
+          display: flex;
+          justify-content: center;
+          margin-top: 1rem;
+
+          margin-bottom: 1rem;
+          width: 100%;
+      }
+      .otp-design-newsletter{
+
+      }
+      .otp-design-newsletter-image{
+          width: 13.7rem;
+
+      }
+     .otp-design-newsletter-image img{
+      height: 13rem;
+    }
+      .mockup-image{
+              display: block;
+              max-width: 100%;
+              mix-blend-mode: multiply;
+              max-height: 100%;
+          }
+      .download-txt-head{
+          font-size: 2rem;
+
+      }
+      .free-txt{
+          font-weight: 900;
+          color: green;
+      }
+      .current-affairs-txt{
+          font-size: 1.5rem;
+          font-weight: 900;
+      }
+      .verify-txt{
+          display: none;
+          margin-top: 2rem;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+      }
+      .download-para-txt{
+          font-size: 1rem;
+      }
+      .enter-mobile-number{
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+      }
+      .input-field-newsletter{
+          height: 1.9rem;
+          width: 15rem;
+          margin-top: .5rem;
+          margin-bottom: 1.5rem;
+          border: none;
+      }
+      .get-otp-btn-div{
+          width: 75%;
+          text-align: center;
+      }
+      .get-btn {
+    align-items: center;
+    appearance: none;
+    background-color: #fff;
+    border-radius: 24px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-sizing: border-box;
+    color: #3c4043;
+    cursor: pointer;
+    display: inline-flex;
+    fill: currentcolor;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    height: 32px;
+    justify-content: center;
+    letter-spacing: .25px;
+    line-height: normal;
+    max-width: 100%;
+    overflow: visible;
+    padding: 2px 24px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 9rem;
+    will-change: transform,opacity;
+    z-index: 0;
+  }
+
+  .get-btn:hover {
+    background: #F6F9FE;
+    color: #174ea6;
+  }
+
+  .get-btn:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+    outline: none;
+  }
+
+  .get-btn:focus {
+    outline: none;
+    border: 2px solid #4285f4;
+  }
+
+  .get-btn:not(:disabled) {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  }
+
+  .get-btn:not(:disabled):hover {
+    box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+  }
+
+  .get-btn:not(:disabled):focus {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  }
+
+  .get-btn:not(:disabled):active {
+    box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+  }
+
+  .get-btn:disabled {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  }
+      .verify-otp{
+
+      }
+      .otp-input-field{
+          margin-top: .5rem;
+          height: 1.9rem;
+          width: 15rem;
+          margin-bottom: .5rem;
+          border: none;
+      }
+      .dont-receive-otp{
+          font-size: .9rem;
+      }
+      .resend-otp-btn{
+          color: green;
+      }
+      .download-pdf-btn-newsletter{
+          margin-top: 3rem;
+          width: 15rem;
+          height: 3rem;
+          border: 1px solid;
+          border-radius: 2rem;
+          color: white;
+          background-color: black;
+          cursor: pointer;
+      }
+      .download-pdf-txt{
+         display: flex;
+         justify-content: center;
+         flex-direction: column-reverse;
+      }
+      .exlogo-image{
+          height: 4rem;
+
+      }
+      .cross{
+          vertical-align: top;
+          cursor: pointer;
+      }
+      svg{
+          height: 1rem;
+          width: 1rem;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+    .wrong-otp{
+      display: none;
+      color: red;
+      text-align: center;
+
+    }
+</style>
+
+<div class="parent-newsletter" id="parent-newsletter">
+  <div class="child-newsletter">
+    <div class="top-div-newsletter">
+      <div class="examcart-logo-img">
+        <img src="{{ 'Exlogo.jpg' | asset_url }}" alt="logo" class="exlogo-image">
+      </div>
+      <div
+        class="cross"
+        class="cross"
+        onclick="closeModal()"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#x274C;
+      </div>
+    </div>
+
+    <div class="middle-div-newsletter">
+      <div class="otp-design-newsletter">
+        <span class="download-txt-head">Download for <span class="free-txt">FREE</span></span>
+        <br>
+        <span class="current-affairs-txt">Current Affairs E-Book</span>
+        <div class="verify-txt" id="verify-txt">Verify your number</div>
+        <div class="download-para-txt">Download July 2023 monthly current</div>
+        <div class="download-para-txt">affairs e-book for all competitive exams.</div>
+        <br>
+        <label class="enter-mobile-number">Enter Mobile Number</label>
+        <br>
+        <input type="number" class="input-field-newsletter" onkeyup="validate()" id="number">
+        <br>
+        <div class="get-otp-btn-div">
+          <button class="get-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+        </div>
+        <br>
+        <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
+        <label for="Verify" class="verify-otp">Verify OTP</label>
+        <br>
+        <input type="number" class="otp-input-field" id="otp1">
+        <div class="dont-receive-otp">
+          Didn't you receive the OTP?
+          <span class="resend-otp-btn" onclick="resendOtp()" style="cursor: pointer;">Resend OTP</span>
+        </div>
+      </div>
+      <div class="otp-design-newsletter-image">
+        <img src="{{ 'Mockup.jpg' | asset_url }}" alt="image" class="mockup-image">
+      </div>
+    </div>
+
+    <div class="lower-div-newsletter">
+      <button class="download-pdf-btn-newsletter get-btn">
+        <span class="download-pdf-txt cross" onclick="downloadBtn()">Download PDF </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      let serverOtp = '';
+  otpMaker = () =>{
+     serverOtp = Math.floor(Math.random() * 9000 + 1000);
+  }
+  otpMaker();
+       let getResponse = {};
+  
+      let phoneNumber = "";
+  
+      otpSend = () => {
+        otpMaker();
+        document.getElementById('verify-txt').style.display = "block";
+          phoneNumber = document.getElementById("number").value;
+          
+         fun();
+      }
+      validate = () =>{
+        const myInput = document.querySelector('#number');
+        if(myInput.value.length == 10) {
+            document.getElementById("otp-btn").disabled = false;
+          document.getElementById("otp-btn").style.opacity = "1";
+        }
+        else{
+           document.getElementById("otp-btn").disabled = true;
+           document.getElementById("otp-btn").style.opacity = "0.5";
+        }
+      }
+
+      async function fun(){
+        let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
+       fetch(url).then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+
+
+  
+
+    downloadBtn = () =>{
+        let otpInput1 = document.getElementById('otp1').value;
+        let finalOtp = otpInput1.toString() 
+        let parseOtp = parseInt(finalOtp);
+        if(parseOtp == serverOtp){
+          alert("success");
+          localStorage.setItem("newsletterkey", phoneNumber);
+            clearAllForm();
+        }
+        else{
+          
+          document.getElementById('wrong-otp-txt').style.display = "block";
+        }
+    }
+
+
+clearAllForm = () => {
+   let otpInput1 = document.getElementById('otp1').value;
+  otpInput1 = "";
+  document.getElementById('number').value = ""; 
+}
+closeModal = () =>{
+  clearTimeout(idSetTimeOut);
+  clearAllForm();
+  document.getElementById('myModal1').style.display = 'none';
+  
+}
+resendOtp = () =>{
+    otpMaker();
+    otpSend();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

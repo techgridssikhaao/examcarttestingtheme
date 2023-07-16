@@ -1,0 +1,19 @@
+<!--Service Area Start-->
+<div class="policy-block">
+  <div class="inner">
+    {% if section.blocks.size > 0 %}
+    {% for block in section.blocks limit:4 %}
+    <div class="col">
+      <div class="box">
+        <i class="fa {{block.settings.feature_service_icon }}"></i>
+        <div class="text">
+          <h4>{{ block.settings.feature_service_title }}</h4>
+          <p>{{ block.settings.feature_service_description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>
+<!--End of Service Area-->

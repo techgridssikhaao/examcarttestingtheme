@@ -1,0 +1,74 @@
+{{ 'modal-css.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .modal-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .modal-child-container{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 520px;
+    width: 450px;
+  }
+  .modal-iframe-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #myiframe{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  @media screen and (max-width: 500){
+    .modal-child-container{
+      height: 520px;
+    }
+    #myiframe{
+      width: 50%;
+      height: 50%;
+    }
+  }
+</style>
+<div class="w3-container ">
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+
+  <div id="id01" class="w3-modal modal-main-container">
+    <div class="w3-modal-content modal-child-container">
+      <div class="w3-container modal-iframe-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright"
+          >&times;</span
+        >
+        <iframe id="myiframe" src="" height="450" width="300"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+   var modal = document.getElementById("myModal");
+
+
+   var btn = document.getElementById("modal-pdf-btn");
+
+
+   var span = document.getElementsByClassName("close-cross")[0];
+
+
+  function openModalPdf() {
+     modal.style.display = "block";
+   }
+
+
+   span.onclick = function() {
+     modal.style.display = "none";
+   }
+
+
+   window.onclick = function(event) {
+     if (event.target == modal) {
+       modal.style.display = "none";
+     }
+   }
+</script>

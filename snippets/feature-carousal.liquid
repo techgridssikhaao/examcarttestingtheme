@@ -1,0 +1,120 @@
+<style>
+  .owl-carousel .owl-stage-outer{
+    overflow:visible;
+  }
+</style>
+
+{% assign product_collection = section.settings.collection %}
+<div
+  class="tt_product_module tabs-category-slider {% if section.settings.no_of_products == 3 %} large-product {% endif %} {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}"
+  id="product_module{{section.id}}"
+>
+  <div class="module-title">
+    {% if section.settings.heading != blank %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="box-tab">
+      <ul class="tab-heading tabs-categorys">
+        <li>
+          <a data-toggle="pill" href="#tab-{{section.id}}0">
+            <span>{{ section.settings.heading }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="box-style">
+    <div class="owl-container">
+      <div class="tt-product ">
+        <div class="tab-content">
+          <div
+            class="tab-container-{{section.id}}  owl-carousel owl-theme  tab-pane tab-product-container  fade "
+            id="tab-{{section.id}}0"
+          >
+            {% if section.settings.listing_rows == 1 %}
+              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+                <div class="row_items {% cycle 'odd','even' %}">
+                  {% include 'product-grid-item' %}
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="row_items {% cycle 'odd','even' %}">
+                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+                  {% include 'product-grid-item' %}
+                  {% if forloop.last == false %}
+                    {% cycle '', '</div><div class="row_items">' %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<script>
+  $(document).ready(function() {
+    $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+      $(".tab-container-{{section.id}}").owlCarousel({
+      items: {{ section.settings.no_of_products }},
+      loop:  false ,
+      margin:  0 ,
+      nav:  false ,
+      dots:  true ,
+      autoplay:   false ,
+      autoplayTimeout:  1000 ,
+      autoplayHoverPause: true,
+      autoplaySpeed:  1000 ,
+      navSpeed:  1000 ,
+      dotsSpeed:  1000 ,
+      lazyLoad: true,
+      responsive:{
+      0:{
+      items: 1,
+      nav: true
+      },
+      480:{
+      items: 2,
+      nav: true
+      },
+      768:{
+      items: 3
+      },
+      992:{
+      items: 4
+      },
+      1200:{
+      items: {{ section.settings.no_of_products }}
+      },
+      1600:{
+      items: {{ section.settings.no_of_products }}
+      }
+      },
+      onInitialized: function() {
+      var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                    if(count == 1) {
+        $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+          $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+          } else {
+          $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+          $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+          }
+          },
+          onTranslated: function() {
+          var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                        if(count == 1) {
+            $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+              $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+              } else {
+              $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+              $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+              }
+              }
+              });
+
+
+          });
+</script>

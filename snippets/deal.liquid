@@ -1,0 +1,17 @@
+{% if product.description contains "[deal]" and settings.hide_deal != true %}
+<div class="box-countdown">
+  <div class="inner">
+    <p class="text-hurryup">Ends in:</p>
+    <div id="Countdown{{product.id}}-{{section.id}}" class="box-timer cc {% if section.settings.product_grid_img_carousel == true %} grid_img_carousel {%endif %}"></div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function () {
+    $('#Countdown{{product.id}}-{{section.id}}').countdown({
+      until: new Date('{{ product.description | split:'[deal]' | last | split :'[/deal]' | first }}'),
+      labels: ['years', 'months ', 'weeks', 'days', 'hours', 'mins', 'secs'],
+      labels1: ['years', 'months ', 'weeks', 'days', 'hours', 'mins', 'secs'],
+      });
+  });
+</script>
+{% endif %}

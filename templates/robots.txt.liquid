@@ -1,0 +1,46 @@
+# we use Shopify as our ecommerce platform
+{%- comment -%}
+# Caution! Please read https://help.shopify.com/en/manual/promoting-marketing/seo/editing-robots-txt before proceeding to make changes to this file.
+{% endcomment %}
+{% for group in robots.default_groups %}
+  {{- group.user_agent -}}
+
+  {% for rule in group.rules %}
+    {{- rule -}}
+  {% endfor %}
+
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}
+
+User-agent: *
+Disallow: /*?page=*$
+Disallow: /*.atom$
+Disallow: /pages/affiliate-program
+Disallow: /pages/buildify-home-page-handle
+Disallow: /pages/copy-of-ede
+Disallow: /pages/dashboard
+Disallow: /pages/demo
+Disallow: /pages/digital-sales-manager-publication-house
+Disallow: /pages/ede
+Disallow: /pages/ffff
+Disallow: /pages/forgot-password
+Disallow: /pages/frequently-asked-questions-faqs
+Disallow: /pages/mp-vyapam
+Disallow: /pages/new-page
+Disallow: /pages/online-courses
+Disallow: /pages/order-status
+Disallow: /pages/order-tracking-form
+Disallow: /pages/product-lookup-preview
+Disallow: /pages/sample-page
+Disallow: /pages/search-result-data
+Disallow: /pages/search-results
+Disallow: /pages/send-instantly-the-perfect-gift
+Disallow: /pages/subject-wise-smart-preparation-tips-tricks-to-crack-reet-level-1-exam-2021
+Disallow: /pages/test
+Disallow: /pages/track-order
+Disallow: /pages/track-your-order-1
+Disallow: /pages/uptet-exam-2021-notification-date-application-eligibility-updated-pattern-syllabus
+Disallow: /wpm@
+Disallow: /*?view=*$
