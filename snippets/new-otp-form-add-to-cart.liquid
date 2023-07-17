@@ -221,7 +221,7 @@
 <div class="parent-div" id="otp-form-add-to-cat">
   <div class="child-div" id="child-div-add-to-cat">
     <div class="top-div">
-      <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+      <img class="popuplogo" loading="lazy" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
       <!--
         <span
           class="cross"
@@ -275,6 +275,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -415,6 +416,7 @@ closeModalAddToCat = () =>{
   document.getElementById('myModal2').style.display = 'none';
   
 }
+
 
 
 
