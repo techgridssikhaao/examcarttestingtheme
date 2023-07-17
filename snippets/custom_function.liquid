@@ -1,6 +1,11 @@
 <script>
   
   
+  
+  
+
+  // JavaScript code goes here
+
 let serverOtpBuy = '';
 otpMakerBuy = () => {
   serverOtpBuy = Math.floor(Math.random() * 900000 + 100000);
@@ -26,15 +31,14 @@ function otpSendBuy() {
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`)
 }
 
-function validateBuy(btn_id) {
-  
+function validateBuy() {
   const myInput = document.querySelector("#number-buy");
   if (myInput.value.length == 10) {
-    document.getElementById(btn_id).disabled = false;
-    document.getElementById(btn_id).style.opacity = "1";
+    document.getElementById("otp-btn-buy").disabled = false;
+    document.getElementById("otp-btn-buy").style.opacity = "1";
   } else {
-    document.getElementById(btn_id).disabled = true;
-    document.getElementById(btn_id).style.opacity = "0.5";
+    document.getElementById("otp-btn-buy").disabled = true;
+    document.getElementById("otp-btn-buy").style.opacity = "0.5";
   }
 }
 
@@ -103,12 +107,21 @@ downloadBtnBuy = () => {
   let parseOtp = parseInt(finalOtp);
   if (parseOtp == serverOtpBuy) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
-    clearAllFormBuy();
+    // clearAllFormBuy();
+  document.getElementById("LoginPopUp").style.display = "none";
+ window.location.reload();
+
+    
   } else {
     alert("fail");
   }
 };
 
+
+  function loginPopUp(){
+  $("#LoginPopUp").modal('show');
+   }
+  
 openModalBuy = () => {
   document.getElementById("otp-form-buy").style.display = "block";
 };
@@ -135,6 +148,10 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
-  
+
+
+
+
+
 
 </script>
