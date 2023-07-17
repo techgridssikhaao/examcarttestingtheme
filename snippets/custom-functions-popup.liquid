@@ -10,6 +10,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -134,6 +135,70 @@ switch (popupId) {
   }
 };
 
+
+
+<div
+            class="modal fade"
+            id="myModal2"
+            data-backdrop="static"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+              <div id="mod">
+                <div class="parent-div" id="otp-form-add-to-cat">
+  <div class="child-div" id="child-div-add-to-cat">
+    <div class="top-div">
+      <img class="popuplogo" loading="lazy" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+
+      <div class="head-one">Get Free Access to</div>
+      <div class="head-two">Latest Current Affairs<span class="head-three">E-book!</span></div>
+      <p class="para">We will send you one time password to your mobile number.</p>
+    </div>
+    <div class="middle-div" id="middle-div-add-to-cat">
+      <input
+        type="number"
+        id="number-add-to-cat"
+        class="number-field"
+        placeholder="Enter Mobile Number"
+        onkeyup="validateAddToCat()"
+        required
+      >
+      <br>
+      <button class="otp-btn" id="otp-btn-add-to-cat" onclick="otpSendAddToCat()" disabled>Get OTP</button>
+    </div>
+    <div class="last-div" id="last-div-add-to-cat" style="display: none;">
+      <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-add-to-cat"></span></p>
+      <br>
+      <div class="otp-parent">
+        <input class="otp otp-form" type="number" id="otp1-add-to-cat">
+        <input class="otp otp-form" type="number" id="otp2-add-to-cat" disabled>
+        <input class="otp otp-form" type="number" id="otp3-add-to-cat" disabled>
+        <input class="otp otp-form" type="number" id="otp4-add-to-cat" disabled>
+        <input class="otp otp-form" type="number" id="otp5-add-to-cat" disabled>
+        <input class="otp otp-form" type="number" id="otp6-add-to-cat" disabled>
+      </div>
+      <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
+      <br>
+      <button
+        class="otp-btn download-btn"
+        id="download-btn-add-to-cat"
+        onclick="downloadBtnAddToCat()"
+        style="opacity: 1;"
+      >
+        Verify OTP<span id="download-icon-add-to-cat"><i class="bi bi-arrow-down-circle"></i></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+          </div>
+
+
   
 // const inputsBuy = document.querySelectorAll(".otp-form"),
   
@@ -202,6 +267,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
