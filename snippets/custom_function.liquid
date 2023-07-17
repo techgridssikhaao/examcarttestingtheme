@@ -5,6 +5,7 @@
   
   
   
+  
 
   // JavaScript code goes here
 
@@ -33,7 +34,7 @@ function otpSendBuy() {
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`)
 }
 
-function validateBuy(ref) {
+function validateLength(ref) {
   const myInput = document.querySelector("#number-buy");
   if (myInput.value.length == 10) {
     document.getElementById(ref).disabled = false;
@@ -150,6 +151,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
