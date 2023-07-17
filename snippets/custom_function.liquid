@@ -11,6 +11,8 @@
   
   
   
+  
+  
 
   // JavaScript code goes here
   
@@ -45,14 +47,14 @@ function randomOtp(){
 
 
 
-function sendOtp() {
+function sendOtp(phoneNumberId,showPhoneNumber) {
   
   randomOtp();
-  phoneNumberBuy = document.getElementById("number-buy").value;
+  phoneNumber = document.getElementById(phoneNumberId).value;
   middleDivBuy.classList.add("animate-one");
   lastDivBuy.classList.add("animate-two");
   childdivBuy.classList.add("child-div-increase");
-  document.getElementById("phone-number-buy").innerHTML = phoneNumberBuy;
+  document.getElementById(showPhoneNumber).innerHTML = phoneNumber;
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`)
   
 }
@@ -108,7 +110,7 @@ function hidePopup(popupId){
 
 // window.addEventListener("load", () => inputsBuy[0].focus());
 
-function verifyOtp (onPressTasks) {
+function verifyOtp (popupId,onPressTasks,) {
   let otpInput1 = document.getElementById("otp1-buy").value;
   let otpInput2 = document.getElementById("otp2-buy").value;
   let otpInput3 = document.getElementById("otp3-buy").value;
@@ -120,10 +122,12 @@ function verifyOtp (onPressTasks) {
   if (parseOtp == otp) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
     // clearAllFormBuy();
- 
-     $("#LoginPopUp").modal('hide');
-      window.location.reload();
 
+
+    hidePopup(popupId);
+     // $("#LoginPopUp").modal('hide');
+      window.location.reload();
+       
     
   } else {
     alert("fail");
@@ -159,6 +163,8 @@ function verifyOtp (onPressTasks) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
+
 
 
 
