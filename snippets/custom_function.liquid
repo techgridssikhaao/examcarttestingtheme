@@ -3,6 +3,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -49,41 +50,44 @@ function sendOtp() {
   
 }
 
-
-
-const inputsBuy = document.querySelectorAll(".otp-form"),
+function loginPopUp(){
+  $("#LoginPopUp").modal('show');
+   }
   
- const buttonBuy = document.querySelector("#otp-btn-buy");
 
-inputsBuy.forEach((input, index1) => {
-  input.addEventListener("keyup", (e) => {
-    const currentInput = input,
-      nextInput = input.nextElementSibling,
-      prevInput = input.previousElementSibling;
-    if (currentInput.value.length > 1) {
-      currentInput.value = "";
-      return;
-    }
-    if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
-      nextInput.removeAttribute("disabled");
-      nextInput.focus();
-    }
-    if (e.key === "Backspace") {
-      inputsBuy.forEach((input, index2) => {
-        if (index1 <= index2 && prevInput) {
-          input.setAttribute("disabled", true);
-          input.value = "";
-          prevInput.focus();
-        }
-      });
-    }
-    if (!inputsBuy[3].disabled && inputsBuy[3].value !== "") {
-      buttonBuy.classList.add("active");
-      return;
-    }
-    buttonBuy.classList.remove("active");
-  });
-});
+// const inputsBuy = document.querySelectorAll(".otp-form"),
+  
+//  const buttonBuy = document.querySelector("#otp-btn-buy");
+
+// inputsBuy.forEach((input, index1) => {
+//   input.addEventListener("keyup", (e) => {
+//     const currentInput = input,
+//       nextInput = input.nextElementSibling,
+//       prevInput = input.previousElementSibling;
+//     if (currentInput.value.length > 1) {
+//       currentInput.value = "";
+//       return;
+//     }
+//     if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+//       nextInput.removeAttribute("disabled");
+//       nextInput.focus();
+//     }
+//     if (e.key === "Backspace") {
+//       inputsBuy.forEach((input, index2) => {
+//         if (index1 <= index2 && prevInput) {
+//           input.setAttribute("disabled", true);
+//           input.value = "";
+//           prevInput.focus();
+//         }
+//       });
+//     }
+//     if (!inputsBuy[3].disabled && inputsBuy[3].value !== "") {
+//       buttonBuy.classList.add("active");
+//       return;
+//     }
+//     buttonBuy.classList.remove("active");
+//   });
+// });
 
 window.addEventListener("load", () => inputsBuy[0].focus());
 
@@ -110,9 +114,6 @@ downloadBtnBuy = () => {
 };
 
 
-  function loginPopUp(){
-  $("#LoginPopUp").modal('show');
-   }
   
 // openModalBuy = () => {
 //   document.getElementById("otp-form-buy").style.display = "block";
@@ -141,6 +142,7 @@ downloadBtnBuy = () => {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
