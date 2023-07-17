@@ -1,10 +1,5 @@
 <script>
   
-  
-  
-  
-  
-  
 
   // JavaScript code goes here
   
@@ -52,25 +47,6 @@ function sendOtp() {
 }
 
 
-
-
-async function funBuy() {
-  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`)
-
-  {% comment %} let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`;
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    }); {% endcomment %}
-}
 
 const inputsBuy = document.querySelectorAll(".otp-form"),
   buttonBuy = document.querySelector("#otp-btn-buy");
@@ -160,6 +136,8 @@ clearAllFormBuy = () => {
   document.getElementById("LoginPopUp").style.display = "none";
   
 };
+
+
 
 
 
