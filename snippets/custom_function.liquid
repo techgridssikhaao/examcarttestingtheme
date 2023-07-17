@@ -2,6 +2,7 @@
   
   
   
+  
   let serverOtp = '';
   
 
@@ -21,18 +22,11 @@ function validateLength(ref) {
   }
 }
 
-
-
-
-
-  
-
-
-  
 otpMakerBuy = () => {
 
- serverOtp = Math.floor(100000 + Math.random() * 900000);
-  console.log(serverOtpBuy);
+    serverOtp = Math.floor(100000 + Math.random() * 900000);
+    console.log(serverOtpBuy);
+  
 };
 
 
@@ -162,6 +156,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
