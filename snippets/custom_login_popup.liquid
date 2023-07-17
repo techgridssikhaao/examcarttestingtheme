@@ -282,6 +282,7 @@
 <script>
   
   
+  
   // JavaScript code goes here
 
 let serverOtpBuy = '';
@@ -391,6 +392,11 @@ downloadBtnBuy = () => {
   }
 };
 
+
+  function loginPopUp(){
+  $("#LoginPopUp").modal('show');
+   }
+  
 openModalBuy = () => {
   document.getElementById("otp-form-buy").style.display = "block";
 };
@@ -417,6 +423,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 </script>
