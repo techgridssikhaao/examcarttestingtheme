@@ -4,6 +4,7 @@
   
   
   
+  
 
   // JavaScript code goes here
 
@@ -32,14 +33,14 @@ function otpSendBuy() {
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`)
 }
 
-function validateBuy() {
+function validateBuy(ref) {
   const myInput = document.querySelector("#number-buy");
   if (myInput.value.length == 10) {
-    document.getElementById("otp-btn-buy").disabled = false;
-    document.getElementById("otp-btn-buy").style.opacity = "1";
+    document.getElementById(ref).disabled = false;
+    document.getElementById(ref).style.opacity = "1";
   } else {
-    document.getElementById("otp-btn-buy").disabled = true;
-    document.getElementById("otp-btn-buy").style.opacity = "0.5";
+    document.getElementById(ref).disabled = true;
+    document.getElementById(ref).style.opacity = "0.5";
   }
 }
 
@@ -149,6 +150,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
