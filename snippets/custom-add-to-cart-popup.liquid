@@ -281,6 +281,7 @@
   
   
   
+  
   let serverOtpAddToCat = '';
   otpMakerAddToCat = () =>{
      serverOtpAddToCat = Math.floor(Math.random() * 900000 + 100000);
@@ -383,41 +384,7 @@
         }
     }
 
-openModalAddToCat = () =>{
-    
-    document.getElementById("otp-form").style.display = "block";
- 
-    
-}
 
-clearAllFormAddToCat = () => {
-
-   let otpInput1 = document.getElementById('otp1-add-to-cat').value;
-  let otpInput2 = document.getElementById('otp2-add-to-cat').value;
-  let otpInput3 = document.getElementById('otp3-add-to-cat').value;
-  let otpInput4 = document.getElementById('otp4-add-to-cat').value;
-  let otpInput5 = document.getElementById('otp5-add-to-cat').value;
-  let otpInput6 = document.getElementById('otp6-add-to-cat').value;
-  
-  otpInput1 = "";
-  otpInput2 = "";
-  otpInput3 = "";
-  otpInput4 = "";
-  otpInput5 = "";
-  otpInput6 = "";
-  
-  lastDivAddToCat.classList.remove('animate-two');
-  middleDivAddToCat.classList.remove('animate-one');
-  document.getElementById('number-add-to-cat').value = ""; 
-   let mainClass = document.querySelector('.modal-backdrop');
-  mainClass.style.display = "none";
-  document.getElementById('myModal2').style.display = 'none';
-}
-closeModalAddToCat = () =>{
-  clearAllFormAddToCat();
-  document.getElementById('myModal2').style.display = 'none';
-  
-}
 
 
 
