@@ -1,16 +1,19 @@
 <script>
   
-  
-  
-  
-  
-  
-  
+
   
   // JavaScript code goes here
   
   let serverOtp = '';
+
+
   
+  let getResponseBuy = {};
+  let middleDivBuy = document.getElementById("middle-div-buy");
+  let lastDivBuy = document.getElementById("last-div-buy");
+  let childdivBuy = document.getElementById("child-div-buy");
+
+  let phoneNumberBuy = "";
 
 function validateLength(ref) {
   const myInput = document.querySelector("#number-buy");
@@ -32,12 +35,7 @@ function randomOtp(){
 
 
 
-let getResponseBuy = {};
-let middleDivBuy = document.getElementById("middle-div-buy");
-let lastDivBuy = document.getElementById("last-div-buy");
-let childdivBuy = document.getElementById("child-div-buy");
 
-let phoneNumberBuy = "";
 
 function sendOtp() {
  randomOtp();
@@ -157,6 +155,8 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
+
 
 
 
