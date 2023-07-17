@@ -219,108 +219,83 @@
   }
 </style>
 
-<div class="parent-div" id="otp-form-add-to-cat">
-  <div class="child-div" id="child-div-add-to-cat">
-    <div class="top-div">
-      <img class="popuplogo" loading="lazy" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+<div
+  class="modal fade"
+  id="myModal2"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      <div class="parent-div" id="otp-form-add-to-cat">
+        <div class="child-div" id="child-div-add-to-cat">
+          <div class="top-div">
+            <img
+              class="popuplogo"
+              loading="lazy"
+              src="{{ 'Exlogo_png.jpg' | asset_url }}"
+              alt="this place is for image"
+            >
 
-      <div class="head-one">Get Free Access to</div>
-      <div class="head-two">Latest Current Affairs<span class="head-three">E-book!</span></div>
-      <p class="para">We will send you one time password to your mobile number.</p>
-    </div>
-    <div class="middle-div" id="middle-div-add-to-cat">
-      <input
-        type="number"
-        id="number-add-to-cat"
-        class="number-field"
-        placeholder="Enter Mobile Number"
-        onkeyup="validateAddToCat()"
-        required
-      >
-      <br>
-      <button class="otp-btn" id="otp-btn-add-to-cat" onclick="otpSendAddToCat()" disabled>Get OTP</button>
-    </div>
-    <div class="last-div" id="last-div-add-to-cat" style="display: none;">
-      <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-add-to-cat"></span></p>
-      <br>
-      <div class="otp-parent">
-        <input class="otp otp-form" type="number" id="otp1-add-to-cat">
-        <input class="otp otp-form" type="number" id="otp2-add-to-cat" disabled>
-        <input class="otp otp-form" type="number" id="otp3-add-to-cat" disabled>
-        <input class="otp otp-form" type="number" id="otp4-add-to-cat" disabled>
-        <input class="otp otp-form" type="number" id="otp5-add-to-cat" disabled>
-        <input class="otp otp-form" type="number" id="otp6-add-to-cat" disabled>
+            <div class="head-one">Get Free Access to</div>
+            <div class="head-two">Latest Current Affairs<span class="head-three">E-book!</span></div>
+            <p class="para">We will send you one time password to your mobile number.</p>
+          </div>
+          <div class="middle-div" id="middle-div-add-to-cat">
+            <input
+              type="number"
+              id="number-add-to-cat"
+              class="number-field"
+              placeholder="Enter Mobile Number"
+              onkeyup="validateAddToCat()"
+              required
+            >
+            <br>
+            <button class="otp-btn" id="otp-btn-add-to-cat" onclick="otpSendAddToCat()" disabled>Get OTP</button>
+          </div>
+          <div class="last-div" id="last-div-add-to-cat" style="display: none;">
+            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-add-to-cat"></span></p>
+            <br>
+            <div class="otp-parent">
+              <input class="otp otp-form" type="number" id="otp1-add-to-cat">
+              <input class="otp otp-form" type="number" id="otp2-add-to-cat" disabled>
+              <input class="otp otp-form" type="number" id="otp3-add-to-cat" disabled>
+              <input class="otp otp-form" type="number" id="otp4-add-to-cat" disabled>
+              <input class="otp otp-form" type="number" id="otp5-add-to-cat" disabled>
+              <input class="otp otp-form" type="number" id="otp6-add-to-cat" disabled>
+            </div>
+            <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
+            <br>
+            <button
+              class="otp-btn download-btn"
+              id="download-btn-add-to-cat"
+              onclick="downloadBtnAddToCat()"
+              style="opacity: 1;"
+            >
+              Verify OTP<span id="download-icon-add-to-cat"><i class="bi bi-arrow-down-circle"></i></span>
+            </button>
+          </div>
+        </div>
       </div>
-      <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
-      <br>
-      <button
-        class="otp-btn download-btn"
-        id="download-btn-add-to-cat"
-        onclick="downloadBtnAddToCat()"
-        style="opacity: 1;"
-      >
-        Verify OTP<span id="download-icon-add-to-cat"><i class="bi bi-arrow-down-circle"></i></span>
-      </button>
     </div>
   </div>
 </div>
 
 <script>
-  
-  
-  
-  
-  
-  
-  
-  let serverOtpAddToCat = '';
-  otpMakerAddToCat = () =>{
-     serverOtpAddToCat = Math.floor(Math.random() * 900000 + 100000);
-    console.log(serverOtpAddToCat)
-  }
- 
+
+
+
+
+
+
+
        let getResponseAddToCat = {};
       let middleDivAddToCat = document.getElementById("middle-div-add-to-cat");
       let lastDivAddToCat = document.getElementById("last-div-add-to-cat");
       let childdivAddToCat = document.getElementById('child-div-add-to-cat');
-  
-      let phoneNumberAddToCat = "";
-      otpSendAddToCat = () => {
-        otpMakerAddToCat();
-          phoneNumberAddToCat = document.getElementById("number-add-to-cat").value;
-          middleDivAddToCat.classList.add("animate-one");
-          lastDivAddToCat.classList.add("animate-two");
-          childdivAddToCat.classList.add('child-div-increase');
-          document.getElementById("phone-number-add-to-cat").innerHTML = phoneNumberAddToCat;
-         funAddToCat();
-      }
-      function validateAddToCat(){
-     
-        const myInput = document.querySelector('#number-add-to-cat');
-        if(myInput.value.length == 10) {
-            document.getElementById("otp-btn-add-to-cat").disabled = false;
-          document.getElementById("otp-btn-add-to-cat").style.opacity = "1";
-        }
-        else{
-           document.getElementById("otp-btn-add-to-cat").disabled = true;
-           document.getElementById("otp-btn-add-to-cat").style.opacity = "0.5";
-        }
-      }
-
-      async function funAddToCat(){
-        let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumberAddToCat}/${serverOtpAddToCat}`;
-       fetch(url).then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-        })
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-      }
 
 
    const inputsAddToCat = document.querySelectorAll(".otp-form"), buttonAddToCat = document.querySelector("#otp-btn-add-to-cat");
@@ -357,13 +332,6 @@
 
 
 
-  
+
     document.getElementById("otp-btn-add-to-cat").addEventListener("click", () => inputsAddToCat[0].focus());
-
-  
-
-
-
-
-
 </script>
