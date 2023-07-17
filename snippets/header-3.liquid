@@ -113,7 +113,7 @@
 {% comment %}
   {% include 'order-history' %}
 {% endcomment %}
-
+{% include 'custom_function' %}
 {% include 'order-history' %}
 {% include 'headerDropdownMenu' %}
 <header class="hd3">
@@ -387,7 +387,7 @@
 </header>
 
 {% include 'custom_login_popup' %}
-{% include 'custom_function' %}
+<!-- {% include 'custom_function' %} -->
 <script>
     var smallScreen = window.matchMedia("(max-width: 480px)");
     var largeScreen = window.matchMedia("(min-width: 980px)");
