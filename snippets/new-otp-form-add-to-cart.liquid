@@ -23,10 +23,11 @@
       text-align: center;
       position: relative;
     }
-    .logo{
-      height: 5rem;
-      width: 9rem;
-    }
+   .popuplogo {
+    height: 5rem;
+    width: 9rem;
+  }
+
     .head-one{
        font-size: 2.5rem;
       font-weight: 900;
@@ -220,7 +221,7 @@
 <div class="parent-div" id="otp-form-add-to-cat">
   <div class="child-div" id="child-div-add-to-cat">
     <div class="top-div">
-      <img class="logo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+      <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
       <!--
         <span
           class="cross"
@@ -274,6 +275,7 @@
 </div>
 
 <script>
+  
   
   
   let serverOtpAddToCat = '';
@@ -413,6 +415,7 @@ closeModalAddToCat = () =>{
   document.getElementById('myModal2').style.display = 'none';
   
 }
+
 
 
 
