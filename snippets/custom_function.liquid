@@ -7,6 +7,8 @@
   
   
   
+  
+  
 
   // JavaScript code goes here
   
@@ -19,7 +21,7 @@
   let lastDivBuy = document.getElementById("last-div-buy");
   let childdivBuy = document.getElementById("child-div-buy");
 
-  let phoneNumber = "";
+  let mobNumber = "";
 
 function validateLength(ref) {
   const myInput = document.querySelector("#number-buy");
@@ -44,12 +46,12 @@ function randomOtp(){
 function sendOtp(phoneNumberId,showPhoneNumberId) {
   
   randomOtp();
-  phoneNumber = document.getElementById(phoneNumberId).value;
+  mobNumber = document.getElementById(phoneNumberId).value;
   middleDivBuy.classList.add("animate-one");
   lastDivBuy.classList.add("animate-two");
   childdivBuy.classList.add("child-div-increase");
-  document.getElementById(showPhoneNumberId).innerHTML = phoneNumber;
-  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${otp}`)
+  document.getElementById(showPhoneNumberId).innerHTML = mobNumber;
+  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${otp}`)
   
 }
 
@@ -88,13 +90,16 @@ function hidePopup(popupId){
 
 
 switch (popupId) {
-  case "#LoginPopUp":
-     hidePopup(popupId);
-     window.location.reload();
-    break;
-   case "#BuyNow":
-     
-         const element = document.querySelector("#button-cart-buy");
+  case "#LoginPopUp": {
+      hidePopup(popupId);
+      window.location.reload();
+      break;
+      
+    }
+    
+   case "#BuyNow": {
+
+ const element = document.querySelector("#button-cart-buy");
 
       // Create a new click event
       const clickEvent = new MouseEvent("click", {
@@ -107,8 +112,14 @@ switch (popupId) {
       element.dispatchEvent(clickEvent);
        element.dispatchEvent(clickEvent);
     break;
+      
+    }
+     
+        
 
     
+    default:
+     hidePopup(popupId);
 }
 
    
@@ -187,6 +198,8 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
+
 
 
 
