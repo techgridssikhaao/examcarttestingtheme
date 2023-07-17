@@ -6,6 +6,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -91,10 +92,23 @@ switch (popupId) {
      hidePopup(popupId);
      window.location.reload();
     break;
-   case "#AddtoCart":
-     hidePopup(popupId);
-     window.location.reload();
+   case "#BuyNow":
+     
+         const element = document.querySelector("#button-cart-buy");
+
+      // Create a new click event
+      const clickEvent = new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      
+      // Dispatch the click event on the element
+      element.dispatchEvent(clickEvent);
+       element.dispatchEvent(clickEvent);
     break;
+
+    
 }
 
    
@@ -173,6 +187,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
