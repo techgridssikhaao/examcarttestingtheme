@@ -3,6 +3,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -45,7 +46,7 @@ function sendOtp() {
   lastDivBuy.classList.add("animate-two");
   childdivBuy.classList.add("child-div-increase");
   document.getElementById("phone-number-buy").innerHTML = phoneNumberBuy;
-  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`)
+  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`)
   
 }
 
@@ -53,9 +54,9 @@ function sendOtp() {
 
 
 async function funBuy() {
-  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`)
+  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`)
 
-  {% comment %} let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`;
+  {% comment %} let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`;
   fetch(url)
     .then((response) => {
       if (!response.ok) {
@@ -157,6 +158,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
