@@ -113,12 +113,8 @@
 {% comment %}
   {% include 'order-history' %}
 {% endcomment %}
-
-{% include 'headerDropdownMenu' %}
-
-{% include 'custom-login-popup' %}
-
 {% include 'custom-functions-popup' %}
+{% include 'headerDropdownMenu' %}
 
 {% include 'order-history' %}
 
@@ -391,7 +387,7 @@
     </div>
   </div>
 </header>
-
+{% include 'custom-login-popup' %}
 <script>
     var smallScreen = window.matchMedia("(max-width: 480px)");
     var largeScreen = window.matchMedia("(min-width: 980px)");
