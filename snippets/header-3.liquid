@@ -385,22 +385,7 @@
     </div>
   </div>
 </header>
-
-<div
-  class="modal fade"
-  id="LoginPopUp"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-    <div id="mod">
-      {% include 'newOtpLoginPopUp' %}
-    </div>
-  </div>
-</div>
+{% include 'newOtpLoginPopUp' %}
 
 <script>
     function loginPopUp(){
