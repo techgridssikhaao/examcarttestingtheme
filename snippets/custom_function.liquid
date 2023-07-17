@@ -1,6 +1,7 @@
 <script>
   
   
+  
 
   // JavaScript code goes here
   
@@ -94,7 +95,7 @@ downloadBtnBuy = () => {
   let otpInput6 = document.getElementById("otp6-buy").value;
   let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
   let parseOtp = parseInt(finalOtp);
-  if (parseOtp == serverOtpBuy) {
+  if (parseOtp == otp) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
     // clearAllFormBuy();
  
@@ -139,6 +140,7 @@ clearAllFormBuy = () => {
   document.getElementById("LoginPopUp").style.display = "none";
   
 };
+
 
 
 
