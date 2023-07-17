@@ -273,7 +273,12 @@
             </div>
             <p class="resend-para">Didn't receive the OTP? <span class="resend-otp">Resend OTP</span></p>
             <br>
-            <button class="otp-btn download-btn" id="download-btn-buy" onclick="downloadBtnBuy()" style="opacity: 1;">
+            <button
+              class="otp-btn download-btn"
+              id="download-btn-buy"
+              onclick="verifyOtp('#LoginPopUp')"
+              style="opacity: 1;"
+            >
               Verify OTP<span id="download-icon-buy"><i class="bi bi-arrow-down-circle"></i></span>
             </button>
           </div>
