@@ -22,6 +22,7 @@
 <script>
   
   
+  
 
   
 
@@ -156,11 +157,11 @@ switch (popupId) {
         function showAddtoCartPopup(popupId){
 
                             if(localStorage.getItem("globalOtpKey")== null){
-
+ showPopup(popupId);
                               
                                   {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
 
-                              showPopup(popupId);
+                             
 
                               
                             }else {
@@ -239,6 +240,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
