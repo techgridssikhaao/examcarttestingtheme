@@ -35,6 +35,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -64,16 +65,16 @@ function randomOtp(){
 
 
 
-function sendOtp(phoneNumberId,showPhoneNumberAsTextId) {
+function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middle-div, last-div, child-div) {
   
   randomOtp();
   mobNumber = document.getElementById(phoneNumberId).value;
 
 
   
-  document.getElementById("middle-div-buy").classList.add("animate-one");
-  document.getElementById("last-div-buy").classList.add("animate-two");
-  document.getElementById("child-div-buy").classList.add("child-div-increase");
+  document.getElementById(middle-div).classList.add("animate-one");
+  document.getElementById(last-div).classList.add("animate-two");
+  document.getElementById(child-div).classList.add("child-div-increase");
   document.getElementById(showPhoneNumberId).innerHTML = mobNumber;
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${otp}`)
   
@@ -227,6 +228,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
