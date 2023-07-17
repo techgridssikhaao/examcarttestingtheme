@@ -253,6 +253,7 @@
               onkeyup="validateBuy('otp-btn-buy')"
               required
             >
+
             <br>
             <button class="otp-btn" id="otp-btn-buy" onclick="otpSendBuy()" disabled>Get OTP</button>
           </div>
@@ -280,6 +281,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -387,6 +389,10 @@ downloadBtnBuy = () => {
   if (parseOtp == serverOtpBuy) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
     clearAllFormBuy();
+
+ window.location.reload();
+
+    
   } else {
     alert("fail");
   }
@@ -423,6 +429,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
