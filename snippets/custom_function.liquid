@@ -4,6 +4,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -86,20 +87,16 @@ function hidePopup(popupId){
 
 switch (popupId) {
   case "#LoginPopUp":
-    
+     hidePopup(popupId);
+     window.location.reload();
     break;
-  case "banana":
-    console.log("Selected fruit is a banana.");
+   case "#LoginPopUp":
+     hidePopup(popupId);
+     window.location.reload();
     break;
-  case "orange":
-    console.log("Selected fruit is an orange.");
-    break;
-  default:
-    console.log("Selected fruit is not recognized.");
 }
 
-    hidePopup(popupId);
-      window.location.reload();
+   
        
     
   } else {
@@ -175,6 +172,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
