@@ -5,6 +5,8 @@
   
   
   
+  
+  
   // JavaScript code goes here
   
   let serverOtp = '';
@@ -21,7 +23,7 @@ function validateLength(ref) {
   }
 }
 
-function otpMakerBuy(){
+function randomOtp(){
 
     serverOtp = Math.floor(100000 + Math.random() * 900000);
     console.log(serverOtpBuy);
@@ -37,8 +39,8 @@ let childdivBuy = document.getElementById("child-div-buy");
 
 let phoneNumberBuy = "";
 
-function otpSendBuy() {
-  otpMakerBuy();
+function sendOtp() {
+ randomOtp();
   phoneNumberBuy = document.getElementById("number-buy").value;
   middleDivBuy.classList.add("animate-one");
   lastDivBuy.classList.add("animate-two");
@@ -155,6 +157,8 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
+
 
 
 
