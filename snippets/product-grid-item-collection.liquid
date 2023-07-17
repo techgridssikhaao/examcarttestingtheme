@@ -297,10 +297,9 @@
                 {% if sold_out == false %}
                   onclick="{% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};"
                 {% endif %}
-                style="border:none !important"
                 --
               >
-                >
+                style="border:none !important" >
                 <span>
                   {%- if sold_out == false -%}
                     📖
