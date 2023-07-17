@@ -3,6 +3,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -80,8 +81,24 @@ function hidePopup(popupId){
     localStorage.setItem("globalOtpKey", phoneNumber);
  
 
+    
+
+
+switch (popupId) {
+  case "#LoginPopUp":
+    
+    break;
+  case "banana":
+    console.log("Selected fruit is a banana.");
+    break;
+  case "orange":
+    console.log("Selected fruit is an orange.");
+    break;
+  default:
+    console.log("Selected fruit is not recognized.");
+}
+
     hidePopup(popupId);
-  
       window.location.reload();
        
     
@@ -158,6 +175,7 @@ function hidePopup(popupId){
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
