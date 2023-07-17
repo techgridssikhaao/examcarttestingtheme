@@ -6,6 +6,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -66,6 +67,30 @@ function hidePopup(popupId){
 }
 
 
+
+  function verifyOtp (popupId,onPressTasks) {
+  let otpInput1 = document.getElementById("otp1-buy").value;
+  let otpInput2 = document.getElementById("otp2-buy").value;
+  let otpInput3 = document.getElementById("otp3-buy").value;
+  let otpInput4 = document.getElementById("otp4-buy").value;
+  let otpInput5 = document.getElementById("otp5-buy").value;
+  let otpInput6 = document.getElementById("otp6-buy").value;
+  let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
+  let parseOtp = parseInt(finalOtp);
+  if (parseOtp == otp) {
+    localStorage.setItem("globalOtpKey", phoneNumber);
+ 
+
+    hidePopup(popupId);
+  
+      window.location.reload();
+       
+    
+  } else {
+    alert("fail");
+  }
+};
+
   
 // const inputsBuy = document.querySelectorAll(".otp-form"),
   
@@ -103,28 +128,7 @@ function hidePopup(popupId){
 
 // window.addEventListener("load", () => inputsBuy[0].focus());
 
-function verifyOtp (popupId,onPressTasks) {
-  let otpInput1 = document.getElementById("otp1-buy").value;
-  let otpInput2 = document.getElementById("otp2-buy").value;
-  let otpInput3 = document.getElementById("otp3-buy").value;
-  let otpInput4 = document.getElementById("otp4-buy").value;
-  let otpInput5 = document.getElementById("otp5-buy").value;
-  let otpInput6 = document.getElementById("otp6-buy").value;
-  let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
-  let parseOtp = parseInt(finalOtp);
-  if (parseOtp == otp) {
-    localStorage.setItem("globalOtpKey", phoneNumber);
- 
-
-    hidePopup(popupId);
-  
-      window.location.reload();
-       
-    
-  } else {
-    alert("fail");
-  }
-};
+/////////////////////////////////////////////////////////////////////////////////////////
 
 
   
@@ -155,6 +159,7 @@ function verifyOtp (popupId,onPressTasks) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
