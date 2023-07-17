@@ -1,10 +1,11 @@
 <script>
   
   
+  
 
   // JavaScript code goes here
   
-  let serverOtp = '';
+  let otp = '';
 
 
   
@@ -28,7 +29,7 @@ function validateLength(ref) {
 
 function randomOtp(){
 
-    serverOtp = Math.floor(100000 + Math.random() * 900000);
+    otp = Math.floor(100000 + Math.random() * 900000);
     console.log(serverOtpBuy);
   
 };
@@ -155,6 +156,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
