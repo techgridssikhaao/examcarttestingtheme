@@ -293,16 +293,18 @@
                 data-toggle="tooltip"
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="Download Sample PDF"
+                <!--
                 {% if sold_out == false %}
                   onclick="{% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};"
                 {% endif %}
                 style="border:none !important"
+                --
               >
+                >
                 <span>
                   {%- if sold_out == false -%}
                     📖
                   {%- else %}
-                    
                   {%- endif -%}
                 </span>
               </button>
@@ -320,7 +322,6 @@
                   {%- if sold_out == false -%}
                     Blogs
                   {%- else %}
-                    
                   {%- endif -%}
                 </span>
               </button>
@@ -337,7 +338,8 @@
 
 <!-- product-layout -->
 
-<script>  
+<script>
+    
   visitBlog = (ref) => {
     if (localStorage.getItem("globalOtpKey") == null) {
       $("#myModal1").modal("show");
@@ -418,5 +420,6 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 </script>
