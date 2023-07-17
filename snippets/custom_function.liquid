@@ -6,6 +6,8 @@
   
   
   
+  
+  
 
   // JavaScript code goes here
   
@@ -56,7 +58,15 @@ function loginPopUp(){
   $("#LoginPopUp").modal('show');
    }
   
+function hidePopUp(popupId){
 
+
+  $(popupId).modal('hide');
+  
+}
+
+
+  
 // const inputsBuy = document.querySelectorAll(".otp-form"),
   
 //  const buttonBuy = document.querySelector("#otp-btn-buy");
@@ -91,9 +101,9 @@ function loginPopUp(){
 //   });
 // });
 
-window.addEventListener("load", () => inputsBuy[0].focus());
+// window.addEventListener("load", () => inputsBuy[0].focus());
 
-function downloadBtnBuy (onPressTasks) {
+function verifyOtp (onPressTasks) {
   let otpInput1 = document.getElementById("otp1-buy").value;
   let otpInput2 = document.getElementById("otp2-buy").value;
   let otpInput3 = document.getElementById("otp3-buy").value;
@@ -144,6 +154,8 @@ function downloadBtnBuy (onPressTasks) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
+
 
 
 
