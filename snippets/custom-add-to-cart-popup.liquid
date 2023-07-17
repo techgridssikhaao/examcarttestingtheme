@@ -221,7 +221,7 @@
 
 <div
   class="modal fade"
-  id="myModal2"
+  id="AddToCartPopUp"
   data-backdrop="static"
   tabindex="-1"
   role="dialog"
@@ -254,7 +254,14 @@
               required
             >
             <br>
-            <button class="otp-btn" id="otp-btn-add-to-cat" onclick="otpSendAddToCat()" disabled>Get OTP</button>
+            <button
+              class="otp-btn"
+              id="otp-btn-add-to-cat"
+              onclick="sendOtp('number-add-to-cat','phone-number-add-to-cat','middle-div-add-to-cat','last-div-add-to-cat','child-div-add-to-cat')"
+              disabled
+            >
+              Get OTP
+            </button>
           </div>
           <div class="last-div" id="last-div-add-to-cat" style="display: none;">
             <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-add-to-cat"></span></p>
