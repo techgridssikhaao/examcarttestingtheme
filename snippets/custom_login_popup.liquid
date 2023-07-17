@@ -285,6 +285,7 @@
   
   
   
+  
   // JavaScript code goes here
 
 let serverOtpBuy = '';
@@ -388,8 +389,8 @@ downloadBtnBuy = () => {
   let parseOtp = parseInt(finalOtp);
   if (parseOtp == serverOtpBuy) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
-    clearAllFormBuy();
-
+    // clearAllFormBuy();
+  document.getElementById("LoginPopUp").style.display = "none";
  window.location.reload();
 
     
@@ -429,6 +430,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
