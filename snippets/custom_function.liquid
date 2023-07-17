@@ -1,5 +1,6 @@
 <script>
   
+  
 
   // JavaScript code goes here
   
@@ -49,6 +50,7 @@ function sendOtp() {
 
 
 const inputsBuy = document.querySelectorAll(".otp-form"),
+  
   buttonBuy = document.querySelector("#otp-btn-buy");
 
 inputsBuy.forEach((input, index1) => {
@@ -95,7 +97,8 @@ downloadBtnBuy = () => {
   if (parseOtp == serverOtpBuy) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
     // clearAllFormBuy();
-  document.getElementById("LoginPopUp").style.display = "none";
+ 
+     $("#LoginPopUp").modal('hide');
  window.location.reload();
 
     
@@ -136,6 +139,7 @@ clearAllFormBuy = () => {
   document.getElementById("LoginPopUp").style.display = "none";
   
 };
+
 
 
 
