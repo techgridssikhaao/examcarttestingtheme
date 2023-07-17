@@ -1,6 +1,7 @@
 <script>
   
   
+  
  
   // JavaScript code goes here
   
@@ -38,6 +39,7 @@ function randomOtp(){
 
 
 function sendOtp() {
+  
   randomOtp();
   phoneNumberBuy = document.getElementById("number-buy").value;
   middleDivBuy.classList.add("animate-one");
@@ -45,6 +47,7 @@ function sendOtp() {
   childdivBuy.classList.add("child-div-increase");
   document.getElementById("phone-number-buy").innerHTML = phoneNumberBuy;
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${serverOtpBuy}`)
+  
 }
 
 
@@ -155,6 +158,7 @@ clearAllFormBuy = () => {
   mainClass.style.display = "none";
   document.getElementById("LoginPopUp").style.display = "none";
 };
+
 
 
 
