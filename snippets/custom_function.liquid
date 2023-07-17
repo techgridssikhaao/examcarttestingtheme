@@ -4,6 +4,7 @@
   
   
   
+  
 
   // JavaScript code goes here
   
@@ -112,11 +113,10 @@ function verifyOtp (popupId,onPressTasks,) {
   let parseOtp = parseInt(finalOtp);
   if (parseOtp == otp) {
     localStorage.setItem("globalOtpKey", phoneNumberBuy);
-    // clearAllFormBuy();
-
+ 
 
     hidePopup(popupId);
-     // $("#LoginPopUp").modal('hide');
+  
       window.location.reload();
        
     
@@ -154,20 +154,6 @@ function verifyOtp (popupId,onPressTasks,) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
