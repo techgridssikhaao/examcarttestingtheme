@@ -2,6 +2,8 @@
   
   
   
+  
+  
 
   // JavaScript code goes here
   
@@ -36,15 +38,15 @@ function randomOtp(){
 
 
 
-function sendOtp(phoneNumberId,showPhoneNumber) {
+function sendOtp(phoneNumberId,showPhoneNumberId) {
   
   randomOtp();
   phoneNumber = document.getElementById(phoneNumberId).value;
   middleDivBuy.classList.add("animate-one");
   lastDivBuy.classList.add("animate-two");
   childdivBuy.classList.add("child-div-increase");
-  document.getElementById(showPhoneNumber).innerHTML = phoneNumber;
-  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumberBuy}/${otp}`)
+  document.getElementById(showPhoneNumberId).innerHTML = phoneNumber;
+  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${otp}`)
   
 }
 
@@ -152,6 +154,8 @@ function verifyOtp (popupId,onPressTasks,) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
+
 
 
 
