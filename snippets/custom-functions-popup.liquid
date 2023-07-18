@@ -50,14 +50,14 @@ showPopup('#LoginPopUp')
  
   let mobNumber = "";
 
-function validateLength(ref) {
-  const myInput = document.querySelector(ref);
+function validateLength(buttonHideAndShow, getLength) {
+  const myInput = document.querySelector(getLength);
   if (myInput.value.length == 10) {
-    document.getElementById(ref).disabled = false;
-    document.getElementById(ref).style.opacity = "1";
+    document.getElementById(buttonHideAndShow).disabled = false;
+    document.getElementById(buttonHideAndShow).style.opacity = "1";
   } else {
-    document.getElementById(ref).disabled = true;
-    document.getElementById(ref).style.opacity = "0.5";
+    document.getElementById(buttonHideAndShow).disabled = true;
+    document.getElementById(buttonHideAndShow).style.opacity = "0.5";
   }
 }
 
