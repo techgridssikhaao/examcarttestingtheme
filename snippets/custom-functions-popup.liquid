@@ -26,6 +26,7 @@
   
   
   
+  
 
   
 
@@ -38,7 +39,7 @@
   let mobNumber = "";
 
 function validateLength(ref) {
-  const myInput = document.querySelector(`#${ref}`);
+  const myInput = document.querySelector(ref);
   if (myInput.value.length == 10) {
     document.getElementById(ref).disabled = false;
     document.getElementById(ref).style.opacity = "1";
@@ -247,6 +248,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
