@@ -31,6 +31,7 @@
   
   
   
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
   const addToCart =  document.getElementById("atc")
@@ -40,7 +41,7 @@
 
   //////login
   login.addEventListener("click", function() {
-
+console.log("event")
     showPopup(#LoginPopUp)
 
 });
@@ -106,7 +107,7 @@ function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, chi
 }
 
 function showPopup(popupId){
-  
+  console.log("event")
   $(popupId).modal('show');
   
 }
@@ -277,6 +278,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
