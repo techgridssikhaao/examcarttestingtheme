@@ -34,16 +34,17 @@
   
   
   
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
-  const addToCart =  document.getElementById("atc")
+  const atc =  document.getElementById("atc")
   const buyNow =  document.getElementById("login")
   const getPdf =  document.getElementById("login")
 
 
   //////login
   login.addEventListener("click", function() {
-console.log("event")
+
     showPopup('#LoginPopUp')
 
 });
@@ -52,8 +53,8 @@ console.log("event")
   /////add to cart 
 
 
-addToCart.addEventListener("click", function() {
-
+atc.addEventListener("click", function() {
+console.log("atc");
     showAddtoCartPopup('#AddToCartPopUp')
 
 });
@@ -280,6 +281,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
