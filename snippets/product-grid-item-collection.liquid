@@ -179,37 +179,38 @@
               {% if settings.limit_title_words == true %}{{ product.title }}{% else %}{{ product.title }}{% endif %}
             </a>
           </h4>
-          <div
-            class="modal fade"
-            id="myModal2"
-            data-backdrop="static"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-              <div id="mod">
-                {% include 'new-otp-form-add-to-cart' %}
+          <!--
+            <div
+              class="modal fade"
+              id="myModal2"
+              data-backdrop="static"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+                <div id="mod">
+                  {% include 'new-otp-form-add-to-cart' %}
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="modal fade"
-            id="myModal1"
-            data-backdrop="static"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-              <div id="mod">
-                {% include 'new-otp-form' %}
+            <div
+              class="modal fade"
+              id="myModal1"
+              data-backdrop="static"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+                <div id="mod">
+                  {% include 'new-otp-form' %}
+                </div>
               </div>
             </div>
-          </div>
-
+          -->
           <div class="caption">
             <div class="inner {% if settings.grid_color_swatches != 'false' and section.settings.product_grid_img_carousel != true %} swtch{% endif %}">
               {% if section.settings.show_summary %}
@@ -271,7 +272,6 @@
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="{{ 'products.product.add_to_cart' | t }}"
                 {% if sold_out == false %}
-                  onclick="showPopup('#AddToCartPopUp')"
                 {% endif %}
 
                 style="border:none !important"
@@ -340,6 +340,7 @@
 <!-- product-layout -->
 {% include 'custom-functions-popup' %}
 <script>
+  
   
   
   
@@ -426,6 +427,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
