@@ -25,6 +25,7 @@
   
   
   
+  
  
   
   
@@ -145,7 +146,7 @@ function hidePopup(popupId){
   let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
   let parseOtp = parseInt(finalOtp);
   if (parseOtp == smsotp) {
-    localStorage.setItem("globalOtpKey", phoneNumber);
+    localStorage.setItem("globalOtpKey", mobNumber);
  
 
     
@@ -290,6 +291,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
