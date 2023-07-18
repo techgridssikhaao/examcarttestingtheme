@@ -23,12 +23,18 @@
   
   
   
+ ////////////// event listenerssssssss
+  Login =  document.getElementById("login")
+  Login.addEventListener("click", function() {
+ randomOtp()
+  console.log(smsotp);
+
+});
+
   
   
   
-  
-  
-  
+  ///////////////
   
 
   
@@ -89,11 +95,6 @@ function hidePopup(popupId){
   
 }
 
-document.getElementById("login").addEventListener("click", function() {
- randomOtp()
-  console.log(smsotp);
-
-});
 
  function verifyOtp (popupId) {
 
@@ -251,6 +252,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
