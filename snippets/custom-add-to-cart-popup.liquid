@@ -246,8 +246,10 @@
           </div>
           <div class="middle-div" id="middle-div-add-to-cat">
             <input
-              type="number"
+              type="tel"
               id="number-add-to-cat"
+              maxlength="10"
+              pattern="[0-9]"
               class="number-field"
               placeholder="Enter Mobile Number"
               onkeyup="validateLength('otp-btn-add-to-cat', '#number-add-to-cat')"
