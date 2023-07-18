@@ -268,6 +268,7 @@
               <button
                 class="add-to-cart-new add-to-cart-event_tracker button btn-cart {% if sold_out %} btn disabled {% endif %}"
                 type="button"
+                onclick="showatc('#AddToCartPopUp')"
                 id="cpAddToCart"
                 data-toggle="tooltip"
                 data-product-id="{{ 'products.product.id' | t }}"
@@ -342,6 +343,7 @@
 <!-- product-layout -->
 
 <script>
+  
   
   
   
@@ -433,6 +435,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
