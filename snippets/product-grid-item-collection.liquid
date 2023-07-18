@@ -179,7 +179,8 @@
               {% if settings.limit_title_words == true %}{{ product.title }}{% else %}{{ product.title }}{% endif %}
             </a>
           </h4>
-          <!--
+
+          {% comment %}
             <div
               class="modal fade"
               id="myModal2"
@@ -210,7 +211,7 @@
                 </div>
               </div>
             </div>
-          -->
+          {% endcomment %}
           <div class="caption">
             <div class="inner {% if settings.grid_color_swatches != 'false' and section.settings.product_grid_img_carousel != true %} swtch{% endif %}">
               {% if section.settings.show_summary %}
@@ -346,7 +347,6 @@
   
   
   
-  
     
   visitBlog = (ref) => {
     if (localStorage.getItem("globalOtpKey") == null) {
@@ -428,7 +428,6 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
-
 
 
 
