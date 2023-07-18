@@ -43,6 +43,7 @@
   
   
   
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
  
@@ -214,7 +215,7 @@ switch (popupId) {
                             if(localStorage.getItem("globalOtpKey")== null){
                                 showPopup(popupId);
                               
-                                  {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
+                                  // {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
 
                              
 
@@ -295,6 +296,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
