@@ -37,6 +37,7 @@
   
   
   
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
   const atc =  document.getElementById("cpAddToCart")
@@ -79,11 +80,11 @@ console.log("atc");
 function validateLength(buttonShowAndHide, getlength) {
   const myInput = document.querySelector(getlength);
   if (myInput.value.length == 10) {
-    document.getElementById(ref).disabled = false;
-    document.getElementById(ref).style.opacity = "1";
+    document.getElementById(buttonShowAndHide).disabled = false;
+    document.getElementById(buttonShowAndHide).style.opacity = "1";
   } else {
-    document.getElementById(ref).disabled = true;
-    document.getElementById(ref).style.opacity = "0.5";
+    document.getElementById(buttonShowAndHide).disabled = true;
+    document.getElementById(buttonShowAndHide).style.opacity = "0.5";
   }
 }
 
@@ -283,6 +284,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
