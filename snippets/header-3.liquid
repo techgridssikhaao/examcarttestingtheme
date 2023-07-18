@@ -391,6 +391,28 @@
 {% include 'custom-add-to-cart-popup' %}
 
 <script>
+
+  function showatc(popupId){
+
+
+
+                      if(localStorage.getItem("globalOtpKey")== null){
+                          showPopup(popupId);
+
+                            // {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
+
+
+
+
+                      }else {
+
+                          {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
+                      }
+
+  }
+</script>
+
+<script>
     var smallScreen = window.matchMedia("(max-width: 480px)");
     var largeScreen = window.matchMedia("(min-width: 980px)");
 
