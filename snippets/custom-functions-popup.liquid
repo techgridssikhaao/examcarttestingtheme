@@ -37,7 +37,7 @@
   let mobNumber = "";
 
 function validateLength(ref) {
-  const myInput = document.querySelector(ref);
+  const myInput = document.querySelector(`#${ref}`);
   if (myInput.value.length == 10) {
     document.getElementById(ref).disabled = false;
     document.getElementById(ref).style.opacity = "1";
@@ -66,7 +66,7 @@ function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middle-div, last-div, c
   document.getElementById(middle-div).classList.add("animate-one");
   document.getElementById(last-div).classList.add("animate-two");
   document.getElementById(child-div).classList.add("child-div-increase");
-  document.getElementById(showPhoneNumberId).innerHTML = mobNumber;
+  document.getElementById(showPhoneNumberAsTextId).innerHTML = mobNumber;
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${otp}`)
   
 }
