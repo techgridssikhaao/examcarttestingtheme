@@ -209,7 +209,7 @@ switch (popupId) {
                             if(localStorage.getItem("globalOtpKey")== null){
                                 showPopup(popupId);
                               
-                                  {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
+                                  {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% endif %};
 
                              
 
