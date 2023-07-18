@@ -352,6 +352,17 @@
   
   
   
+  document.addEventListener("DOMContentLoaded", function() {
+  const productCollectionContainer = document.getElementById("productCollectionContainer");
+
+  // Add an event listener to the productCollectionContainer using event delegation
+  productCollectionContainer.addEventListener("click", function(event) {
+    if (event.target && event.target.id === "cpAddToCart") {
+      console.log("atc");
+      showAddtoCartPopup('#AddToCartPopUp');
+    }
+  });
+});
   
   
   
@@ -436,6 +447,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
