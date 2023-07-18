@@ -28,6 +28,7 @@
   
   
   
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
   const addToCart =  document.getElementById("atc")
@@ -188,6 +189,8 @@ switch (popupId) {
 
         function showAddtoCartPopup(popupId){
 
+
+          console.log('ander hun');
                             if(localStorage.getItem("globalOtpKey")== null){
                                 showPopup(popupId);
                               
@@ -272,6 +275,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
