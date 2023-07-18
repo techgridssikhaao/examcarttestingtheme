@@ -27,12 +27,13 @@
   
   
   
+  
 
   
 
   // JavaScript code goes here
   
-  let otp = '';
+  let smsotp = '';
 
 
  
@@ -51,7 +52,7 @@ function validateLength(ref) {
 
 function randomOtp(){
 
-    otp = Math.floor(100000 + Math.random() * 900000);
+    smsotp = Math.floor(100000 + Math.random() * 900000);
     console.log(otp);
   
 };
@@ -69,7 +70,7 @@ function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, chi
   document.getElementById(lastdiv).classList.add("animate-two");
   document.getElementById(childdiv).classList.add("child-div-increase");
   document.getElementById(showPhoneNumberAsTextId).innerHTML = mobNumber;
-  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${otp}`)
+  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
   
 }
 
@@ -104,7 +105,7 @@ document.getElementById("login").addEventListener("click", function() {
   let otpInput6 = document.getElementById("otp6-buy").value;
   let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
   let parseOtp = parseInt(finalOtp);
-  if (parseOtp == otp) {
+  if (parseOtp == smsotp) {
     localStorage.setItem("globalOtpKey", phoneNumber);
  
 
@@ -248,6 +249,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
