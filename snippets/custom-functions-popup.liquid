@@ -36,6 +36,7 @@
   
   
   
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
   const atc =  document.getElementById("cpAddToCart")
@@ -75,8 +76,8 @@ console.log("atc");
  
   let mobNumber = "";
 
-function validateLength(ref) {
-  const myInput = document.querySelector(ref);
+function validateLength(buttonShowAndHide, getlength) {
+  const myInput = document.querySelector(getlength);
   if (myInput.value.length == 10) {
     document.getElementById(ref).disabled = false;
     document.getElementById(ref).style.opacity = "1";
@@ -282,6 +283,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
