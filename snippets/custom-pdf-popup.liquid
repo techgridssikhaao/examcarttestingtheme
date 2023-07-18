@@ -216,109 +216,73 @@
   }
 </style>
 
-
-
-
-
 <div
-              class="modal fade"
-              id="myModal1"
-              data-backdrop="static"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true"
+  class="modal fade"
+  id="myModal1"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      <div class="parent-div" id="otp-form">
+        <div class="child-div" id="child-div">
+          <div class="top-div">
+            <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+            <!--
+              <span
+                class="cross"
+                onclick="closeModal()"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                &#x2715;</span
+              >
+            -->
+            <div class="head-one">Get Free Access to</div>
+            <div class="head-two">Latest Current Affairs<span class="head-three">E-book!</span></div>
+            <p class="para">We will send you one time password to your mobile number.</p>
+          </div>
+          <div class="middle-div" id="middle-div">
+            <input
+              type="number"
+              id="number"
+              class="number-field"
+              placeholder="Enter Mobile Number"
+              onkeyup="validate()"
+              required
             >
-              <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-                <div id="mod">
-              
-
-
-
-
-
-<div class="parent-div" id="otp-form">
-  <div class="child-div" id="child-div">
-    <div class="top-div">
-      <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
-      <!--
-        <span
-          class="cross"
-          onclick="closeModal()"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          &#x2715;</span
-        >
-      -->
-      <div class="head-one">Get Free Access to</div>
-      <div class="head-two">Latest Current Affairs<span class="head-three">E-book!</span></div>
-      <p class="para">We will send you one time password to your mobile number.</p>
-    </div>
-    <div class="middle-div" id="middle-div">
-      <input
-        type="number"
-        id="number"
-        class="number-field"
-        placeholder="Enter Mobile Number"
-        onkeyup="validate()"
-        required
-      >
-      <br>
-      <button class="otp-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
-    </div>
-    <div class="last-div" id="last-div" style="display: none;">
-      <p class="phone-number">Enter the OTP sent to +91<span id="phone-number"></span></p>
-      <br>
-      <div class="otp-parent">
-        <input class="otp otp-form" type="number" id="otp1">
-        <input class="otp otp-form" type="number" id="otp2" disabled>
-        <input class="otp otp-form" type="number" id="otp3" disabled>
-        <input class="otp otp-form" type="number" id="otp4" disabled>
-        <input class="otp otp-form" type="number" id="otp5" disabled>
-        <input class="otp otp-form" type="number" id="otp6" disabled>
+            <br>
+            <button class="otp-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+          </div>
+          <div class="last-div" id="last-div" style="display: none;">
+            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number"></span></p>
+            <br>
+            <div class="otp-parent">
+              <input class="otp otp-form" type="number" id="otp1">
+              <input class="otp otp-form" type="number" id="otp2" disabled>
+              <input class="otp otp-form" type="number" id="otp3" disabled>
+              <input class="otp otp-form" type="number" id="otp4" disabled>
+              <input class="otp otp-form" type="number" id="otp5" disabled>
+              <input class="otp otp-form" type="number" id="otp6" disabled>
+            </div>
+            <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
+            <br>
+            <button class="otp-btn download-btn" id="download-btn" onclick="downloadBtn()" style="opacity: 1;">
+              Download PDF<span id="download-icon"><i class="bi bi-arrow-down-circle"></i></span>
+            </button>
+          </div>
+        </div>
       </div>
-      <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
-      <br>
-      <button class="otp-btn download-btn" id="download-btn" onclick="downloadBtn()" style="opacity: 1;">
-        Download PDF<span id="download-icon"><i class="bi bi-arrow-down-circle"></i></span>
-      </button>
     </div>
   </div>
 </div>
 
-
-
-
-
-                  
-                </div>
-              </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
+  
 
   // let serverOtp = '';
   
@@ -464,6 +428,7 @@
 //           alert("fail");
 //         }
 //     }
+
 
 
 
