@@ -25,16 +25,32 @@
   
   
   
+  
+  
  ////////////// event listenerssssssss
  const login =  document.getElementById("login")
-  const addToCart =  document.getElementById("login")
+  const addToCart =  document.getElementById("dsp")
   const buyNow =  document.getElementById("login")
   const getPdf =  document.getElementById("login")
+
+
+  //////login
   login.addEventListener("click", function() {
-showPopup('#LoginPopUp')
+
+    showPopup('#loginpopup')
+
 });
 
   
+  /////add to cart 
+
+
+addToCart.addEventListener("click", function() {
+
+    showAddtoCartPopup('#AddToCartPopUp')
+
+});
+
   
   
   ///////////////
@@ -50,14 +66,14 @@ showPopup('#LoginPopUp')
  
   let mobNumber = "";
 
-function validateLength(buttonHideAndShow, getLength) {
-  const myInput = document.querySelector(getLength);
+function validateLength(ref) {
+  const myInput = document.querySelector(ref);
   if (myInput.value.length == 10) {
-    document.getElementById(buttonHideAndShow).disabled = false;
-    document.getElementById(buttonHideAndShow).style.opacity = "1";
+    document.getElementById(ref).disabled = false;
+    document.getElementById(ref).style.opacity = "1";
   } else {
-    document.getElementById(buttonHideAndShow).disabled = true;
-    document.getElementById(buttonHideAndShow).style.opacity = "0.5";
+    document.getElementById(ref).disabled = true;
+    document.getElementById(ref).style.opacity = "0.5";
   }
 }
 
@@ -255,6 +271,8 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
+
 
 
 
