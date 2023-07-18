@@ -1,0 +1,420 @@
+<style>
+  .parent-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .child-div{
+      padding: 2rem;
+      height: 50rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: white;
+      margin: auto;
+    }
+    .top-div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+      .popuplogo {
+    height: 5rem;
+    width: 9rem;
+  }
+    .head-one{
+       font-size: 2.5rem;
+      font-weight: 900;
+    }
+    .head-two{
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: green;
+    }
+    .head-three{
+      color: black;
+      margin-left: 0.4rem;
+    }
+    .para{
+      opacity: .5;
+    }
+    .middle-div{
+      display: flex;
+      justify-content: center;
+      alig-items: center;
+      flex-direction: column;
+      margin-top: 5rem;
+      width: 60%;
+
+    }
+    .number-field{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      border: none;
+      border-bottom: 2px solid black;
+      width: 25rem;
+      text-align: center;
+    }
+    .number-field[type="number"]{
+      padding: 1.5rem;
+      font-size: 1.7rem;
+    }
+    .otp-btn{
+      margin: 0 auto;
+      width: 20rem;
+      height: 5rem;
+      color: white;
+      font-weight: 900;
+      background-color: black;
+      border: 1px solid black;
+      border-radius: 5rem;
+      opacity: 0.5;
+    }
+    .last-div{
+      margin-top: 5rem;
+      display: flex;
+      justify-content: center;
+      align-item: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: -5;
+      transform: translateX(-120rem);
+    }
+    .otp-parent{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+    .phone-number{
+      font-size: 1.6rem;
+       opacity: .5;
+    }
+    .otp{
+      background: none !important;
+      border: none;
+      border-bottom: 2px solid black;
+      width: 6rem;
+      height: 6rem;
+      text-align: center;
+    }
+    .otp[type="number"]{
+      font-size: 3.5rem;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+      margin: 0;
+    }
+    .download-btn{
+      margin-top: 4rem;
+    }
+    .resend-para{
+      margin-top: 3rem;
+      font-size: 1.3rem;
+       opacity: .8;
+      font-weight: 900;
+    }
+    .resend-otp{
+      color: green;
+      margin-left: 4px;
+    }
+    .cross{
+      position: absolute;
+      top: -6rem;
+      right: 2rem;
+      font-size: 3rem;
+      color: black;
+      font-weight: normal;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .animate-one{
+      z-index: -5;
+      display: none;
+      transition: all .5s;
+    }
+    .animate-two{
+      display: block !important;
+      transform: translate(0);
+      transition: all .1s;
+      z-index: 5;
+      animation-name: swap;
+      animation-duration: 2s;
+
+      .child-div{
+          height: 60rem;
+        background-color: red;
+      }
+    }
+    .child-div-increase{
+      height: 60rem;
+    }
+
+    @keyframes swap{
+      10%{
+        visibility: hidden;
+      }
+
+      80%{
+        visibility: visible;
+      }
+      100%{
+        visibility: visible;
+      }
+    }
+  @media screen and (max-width: 500px){
+    #mod{
+      margin-top: -12rem !important;
+    }
+    .child-div{
+      height: 45rem;
+      width: 35rem;
+    }
+    .head-two{
+      font-size: 2rem;
+    }
+    .otp-btn{
+      width: 15rem;
+      margin-top: 0;
+    }
+    .number-field{
+      width: 20rem;
+    }
+    .last-div{
+      margin-top:2rem;
+    }
+    .cross{
+      top: -1rem;
+      right: 0;
+    }
+       .otp-parent{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+     .otp{
+      background: none !important;
+      border: none;
+      border-bottom: 2px solid black;
+      width: 3.5rem;
+      height: 3.5rem;
+      text-align: center;
+    }
+    .otp[type="number"]{
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<div class="parent-div" id="otp-form">
+  <div class="child-div" id="child-div">
+    <div class="top-div">
+      <img class="logo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+      <!--
+        <span
+          class="cross"
+          onclick="closeModal()"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          &#x2715;</span
+        >
+      -->
+      <div class="head-one">Get Free Access to</div>
+      <div class="head-two">Latest Current Affairs<span class="head-three">E-book!</span></div>
+      <p class="para">We will send you one time password to your mobile number.</p>
+    </div>
+    <div class="middle-div" id="middle-div">
+      <input
+        type="number"
+        id="number"
+        class="number-field"
+        placeholder="Enter Mobile Number"
+        onkeyup="validate()"
+        required
+      >
+      <br>
+      <button class="otp-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+    </div>
+    <div class="last-div" id="last-div" style="display: none;">
+      <p class="phone-number">Enter the OTP sent to +91<span id="phone-number"></span></p>
+      <br>
+      <div class="otp-parent">
+        <input class="otp otp-form" type="number" id="otp1">
+        <input class="otp otp-form" type="number" id="otp2" disabled>
+        <input class="otp otp-form" type="number" id="otp3" disabled>
+        <input class="otp otp-form" type="number" id="otp4" disabled>
+        <input class="otp otp-form" type="number" id="otp5" disabled>
+        <input class="otp otp-form" type="number" id="otp6" disabled>
+      </div>
+      <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
+      <br>
+      <button class="otp-btn download-btn" id="download-btn" onclick="downloadBtn()" style="opacity: 1;">
+        Download PDF<span id="download-icon"><i class="bi bi-arrow-down-circle"></i></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  // let serverOtp = '';
+  
+  // otpMaker = () =>{
+  //    serverOtp = Math.floor(100000 + Math.random() * 900000);
+  //   console.log(serverOtp)
+  // }
+  //   // otpMaker();
+  //      let getResponse = {};
+  //     let middleDiv = document.getElementById("middle-div");
+  //     let lastDiv = document.getElementById("last-div");
+  //     let childdiv = document.getElementById('child-div');
+  
+  //     let phoneNumber = "";
+  //     otpSend = () => {
+  //         otpMaker();
+        
+  //         phoneNumber = document.getElementById("number").value;
+  //         middleDiv.classList.add("animate-one");
+  //         lastDiv.classList.add("animate-two");
+  //         childdiv.classList.add('child-div-increase');
+  //         document.getElementById("phone-number").innerHTML = phoneNumber;
+  //        fun();
+      
+  //     }
+  
+  //     function validate(){
+     
+  //       const myInput = document.querySelector('#number');
+  //       if(myInput.value.length == 10) {
+  //           document.getElementById("otp-btn").disabled = false;
+  //         document.getElementById("otp-btn").style.opacity = "1";
+  //       }
+  //       else{
+  //          document.getElementById("otp-btn").disabled = true;
+  //          document.getElementById("otp-btn").style.opacity = "0.5";
+  //       }
+  //     }
+
+  //     async function fun(){
+  //       let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
+
+  //       console.log(url)
+  //      fetch(url).then(response => {
+  //         if (!response.ok) {
+  //           throw new Error('Network response was not ok');
+  //         }
+  //       })
+  //       .then(data => {
+  //         console.log(data);
+  //       })
+  //       .catch(error => {
+  //         console.error('Error:', error);
+  //       });
+  //     }
+
+
+   const inputs = document.querySelectorAll(".otp-form"), button = document.querySelector("#otp-btn");
+
+    inputs.forEach((input, index1) => {
+      input.addEventListener("keyup", (e) => {
+        const currentInput = input,
+          nextInput = input.nextElementSibling,
+          prevInput = input.previousElementSibling;
+          if (currentInput.value.length > 1) {
+            currentInput.value = "";
+            return;
+          }
+          if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+            nextInput.removeAttribute("disabled");
+            nextInput.focus();
+          }
+          if (e.key === "Backspace") {
+            inputs.forEach((input, index2) => {
+              if (index1 <= index2 && prevInput) {
+                input.setAttribute("disabled", true);
+                input.value = "";
+                prevInput.focus();
+              }
+            });
+          }
+          if (!inputs[3].disabled && inputs[3].value !== "") {
+            button.classList.add("active");
+            return;
+          }
+          button.classList.remove("active");
+      });
+  });
+    
+
+//  document.getElementById("otp-btn-buy").addEventListener("click", () => inputs[0].focus());
+
+//     downloadBtn = () =>{
+//         let otpInput1 = document.getElementById('otp1').value;
+//         let otpInput2 = document.getElementById('otp2').value;
+//         let otpInput3 = document.getElementById('otp3').value;
+//         let otpInput4 = document.getElementById('otp4').value;
+//         let otpInput5 = document.getElementById('otp5').value;
+//         let otpInput6 = document.getElementById('otp6').value;
+      
+//         let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
+//         let parseOtp = parseInt(finalOtp);
+//         if(parseOtp == serverOtp){
+//           localStorage.setItem("globalOtpKey", phoneNumber);
+//             clearAllForm();
+//           var t = {{ t | json }};
+       
+
+//       let delay = 1000
+
+
+//  const pdf = document.querySelector("#dsp");
+// const getFreePdf = document.querySelector("#SamplePaperbtn");
+//       // Create a new click event
+//       const clickEvent = new MouseEvent("click", {
+//         bubbles: true,
+//         cancelable: true,
+//         view: window
+//       });
+//       if (t== "")
+//       {
+
+//         console.log("true")
+//          setTimeout(Pdf.dispatchEvent(clickEvent), {{ delay }});
+
+
+//       }else {
+
+//          setTimeout(getFreePdf.dispatchEvent(clickEvent), {{ delay }});
+//       }
+//       // Dispatch the click event on the element
+//      // Pdf.dispatchEvent(clickEvent);
+//      //  getFreePdf.dispatchEvent(clickEvent);
+
+//   //         setTimeout(Pdf.dispatchEvent(clickEvent), {{ delay }});
+//   // setTimeout(getFreePdf.dispatchEvent(clickEvent), {{ delay }});
+          
+//           // window.open(t, "_blank");
+
+         
+//         }
+//         else{
+//           alert("fail");
+//         }
+//     }
+
+
+
+
+</script>
