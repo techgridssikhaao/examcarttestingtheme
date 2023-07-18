@@ -58,7 +58,7 @@
     {% assign blog = tag | replace: 'blog\', '' %}
   {% endif %}
 {% endfor %}
-
+{% include 'custom-add-to-cart-popup' %}
 {% comment %}Select the product image size from settings.{% endcomment %}
 {% assign img_size = settings.img_size_grid %}
 <div class="product-layout product-list col-xs-12 product-item">
@@ -350,6 +350,7 @@
   
   
   
+  
     
   visitBlog = (ref) => {
     if (localStorage.getItem("globalOtpKey") == null) {
@@ -431,6 +432,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
