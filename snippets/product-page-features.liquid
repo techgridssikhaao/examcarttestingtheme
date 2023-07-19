@@ -509,58 +509,59 @@
     <!-- AddThis Button END -->
   {% endif %}
 </div>
-
-<div
-  class="modal fade"
-  id="myModal2"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-    <div id="mod">
-      {% include 'new-otp-form-add-to-cart' %}
+{% comment %}
+  <div
+    class="modal fade"
+    id="myModal2"
+    data-backdrop="static"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+      <div id="mod">
+        {% include 'new-otp-form-add-to-cart' %}
+      </div>
     </div>
   </div>
-</div>
 
-<div
-  class="modal fade"
-  id="myModal3"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-    <div id="mod">
-      {% include 'new-otp-buy' %}
+  <div
+    class="modal fade"
+    id="myModal3"
+    data-backdrop="static"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+      <div id="mod">
+        {% include 'new-otp-buy' %}
+      </div>
     </div>
   </div>
-</div>
 
-<div
-  class="modal fade"
-  id="myModal1"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-    <div id="mod">
-      {% include 'new-otp-form' %}
+  <div
+    class="modal fade"
+    id="myModal1"
+    data-backdrop="static"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+      <div id="mod">
+        {% include 'new-otp-form' %}
+      </div>
     </div>
   </div>
-</div>
-
+{% endcomment %}
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -688,6 +689,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
