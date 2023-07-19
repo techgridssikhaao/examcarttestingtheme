@@ -369,7 +369,7 @@
     // }
     if(localStorage.getItem("globalOtpKey")== null)
   {
-       $("#myModal2").modal('show');
+      showPopup('#AddToCartPopUp');
     {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
   }else{
        
