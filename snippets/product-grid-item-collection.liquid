@@ -268,9 +268,9 @@
               <button
                 class="add-to-cart-new add-to-cart-event_tracker button btn-cart {% if sold_out %} btn disabled {% endif %}"
                 type="button"
-              
+                onclick=popupaddtocart()
                 onclick=processCpAddToCart(this)
-
+                onclick="showAddtoCartPopup('#AddToCartPopUp')"
                 id="cpAddToCart"
                 data-toggle="tooltip"
                 data-product-id="{{ product.id }}"
