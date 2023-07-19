@@ -270,7 +270,7 @@
                 type="button"
 
                 onclick="processAddtoCartPopup(this)"
-                id="cpAddToCart"
+
                 data-toggle="tooltip"
                 data-product-id="{{ product.variants.first.id }}"
                 data-product-available="{{ product.variants.first.available }}"
@@ -346,6 +346,7 @@
 <!-- product-layout -->
 
 <script>
+  
   
   
   
@@ -434,6 +435,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
