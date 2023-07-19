@@ -64,6 +64,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -360,8 +361,13 @@ function processBlogLink(ref) {
   getButton = ref;
  
  let blogUrl = ref.getAttribute('data-bloglink');
+
+console.log(blogUrl);
+  
   if(localStorage.getItem("globalOtpKey")== null) {
 showPopup('#openBlogPopUp');
+
+
     
   }else {
      
@@ -376,6 +382,7 @@ showPopup('#openBlogPopUp');
   
     
 }
+
 
 
 
