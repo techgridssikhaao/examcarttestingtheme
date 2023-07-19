@@ -58,6 +58,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -244,6 +245,13 @@ switch (popupId) {
 processPdflink(getButton);
        break;
   }
+
+  case "#openBlogPopUp": {
+ hidePopup(popupId);
+processBlogLink(getButton);
+       break;
+  }
+
     
     default:
      hidePopup(popupId);
@@ -362,6 +370,7 @@ showPopup('#openBlogPopUp');
   
     
 }
+
 
 
 
