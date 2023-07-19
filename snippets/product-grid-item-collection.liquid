@@ -44,10 +44,10 @@
   {% assign sold_out = false %}
 {% endif %}
 
-{% assign t = '' %}
+{% assign pdf = '' %}
 {% for tag in product.tags %}
   {% if tag contains 'elssp\h' %}
-    {% assign t = tag | replace: 'elssp\', '' %}
+    {% assign pdf = tag | replace: 'elssp\', '' %}
   {% endif %}
 {% endfor %}
 
@@ -268,11 +268,12 @@
               <button
                 class="add-to-cart-new add-to-cart-event_tracker button btn-cart {% if sold_out %} btn disabled {% endif %}"
                 type="button"
-                onclick=processCpAddToCart(this)
-                onclick="showAddtoCartPopup('#AddToCartPopUp')"
+
+                onclick="processAddtoCartPopup(this)"
                 id="cpAddToCart"
                 data-toggle="tooltip"
-                  data-product-id="{{ product.variants.first.id }}"
+                data-product-id="{{ product.variants.first.id }}"
+                data-product="{{ product.variants.first.available }}"
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="{{ 'products.product.add_to_cart' | t }}"
                 {% if sold_out == false %}
@@ -290,7 +291,7 @@
               </button>
               <button
                 onclick="popup(this)"
-                data-customlink="{{ t }}"
+                data-pdflink="{{ pdf }}"
                 class="add-to-cart-new button btn-cart {% if sold_out %} btn disabled {% endif %}"
                 type="button"
                 id="getPdf"
@@ -344,6 +345,7 @@
 <!-- product-layout -->
 
 <script>
+  
   
 
   
@@ -429,6 +431,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
