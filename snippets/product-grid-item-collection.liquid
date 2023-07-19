@@ -362,19 +362,19 @@
 
 
   function popupaddtocart() {
-    if (localStorage.getItem("globalOtpKey") == null) {
-      $("#myModal2").modal("show");
-    } else {
-      cart.add("{{ product.variants.first.id }}");
-    }
-    {% comment %} if(localStorage.getItem("globalOtpKey")== null)
+    // if (localStorage.getItem("globalOtpKey") == null) {
+    //   $("#myModal2").modal("show");
+    // } else {
+    //   cart.add("{{ product.variants.first.id }}");
+    // }
+    if(localStorage.getItem("globalOtpKey")== null)
   {
        $("#myModal2").modal('show');
     {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
   }else{
        
      {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
-  } {% endcomment %}
+  } 
 }
 
   function popup(ref) {
