@@ -252,7 +252,7 @@
               id="number"
               class="number-field"
               placeholder="Enter Mobile Number"
-              onkeyup="validateLength('otp-btn','#number-buy')"
+              onkeyup="validateLength('otp-btn','#number')"
               required
             >
             <br>
@@ -281,7 +281,7 @@
             <button
               class="otp-btn download-btn"
               id="download-btn"
-              onclick="verifyOtp('#AddToCartPopUp')"
+              onclick="verifyOtp('#getPdfPopUp', 'otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6')"
               style="opacity: 1;"
             >
               Download PDF<span id="download-icon"><i class="bi bi-arrow-down-circle"></i></span>
@@ -294,6 +294,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -444,6 +445,7 @@
 //           alert("fail");
 //         }
 //     }
+
 
 
 
