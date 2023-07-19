@@ -238,7 +238,7 @@
 >
   <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
     <div id="mod">
-      <div class="parent-div" id="otp-form-buy">
+      <div class="parent-div" id="otp-form-blog">
         <div class="child-div" id="child-div-buy">
           <div class="top-div">
             <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
@@ -248,27 +248,27 @@
           <div class="middle-div" id="middle-div-buy">
             <input
               type="tel"
-              id="number-buy"
+              id="number-blog"
               maxlength="10"
               pattern="[0-9]"
               class="number-field"
               placeholder="Enter Mobile Number"
-              onkeyup="validateLength('otp-btn-buy','#number-buy')"
+              onkeyup="validateLength('otp-btn-blog','#number-blog')"
               required
             >
 
             <br>
             <button
               class="otp-btn"
-              id="otp-btn-buy"
-              onclick="sendOtp('number-buy','phone-number-buy','middle-div-buy','last-div-buy','child-div-buy')"
+              id="otp-btn-blog"
+              onclick="sendOtp('number-blog','phone-number-blog','middle-div-buy','last-div-buy','child-div-buy')"
               disabled
             >
               Get OTP
             </button>
           </div>
-          <div class="last-div" id="last-div-buy" style="display: none;">
-            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-buy"></span></p>
+          <div class="last-div" id="last-div-blog" style="display: none;">
+            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-blog"></span></p>
             <br>
             <div class="otp-parent">
               <input class="otp otp-form" type="number" id="otp1-blog">
@@ -282,11 +282,11 @@
             <br>
             <button
               class="otp-btn download-btn"
-              id="download-btn-buy"
-              onclick="verifyOtp('#LoginPopUp', 'otp1-buy', 'otp1-blog', 'otp3-buy', 'otp4-buy', 'otp5-buy', 'otp6-buy')"
+              id="download-btn-blog"
+              onclick="verifyOtp('#openBlogPopUp', 'otp1-blog', 'otp2-blog', 'otp3-blog, 'otp4-blog', 'otp5-blog', 'otp6-blog')"
               style="opacity: 1;"
             >
-              Verify OTP<span id="download-icon-buy"><i class="bi bi-arrow-down-circle"></i></span>
+              Verify OTP<span id="download-icon-blog"><i class="bi bi-arrow-down-circle"></i></span>
             </button>
           </div>
         </div>
@@ -302,11 +302,11 @@
 
 
 
-      const inputsBuy = document.querySelectorAll(".otp-form"),
+      const inputsBlog = document.querySelectorAll(".otp-form"),
 
-      buttonBuy = document.querySelector("#otp-btn-buy");
+      buttonBlog = document.querySelector("#otp-btn-blog");
 
-    inputsBuy.forEach((input, index1) => {
+    inputsBlog.forEach((input, index1) => {
       input.addEventListener("keyup", (e) => {
         const currentInput = input,
           nextInput = input.nextElementSibling,
@@ -320,7 +320,7 @@
           nextInput.focus();
         }
         if (e.key === "Backspace") {
-          inputsBuy.forEach((input, index2) => {
+          inputsBlog.forEach((input, index2) => {
             if (index1 <= index2 && prevInput) {
               input.setAttribute("disabled", true);
               input.value = "";
@@ -328,13 +328,13 @@
             }
           });
         }
-        if (!inputsBuy[3].disabled && inputsBuy[3].value !== "") {
-          buttonBuy.classList.add("active");
+        if (!inputsBlog[3].disabled && inputsBlog[3].value !== "") {
+          buttonBlog.classList.add("active");
           return;
         }
-        buttonBuy.classList.remove("active");
+        buttonBlog.classList.remove("active");
       });
     });
 
-  document.getElementById("otp-btn-buy").addEventListener("click", () => inputsBuy[0].focus());
+  document.getElementById("otp-btn-blog").addEventListener("click", () => inputsBlog[0].focus());
 </script>
