@@ -31,6 +31,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -261,6 +262,25 @@ switch (popupId) {
                             }
         }
 
+ function processPdflink(ref){
+  let pdfLink =  ref.getAttribute('data-pdflink')           
+           
+           if (pdfLink !='' ){
+
+                window.open(`${pdfLink}`, "_blank");
+             
+           } else {
+
+              location.href = productPage
+            
+           }
+  
+                        
+                            if(localStorage.getItem("globalOtpKey")== null){
+                                showPopup('#AddToCartPopUp');
+                              
+                            }
+        }
 
   
 // const inputsBuy = document.querySelectorAll(".otp-form"),
@@ -330,6 +350,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
