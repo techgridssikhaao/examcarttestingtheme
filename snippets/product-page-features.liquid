@@ -576,6 +576,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -629,17 +630,17 @@ function popupbuy() {
   
 
   
-function popup() {
+function openProductPdf() {
   var t = {{ t | json }}
-         
-  if(localStorage.getItem("globalOtpKey")== null)
-  {
-       window.open(t, "_blank");
-  }else{
+         window.open(t, "_blank");  
+  // if(localStorage.getItem("globalOtpKey")== null)
+  // {
+  //      window.open(t, "_blank");
+  // }else{
        
   
     
-  }
+  // }
        
     }
 
@@ -687,6 +688,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
