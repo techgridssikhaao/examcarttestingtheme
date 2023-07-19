@@ -36,6 +36,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -271,13 +272,13 @@ switch (popupId) {
           console.log(pdfLink) 
            if (pdfLink !='' ){
 console.log(pdfLink) 
-                // window.open(`${pdfLink}`, "_blank");
+                window.open(`${pdfLink}`, "_blank");
              
            } else {
 
-               var t = {{ pdf | json }}
-               console.log(t) 
-             // window.open(t, "_blank");
+             //   var t = {{ pdf | json }}
+             //   console.log(t) 
+             // // window.open(t, "_blank");
            }
   
                         
@@ -355,6 +356,7 @@ console.log(pdfLink)
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
