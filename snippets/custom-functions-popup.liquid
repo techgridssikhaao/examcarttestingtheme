@@ -46,6 +46,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -282,7 +283,7 @@ switch (popupId) {
    if(localStorage.getItem("globalOtpKey")== null){
                      // showPopup('#AddToCartPopUp');
 
-if(ref.id ='SamplePaperbtn') {
+if(ref.getAttribute('id') ='SamplePaperbtn') {
   openProductPdf();
 }else(
    window.open(`${pdfLink}`, "_blank");
@@ -373,6 +374,7 @@ openProductPdf();
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
