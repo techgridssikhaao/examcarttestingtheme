@@ -54,6 +54,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -338,6 +339,14 @@ if(id == "openPdfFile") {
    
  }
 
+function processBlogLink(ref) {
+
+
+
+
+   let blogUrl = ref.dataset.bloglink;
+      window.open(`${pdfUrl}`, "_blank");
+}
 
 
 
