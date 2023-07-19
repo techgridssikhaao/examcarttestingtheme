@@ -198,11 +198,12 @@
         {% endif %}
         {% if template != 'product.pre-order' %}
           <button
-            onclick="popupaddtocart()"
+            onclick="processAddToCart(this)"
             style="width:25%"
             class="btn button button-cart"
             type="button"
             id="button-cart"
+              data-product-id = {{ product.id }}
             data-loading-text="{{ 'products.product.loading' | t }}"
           >
             {{ 'products.product.add_to_cart' | t }}
