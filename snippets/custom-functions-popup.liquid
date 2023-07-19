@@ -25,6 +25,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -252,13 +253,14 @@ switch (popupId) {
    if(localStorage.getItem("globalOtpKey")== null){
                      // showPopup('#AddToCartPopUp');
 
-if(true) {
+if(id == "openPdfFile") {
   openProductPdf();
 }else{
    window.open(`${pdfLink}`, "_blank")
 }
    }
  }
+
 
 
 
