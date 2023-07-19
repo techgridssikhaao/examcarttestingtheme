@@ -35,6 +35,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -269,13 +270,14 @@ switch (popupId) {
   let pdfLink =  ref.getAttribute('data-pdflink')           
           console.log(pdfLink) 
            if (pdfLink !='' ){
-
-                window.open(`${pdfLink}`, "_blank");
+console.log(pdfLink) 
+                // window.open(`${pdfLink}`, "_blank");
              
            } else {
 
                var t = {{ pdf | json }}
-             window.open(samplepaper, "_blank");
+               console.log(t) 
+             // window.open(t, "_blank");
            }
   
                         
@@ -353,6 +355,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
