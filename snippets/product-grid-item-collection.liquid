@@ -291,7 +291,7 @@
                 </span>
               </button>
               <button
-                onclick="popup(this)"
+                onclick="processPdflink(this)"
                 data-pdflink="{{ pdf }}"
                 class="add-to-cart-new button btn-cart {% if sold_out %} btn disabled {% endif %}"
                 type="button"
@@ -346,6 +346,7 @@
 <!-- product-layout -->
 
 <script>
+  
   
   
   
@@ -436,6 +437,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
