@@ -33,6 +33,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -265,7 +266,7 @@ switch (popupId) {
 
  function processPdflink(ref){
   let pdfLink =  ref.getAttribute('data-pdflink')           
-           
+          console.log(pdfLink) 
            if (pdfLink !='' ){
 
                 window.open(`${pdfLink}`, "_blank");
@@ -351,6 +352,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
