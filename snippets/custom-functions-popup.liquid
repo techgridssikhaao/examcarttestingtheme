@@ -39,6 +39,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -272,18 +273,9 @@ switch (popupId) {
  function processPdflink(ref){
   let pdfLink =  ref.getAttribute('data-pdflink')           
           console.log(pdfLink) 
+openProductPdf();
 
-
- var t = {{ t | json }}
-         
-  if(localStorage.getItem("globalOtpKey")== null)
-  {
-       window.open(t, "_blank");
-  }else{
-       
-  
-    
-  }
+ 
 
    
 //            if (pdfLink !='' ){
@@ -372,6 +364,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
