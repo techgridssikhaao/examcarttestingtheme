@@ -29,6 +29,8 @@
   
   
   
+  
+  
  // pp_addtocart funcitons
 
 
@@ -238,10 +240,10 @@ switch (popupId) {
 
         function processAddtoCartPopup(ref){
 
- let productID = ref.getAttribute('data-product-id')
-   let productAvailable = ref.getAttribute('data-product-available')
-  let productPage = ref.getAttribute('data-product-page')
-console.log(productPage);
+           let productID = ref.getAttribute('data-product-id')
+                 let productAvailable = ref.getAttribute('data-product-available')
+            let productPage = ref.getAttribute('data-product-page')
+                   console.log(productPage);
            if (productAvailable ){
 
                    cart.add(productID)
@@ -328,6 +330,8 @@ console.log(productPage);
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
+
 
 
 
