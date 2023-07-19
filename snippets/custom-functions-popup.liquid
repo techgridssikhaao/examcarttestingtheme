@@ -50,6 +50,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -320,8 +321,10 @@ processAddtoCartPopup(getButton);
 
 
 if(id == "openPdfFile") {
+  console.log(id)
   openProductPdf();
 }else{
+   console.log(id)
    window.open(`${pdfLink}`, "_blank")
 }
 
@@ -331,6 +334,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
