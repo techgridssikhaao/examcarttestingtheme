@@ -464,15 +464,15 @@
           style="display:none"
           >Share karo!</a
         >
-        {% assign t = '' %}
+        {% assign pdf = '' %}
         {% for tag in product.tags %}
           {% if tag contains 'elssp\h' %}
-            {% assign t = tag | replace: 'elssp\', '' %}
+            {% assign pdf = tag | replace: 'elssp\', '' %}
           {% endif %}
         {% endfor %}
         <div class="row ">
-          {% if t != '' %}
-            <div onclick="popup()">
+          {% if pdf != '' %}
+            <div onclick="processPdflink(pdf)">
               <button
                 style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
                 class="btn button"
@@ -560,6 +560,7 @@
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -675,6 +676,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
