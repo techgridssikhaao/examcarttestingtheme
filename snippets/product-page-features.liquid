@@ -472,7 +472,7 @@
         {% endfor %}
         <div class="row ">
           {% if pdf != '' %}
-            <div onclick="processPdflink(this)">
+            <div onclick="popup()">
               <button
                 style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
                 class="btn button"
@@ -568,6 +568,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -626,10 +627,10 @@ function popup() {
          
   if(localStorage.getItem("globalOtpKey")== null)
   {
-       $("#myModal1").modal('show');
+       window.open(t, "_blank");
   }else{
        
-     window.open(t, "_blank");
+  
     
   }
        
@@ -679,6 +680,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
