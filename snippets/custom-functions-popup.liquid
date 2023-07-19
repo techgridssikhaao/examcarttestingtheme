@@ -42,6 +42,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -273,12 +274,20 @@ switch (popupId) {
         }
 
  function processPdflink(ref){
-
+ let pdfLink =  ref.getAttribute('data-pdflink')   
+   
    if(localStorage.getItem("globalOtpKey")== null){
                      showPopup('#AddToCartPopUp');
+
+
+     
                               
+                            }else {
+
+                                      if(       ref.id             =='SamplePaperbtn') 
+     
                             }
-  let pdfLink =  ref.getAttribute('data-pdflink')           
+     
          
 
  window.open(`${pdfLink}`, "_blank");
@@ -374,6 +383,7 @@ openProductPdf();
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
