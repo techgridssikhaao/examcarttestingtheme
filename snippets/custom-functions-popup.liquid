@@ -36,6 +36,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -210,7 +211,7 @@ switch (popupId) {
      
   case "#AddToCartPopUp": {
  
-    
+    getButton.click;
     hidePopup(popupId);
 
 
@@ -264,7 +265,7 @@ switch (popupId) {
  let pdfLink =  ref.getAttribute('data-pdflink')   
    let id = ref.getAttribute('id')
    
-          
+          getButton = ref;
    
    if(localStorage.getItem("globalOtpKey")== null){
                      showPopup('#AddToCartPopUp');
@@ -294,6 +295,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
