@@ -322,7 +322,7 @@
                 data-toggle="tooltip"
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="Read Blog"
-                onclick="processBlogLink(this)"
+                onclick="visitBlog(this)"
                 style="border:none !important"
               >
                 <span>
@@ -355,13 +355,16 @@
   
   
   
+  
 
   
   
     
   visitBlog = (ref) => {
     if (localStorage.getItem("globalOtpKey") == null) {
-      $("#myModal1").modal("show");
+      // $("#myModal1").modal("show");
+       let pdfUrl = ref.dataset.bloglink;
+      window.open(`${pdfUrl}`, "_blank");
     } else {
       let pdfUrl = ref.dataset.bloglink;
       window.open(`${pdfUrl}`, "_blank");
@@ -440,6 +443,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
