@@ -29,7 +29,8 @@
 
   //cp_addtocart function
  function processCpAddToCart(ref) {
-    console.log(ref)
+    let productID = ref.getAttribute('data-product-id')
+   cart.add(productID)
   }
 
   //pp_buynow function
