@@ -45,6 +45,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -218,19 +219,8 @@ switch (popupId) {
     }
      
   case "#AddToCartPopUp": {
-      tem =   getButton.id
-    console.log(tem);
-  const openpdf = document.querySelector(tem);
-
-      // Create a new click event
-      const clickEvent = new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-        view: window
-      });
-      
-      // Dispatch the click event on the element
-      openpdf.dispatchEvent(clickEvent)
+      tem =   getButton
+  processPdflink(tem);
     hidePopup(popupId);
 
 
@@ -314,6 +304,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
