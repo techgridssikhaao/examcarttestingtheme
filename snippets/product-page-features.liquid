@@ -472,7 +472,7 @@
         {% endfor %}
         <div class="row ">
           {% if pdf != '' %}
-            <div onclick="popup()">
+            <div onclick="processPdflink(this)">
               <button
                 style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
                 class="btn button"
@@ -561,6 +561,7 @@
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -682,6 +683,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
