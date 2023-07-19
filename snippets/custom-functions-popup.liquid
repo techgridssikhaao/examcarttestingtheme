@@ -38,6 +38,8 @@
   
   
   
+  
+  
 
  // pp_addtocart funcitons
 
@@ -212,7 +214,17 @@ switch (popupId) {
      
   case "#AddToCartPopUp": {
  
-    getButton.click;
+  const openpdf = document.querySelector("#openPdfFile");
+
+      // Create a new click event
+      const clickEvent = new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      
+      // Dispatch the click event on the element
+      openpdf.dispatchEvent(clickEvent);
     hidePopup(popupId);
 
 
@@ -296,6 +308,8 @@ if(id == "openPdfFile") {
 
    
  }
+
+
 
 
 
