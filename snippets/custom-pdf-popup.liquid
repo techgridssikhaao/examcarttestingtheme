@@ -271,7 +271,12 @@
             </div>
             <p class="resend-para">Don't you receiver the OTP?<span class="resend-otp">Resend OTP</span></p>
             <br>
-            <button class="otp-btn download-btn" id="download-btn" onclick="downloadBtn()" style="opacity: 1;">
+            <button
+              class="otp-btn download-btn"
+              id="download-btn"
+              onclick="verifyOtp('#AddToCartPopUp')"
+              style="opacity: 1;"
+            >
               Download PDF<span id="download-icon"><i class="bi bi-arrow-down-circle"></i></span>
             </button>
           </div>
@@ -282,6 +287,7 @@
 </div>
 
 <script>
+  
   
 
   // let serverOtp = '';
@@ -428,6 +434,7 @@
 //           alert("fail");
 //         }
 //     }
+
 
 
 
