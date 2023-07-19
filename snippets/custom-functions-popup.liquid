@@ -46,6 +46,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -219,8 +220,8 @@ switch (popupId) {
     }
      
   case "#AddToCartPopUp": {
-      tem =   getButton
-  processPdflink(tem);
+   
+  processPdflink(getButton);
     hidePopup(popupId);
 
 
@@ -277,7 +278,7 @@ switch (popupId) {
           getButton = ref;
    
    if(localStorage.getItem("globalOtpKey")== null){
-                     showPopup('#AddToCartPopUp');
+                     showPopup('#getPdfPopUp');
     
 
 // if(id == "openPdfFile") {
@@ -304,6 +305,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
