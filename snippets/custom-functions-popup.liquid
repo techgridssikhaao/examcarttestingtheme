@@ -48,6 +48,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -229,7 +230,11 @@ switch (popupId) {
    break;
     
   }  
-
+  case "#getPdfPopUp": {
+ hidePopup(popupId);
+processPdflink(getButton);
+    
+  }
     
     default:
      hidePopup(popupId);
@@ -325,6 +330,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
