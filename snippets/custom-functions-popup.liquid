@@ -41,6 +41,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -172,12 +173,12 @@ function hidePopup(popupId){
 
 
     
-  let otpInput1 = document.getElementById("otp1-buy").value;
-  let otpInput2 = document.getElementById("otp2-buy").value;
-  let otpInput3 = document.getElementById("otp3-buy").value;
-  let otpInput4 = document.getElementById("otp4-buy").value;
-  let otpInput5 = document.getElementById("otp5-buy").value;
-  let otpInput6 = document.getElementById("otp6-buy").value;
+  let otpInput1 = document.getElementById(otp1).value;
+  let otpInput2 = document.getElementById(otp2).value;
+  let otpInput3 = document.getElementById(otp3).value;
+  let otpInput4 = document.getElementById(otp4).value;
+  let otpInput5 = document.getElementById(otp5).value;
+  let otpInput6 = document.getElementById(otp6).value;
   let finalOtp = otpInput1.toString() + otpInput2.toString() + otpInput3.toString() + otpInput4.toString() + otpInput5.toString() + otpInput6.toString();
   let parseOtp = parseInt(finalOtp);
   if (parseOtp == smsotp) {
@@ -309,6 +310,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
