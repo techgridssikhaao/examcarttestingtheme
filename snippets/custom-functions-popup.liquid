@@ -22,7 +22,19 @@
 <script>
   
   
-  
+ // pp_addtocart funcitons
+
+
+
+
+  //cp_addtocart function
+  processCpAddToCart(ref) {
+    console.log(ref)
+  }
+
+  //pp_buynow function
+
+  //
   
   
   
@@ -49,14 +61,27 @@
   /////add to cart 
 
 
-
+cpAddToCartProcess(ref) {
+ let productId = ref.getAttribute(productID)
+  if (otpkey != null) {
+    modal_id = ref.getAttribute("modal_name")
+    showmodel(model_id)
+  }
+}
   
   document.addEventListener("DOMContentLoaded", function() {
   
   let atc =  document.getElementById("cpAddToCart")
-  console.log(atc);
 
 
+if (atc != null) {
+ atc.addEventListener("click", function() {
+    
+    showAddtoCartPopup('#AddToCartPopUp')
+
+});
+  
+}
 
 
   atc.addEventListener("click", function() {
