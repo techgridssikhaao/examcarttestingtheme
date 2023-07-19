@@ -1,0 +1,340 @@
+<style>
+    .parent-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .child-div {
+      padding: 2rem;
+      height: 50rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: white;
+      margin: auto;
+    }
+
+    .top-div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .popuplogo {
+      height: 5rem;
+      width: 9rem;
+    }
+
+    .head-one {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: black;
+    }
+
+    .head-two {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: green;
+    }
+
+    .head-three {
+      color: black;
+      margin-left: 0.4rem;
+    }
+
+    .para {
+      opacity: .5;
+    }
+
+    .middle-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 5rem;
+      width: auto !important;
+    }
+
+    .number-field {
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      border: none;
+      border-bottom: 2px solid black;
+      width: 25rem;
+      text-align: center;
+      padding: 1.1rem;
+      font-size: 2.0rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .otp-btn {
+      margin: 0 auto;
+      width: 20rem;
+      height: 5rem;
+      color: white;
+      font-weight: 900;
+      background-color: black;
+      border: 1px solid black;
+      border-radius: 5rem;
+      opacity: 0.5;
+    }
+
+    .last-div {
+      margin-top: 5rem;
+      display: flex;
+      justify-content: center;
+      align-item: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: -5;
+      transform: translateX(-120rem);
+    }
+
+    .otp-parent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .phone-number {
+      font-size: 1.6rem;
+      opacity: .5;
+    }
+
+    .otp {
+      background: none !important;
+      border: none;
+      border-bottom: 2px solid black;
+      width: 6rem;
+      height: 6rem;
+      text-align: center;
+      font-size: 3.5rem;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .download-btn {
+      margin-top: 4rem;
+    }
+
+    .resend-para {
+      margin-top: 3rem;
+      font-size: 1.3rem;
+      opacity: .8;
+      font-weight: 900;
+    }
+
+    .resend-otp {
+      color: green;
+      margin-left: 4px;
+    }
+
+    .cross {
+      position: absolute;
+      top: -6rem;
+      right: 2rem;
+      font-size: 3rem;
+      color: black;
+      font-weight: normal;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+  /*   .animate-one {
+      z-index: -5;
+      display: none;
+      transition: all .5s;
+    }
+
+    .animate-two {
+      display: block !important;
+      transform: translate(0);
+      transition: all .1s;
+      z-index: 5;
+      animation-name: swap;
+      animation-duration: 2s;
+    }
+
+    .child-div-increase {
+      height: 60rem;
+    }
+   */
+    @keyframes swap {
+      10% {
+        visibility: hidden;
+      }
+
+      80% {
+        visibility: visible;
+      }
+
+      100% {
+        visibility: visible;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .child-div {
+        height: 45rem;
+        width: 35rem;
+      }
+
+      .head-two {
+        font-size: 2rem;
+      }
+
+      .otp-btn {
+        width: 15rem;
+        margin-top: 0;
+      }
+
+      .number-field {
+        width: 20rem;
+      }
+
+      .last-div {
+        margin-top: 2rem;
+      }
+
+      .cross {
+        top: -1rem;
+        right: 0;
+      }
+
+      .otp-parent {
+        gap: 1.5rem;
+      }
+
+      .otp {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 2.5rem;
+      }
+    }
+</style>
+
+<div
+  class="modal fade"
+  data-backdrop="static"
+  id="openBlogPopUp"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      <div class="parent-div" id="otp-form-buy">
+        <div class="child-div" id="child-div-buy">
+          <div class="top-div">
+            <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
+            <div class="head-one">Verify your number!</div>
+            <p class="para">Let us send you a thank you note for your review</p>
+          </div>
+          <div class="middle-div" id="middle-div-buy">
+            <input
+              type="tel"
+              id="number-buy"
+              maxlength="10"
+              pattern="[0-9]"
+              class="number-field"
+              placeholder="Enter Mobile Number"
+              onkeyup="validateLength('otp-btn-buy','#number-buy')"
+              required
+            >
+
+            <br>
+            <button
+              class="otp-btn"
+              id="otp-btn-buy"
+              onclick="sendOtp('number-buy','phone-number-buy','middle-div-buy','last-div-buy','child-div-buy')"
+              disabled
+            >
+              Get OTP
+            </button>
+          </div>
+          <div class="last-div" id="last-div-buy" style="display: none;">
+            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-buy"></span></p>
+            <br>
+            <div class="otp-parent">
+              <input class="otp otp-form" type="number" id="otp1-buy">
+              <input class="otp otp-form" type="number" id="otp2-buy" disabled>
+              <input class="otp otp-form" type="number" id="otp3-buy" disabled>
+              <input class="otp otp-form" type="number" id="otp4-buy" disabled>
+              <input class="otp otp-form" type="number" id="otp5-buy" disabled>
+              <input class="otp otp-form" type="number" id="otp6-buy" disabled>
+            </div>
+            <p class="resend-para">Didn't receive the OTP? <span class="resend-otp">Resend OTP</span></p>
+            <br>
+            <button
+              class="otp-btn download-btn"
+              id="download-btn-buy"
+              onclick="verifyOtp('#LoginPopUp', 'otp1-buy', 'otp2-buy', 'otp3-buy', 'otp4-buy', 'otp5-buy', 'otp6-buy')"
+              style="opacity: 1;"
+            >
+              Verify OTP<span id="download-icon-buy"><i class="bi bi-arrow-down-circle"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // document.getElementById("middle-div-buy").classList.add("animate-one");
+  // document.getElementById("last-div-buy").classList.add("animate-two");
+  // document.getElementById("child-div-buy").classList.add("child-div-increase");
+
+
+
+      const inputsBuy = document.querySelectorAll(".otp-form"),
+
+      buttonBuy = document.querySelector("#otp-btn-buy");
+
+    inputsBuy.forEach((input, index1) => {
+      input.addEventListener("keyup", (e) => {
+        const currentInput = input,
+          nextInput = input.nextElementSibling,
+          prevInput = input.previousElementSibling;
+        if (currentInput.value.length > 1) {
+          currentInput.value = "";
+          return;
+        }
+        if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+          nextInput.removeAttribute("disabled");
+          nextInput.focus();
+        }
+        if (e.key === "Backspace") {
+          inputsBuy.forEach((input, index2) => {
+            if (index1 <= index2 && prevInput) {
+              input.setAttribute("disabled", true);
+              input.value = "";
+              prevInput.focus();
+            }
+          });
+        }
+        if (!inputsBuy[3].disabled && inputsBuy[3].value !== "") {
+          buttonBuy.classList.add("active");
+          return;
+        }
+        buttonBuy.classList.remove("active");
+      });
+    });
+
+  document.getElementById("otp-btn-buy").addEventListener("click", () => inputsBuy[0].focus());
+</script>
