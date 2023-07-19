@@ -23,6 +23,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -230,12 +231,18 @@ switch (popupId) {
 
 
 
-        function processAddtoCartPopup(popupId){
+        function processAddtoCartPopup(ref){
 
+ let productID = ref.getAttribute('data-product-id')
+   let productAvailable = ref.getAttribute('data-product-available')
 
+console.log()
+           if (productAvailable )
+  
+   
           
                             if(localStorage.getItem("globalOtpKey")== null){
-                                showPopup(popupId);
+                                showPopup('#AddToCartPopUp');
                               
                                   {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% endif %};
 
@@ -318,6 +325,7 @@ switch (popupId) {
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
