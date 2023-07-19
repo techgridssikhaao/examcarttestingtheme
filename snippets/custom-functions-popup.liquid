@@ -47,6 +47,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -246,11 +247,14 @@ switch (popupId) {
 
         function processAddtoCartPopup(ref){
  getButton =ref;
-           let productID = ref.getAttribute('data-product-id')
+   let productID = ref.getAttribute('data-product-id')
                  let productAvailable = ref.getAttribute('data-product-available')
             let productPage = ref.getAttribute('data-product-page')
-                   console.log(productPage);
-           if (productAvailable){
+                  
+
+      if(  ref.id !='button-cart'  )
+      {
+  if (productAvailable){
 
                    cart.add(productID)
              
@@ -259,6 +263,22 @@ switch (popupId) {
               location.href = productPage
             
            }
+        
+      }
+          
+           // let productID = ref.getAttribute('data-product-id')
+           //       let productAvailable = ref.getAttribute('data-product-available')
+           //  let productPage = ref.getAttribute('data-product-page')
+           //         console.log(productPage);
+           // if (productAvailable){
+
+           //         cart.add(productID)
+             
+           // } else {
+
+           //    location.href = productPage
+            
+           // }
   
                       
                             if(localStorage.getItem("globalOtpKey")== null){
@@ -305,6 +325,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
