@@ -37,6 +37,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -235,7 +236,7 @@ switch (popupId) {
 
 
         function processAddtoCartPopup(ref){
-
+ getButton =ref;
            let productID = ref.getAttribute('data-product-id')
                  let productAvailable = ref.getAttribute('data-product-available')
             let productPage = ref.getAttribute('data-product-page')
@@ -295,6 +296,7 @@ if(id == "openPdfFile") {
 
    
  }
+
 
 
 
