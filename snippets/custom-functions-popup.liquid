@@ -59,6 +59,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -351,7 +352,7 @@ if(id == "openPdfFile") {
  }
 
 function processBlogLink(ref) {
-
+  console.log(ref)
   getButton = ref;
  let blogUrl = ref.dataset.bloglink;
   if(localStorage.getItem("globalOtpKey")== null) {
@@ -370,6 +371,7 @@ showPopup('#openBlogPopUp');
   
     
 }
+
 
 
 
