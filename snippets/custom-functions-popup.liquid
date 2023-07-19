@@ -37,6 +37,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -270,9 +271,10 @@ switch (popupId) {
  function processPdflink(ref){
   let pdfLink =  ref.getAttribute('data-pdflink')           
           console.log(pdfLink) 
+     var t = {{ pdfLink | json }}
            if (pdfLink !='' ){
 console.log(pdfLink) 
-                window.open(`${pdfLink}`, "_blank");
+                window.open(`${t}`, "_blank");
              
            } else {
 
@@ -356,6 +358,7 @@ console.log(pdfLink)
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
