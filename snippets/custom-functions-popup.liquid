@@ -38,6 +38,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -271,17 +272,30 @@ switch (popupId) {
  function processPdflink(ref){
   let pdfLink =  ref.getAttribute('data-pdflink')           
           console.log(pdfLink) 
-     var t = {{ pdfLink | json }}
-           if (pdfLink !='' ){
-console.log(pdfLink) 
-                window.open(`${t}`, "_blank");
-             
-           } else {
 
-             //   var t = {{ pdf | json }}
-             //   console.log(t) 
-             // // window.open(t, "_blank");
-           }
+
+ var t = {{ t | json }}
+         
+  if(localStorage.getItem("globalOtpKey")== null)
+  {
+       window.open(t, "_blank");
+  }else{
+       
+  
+    
+  }
+
+   
+//            if (pdfLink !='' ){
+// console.log(pdfLink) 
+//                 window.open(`${t}`, "_blank");
+             
+//            } else {
+
+//              //   var t = {{ pdf | json }}
+//              //   console.log(t) 
+//              // // window.open(t, "_blank");
+//            }
   
                         
                             // if(localStorage.getItem("globalOtpKey")== null){
@@ -358,6 +372,7 @@ console.log(pdfLink)
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
