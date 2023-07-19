@@ -27,6 +27,7 @@
   
   
   
+  
  // pp_addtocart funcitons
 
 
@@ -255,14 +256,8 @@ console.log(productPage);
                             if(localStorage.getItem("globalOtpKey")== null){
                                 showPopup('#AddToCartPopUp');
                               
-                                  {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% endif %};
-
-                             
-
+                               
                               
-                            }else {
-
-                                {% if product.variants.first.available %}cart.add('{{  product.variants.first.id  }}'){% else %}location.href='{{product.url}}'{% endif %};
                             }
           
         }
@@ -336,6 +331,7 @@ console.log(productPage);
 //   document.getElementById("LoginPopUp").style.display = "none";
   
 // };
+
 
 
 
