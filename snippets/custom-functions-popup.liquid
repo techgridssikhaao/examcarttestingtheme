@@ -24,6 +24,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -246,17 +247,19 @@ switch (popupId) {
 
  function processPdflink(ref){
  let pdfLink =  ref.getAttribute('data-pdflink')   
+   let id = (ref.getAttribute('id')
    console.log(ref);
    if(localStorage.getItem("globalOtpKey")== null){
                      // showPopup('#AddToCartPopUp');
 
-if(ref.getAttribute('id') =='SamplePaperbtn') {
+if(true) {
   openProductPdf();
 }else{
    window.open(`${pdfLink}`, "_blank")
 }
    }
  }
+
 
 
 
