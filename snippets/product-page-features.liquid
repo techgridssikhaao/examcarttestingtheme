@@ -198,12 +198,15 @@
         {% endif %}
         {% if template != 'product.pre-order' %}
           <button
-            onclick="processAddToCart(this)"
+            onclick="processAddtoCartPopup(this)"
             style="width:25%"
             class="btn button button-cart"
+            data-product-id="{{ product.variants.first.id }}"
+            data-product-available="{{ product.variants.first.available }}"
+            data-product-page="{{ product.url }}"
             type="button"
             id="button-cart"
-              data-product-id = {{ product.id }}
+
             data-loading-text="{{ 'products.product.loading' | t }}"
           >
             {{ 'products.product.add_to_cart' | t }}
@@ -559,6 +562,8 @@
 <script type="text/javascript">
   
   
+  
+  
 
   $( document ).ready(function() {
     
@@ -670,6 +675,8 @@ var t = {{ t | json }}
     
   }
   
+
+
 
 
 
