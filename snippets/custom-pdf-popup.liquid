@@ -252,11 +252,18 @@
               id="number"
               class="number-field"
               placeholder="Enter Mobile Number"
-              onkeyup="validate()"
+              onkeyup="validateLength('otp-btn','#number-buy')"
               required
             >
             <br>
-            <button class="otp-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+            <button
+              class="otp-btn"
+              id="otp-btn"
+              onclick="sendOtp('number-buy','phone-number-buy','middle-div-buy','last-div-buy','child-div-buy')"
+              disabled
+            >
+              Get OTP
+            </button>
           </div>
           <div class="last-div" id="last-div" style="display: none;">
             <p class="phone-number">Enter the OTP sent to +91<span id="phone-number"></span></p>
@@ -287,6 +294,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -435,6 +443,7 @@
 //           alert("fail");
 //         }
 //     }
+
 
 
 
