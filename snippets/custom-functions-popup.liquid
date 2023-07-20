@@ -264,6 +264,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -339,6 +340,8 @@
   let smsotp = '';
   let getButton ="";
 let clearKey = false;
+
+  let funKey ='';
  
   let mobNumber = "";
 
@@ -377,8 +380,8 @@ function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, chi
   
 }
 
-function showPopup(popupId){
- 
+function showPopup(popupId, finalfunKey){
+  funKey= finalfunKey;
   $(popupId).modal('show');
   
 }
@@ -660,6 +663,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
