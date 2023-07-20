@@ -251,6 +251,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -478,9 +479,9 @@ processBlogLink(getButton);
        
     
   } else {
-
+clearOtpInputForm();
      document.getElementsByClassName('wrong-otp-error')[0].style.display = "block";
-    alert("fail");
+  
   }
 };
 
@@ -491,7 +492,7 @@ function resendOtpSms(){
 console.log(mobNumber)
   console.log(smsotp)
    randomOtp();
-    
+    clearOtpInputForm();
  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
 }
   
@@ -637,6 +638,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
