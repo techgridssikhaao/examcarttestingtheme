@@ -245,6 +245,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -447,6 +448,8 @@ processBlogLink(getButton);
        
     
   } else {
+
+     document.getElementsByClassName('wrong-otp-error').style.display = "block";
     alert("fail");
   }
 };
@@ -454,6 +457,7 @@ processBlogLink(getButton);
 
 
 function resendOtpSms(){
+  document.getElementsByClassName('wrong-otp-error').style.display = "none";
 console.log(mobNumber)
   console.log(smsotp)
    randomOtp();
@@ -603,6 +607,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
