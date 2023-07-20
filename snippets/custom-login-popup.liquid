@@ -239,7 +239,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-    <div id="mod">
+    <div id="mod-login">
       <div class="parent-div" id="otp-form-login">
         <div class="child-div" id="child-div-login">
           <div class="top-div">
@@ -250,20 +250,20 @@
           <div class="middle-div" id="middle-div-login">
             <input
               type="tel"
-              id="number-buy"
+              id="number-login"
               maxlength="10"
               pattern="[0-9]"
               class="number-field"
               placeholder="Enter Mobile Number"
-              onkeyup="validateLength('otp-btn-buy','#number-buy')"
+              onkeyup="validateLength('otp-btn-login','#number-login')"
               required
             >
 
             <br>
             <button
               class="otp-btn"
-              id="otp-btn-buy"
-              onclick="sendOtp('number-buy','phone-number-login','middle-div-login','last-div-login','child-div-login')"
+              id="otp-btn-login"
+              onclick="sendOtp('number-login','phone-number-login','middle-div-login','last-div-login','child-div-login')"
               disabled
             >
               Get OTP
@@ -273,22 +273,22 @@
             <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-login"></span></p>
             <br>
             <div class="otp-parent">
-              <input class="otp otp-form" type="number" id="otp1-buy">
-              <input class="otp otp-form" type="number" id="otp2-buy" disabled>
-              <input class="otp otp-form" type="number" id="otp3-buy" disabled>
-              <input class="otp otp-form" type="number" id="otp4-buy" disabled>
-              <input class="otp otp-form" type="number" id="otp5-buy" disabled>
-              <input class="otp otp-form" type="number" id="otp6-buy" disabled>
+              <input class="otp otp-form" type="number" id="otp1-login">
+              <input class="otp otp-form" type="number" id="otp2-login" disabled>
+              <input class="otp otp-form" type="number" id="otp3-login" disabled>
+              <input class="otp otp-form" type="number" id="otp4-login" disabled>
+              <input class="otp otp-form" type="number" id="otp5-login" disabled>
+              <input class="otp otp-form" type="number" id="otp6-login" disabled>
             </div>
             <p class="resend-para">Didn't receive the OTP? <span class="resend-otp">Resend OTP</span></p>
             <br>
             <button
               class="otp-btn download-btn"
-              id="download-btn-buy"
-              onclick="verifyOtp('#LoginPopUp', 'otp1-buy', 'otp2-buy', 'otp3-buy', 'otp4-buy', 'otp5-buy', 'otp6-buy')"
+              id="download-btn-login"
+              onclick="verifyOtp('#LoginPopUp', 'otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login')"
               style="opacity: 1;"
             >
-              Verify OTP<span id="download-icon-buy"><i class="bi bi-arrow-down-circle"></i></span>
+              Verify OTP<span id="download-icon-login"><i class="bi bi-arrow-down-circle"></i></span>
             </button>
           </div>
         </div>
@@ -304,11 +304,11 @@
 
 
 
-      const inputsBuy = document.querySelectorAll(".otp-form"),
+      const inputsLogin = document.querySelectorAll(".otp-form"),
 
-      buttonBuy = document.querySelector("#otp-btn-buy");
+      buttonLogin = document.querySelector("#otp-btn-login");
 
-    inputsBuy.forEach((input, index1) => {
+    inputsLogin.forEach((input, index1) => {
       input.addEventListener("keyup", (e) => {
         const currentInput = input,
           nextInput = input.nextElementSibling,
@@ -322,7 +322,7 @@
           nextInput.focus();
         }
         if (e.key === "Backspace") {
-          inputsBuy.forEach((input, index2) => {
+          inputsLogin.forEach((input, index2) => {
             if (index1 <= index2 && prevInput) {
               input.setAttribute("disabled", true);
               input.value = "";
@@ -330,13 +330,13 @@
             }
           });
         }
-        if (!inputsBuy[3].disabled && inputsBuy[3].value !== "") {
-          buttonBuy.classList.add("active");
+        if (!inputsLogin[3].disabled && inputsLogin[3].value !== "") {
+          buttonLogin.classList.add("active");
           return;
         }
-        buttonBuy.classList.remove("active");
+        buttonLogin.classList.remove("active");
       });
     });
 
-  document.getElementById("otp-btn-buy").addEventListener("click", () => inputsBuy[0].focus());
+  document.getElementById("otp-btn-login").addEventListener("click", () => inputsLogin[0].focus());
 </script>
