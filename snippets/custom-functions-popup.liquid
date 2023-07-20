@@ -277,6 +277,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -460,7 +461,7 @@ otpClean1 = document.getElementById(otp1);
     
 
 
-switch (popupId) {
+switch (funKey) {
   case "#LoginPopUp": {
       hidePopup(popupId);
       window.location.reload();
@@ -630,7 +631,7 @@ console.log(mobNumber)
  function processPdflink(ref){
  let pdfLink =  ref.getAttribute('data-pdflink')   
    let id = ref.getAttribute('id')
-   
+    funKey= '#getPdfPopUp';
           getButton = ref;
    
    if(localStorage.getItem("globalOtpKey")== null){
@@ -667,7 +668,7 @@ if(id == "openPdfFile") {
 function processBlogLink(ref) {
   console.log(ref)
   getButton = ref;
- 
+ funKey= '#openBlogPopUp';
  let blogUrl = ref.getAttribute('data-bloglink');
 
 console.log(blogUrl);
@@ -696,7 +697,7 @@ function processBuyNow(ref) {
   console.log(ref)
   getButton = ref;
  
-
+funKey= '#buyNowPopUp';
   
   if(localStorage.getItem("globalOtpKey")== null) {
 showPopup('#buyNowPopUp');
@@ -721,6 +722,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
