@@ -1,0 +1,151 @@
+<div
+  class="modal fade"
+  data-backdrop="static"
+  id="buyNowPopUp"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div id="mod">
+      <div class="parent-div" id="otp-form-buy">
+        <div class="child-div" id="child-div-buy">
+          <div class="top-div">
+            <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
+            <div class="head-one">Verify your number!</div>
+            <p class="para">Let us send you a thank you note for your review</p>
+          </div>
+          <div class="middle-div" id="middle-div-buy">
+            <input
+              type="tel"
+              id="number-buy"
+              maxlength="10"
+              pattern="[0-9]"
+              class="number-field"
+              placeholder="Enter Mobile Number"
+              onkeyup="validateLength('otp-btn-buy','#number-buy')"
+              required
+            >
+            <br>
+            <button
+              class="otp-btn"
+              id="otp-btn-buy"
+              onclick="sendOtp('number-buy','phone-number-buy','middle-div-buy','last-div-buy','child-div-buy')"
+              disabled
+            >
+              Get OTP
+            </button>
+          </div>
+          <div class="last-div" id="last-div-buy" style="display: none;">
+            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-buy"></span></p>
+            <br>
+            <div class="otp-parent">
+              <input
+                class="otp otp-form"
+                maxlength="1"
+                pattern="[0-9]"
+                type="tel"
+                id="otp1-buy"
+              >
+              <input
+                class="otp otp-form"
+                maxlength="1"
+                pattern="[0-9]"
+                type="tel"
+                id="otp2-buy"
+                disabled
+              >
+              <input
+                class="otp otp-form"
+                maxlength="1"
+                pattern="[0-9]"
+                type="tel"
+                id="otp3-buy"
+                disabled
+              >
+              <input
+                class="otp otp-form"
+                maxlength="1"
+                pattern="[0-9]"
+                type="tel"
+                id="otp4-buy"
+                disabled
+              >
+              <input
+                class="otp otp-form"
+                maxlength="1"
+                pattern="[0-9]"
+                type="tel"
+                id="otp5-buy"
+                disabled
+              >
+              <input
+                class="otp otp-form"
+                maxlength="1"
+                pattern="[0-9]"
+                type="tel"
+                id="otp6-buy"
+                disabled
+              >
+            </div>
+            <p class="resend-para">Didn't receive the OTP? <span class="resend-otp">Resend OTP</span></p>
+            <br>
+            <button
+              class="otp-btn download-btn"
+              id="download-btn-buy"
+              onclick="verifyOtp('#openbuyPopUp', 'otp1-buy', 'otp2-buy', 'otp3-buy', 'otp4-buy', 'otp5-buy', 'otp6-buy')"
+              style="opacity: 1;"
+            >
+              Verify OTP<span id="download-icon-buy"><i class="bi bi-arrow-down-circle"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // document.getElementById("middle-div-buy").classList.add("animate-one");
+  // document.getElementById("last-div-buy").classList.add("animate-two");
+  // document.getElementById("child-div-buy").classList.add("child-div-increase");
+
+
+
+      const inputsbuy = document.querySelectorAll(".otp-form"),
+
+      buttonbuy = document.querySelector("#otp-btn-buy");
+
+    inputsbuy.forEach((input, index1) => {
+      input.addEventListener("keyup", (e) => {
+        const currentInput = input,
+          nextInput = input.nextElementSibling,
+          prevInput = input.previousElementSibling;
+        if (currentInput.value.length > 1) {
+          currentInput.value = "";
+          return;
+        }
+        if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+          nextInput.removeAttribute("disabled");
+          nextInput.focus();
+        }
+        if (e.key === "Backspace") {
+          inputsbuy.forEach((input, index2) => {
+            if (index1 <= index2 && prevInput) {
+              input.setAttribute("disabled", true);
+              input.value = "";
+              prevInput.focus();
+            }
+          });
+        }
+        if (!inputsbuy[3].disabled && inputsbuy[3].value !== "") {
+          buttonbuy.classList.add("active");
+          return;
+        }
+        buttonbuy.classList.remove("active");
+      });
+    });
+
+  document.getElementById("otp-btn-buy").addEventListener("click", () => inputsbuy[0].focus());
+</script>
