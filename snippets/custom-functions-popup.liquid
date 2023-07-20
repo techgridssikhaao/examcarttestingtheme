@@ -256,6 +256,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -393,6 +394,8 @@ function hidePopup(popupId){
 
 
 function clearOtpInputForm(){
+
+  if (otpClean1 == null){
    otpClean1.value = '';
    otpClean2.value = '';
    otpClean3.value = '';
@@ -406,7 +409,8 @@ function clearOtpInputForm(){
   otpClean4.setAttribute("disabled", true);
   otpClean5.setAttribute("disabled", true);
   otpClean6.setAttribute("disabled", true);
-
+  }
+  
 }
 
   
@@ -649,6 +653,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
