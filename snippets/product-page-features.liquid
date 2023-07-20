@@ -232,12 +232,11 @@
         {% comment %} extra button {% endcomment %}
 
         <button
-          onclick="popupbuy()"
+          onclick="processBuyNow(this)"
           class="btn button button-cart"
           style="clear:none;margin-left:15px;padding:0 55px;"
           type="button"
           id="button-cart-buy-mine"
-          onclick="popupaddtocart()"
         >
           {% if template == 'product.pre-order' -%}
             {{- 'products.product.pre_order' | t }}
@@ -581,6 +580,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -691,6 +691,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
