@@ -250,6 +250,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -385,10 +386,26 @@ function hidePopup(popupId){
   let otpClean5 = '';
   let otpClean6 = '';
 
+
+function clearOtpInputForm(){
+   otpClean1 = '';
+   otpClean2 = '';
+   otpClean3 = '';
+   otpClean4 = '';
+   otpClean5 = '';
+    otpClean6 = '';
+
+}
+
   
  function verifyOtp (popupId, otp1, otp2, otp3, otp4, otp5, otp6) {
 
-
+otpClean1 = document.getElementById(otp1);
+  otpClean2 = document.getElementById(otp2);
+   otpClean3 = document.getElementById(otp3);
+   otpClean4 = document.getElementById(otp4);
+   otpClean5 = document.getElementById(otp5);
+   otpClean6 = document.getElementById(otp6);
     
   let otpInput1 = document.getElementById(otp1).value;
   let otpInput2 = document.getElementById(otp2).value;
@@ -620,6 +637,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
