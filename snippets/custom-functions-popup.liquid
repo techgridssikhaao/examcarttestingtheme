@@ -247,6 +247,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -458,7 +459,7 @@ processBlogLink(getButton);
 
 
 function resendOtpSms(){
-  document.getElementsByClassName('wrong-otp-error').style.display = "none";
+  document.getElementsByClassName('wrong-otp-error')[0].style.display = "none";
 console.log(mobNumber)
   console.log(smsotp)
    randomOtp();
@@ -608,6 +609,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
