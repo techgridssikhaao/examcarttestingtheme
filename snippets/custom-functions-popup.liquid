@@ -271,6 +271,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -535,14 +536,14 @@ function viewCart(){
 
   funKey= '#viewCart';
 
- location.href = '/cart'
+ // location.href = '/cart'
   
-   // if(localStorage.getItem("globalOtpKey")== null){
-   //                              showPopup('#AddToCartPopUp');
+   if(localStorage.getItem("globalOtpKey")== null){
+                                showPopup('#AddToCartPopUp');
                               
-   //                          }else {
-   //                                        location.href = '/cart'
-   //                          }
+                            }else {
+                                          location.href = '/cart'
+                            }
   
 }
 
@@ -550,15 +551,15 @@ function checkout(){
 
   funKey= '#checkout';
 
-location.href = '/checkout'
+// location.href = '/checkout'
   
-   // if(localStorage.getItem("globalOtpKey")== null){
-   //                              showPopup('#AddToCartPopUp');
+   if(localStorage.getItem("globalOtpKey")== null){
+                                showPopup('#AddToCartPopUp');
                               
-   //                          }else {
+                            }else {
 
-   //                                location.href = '/checkout'
-   //                          }
+                                  location.href = '/checkout'
+                            }
   
 }
 
@@ -714,6 +715,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
