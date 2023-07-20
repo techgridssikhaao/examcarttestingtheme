@@ -343,45 +343,45 @@
 </div>
 
 <script>
-  // document.getElementById("middle-div-login").classList.add("animate-one");
-  // document.getElementById("last-div-login").classList.add("animate-two");
-  // document.getElementById("child-div-login").classList.add("child-div-increase");
+    // document.getElementById("middle-div-login").classList.add("animate-one");
+    // document.getElementById("last-div-login").classList.add("animate-two");
+    // document.getElementById("child-div-login").classList.add("child-div-increase");
 
 
 
-      const inputsLogin = document.querySelectorAll(".otp-form"),
+        const inputsLogin = document.querySelectorAll(".otp-form"),
 
-      buttonLogin = document.querySelector("#otp-btn-login");
+        buttonLogin = document.querySelector("#otp-btn-login");
 
-    inputsLogin.forEach((input, index1) => {
-      input.addEventListener("keyup", (e) => {
-        const currentInput = input,
-          nextInput = input.nextElementSibling,
-          prevInput = input.previousElementSibling;
-        if (currentInput.value.length > 1) {
-          currentInput.value = "";
-          return;
-        }
-        if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
-          nextInput.removeAttribute("disabled");
-          nextInput.focus();
-        }
-        if (e.key === "Backspace") {
-          inputsLogin.forEach((input, index2) => {
-            if (index1 <= index2 && prevInput) {
-              input.setAttribute("disabled", true);
-              input.value = "";
-              prevInput.focus();
-            }
-          });
-        }
-        if (!inputsLogin[3].disabled && inputsLogin[3].value !== "") {
-          buttonLogin.classList.add("active");
-          return;
-        }
-        buttonLogin.classList.remove("active");
+      inputsLogin.forEach((input, index1) => {
+        input.addEventListener("keyup", (e) => {
+          const currentInput = input,
+            nextInput = input.nextElementSibling,
+            prevInput = input.previousElementSibling;
+          if (currentInput.value.length > 1) {
+            currentInput.value = "";
+            return;
+          }
+          if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+            nextInput.removeAttribute("disabled");
+            nextInput.focus();
+          }
+          if (e.key === "Backspace") {
+            inputsLogin.forEach((input, index2) => {
+              if (index1 <= index2 && prevInput) {
+                input.setAttribute("disabled", true);
+                input.value = "";
+                prevInput.focus();
+              }
+            });
+          }
+          if (!inputsLogin[3].disabled && inputsLogin[3].value !== "") {
+            buttonLogin.classList.add("active");
+            return;
+          }
+          buttonLogin.classList.remove("active");
+        });
       });
-    });
-
-  document.getElementById("otp-btn-login").addEventListener("click", () => inputsLogin[0].focus());
+  document.getElementsByClassName('wrong-otp-error').addEventListener("click", () => inputsLogin[0].focus());
+    document.getElementById("otp-btn-login").addEventListener("click", () => inputsLogin[0].focus());
 </script>
