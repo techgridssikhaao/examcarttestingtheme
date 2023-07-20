@@ -267,6 +267,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -501,7 +502,22 @@ processBlogLink(getButton);
     default:
      hidePopup(popupId);
 }
+switch (funKey){
 
+  case '#viewCart': {
+
+      location.href = '/cart'
+
+    
+  }
+     case '#checkout': {
+
+
+   location.href = '/cart'
+       
+  }
+    
+}
    
        
     
@@ -676,6 +692,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
