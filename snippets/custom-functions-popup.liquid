@@ -261,6 +261,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -399,7 +400,7 @@ function hidePopup(popupId){
 
 function clearOtpInputForm(){
 
-  if (otpClean1..getAttribute('class') == 'otp otp-form'){
+  if (otpClean1.getAttribute('class') == 'otp otp-form'){
    otpClean1.value = '';
    otpClean2.value = '';
    otpClean3.value = '';
@@ -426,7 +427,7 @@ otpClean1 = document.getElementById(otp1);
    otpClean4 = document.getElementById(otp4);
    otpClean5 = document.getElementById(otp5);
    otpClean6 = document.getElementById(otp6);
-    console.log(otpClean1);
+    console.log(otpClean1.getAttribute('class'));
   let otpInput1 = document.getElementById(otp1).value;
   let otpInput2 = document.getElementById(otp2).value;
   let otpInput3 = document.getElementById(otp3).value;
@@ -657,6 +658,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
