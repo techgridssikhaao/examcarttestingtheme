@@ -255,6 +255,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -392,12 +393,19 @@ function hidePopup(popupId){
 
 
 function clearOtpInputForm(){
-   otpClean1.value = null;
-   otpClean2.value = null;
-   otpClean3.value = null;
-   otpClean4.value = null;
+   otpClean1.value = '';
+   otpClean2.value = '';
+   otpClean3.value = '';
+   otpClean4.value = '';
    otpClean5.value = '';
-    otpClean6.value = null;
+    otpClean6.value = '';
+
+
+  otpClean2.setAttribute("disabled", true);
+  otpClean3.setAttribute("disabled", true);
+  otpClean4.setAttribute("disabled", true);
+  otpClean5.setAttribute("disabled", true);
+  otpClean6.setAttribute("disabled", true);
 
 }
 
@@ -641,6 +649,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
