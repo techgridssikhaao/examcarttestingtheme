@@ -232,6 +232,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -440,6 +441,14 @@ processBlogLink(getButton);
 
 
 
+function resendOtp(){
+
+   randomOtp();
+ navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
+}
+  
+
+
         function processAddtoCartPopup(ref){
  getButton =ref;
    let productID = ref.getAttribute('data-product-id')
@@ -580,6 +589,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
