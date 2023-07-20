@@ -255,14 +255,14 @@
               pattern="[0-9]"
               class="number-field"
               placeholder="Enter Mobile Number"
-              onkeyup="validateLength('otp-btn-login','#number-buy')"
+              onkeyup="validateLength('otp-btn-buy','#number-buy')"
               required
             >
 
             <br>
             <button
               class="otp-btn"
-              id="otp-btn-login"
+              id="otp-btn-buy"
               onclick="sendOtp('number-buy','phone-number-login','middle-div-login','last-div-login','child-div-login')"
               disabled
             >
@@ -304,11 +304,11 @@
 
 
 
-      const inputsLogin = document.querySelectorAll(".otp-form"),
+      const inputsBuy = document.querySelectorAll(".otp-form"),
 
-      buttonLogin = document.querySelector("#otp-btn-login");
+      buttonBuy = document.querySelector("#otp-btn-buy");
 
-    inputsLogin.forEach((input, index1) => {
+    inputsBuy.forEach((input, index1) => {
       input.addEventListener("keyup", (e) => {
         const currentInput = input,
           nextInput = input.nextElementSibling,
@@ -322,7 +322,7 @@
           nextInput.focus();
         }
         if (e.key === "Backspace") {
-          inputsLogin.forEach((input, index2) => {
+          inputsBuy.forEach((input, index2) => {
             if (index1 <= index2 && prevInput) {
               input.setAttribute("disabled", true);
               input.value = "";
@@ -330,13 +330,13 @@
             }
           });
         }
-        if (!inputsLogin[3].disabled && inputsLogin[3].value !== "") {
-          buttonLogin.classList.add("active");
+        if (!inputsBuy[3].disabled && inputsBuy[3].value !== "") {
+          buttonBuy.classList.add("active");
           return;
         }
-        buttonLogin.classList.remove("active");
+        buttonBuy.classList.remove("active");
       });
     });
 
-  document.getElementById("otp-btn-login").addEventListener("click", () => inputsLogin[0].focus());
+  document.getElementById("otp-btn-buy").addEventListener("click", () => inputsBuy[0].focus());
 </script>
