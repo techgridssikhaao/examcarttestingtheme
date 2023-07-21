@@ -324,6 +324,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -435,7 +436,7 @@ function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, chi
   
   document.getElementById(middlediv).classList.add("animate-one");
   document.getElementById(lastdiv).classList.add("animate-two");
-  // document.getElementById(childdiv).classList.add("child-div-increase");
+  document.getElementById(childdiv).classList.add("child-div-increase");
   document.getElementById(showPhoneNumberAsTextId).innerHTML = mobNumber;
   navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
   
@@ -777,6 +778,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
