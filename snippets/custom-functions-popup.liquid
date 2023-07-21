@@ -343,6 +343,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -444,16 +445,16 @@ function randomOtp(){
 let wrongOtpId ='';
   let sendOtpId='';
 
-function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, childdiv, wrongPTagID, sendPTagId, dn-Pdf, dn-tagline) {
+function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, childdiv, wrongPTagID, sendPTagId, dnPdf, dntagline) {
   
   randomOtp();
   mobNumber = document.getElementById(phoneNumberId).value;
 
  wrongOtpId = wrongPTagID;
  sendOtpId= sendPTagId;
-  if(dn-Pdf == 'r'){
-      document.getElementById(dn-Pdf).style.display = 'none';
-  document.getElementById(dn-tagline).style.display = 'block';
+  if(dnPdf == 'r'){
+      document.getElementById(dnPdf).style.display = 'none';
+  document.getElementById(dntagline).style.display = 'block';
   }
 
   document.getElementById(middlediv).classList.add("animate-one");
@@ -805,6 +806,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
