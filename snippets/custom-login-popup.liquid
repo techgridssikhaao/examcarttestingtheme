@@ -239,98 +239,96 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 120px;">
-    <div id="mod">
-      <div class="parent-div" id="otp-form-login">
-        <div class="child-div" id="child-div-login">
-          <div class="top-div">
-            <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
-            <div class="head-one">Verify your number!</div>
-            <p class="para">We will get you the best deal for best shopping experience</p>
-          </div>
-          <div class="middle-div" id="middle-div-login">
+    <div class="parent-div" id="otp-form-login">
+      <div class="child-div" id="child-div-login">
+        <div class="top-div">
+          <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
+          <div class="head-one">Verify your number!</div>
+          <p class="para">We will get you the best deal for best shopping experience</p>
+        </div>
+        <div class="middle-div" id="middle-div-login">
+          <input
+            type="tel"
+            id="number-login"
+            maxlength="10"
+            pattern="[0-9]"
+            class="number-field"
+            placeholder="Enter Mobile Number"
+            onkeyup="validateLength('otp-btn-login','#number-login')"
+            required
+          >
+
+          <br>
+          <button
+            class="otp-btn"
+            id="otp-btn-login"
+            onclick="sendOtp('number-login','phone-number-login','middle-div-login','last-div-login','child-div-login', 'WrongOtp', 'sendOtpMessage', 'none', 'none')"
+            disabled
+          >
+            Get OTP
+          </button>
+        </div>
+        <div class="last-div" id="last-div-login" style="display: none;">
+          <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-login"></span></p>
+
+          <p class="wrong-otp-error" id="WrongOtp">Wrong OTP!</p>
+          <p class="resend-otp-message" id="sendOtpMessage">OTP sent</p>
+          <div class="otp-parent">
             <input
-              type="tel"
-              id="number-login"
-              maxlength="10"
+              class="otp otp-form"
+              maxlength="1"
               pattern="[0-9]"
-              class="number-field"
-              placeholder="Enter Mobile Number"
-              onkeyup="validateLength('otp-btn-login','#number-login')"
-              required
+              type="tel"
+              id="otp1-login"
             >
-
-            <br>
-            <button
-              class="otp-btn"
-              id="otp-btn-login"
-              onclick="sendOtp('number-login','phone-number-login','middle-div-login','last-div-login','child-div-login', 'WrongOtp', 'sendOtpMessage', 'none', 'none')"
-              disabled
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp2-login"
             >
-              Get OTP
-            </button>
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp3-login"
+            >
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp4-login"
+            >
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp5-login"
+            >
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp6-login"
+            >
           </div>
-          <div class="last-div" id="last-div-login" style="display: none;">
-            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-login"></span></p>
-
-            <p class="wrong-otp-error" id="WrongOtp">Wrong OTP!</p>
-            <p class="resend-otp-message" id="sendOtpMessage">OTP sent</p>
-            <div class="otp-parent">
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp1-login"
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp2-login"
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp3-login"
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp4-login"
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp5-login"
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp6-login"
-              >
-            </div>
-            <p class="resend-para">
-              Didn't receive the OTP? <span onclick="resendOtpSms()" class="resend-otp">Resend OTP</span>
-            </p>
-            <br>
-            <button
-              class="download-btn"
-              id="download-btn-login"
-              onclick="verifyOtp('#LoginPopUp', 'otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login')"
-              style="opacity: 1;"
-            >
-              Verify OTP<span id="download-icon-login"><i class="bi bi-arrow-down-circle"></i></span>
-            </button>
-          </div>
+          <p class="resend-para">
+            Didn't receive the OTP? <span onclick="resendOtpSms()" class="resend-otp">Resend OTP</span>
+          </p>
+          <br>
+          <button
+            class="download-btn"
+            id="download-btn-login"
+            onclick="verifyOtp('#LoginPopUp', 'otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login')"
+            style="opacity: 1;"
+          >
+            Verify OTP<span id="download-icon-login"><i class="bi bi-arrow-down-circle"></i></span>
+          </button>
         </div>
       </div>
     </div>
