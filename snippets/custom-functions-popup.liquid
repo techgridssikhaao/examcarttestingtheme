@@ -346,6 +346,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -454,10 +455,10 @@ function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, chi
 
  wrongOtpId = wrongPTagID;
  sendOtpId= sendPTagId;
-  
+  if(dnPdf != 'none'){
       document.getElementById(dnPdf).style.display = "none";
   document.getElementById(dntagline).style.display = 'block';
-
+  }
 
   document.getElementById(middlediv).classList.add("animate-one");
   document.getElementById(lastdiv).classList.add("animate-two");
@@ -808,6 +809,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
