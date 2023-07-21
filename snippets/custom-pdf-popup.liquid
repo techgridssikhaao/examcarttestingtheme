@@ -343,21 +343,36 @@
 </div>
 
 <script>
+  const pdfinputs = ['otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6'];
+
+   pdfinputs.map((id) => {
+     const input = document.getElementById(id);
+     addListener(input);
+   });
+
+   function addListener(input) {
+     input.addEventListener("keyup", () => {
+       const code = parseInt(input.value);
+       if (code >= 0 && code <= 9) {
+         const n = input.nextElementSibling;
+         if (n) n.focus();
+       } else {
+         input.value = "";
+       }
+
+       const key = event.key; // const {key} = event; ES6+
+       if (key === "Backspace" || key === "Delete") {
+         const prev = input.previousElementSibling;
+         if (prev) prev.focus();
+       }
+     });
+   }
+</script>
+
+//
+<script>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
   
 
   // let serverOtp = '';
@@ -416,40 +431,40 @@
   //     }
 
 
-   const inputs = document.querySelectorAll(".otp-form"), button = document.querySelector("#otp-btn");
+  //  const inputs = document.querySelectorAll(".otp-form"), button = document.querySelector("#otp-btn");
 
-    inputs.forEach((input, index1) => {
-      input.addEventListener("keyup", (e) => {
-        const currentInput = input,
-          nextInput = input.nextElementSibling,
-          prevInput = input.previousElementSibling;
-          if (currentInput.value.length > 1) {
-            currentInput.value = "";
-            return;
-          }
-          if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
-            nextInput.removeAttribute("disabled");
-            nextInput.focus();
-          }
-          if (e.key === "Backspace") {
-            inputs.forEach((input, index2) => {
-              if (index1 <= index2 && prevInput) {
-                input.setAttribute("disabled", true);
-                input.value = "";
-                prevInput.focus();
-              }
-            });
-          }
-          if (!inputs[3].disabled && inputs[3].value !== "") {
-            button.classList.add("active");
-            return;
-          }
-          button.classList.remove("active");
-      });
-  });
+  //   inputs.forEach((input, index1) => {
+  //     input.addEventListener("keyup", (e) => {
+  //       const currentInput = input,
+  //         nextInput = input.nextElementSibling,
+  //         prevInput = input.previousElementSibling;
+  //         if (currentInput.value.length > 1) {
+  //           currentInput.value = "";
+  //           return;
+  //         }
+  //         if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+  //           nextInput.removeAttribute("disabled");
+  //           nextInput.focus();
+  //         }
+  //         if (e.key === "Backspace") {
+  //           inputs.forEach((input, index2) => {
+  //             if (index1 <= index2 && prevInput) {
+  //               input.setAttribute("disabled", true);
+  //               input.value = "";
+  //               prevInput.focus();
+  //             }
+  //           });
+  //         }
+  //         if (!inputs[3].disabled && inputs[3].value !== "") {
+  //           button.classList.add("active");
+  //           return;
+  //         }
+  //         button.classList.remove("active");
+  //     });
+  // });
     
 
- document.getElementById("otp-btn").addEventListener("click", () => inputs[0].focus());
+// document.getElementById("otp-btn").addEventListener("click", () => inputs[0].focus());
 
 //     downloadBtn = () =>{
 //         let otpInput1 = document.getElementById('otp1').value;
@@ -524,4 +539,5 @@
 
 
 
+//
 </script>
