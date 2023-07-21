@@ -343,45 +343,74 @@
 </div>
 
 <script>
-    // document.getElementById("middle-div-login").classList.add("animate-one");
-    // document.getElementById("last-div-login").classList.add("animate-two");
-    // document.getElementById("child-div-login").classList.add("child-div-increase");
+  const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
 
+  inputs.map((id) => {
+    const input = document.getElementById(id);
+    addListener(input);
+  });
 
+  function addListener(input) {
+    input.addEventListener("keyup", () => {
+      const code = parseInt(input.value);
+      if (code >= 0 && code <= 9) {
+        const n = input.nextElementSibling;
+        if (n) n.focus();
+      } else {
+        input.value = "";
+      }
 
-        const inputsLogin = document.querySelectorAll(".otp-form"),
-
-        buttonLogin = document.querySelector("#otp-btn-login");
-
-      inputsLogin.forEach((input, index1) => {
-        input.addEventListener("keyup", (e) => {
-          const currentInput = input,
-            nextInput = input.nextElementSibling,
-            prevInput = input.previousElementSibling;
-          if (currentInput.value.length > 1) {
-            currentInput.value = "";
-            return;
-          }
-          if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
-            nextInput.removeAttribute("disabled");
-            nextInput.focus();
-          }
-          if (e.key === "Backspace") {
-            inputsLogin.forEach((input, index2) => {
-              if (index1 <= index2 && prevInput) {
-                input.setAttribute("disabled", true);
-                input.value = "";
-                prevInput.focus();
-              }
-            });
-          }
-          if (!inputsLogin[3].disabled && inputsLogin[3].value !== "") {
-            buttonLogin.classList.add("active");
-            return;
-          }
-          buttonLogin.classList.remove("active");
-        });
-      });
-  document.getElementsByClassName('wrong-otp-error').addEventListener("click", () => inputsLogin[0].focus());
-    document.getElementById("otp-btn-login").addEventListener("click", () => inputsLogin[0].focus());
+      const key = event.key; // const {key} = event; ES6+
+      if (key === "Backspace" || key === "Delete") {
+        const prev = input.previousElementSibling;
+        if (prev) prev.focus();
+      }
+    });
+  }
 </script>
+
+<!--
+  <script>
+      // document.getElementById("middle-div-login").classList.add("animate-one");
+      // document.getElementById("last-div-login").classList.add("animate-two");
+      // document.getElementById("child-div-login").classList.add("child-div-increase");
+
+
+
+          const inputsLogin = document.querySelectorAll(".otp-form"),
+
+          buttonLogin = document.querySelector("#otp-btn-login");
+
+        inputsLogin.forEach((input, index1) => {
+          input.addEventListener("keyup", (e) => {
+            const currentInput = input,
+              nextInput = input.nextElementSibling,
+              prevInput = input.previousElementSibling;
+            if (currentInput.value.length > 1) {
+              currentInput.value = "";
+              return;
+            }
+            if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+              nextInput.removeAttribute("disabled");
+              nextInput.focus();
+            }
+            if (e.key === "Backspace") {
+              inputsLogin.forEach((input, index2) => {
+                if (index1 <= index2 && prevInput) {
+                  input.setAttribute("disabled", true);
+                  input.value = "";
+                  prevInput.focus();
+                }
+              });
+            }
+            if (!inputsLogin[3].disabled && inputsLogin[3].value !== "") {
+              buttonLogin.classList.add("active");
+              return;
+            }
+            buttonLogin.classList.remove("active");
+          });
+        });
+    document.getElementsByClassName('wrong-otp-error').addEventListener("click", () => inputsLogin[0].focus());
+      document.getElementById("otp-btn-login").addEventListener("click", () => inputsLogin[0].focus());
+  </script>
+-->
