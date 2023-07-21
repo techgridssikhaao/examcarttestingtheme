@@ -340,6 +340,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -441,14 +442,15 @@ function randomOtp(){
 let wrongOtpId ='';
   let sendOtpId='';
 
-function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, childdiv, wrongPTagID, sendPTagId) {
+function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, childdiv, wrongPTagID, sendPTagId, dn-Pdf, dn-tagline) {
   
   randomOtp();
   mobNumber = document.getElementById(phoneNumberId).value;
 
  wrongOtpId = wrongPTagID;
  sendOtpId= sendPTagId;
-  
+  document.getElementById(dn-Pdf).style.display = 'none';
+  document.getElementById(dn-tagline).style.display = 'block';
   document.getElementById(middlediv).classList.add("animate-one");
   document.getElementById(lastdiv).classList.add("animate-two");
   document.getElementById(childdiv).classList.add("child-div-increase");
@@ -798,6 +800,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
