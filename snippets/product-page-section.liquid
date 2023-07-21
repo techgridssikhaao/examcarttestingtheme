@@ -1,148 +1,188 @@
-<!--Product Details Area Start-->
+<!-- Product Details Area Start -->
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign enable_zoom = true %}
 {% assign product_img_size = settings.img_size_product %}
 {% assign on_sale = false %}
 {% if product.compare_at_price > product.price %}
-{% assign on_sale = true %}
+  {% assign on_sale = true %}
 {% endif %}
 <div class="container" id="product-product" itemscope itemtype="http://schema.org/Product">
-  {% include 'breadcrumb' %}
   {% include 'product-schema-meta' %}
   <div class="row">
     <div id="content" class="col-sm-12">
       <div class="row">
         {% case section.settings.product_page_layout %}
-        {% when 'horizontal_thumbs' %}
-        {% include 'product-horizontal-slider-alt' %}
-        {% when 'vertical_thumbs' %}
-        {% include 'product-vertical-slider', thumb: 'left' %}
-        {% when 'vertical_thumbs_right' %}
-        {% include 'product-vertical-slider', thumb: 'right' %}
-        {% when 'sticky_layout' %}
-        {% include 'product-sticky' %}
-        {% else %}
+          {% when 'horizontal_thumbs' %}
+            {% include 'product-horizontal-slider-alt' %}
+          {% when 'vertical_thumbs' %}
+            {% include 'product-vertical-slider', thumb: 'left' %}
+          {% when 'vertical_thumbs_right' %}
+            {% include 'product-vertical-slider', thumb: 'right' %}
+          {% when 'sticky_layout' %}
+            {% include 'product-sticky' %}
+          {% else %}
+
         {% endcase %}
       </div>
-       <div class="product-info-detailed">
+      <div class="product-info-detailed">
         <ul class="nav nav-tabs">
           <li id="descriptionTab" role="presentation" class="active">
-            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{ 'products.product.description' | t }}</a>
+            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
+              {{- 'products.product.description' | t -}}
+            </a>
           </li>
           {% if settings.product_reviews_enable %}
-          <li id="reviewsTab" role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></li>
+            <li id="reviewsTab" role="presentation">
+              <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+                {{- 'products.product.reviews' | t -}}
+              </a>
+            </li>
           {% endif %}
           {% if section.settings.show_third_tab %}
-          <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></li>
+            <li role="presentation">
+              <a href="#data" aria-controls="data" role="tab" data-toggle="tab">
+                {{- section.settings.third_tab_title -}}
+              </a>
+            </li>
           {% endif %}
           {% if product.description contains '[tab]' %}
-          <li role="presentation">
-            <a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">{{ section.settings.custom_tab_title }}</a>
-          </li>
+            <li role="presentation">
+              <a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">
+                {{- section.settings.custom_tab_title -}}
+              </a>
+            </li>
           {% endif %}
         </ul>
         <div class="tab-content">
-          <div class="mobtab" role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{ 'products.product.description' | t }}</a></div>
+          <div class="mobtab" role="presentation" class="active">
+            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
+              {{- 'products.product.description' | t -}}
+            </a>
+          </div>
           <div role="tabpanel" class="tab-pane active" id="description">
             <p>
               {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
-              {{ product.description | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first }}
+              {{
+                product.description
+                | split: '[summary]'
+                | first
+                | split: '[video]'
+                | first
+                | split: '[tab]'
+                | first
+                | split: '[deal]'
+                | first
+              }}
             </p>
           </div>
           {% if settings.product_reviews_enable %}
-          <div class="mobtab" role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></div>
-          <div role="tabpanel" class="tab-pane" id="reviews">
-            <p>
-              {% include 'product-review' %}
-            </p>
-          </div>
+            <div class="mobtab" role="presentation">
+              <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+                {{- 'products.product.reviews' | t -}}
+              </a>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="reviews">
+              <p>
+                {% include 'product-review' %}
+              </p>
+            </div>
           {% endif %}
           {% if section.settings.show_third_tab %}
-          <div class="mobtab" role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></div>
-          <div role="tabpanel" class="tab-pane" id="data">
-            {{ section.settings.third_tab_text }}
-          </div>
+            <div class="mobtab" role="presentation">
+              <a href="#data" aria-controls="data" role="tab" data-toggle="tab">
+                {{- section.settings.third_tab_title -}}
+              </a>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="data">
+              {{ section.settings.third_tab_text }}
+            </div>
           {% endif %}
           {% if product.description contains '[tab]' %}
-          <div class="mobtab" role="presentation"><a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">{{ section.settings.custom_tab_title }}</a></div>
-          <div role="tabpanel" class="tab-pane" id="tab">
-            {{ product.description | split:'[tab]' | last | split :'[/tab]' | first }}
-          </div>
+            <div class="mobtab" role="presentation">
+              <a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">
+                {{- section.settings.custom_tab_title -}}
+              </a>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab">
+              {{ product.description | split: '[tab]' | last | split: '[/tab]' | first }}
+            </div>
           {% endif %}
         </div>
-      </div> 
+      </div>
       {% if section.settings.related_products_enable %}
-      {% include 'related-products' %}
+        {% include 'related-products' %}
       {% endif %}
 
       {% if section.settings.recent_products_enable %}
-      <div class="container custom-category">
-        {% include 'recently-viewed' %}
-      </div>
+        <div class="container custom-category">
+          {% include 'recently-viewed' %}
+        </div>
       {% endif %}
-
     </div>
   </div>
 </div>
 
 {% if section.settings.product_sticky_cart %}
-{% include 'product-sticky-cart' %}
+  {% include 'product-sticky-cart' %}
 {% endif %}
-{% assign product_page_layout =  section.settings.product_page_layout | strip %}
+{% assign product_page_layout = section.settings.product_page_layout | strip %}
 {% if product_page_layout contains 'vertical_thumbs' %}
-{{ 'https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css' | stylesheet_tag }}
-{{ 'https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js' | script_tag }}
+  {{ 'https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css' | stylesheet_tag }}
+  {{ 'https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js' | script_tag }}
 {% endif %}
-<!-- {% if product_page_layout == 'sticky_layout' %}
-{{ 'jquery.sticky-kit.min.js' | asset_url | script_tag }}
-{% endif %} -->
-<script type="text/javascript"><!--
-  // related products	 
-  $(document).ready(function() {
+<!--
+  {% if product_page_layout == 'sticky_layout' %}
+  {{ 'jquery.sticky-kit.min.js' | asset_url | script_tag }}
+  {% endif %}
+-->
+<script type="text/javascript">
+  <!--
+    // related products
+    $(document).ready(function() {
 
-  $('.related-container').owlCarousel({
-    nav: false,
-    dots: true,
-    navSpeed: 1000,
-    margin: 0,
-    responsive:{
-      0:{
-        items: 1,
-        nav: false
+    $('.related-container').owlCarousel({
+      nav: false,
+      dots: true,
+      navSpeed: 1000,
+      margin: 0,
+      responsive:{
+        0:{
+          items: 1,
+          nav: false
+        },
+        480:{
+          items: 2,
+          nav: false
+        },
+        768:{
+          items: 2
+        },
+        992:{
+          items: 3
+        },
+        1200:{
+          items: 4
+        }
+
       },
-      480:{
-        items: 2,
-        nav: false
+      onInitialized: function() {
+        owlAction();
       },
-      768:{
-        items: 2
-      },
-      992:{
-        items: 3
-      },
-      1200:{
-        items: 4
+      onTranslated: function() {
+        owlAction();
       }
+    });
+    function owlAction() {
+      $(".related-container .owl-item").removeClass('first');
+      $(".related-container .owl-item").removeClass('last');
+      $(".related-container .owl-item").removeClass('before-active');
+      $(".related-container .owl-item.active:first").addClass('first');
+      $(".related-container .owl-item.active:last").addClass('last');
+      $('.related-container .owl-item.active:first').prev().addClass('before-active');
+    }
 
-    },
-    onInitialized: function() {
-      owlAction();
-    },
-    onTranslated: function() {
-      owlAction();
-    }	
   });
-  function owlAction() {
-    $(".related-container .owl-item").removeClass('first');
-    $(".related-container .owl-item").removeClass('last');
-    $(".related-container .owl-item").removeClass('before-active');
-    $(".related-container .owl-item.active:first").addClass('first');
-    $(".related-container .owl-item.active:last").addClass('last');
-    $('.related-container .owl-item.active:first').prev().addClass('before-active');
-  }
-
-});
-  //-->
+    //-->
 </script>
 <script>
   $(document).ready(function() {
@@ -157,7 +197,7 @@
       adaptiveWidth: true,
       minSlides: 6,
       moveSlides: 1
-    }); 
+    });
     {% endif %}
     {% if product_page_layout == 'sticky_layout' %}
     $("#desc").stick_in_parent();
@@ -245,7 +285,7 @@
             }
 
             // Regardless of stock, update the product price
-            Shopify.money_format = '{{shop.money_format }}'; 
+            Shopify.money_format = '{{shop.money_format }}';
 
             //var customPrice = timber.formatMoney( Shopify.formatMoney(variant.price,Shopify.money_format) );
             var a11yPrice = Shopify.formatMoney(variant.price, Shopify.money_format);
@@ -271,7 +311,7 @@
               Currency.convertAll(shopCurrency, defaultCurrency);
             } else {
               Currency.convertAll(shopCurrency, cookieCurrency);
-            }    
+            }
             {% endif %}
 
           } else {
@@ -312,7 +352,7 @@
             $('.variant-sku').text(variant.sku);
             if(variant.sku != '')
               $('.skuvariant').show();
-            else 
+            else
               $('.skuvariant').hide();
           } else {
             $('.variant-sku').empty();
@@ -362,5 +402,5 @@
           $('#variantBreak').removeClass('hr--clear');
           {% endif %}
           //$('.selector-wrapper').hide();
-        }); 
+        });
 </script>
