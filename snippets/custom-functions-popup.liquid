@@ -288,6 +288,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -386,14 +387,16 @@ function randomOtp(){
   
 };
 
+let wrongOtpId ='';
+  let sendOtpId='';
 
-
-function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, childdiv) {
+function sendOtp(phoneNumberId, showPhoneNumberAsTextId, middlediv, lastdiv, childdiv, wrongPTagID, sendPTagId) {
   
   randomOtp();
   mobNumber = document.getElementById(phoneNumberId).value;
 
-
+ wrongOtpId = wrongPTagID;
+ sendOtpId= sendPTagId;
   
   document.getElementById(middlediv).classList.add("animate-one");
   document.getElementById(lastdiv).classList.add("animate-two");
@@ -737,6 +740,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
