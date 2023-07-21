@@ -7,6 +7,11 @@
   {% assign on_sale = true %}
 {% endif %}
 <div class="container" id="product-product" itemscope itemtype="http://schema.org/Product">
+  {% comment %}
+
+    {% include 'breadcrumb' %}
+  {% endcomment %}
+
   {% include 'product-schema-meta' %}
   <div class="row">
     <div id="content" class="col-sm-12">
