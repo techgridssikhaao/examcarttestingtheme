@@ -199,14 +199,14 @@
         {% if template != 'product.pre-order' %}
           <button
             onclick="processAddtoCartPopup(this)"
-            style="width:25%"
+            style="width:25% margin-right:15px;"
             class="btn button button-cart"
             data-product-id="{{ product.variants.first.id }}"
             data-product-available="{{ product.variants.first.available }}"
             data-product-page="{{ product.url }}"
             type="button"
             id="button-cart"
-            margin-right:15px;
+
             data-loading-text="{{ 'products.product.loading' | t }}"
           >
             {{ 'products.product.add_to_cart' | t }}
@@ -583,6 +583,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -687,6 +688,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
