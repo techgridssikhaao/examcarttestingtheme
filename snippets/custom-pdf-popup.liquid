@@ -229,113 +229,111 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-    <div id="mod">
-      <div class="parent-div" id="otp-form">
-        <div class="child-div" id="child-div">
-          <div class="top-div">
-            <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
-            <!--
-              <span
-                class="cross"
-                onclick="closeModal()"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                &#x2715;</span
-              >
-            -->
-            <div class="head-one" style="font-size: 2rem;  font-weight: bold;">Verify your number!</div>
-            <div class="head-two">Download unlimited PDF</div>
-            <p class="para">We will get you the best deal for best shopping experience</p>
-          </div>
-          <div class="middle-div" id="middle-div">
-            <input
-              type="tel"
-              id="number"
-              maxlength="10"
-              pattern="[0-9]"
-              class="number-field"
-              placeholder="Enter Mobile Number"
-              onkeyup="validateLength('otp-btn','#number')"
-              required
+    <div class="parent-div" id="otp-form">
+      <div class="child-div" id="child-div">
+        <div class="top-div">
+          <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
+          <!--
+            <span
+              class="cross"
+              onclick="closeModal()"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
             >
-            <br>
-            <button
-              class="download-btn"
-              id="otp-btn"
-              onclick="sendOtp('number','phone-number','middle-div','last-div','child-div', 'pdfWrongOtp', 'pdfSendOtp')"
+              &#x2715;</span
+            >
+          -->
+          <div class="head-one" style="font-size: 2rem;  font-weight: bold;">Verify your number!</div>
+          <div id="dn-Pdf" class="head-two">Download unlimited PDF</div>
+          <p id="dn-tagline" class="para">We will get you the best deal for best shopping experience</p>
+        </div>
+        <div class="middle-div" id="middle-div">
+          <input
+            type="tel"
+            id="number"
+            maxlength="10"
+            pattern="[0-9]"
+            class="number-field"
+            placeholder="Enter Mobile Number"
+            onkeyup="validateLength('otp-btn','#number')"
+            required
+          >
+          <br>
+          <button
+            class="download-btn"
+            id="otp-btn"
+            onclick="sendOtp('number','phone-number','middle-div','last-div','child-div', 'pdfWrongOtp', 'pdfSendOtp', 'dn-Pdf', 'dn-tagline')"
+            disabled
+          >
+            Get OTP
+          </button>
+        </div>
+        <div class="last-div" id="last-div" style="display: none;">
+          <p class="phone-number">Enter the OTP sent to +91<span id="phone-number"></span></p>
+          <p class="wrong-otp-error" id="pdfWrongOtp">Wrong OTP!</p>
+          <p class="resend-otp-message" id="pdfSendOtp">OTP sent</p>
+          <div class="otp-parent">
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp1"
+            >
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp2"
               disabled
             >
-              Get OTP
-            </button>
-          </div>
-          <div class="last-div" id="last-div" style="display: none;">
-            <p class="phone-number">Enter the OTP sent to +91<span id="phone-number"></span></p>
-            <p class="wrong-otp-error" id="pdfWrongOtp">Wrong OTP!</p>
-            <p class="resend-otp-message" id="pdfSendOtp">OTP sent</p>
-            <div class="otp-parent">
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp1"
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp2"
-                disabled
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp3"
-                disabled
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp4"
-                disabled
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp5"
-                disabled
-              >
-              <input
-                class="otp otp-form"
-                maxlength="1"
-                pattern="[0-9]"
-                type="tel"
-                id="otp6"
-                disabled
-              >
-            </div>
-            <p class="resend-para">
-              Don't you receiver the OTP?<span onclick="resendOtpSms()" class="resend-otp">Resend OTP</span>
-            </p>
-            <br>
-            <button
-              class="otp-btn download-btn"
-              id="download-btn"
-              onclick="verifyOtp('#getPdfPopUp', 'otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6')"
-              style="opacity: 1;"
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp3"
+              disabled
             >
-              Verify OTP
-            </button>
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp4"
+              disabled
+            >
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp5"
+              disabled
+            >
+            <input
+              class="otp otp-form"
+              maxlength="1"
+              pattern="[0-9]"
+              type="tel"
+              id="otp6"
+              disabled
+            >
           </div>
+          <p class="resend-para">
+            Don't you receiver the OTP?<span onclick="resendOtpSms()" class="resend-otp">Resend OTP</span>
+          </p>
+          <br>
+          <button
+            class="otp-btn download-btn"
+            id="download-btn"
+            onclick="verifyOtp('#getPdfPopUp', 'otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6')"
+            style="opacity: 1;"
+          >
+            Verify OTP
+          </button>
         </div>
       </div>
     </div>
