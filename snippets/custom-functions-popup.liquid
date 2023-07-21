@@ -272,6 +272,14 @@
   
   
   
+  let smsotp = '';
+  let getButton ="";
+let clearKey = false;
+
+  let funKey ='';
+ 
+  let mobNumber = "";
+  
   
   
   
@@ -312,7 +320,7 @@
 
   //////login
   login.addEventListener("click", function() {
-
+   funKey = '#LoginPopUp';
    showPopup('#LoginPopUp')
 
 });
@@ -352,13 +360,6 @@
 
   // JavaScript code goes here
   
-  let smsotp = '';
-  let getButton ="";
-let clearKey = false;
-
-  let funKey ='';
- 
-  let mobNumber = "";
 
 function validateLength(buttonShowAndHide, getlength) {
   const myInput = document.querySelector(getlength);
@@ -580,7 +581,13 @@ console.log(mobNumber)
  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
 }
   
+function processUserLogin(){
 
+   funKey = '#LoginPopUp';
+  showPopup('#LoginPopUp');
+
+  
+}
 
         function processAddtoCartPopup(ref){
  getButton =ref;
@@ -723,6 +730,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
