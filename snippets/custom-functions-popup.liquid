@@ -290,6 +290,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -546,7 +547,7 @@ console.log('/co')
     
   } else {
 
-     document.getElementsById(wrongOtpId).style.display = "block";
+     document.getElementById(wrongOtpId).style.display = "block";
   
   }
 };
@@ -584,8 +585,8 @@ function checkOut(){
 
   
 function resendOtpSms(){
-  document.getElementsById(wrongOtpId).style.display = "none";
-   document.getElementsById(sendOtpId).style.display = "block";
+  document.getElementById(wrongOtpId).style.display = "none";
+   document.getElementById(sendOtpId).style.display = "block";
 console.log(mobNumber)
   console.log(smsotp)
    randomOtp();
@@ -742,6 +743,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
