@@ -325,6 +325,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -586,7 +587,12 @@ console.log('/co')
   
   }
 };
+////////////////////////////////////////////////////////////////
+///////functions 
+  ////////
 
+
+  
 function viewCart(){
 
   funKey= '#viewCart';
@@ -594,7 +600,7 @@ function viewCart(){
  // location.href = '/cart'
   
    if(localStorage.getItem("globalOtpKey")== null){
-                                showPopup('#AddToCartPopUp');
+                                showPopup('#LoginPopUp');
                               
                             }else {
                                           location.href = '/cart'
@@ -609,7 +615,7 @@ function checkOut(){
 // location.href = '/checkout'
   
    if(localStorage.getItem("globalOtpKey")== null){
-                                showPopup('#AddToCartPopUp');
+                                showPopup('#LoginPopUp');
                               
                             }else {
 
@@ -675,7 +681,7 @@ function processUserLogin(){
   
                       
                             if(localStorage.getItem("globalOtpKey")== null){
-                                showPopup('#AddToCartPopUp');
+                                showPopup('#LoginPopUp');
                               
                             }
         }
@@ -730,7 +736,7 @@ function processBlogLink(ref) {
 console.log(blogUrl);
   
   if(localStorage.getItem("globalOtpKey")== null) {
-showPopup('#openBlogPopUp');
+showPopup('#LoginPopUp');
 
 
     
@@ -756,7 +762,7 @@ function processBuyNow(ref) {
 funKey= '#buyNowPopUp';
   
   if(localStorage.getItem("globalOtpKey")== null) {
-showPopup('#buyNowPopUp');
+showPopup('#LoginPopUp');
 
 
     
@@ -778,6 +784,7 @@ showPopup('#buyNowPopUp');
 }
 
 }
+
 
 
 
