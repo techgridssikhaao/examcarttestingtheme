@@ -263,7 +263,7 @@
             <button
               class="otp-btn"
               id="otp-btn-login"
-              onclick="sendOtp('number-login','phone-number-login','middle-div-login','last-div-login','child-div-login')"
+              onclick="sendOtp('number-login','phone-number-login','middle-div-login','last-div-login','child-div-login', 'WrongOtp', 'sendOtpMessage')"
               disabled
             >
               Get OTP
@@ -272,8 +272,8 @@
           <div class="last-div" id="last-div-login" style="display: none;">
             <p class="phone-number">Enter the OTP sent to +91<span id="phone-number-login"></span></p>
             <br>
-            <p class="wrong-otp-error">Wrong OTP!<span id="WrongOtp"></span></p>
-
+            <p class="wrong-otp-error" id="WrongOtp">Wrong OTP!</p>
+            <p class="resend-otp-message" id="sendOtpMessage">OTP sent</p>
             <div class="otp-parent">
               <input
                 class="otp otp-form"
