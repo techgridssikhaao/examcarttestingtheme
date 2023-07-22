@@ -217,9 +217,9 @@
             class="btn button button-cart"
             {% if template != 'product.pre-order' %}
             {% endif %}
-            style=" clear:none;margin-left:15px;padding:0 55px; "
+            style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
             type="button"
-            id="button-cart-buyy"
+            id="button-cart-buy"
             data-loading-text="{{ 'products.product.loading' | t }}"
           >
             {% if template == 'product.pre-order' -%}
@@ -230,6 +230,21 @@
           </button>
         {% endif %}
         {% comment %} extra button {% endcomment %}
+
+        <button
+          onclick="processBuyNow(this)"
+          class="btn button button-cart"
+          style="clear:none;margin-left:15px;padding:0 55px;"
+          type="button"
+          id="button-cart-buy-mine"
+        >
+          {% if template == 'product.pre-order' -%}
+            {{- 'products.product.pre_order' | t }}
+          {% else -%}
+            {{- 'products.product.buy_now' | t -}}
+          {%- endif %}
+        </button>
+        <a href="/checkout/{{ productID }}">Buy Now</a>
 
         {% comment %} extra button {% endcomment %}
         {% include 'product-wishlist' %}
@@ -571,8 +586,6 @@
   
   
   
-  
-  
 
   $( document ).ready(function() {
     
@@ -677,8 +690,6 @@ var t = {{ t | json }}
     
   }
   
-
-
 
 
 
