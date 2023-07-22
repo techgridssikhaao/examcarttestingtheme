@@ -336,7 +336,9 @@
 </div>
 
 <script>
-    function add('number-login') {
+  add('number-login');
+
+    function add(input) {
     input.addEventListener("keyup", () => {
       const code = parseInt(input.value);
       if (code >= 0 && code <= 9) {
