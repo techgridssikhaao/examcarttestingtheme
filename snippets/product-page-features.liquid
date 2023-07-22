@@ -244,7 +244,7 @@
             {{- 'products.product.buy_now' | t -}}
           {%- endif %}
         </button>
-        <a href="/checkout/{{ 40220502327362 }}">Buy Now</a>
+        <a href="/checkout/{{ product.variants.first.id }}">Buy Now</a>
 
         {% comment %} extra button {% endcomment %}
         {% include 'product-wishlist' %}
@@ -587,6 +587,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -691,6 +692,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
