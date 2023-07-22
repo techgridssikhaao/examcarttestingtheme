@@ -244,7 +244,11 @@
             {{- 'products.product.buy_now' | t -}}
           {%- endif %}
         </button>
-        <a href="/checkout/{{ product.variants.first.id }}">Buy Now</a>
+        <form action="/checkout" method="post">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <input type="submit" value="Buy Now">
+        </form>
 
         {% comment %} extra button {% endcomment %}
         {% include 'product-wishlist' %}
@@ -588,6 +592,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -692,6 +697,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
