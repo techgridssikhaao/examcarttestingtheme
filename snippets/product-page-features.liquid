@@ -231,20 +231,6 @@
         {% endif %}
         {% comment %} extra button {% endcomment %}
 
-        <button
-          onclick="processBuyNow(this)"
-          class="btn button button-cart"
-          style="clear:none;margin-left:15px;padding:0 55px;"
-          type="button"
-          id="button-cart-buy-mine"
-        >
-          {% if template == 'product.pre-order' -%}
-            {{- 'products.product.pre_order' | t }}
-          {% else -%}
-            {{- 'products.product.buy_now' | t -}}
-          {%- endif %}
-        </button>
-
         {% comment %} extra button {% endcomment %}
         {% include 'product-wishlist' %}
       </div>
@@ -584,6 +570,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -688,6 +675,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
