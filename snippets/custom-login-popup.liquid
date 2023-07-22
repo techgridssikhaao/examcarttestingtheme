@@ -367,8 +367,7 @@ function addList(input) {
     input.addEventListener("input", () => {
       const code = parseInt(input.value);
       if (code >= 0 && code <= 9) {
-        const n = input.nextElementSibling;
-        if (n) n.focus();
+        
       } else {
         input.value = "";
       }
