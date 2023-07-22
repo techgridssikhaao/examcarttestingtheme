@@ -351,6 +351,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -432,6 +433,14 @@ let clearKey = false;
   let mobNumber = "";
 
 function validateLength(buttonShowAndHide, getlength) {
+       number.document.querySelector(getlength);
+   const code = parseInt(number.value);
+      if (code >= 0 && code <= 9) {
+
+        if (n) n.focus();
+      } else {
+        number.value = "";
+      }
   const myInput = document.querySelector(getlength);
   if (myInput.value.length == 10) {
     document.getElementById(buttonShowAndHide).disabled = false;
@@ -815,6 +824,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
