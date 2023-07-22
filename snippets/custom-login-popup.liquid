@@ -241,6 +241,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 8em;">
     <div class="parent-div" id="otp-form-login">
       <div class="child-div" id="child-div-login">
+        <div>
+          <span
+            class="cross"
+            onclick="closeModal()"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            &#x2715;</span
+          >
+        </div>
         <div class="top-div">
           <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
           <div class="head-one">Verify your number!</div>
