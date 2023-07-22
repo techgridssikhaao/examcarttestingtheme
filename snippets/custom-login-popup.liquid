@@ -360,7 +360,7 @@
   
 
 const inp = document.getElementById("number-login");
-//addList(inp);
+onlynum(document.getElementById("number-login"));
 
 // function addList(input) {
   
@@ -374,7 +374,7 @@ const inp = document.getElementById("number-login");
 //   });
 // }
 
-function addList(input) {
+function onlynum(input) {
   input.addEventListener("input", () => {
     const value = input.value;
     const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
