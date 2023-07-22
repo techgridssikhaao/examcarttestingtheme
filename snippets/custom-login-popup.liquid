@@ -240,18 +240,27 @@
 >
   <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 8em;">
     <div class="parent-div" id="otp-form-login">
-      <span
-        onclick="hidePopup('#LoginPopUp')"
-
-        data-dismiss="modal"
-        aria-label="Close"
-      >
-        tttt
-      </span>
       <div class="child-div" id="child-div-login">
-        <div class="top-div">
-          <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
+        <div
+          class="top-div"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div class="demo">
+            <img class="popuplogo" src="{{ 'Exlogo.jpg' | asset_url }}" loading="lazy" alt="Examcart logo">
+            <span
+              onclick="hidePopup('#LoginPopUp')"
 
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              tttt
+            </span>
+          </div>
+          div>
           <div class="head-one">Verify your number!</div>
           <p class="para">We will get you the best deal for best shopping experience</p>
         </div>
