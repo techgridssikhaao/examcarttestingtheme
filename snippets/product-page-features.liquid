@@ -244,7 +244,7 @@
             {{- 'products.product.buy_now' | t -}}
           {%- endif %}
         </button>
-        <form action="/checkout" method="post">
+        <form action="/cart/add.js" method="post">
           <input type="hidden" name="quantity" value="1">
           <input type="hidden" name="id" value="{{ product.variants.first.id }}">
           <input type="submit" value="Buy Now">
@@ -593,6 +593,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -697,6 +698,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
