@@ -360,21 +360,27 @@
   
 
 const inp = document.getElementById("number-login");
-// addList(inp);
+addList(inp);
+
+// function addList(input) {
+  
+//     input.addEventListener("input", () => {
+//       const code = parseInt(input.value);
+//       if (code >= 0 && code <= 9) {
+        
+//       } else {
+//         input.value = "";
+//       }
+//   });
+// }
 
 function addList(input) {
-  
-    input.addEventListener("input", () => {
-      const code = parseInt(input.value);
-      if (code >= 0 && code <= 9) {
-        
-      } else {
-        input.value = "";
-      }
+  input.addEventListener("input", () => {
+    const value = input.value;
+    const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+    input.value = cleanedValue;
   });
 }
-
-
 
 
   const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
