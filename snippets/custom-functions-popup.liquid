@@ -281,6 +281,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -377,7 +378,7 @@ function validateLength(buttonShowAndHide, getlength) {
 function onlynum(numInputFieldId) {
 
             input = document.getElementById(numInputFieldId);
-                  
+               console.log(input);   
     input.addEventListener("input", () => {
       const value = input.value;
       const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
@@ -762,6 +763,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
