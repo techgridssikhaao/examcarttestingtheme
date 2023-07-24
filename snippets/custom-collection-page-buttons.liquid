@@ -44,7 +44,11 @@
                                height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px
 
               }
+  .more-button-disabled{
 
+    opacity: .5;
+        cursor: not-allowed;
+  }
 
               .more-button{
   padding: .5em .5em; color: #004AAD; background-color: white;     display: flex;
@@ -86,7 +90,7 @@
   class="more-buttons-div"
 >
   <button
-    class="more-button  {% if sold_out == false %} btn disabled  {% endif %}"
+    class="more-button  {% if sold_out == false %} more-button-disabled  {% endif %}"
     onclick="processAddtoCartPopup(this)"
 
     data-toggle="tooltip"
