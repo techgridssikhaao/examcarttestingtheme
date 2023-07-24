@@ -283,6 +283,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -667,7 +668,35 @@ function processUserLogin(){
         }
 
 
+ function processCollectionBuyNowPopup(ref){
+ getButton =ref;
+         
+   let productID = ref.getAttribute('data-product-id')
+                 let productAvailable = ref.getAttribute('data-product-available')
+            let productPage = ref.getAttribute('data-product-page')
+                  
 
+    
+  if (productAvailable){
+
+                   cart.add(productID)
+             
+           } else {
+
+              location.href = productPage
+            
+           }
+        
+    
+          
+           
+             location.href = '/checkout'
+            
+           
+
+                      
+                            
+        }
 
   
  function processPdflink(ref){
@@ -764,6 +793,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
