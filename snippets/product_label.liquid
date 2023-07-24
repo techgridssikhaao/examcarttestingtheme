@@ -54,9 +54,11 @@
       <span> Pre-Order Now</span>
     </div>
   {%- endif %}
-  {% if product.available == false %}
-    <div class="label-product label_sale l_sold" style="margin: 2px">
-      <span>Available on Amazon</span>
-    </div>
-  {% endif -%}
+  {% comment %}
+    {% if product.available == false %}
+      <div class="label-product label_sale l_sold" style="margin: 2px">
+        <span>Available on Amazon</span>
+      </div>
+    {% endif -%}
+  {% endcomment %}
 {%- endif %}
