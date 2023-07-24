@@ -87,6 +87,14 @@
 >
   <button
     class="more-button"
+    onclick="processAddtoCartPopup(this)"
+
+    data-toggle="tooltip"
+    data-product-id="{{ product.variants.first.id }}"
+    data-product-available="{{ product.variants.first.available }}"
+    data-product-page="{{ product.url }}"
+    data-loading-text="{{ 'products.product.loading' | t }}"
+    title="{{ 'products.product.add_to_cart' | t }}"
   >
     <svg
       style="font-size: 2.5rem;"
