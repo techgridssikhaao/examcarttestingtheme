@@ -267,51 +267,58 @@
               {% include 'deal' %}
 
               <style>
-                                .textBox{
+                                            .textBox{
 
-                                height: 1em;
-                                  display: flex;
-                                  align-items: center;
-                                  justify-content: center;
-                                  gap: 2em;
+                                            height: 1em;
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                              gap: 2em;
 
-                                }
+                                            }
 
-                                .buy-now-row{
-                /*                   height: 5em; */
-                                  display: flex;
-                                  align-items: center;
-                                  justify-content: center;
-                                  margin-bottom: .8em;
-                                }
+                                            .buy-now-row{
+                            /*                   height: 5em; */
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                              margin-bottom: .8em;
+                                            }
 
-                                .buy-now-row button{
+                                            .buy-now-row button{
 
-                                  background-color: #A82B0B;
-                                }
-                                        .buy-now-icon{
-                                         width: 50px;
-                                          height: 50px;
-                                          background-color: #A82B0B;
-                                          border-radius: 50%;
-                                          z-index: 1;
-                                          position: relative;
-                                          left: 1.1em;
-                                          padding: 0;
+                                              background-color: #A82B0B;
+                                            }
+                                                    .buy-now-icon{
+                                                     width: 50px;
+                                                      height: 50px;
+                                                      background-color: #A82B0B;
+                                                      border-radius: 50%;
+                                                      z-index: 1;
+                                                      position: relative;
+                                                      left: 1.1em;
+                                                      padding: 0;
 
 
-                                        }
-                                .buy-now-text{
-                                        position: relative;
-                                  background-color: #A82B0B;
-                                  padding: 0.7em 1em 0.7em 2em;
-                                     right: 1em
-                                }
+                                                    }
+                                            .buy-now-text{
+                                                    position: relative;
+                                              background-color: #A82B0B;
+                                              padding: 0.7em 1em 0.7em 2em;
+                                                 right: 1em
+                                            }
 
-                .more-buttons-div{
-                                 height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px
+                            .more-buttons-div{
+                                             height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px
 
-                }
+                            }
+
+
+                            .more-button{
+                padding: .5em .5em; color: #004AAD; background-color: white;     display: flex;
+                                justify-content: center; align-items: center;
+
+                            }
               </style>
 
               <div class="buy-now-row">
@@ -345,7 +352,6 @@
               </div>
               <div
                 class="more-buttons-div"
-                style=" height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px"
               >
                 <button
                   class="more-button"
@@ -604,6 +610,7 @@
   
   
   
+  
 
   
   
@@ -691,6 +698,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
