@@ -269,16 +269,47 @@
               <style>
                 .textBox{
 
-                height: 1em;  display: flex; align-items: center; justify-content: center; gap: 2em;
+                height: 1em;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 2em;
 
+                }
+
+                .buy-now-row{
+                  height: 5em;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+
+                .buy-now-row button{
+
+                  background-color: #A82B0B;
+                }
+                        .buy-now-icon{
+                         width: 50px;
+                          height: 50px;
+                          background-color: #A82B0B;
+                          border-radius: 50%;
+                          z-index: 20;
+                          position: relative;
+                          left: 2em;
+                          padding: 0;
+
+                        }
+                .buy-now-text{
+
+                  background-color: #A82B0B;
+                  padding: 0.7em 1em 0.7em 2.0em;
+                  right: 2em;
                 }
               </style>
 
-              <div style=" height: 5em; display: flex; align-items: center; justify-content: center;">
-                <button style=" width: 50px; height: 50px; background-color: #A82B0B;  border-radius: 50%;  z-index: 20; position: relative; left: 2em;   padding: 0;">
-                  lo
-                </button>
-                <button style=" background-color: #A82B0B; padding: 0.7em 1em 0.7em 2.0em; right: 2em;">BUY NOW</button>
+              <div class="buy-now-row">
+                <button class="buy-now-icon">lo</button>
+                <button class="buy-now-text">BUY NOW</button>
               </div>
               <div class="textBox">
                 <div
@@ -482,6 +513,7 @@
   
   
   
+  
 
   
   
@@ -569,6 +601,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
