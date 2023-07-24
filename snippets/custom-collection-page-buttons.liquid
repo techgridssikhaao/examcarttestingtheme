@@ -86,7 +86,7 @@
   class="more-buttons-div"
 >
   <button
-    class="more-button  btn disabled "
+    class="more-button  {% if sold_out %} btn disabled {% endif %}"
     onclick="processAddtoCartPopup(this)"
 
     data-toggle="tooltip"
@@ -95,7 +95,7 @@
     data-product-page="{{ product.url }}"
     data-loading-text="{{ 'products.product.loading' | t }}"
     title="{{ 'products.product.add_to_cart' | t }}"
-    {% if sold_out == false %}
+    {% if sold_out %}
       disabled
     {% endif %}
   >
