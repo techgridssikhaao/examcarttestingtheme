@@ -60,12 +60,17 @@
                     justify-content: center; align-items: center;
 
                 }
+
+  .button-icons{
+
+    fill: #004aad;
+  }
 </style>
 
 <div class="buy-now-row">
   <!-- <button class="buy-now-icon">lo</button> -->
   <button id="button-cart-buy" class="buy-now-text">
-    <img src="{{ 'button-shopping-bag.svg' | asset_url }}" loading="lazy" alt="bag logo">
+    <img class="button-icons" src="{{ 'button-shopping-bag.svg' | asset_url }}" loading="lazy" alt="bag logo">
 
     BUY NOW
   </button>
