@@ -69,18 +69,24 @@
 
 <div class="buy-now-row">
   <!-- <button class="buy-now-icon">lo</button> -->
+  {% if sold_out %}
+    <div class="label-product label_sale l_sold">
+      <span>Available on Amazon</span>
+      <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
+    </div>
+  {% else %}
+    <button
+      onclick="processCollectionBuyNowPopup(this)"
 
-  <button
-    onclick="processCollectionBuyNowPopup(this)"
+      data-product-id="{{ product.variants.first.id }}"
+      data-product-available="{{ product.variants.first.available }}"
+      data-product-page="{{ product.url }}"
 
-    data-product-id="{{ product.variants.first.id }}"
-    data-product-available="{{ product.variants.first.available }}"
-    data-product-page="{{ product.url }}"
-
-    class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
-  >
-    BUY NOW
-  </button>
+      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
+    >
+      BUY NOW
+    </button>
+  {% endif %}
 </div>
 <div class="textBox">
   <div
