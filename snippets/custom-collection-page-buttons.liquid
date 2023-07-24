@@ -153,13 +153,13 @@
     <span>View PDF</span>
   </button>
   <button
-    class="more-button {% if blog != '' %} more-button-disabled  {% endif %}"
+    class="more-button {% if blog == '' %} more-button-disabled  {% endif %}"
     data-bloglink="{{ blog }}"
     data-toggle="tooltip"
     data-loading-text="{{ 'products.product.loading' | t }}"
     title="Read Blog"
     onclick="processBlogLink(this)"
-    {% if blog != '' %}
+    {% if blog == '' %}
       disabled
     {% endif %}
   >
