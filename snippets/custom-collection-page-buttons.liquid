@@ -63,7 +63,7 @@
 
   .button-icons{
 
-    fill: #ffffff;
+
   }
 </style>
 
@@ -84,6 +84,7 @@
 
       class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
     >
+      <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="Examcart logo">
       BUY NOW
     </button>
   {% endif %}
