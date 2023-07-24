@@ -115,7 +115,12 @@
   </button>
   <button
     class="more-button {% if pdf != '' %} more-button-disabled  {% endif %}"
-
+    onclick="processPdflink(this)"
+    data-pdflink="{{ pdf }}"
+    id="getPdf"
+    data-toggle="tooltip"
+    data-loading-text="{{ 'products.product.loading' | t }}"
+    title="Download Sample PDF"
     {% if pdf != '' %}
       disabled
     {% endif %}
@@ -127,7 +132,11 @@
   </button>
   <button
     class="more-button {% if blog != '' %} more-button-disabled  {% endif %}"
-
+    data-bloglink="{{ blog }}"
+    data-toggle="tooltip"
+    data-loading-text="{{ 'products.product.loading' | t }}"
+    title="Read Blog"
+    onclick="processBlogLink(this)"
     {% if blog != '' %}
       disabled
     {% endif %}
