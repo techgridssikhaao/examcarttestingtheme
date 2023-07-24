@@ -95,6 +95,9 @@
     data-product-page="{{ product.url }}"
     data-loading-text="{{ 'products.product.loading' | t }}"
     title="{{ 'products.product.add_to_cart' | t }}"
+    {% if sold_out %}
+      disabled
+    {% endif %}
   >
     <svg
       style="font-size: 2.5rem;"
