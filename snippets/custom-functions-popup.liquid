@@ -280,6 +280,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -372,6 +373,22 @@ function validateLength(buttonShowAndHide, getlength) {
   }
 }
 
+
+function onlynum(numInputFieldId) {
+
+            input = document.getElementById(numInputFieldId);
+                  
+    input.addEventListener("input", () => {
+      const value = input.value;
+      const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+      input.value = cleanedValue;
+    });
+  }
+
+
+
+
+  
 function randomOtp(){
 
     smsotp = Math.floor(100000 + Math.random() * 900000);
@@ -745,6 +762,7 @@ showPopup('#LoginPopUp');
 }
 
 }
+
 
 
 
