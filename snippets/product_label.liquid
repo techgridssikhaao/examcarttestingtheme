@@ -15,12 +15,14 @@
       >
     </div>
   {% endif %}
-  {% if sold_out %}
-    <div class="label-product label_sale l_sold">
-      <span>Available on Amazon</span>
-      <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
-    </div>
-  {% endif %}
+  {% comment %}
+    {% if sold_out %}
+      <div class="label-product label_sale l_sold">
+        <span>Available on Amazon</span>
+        <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
+      </div>
+    {% endif %}
+  {% endcomment %}
 {% else %}
   {% assign product_created_at = product.created_at | date: '%s' %}
   {% assign time_ago = 'now' | date: '%s' | minus: product_created_at | divided_by: 86400 %}
@@ -30,19 +32,21 @@
     <!-- <span>{{ 'products.product.new' | t }}</span> -->
   {% endif %}
   {% if on_sale %}
-<!--     <div class="label-product label_sale">
-      <span
-        >-
-        {{-
-          product.compare_at_price
-          | minus: product.price
-          | times: 100.0
-          | divided_by: product.compare_at_price
-          | round
-        -}}
-        %</span
-      >
-    </div> -->
+    <!--
+      <div class="label-product label_sale">
+        <span
+          >-
+          {{-
+            product.compare_at_price
+            | minus: product.price
+            | times: 100.0
+            | divided_by: product.compare_at_price
+            | round
+          -}}
+          %</span
+        >
+      </div>
+    -->
   {% endif %}
   <br>
   {% if product.template_suffix == 'pre-order' %}
