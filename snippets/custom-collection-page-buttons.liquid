@@ -67,13 +67,6 @@
   }
 </style>
 
-{% assign pdf = '' %}
-{% for tag in product.tags %}
-  {% if tag contains 'elssp\h' %}
-    {% assign pdf = tag | replace: 'elssp\', '' %}
-  {% endif %}
-{% endfor %}
-
 <div class="buy-now-row">
   <!-- <button class="buy-now-icon">lo</button> -->
 
