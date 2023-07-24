@@ -307,6 +307,11 @@
                                   padding: 0.7em 1em 0.7em 2em;
                                      right: 1em
                                 }
+
+                .more-buttons-div{
+                                 height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px
+
+                }
               </style>
 
               <div class="buy-now-row">
@@ -339,9 +344,11 @@
                 ></div>
               </div>
               <div
+                class="more-buttons-div"
                 style=" height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px"
               >
                 <button
+                  class="more-button"
                   style="
                     padding: .5em .5em; color: #004AAD; background-color: white;     display: flex;
                     justify-content: center; align-items: center;
@@ -596,6 +603,7 @@
   
   
   
+  
 
   
   
@@ -683,6 +691,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
