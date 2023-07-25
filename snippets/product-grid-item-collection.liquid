@@ -67,9 +67,6 @@
 
 {% comment %}Select the product image size from settings.{% endcomment %}
 
-{% assign catvar = '' %}
-{% assign subcatvar = '' %}
-
 {% for tag in product.tags %}
   {% for link in linklists['main-menu'].links %}
     {% assign test = link.title | uppercase %}
@@ -533,6 +530,7 @@
   
   
   
+  
 
   
   
@@ -620,6 +618,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
