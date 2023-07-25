@@ -58,6 +58,13 @@
   {% endif %}
 {% endfor %}
 
+{% assign pages = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'pages' %}
+    {% assign pages = tag | replace: 'pages\', '' %}
+  {% endif %}
+{% endfor %}
+
 {% comment %}Select the product image size from settings.{% endcomment %}
 {% assign img_size = settings.img_size_grid %}
 <div class="product-layout product-list col-xs-12 product-item">
@@ -277,6 +284,7 @@
                 data-product-available="{{ product.variants.first.available }}"
                 data-product-page="{{ product.url }}"
                 data-loading-text="{{ 'products.product.loading' | t }}"
+                page-count="{{ pages }}"
                 title="{{ 'products.product.add_to_cart' | t }}"
                 {% if sold_out == false %}
                 {% endif %}
@@ -353,6 +361,7 @@
 <!-- product-layout -->
 
 <script>
+  
   
   
   
@@ -583,6 +592,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
