@@ -276,7 +276,7 @@
             pattern="[0-9]{10}"
             class="number-field"
             placeholder="Enter Mobile Number"
-
+            onkeyup="validateLength('otp-btn-login','#number-login')"
             oninput='onlynum(document.getElementById("number-login"))'
             required
           >
