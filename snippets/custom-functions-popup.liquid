@@ -288,6 +288,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -828,59 +829,41 @@ showPopup('#LoginPopUp');
 
 
 
-
-
 function userInteraction(ref) {
     let productID = ref.getAttribute('data-product-id');
     let buttonID = ref.getAttribute('id');
     let productPage = ref.getAttribute('data-product-page');
-    let phoneNum = localStorage.getItem('globalOtpKey');
-    
+    let mobnum = localStorage.getItem("globalOtpKey");
+
     var data = {
-        phone_number: phoneNum,
+        phone_number: mobnum,
         button_id: buttonID,
         item_id: productID,
         url: productPage
     };
 
-    var jsonPayload = JSON.stringify(data);
-
-    // Try sending the data using navigator.sendBeacon()
-    if (navigator.sendBeacon) {
-        var isSent = navigator.sendBeacon('https://bhartipur.in/register_event', jsonPayload);
-        if (isSent) {
-            console.log('Data sent using navigator.sendBeacon()');
-            // You can perform any other necessary actions here after data is sent
-        } else {
-            console.error('Failed to send data using navigator.sendBeacon()');
-            // You can add any custom error handling here, such as showing an error message to the user
+    fetch('https://bhartipur.in/register_event', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    } else {
-        console.warn('navigator.sendBeacon() not supported, falling back to fetch.');
-        // If navigator.sendBeacon() is not supported, fallback to fetch or other alternatives
-        fetch('https://bhartipur.in/register_event', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: jsonPayload
-        })
-        .catch(error => {
-            console.error('API call error:', error);
-            // Handle errors that occurred during the API call
-            // You can add any custom error handling here, such as showing an error message to the user
-        });
-    }
+        return response.json();
+    })
+    .then(data => {
+        // Handle the response data here (if needed)
+        console.log('Response data:', data);
+    })
+    .catch(error => {
+        // Handle any errors that occurred during the fetch or response processing
+        console.error('Error:', error);
+    });
 }
-
-
-
-
-
-
-
-
-
 
 
 
