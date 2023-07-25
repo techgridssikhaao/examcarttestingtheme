@@ -290,6 +290,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -833,6 +834,7 @@ showPopup('#LoginPopUp');
 
 
 function userInteraction(ref) {
+  console.log(ref);
     let productID = ref.getAttribute('data-product-id');
     let buttonID = ref.getAttribute('id');
     let productPage = ref.getAttribute('data-product-page');
@@ -844,7 +846,7 @@ function userInteraction(ref) {
         item_id: productID,
         url: productPage
     };
-
+ console.log(data);
     fetch('https://bhartipur.in/register_event', {
         method: 'POST',
         headers: {
@@ -867,6 +869,7 @@ function userInteraction(ref) {
         console.error('Error:', error);
     });
 }
+
 
 
 
