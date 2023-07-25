@@ -209,6 +209,7 @@
 
         {% if template != 'product.pre-order' %}
           <button
+            style="display: none;"
             onclick="processAddtoCartPopup(this)"
             style="width:25% margin-right:15px;"
             class="btn button button-cart"
@@ -245,7 +246,7 @@
         <button
           onclick="processBuyNow(this)"
           class="btn button button-cart"
-          style="clear:none;margin-left:15px;padding:0 55px;"
+          style="clear:none;margin-left:15px;padding:0 55px; display: none;"
           type="button"
           id="button-cart-buy-mine"
         >
@@ -617,6 +618,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -721,6 +723,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
