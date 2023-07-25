@@ -232,7 +232,8 @@
     <div class="parent-div" id="otp-form">
       <div class="child-div" id="child-div">
         <div class="top-div">
-<!--              <span
+          <!--
+            <span
               class="cross"
               onclick="closeModal()"
               class="close"
@@ -240,10 +241,10 @@
               aria-label="Close"
             >
               &#x2715;</span
-            > -->
+            >
+          -->
           <img class="popuplogo" src="{{ 'Exlogo_png.jpg' | asset_url }}" alt="this place is for image">
-                   
-         
+
           <div class="head-one" style="font-size: 2rem;  font-weight: bold;">Verify your number!</div>
           <div id="dn-Pdf" class="head-two">Download unlimited PDF</div>
           <p id="dn-tagline" class="para">We will get you the best deal for best shopping experience</p>
@@ -257,6 +258,7 @@
             class="number-field"
             placeholder="Enter Mobile Number"
             onkeyup="validateLength('otp-btn','#number')"
+            oninput="onlyNum('number')"
             required
           >
           <br>
