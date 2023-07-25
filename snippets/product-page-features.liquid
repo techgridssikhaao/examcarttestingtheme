@@ -197,6 +197,18 @@
         {% if section.settings.product_quantity_message %}
           <span id="variantQuantity" class="variant-quantity hidden"></span>
         {% endif %}
+        <button
+      
+     id="button-cart-buy"
+      data-product-id="{{ product.variants.first.id }}"
+      data-product-available="{{ product.variants.first.available }}"
+      data-product-page="{{ product.url }}"
+
+      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
+    >
+      <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+      BUY NOW
+    </button>
         <div
           style="
               display: grid;
@@ -205,6 +217,7 @@
             margin-top: 2em;
           "
         >
+          
           {% include 'custom-collection-page-buttons' %}
         </div>
 
