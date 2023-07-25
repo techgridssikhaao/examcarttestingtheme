@@ -66,6 +66,29 @@
 {% endfor %}
 
 {% comment %}Select the product image size from settings.{% endcomment %}
+
+{% assign catvar = '' %}
+{% assign subcatvar = '' %}
+
+{% for tag in product.tags %}
+  {% for link in linklists['main-menu'].links %}
+    {% assign test = link.title | uppercase %}
+    {% assign tagtest = tag | uppercase %}
+    {% if test == tagtest %}
+      {% assign catvar = tag %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% for link in linklists['main-menu'].links %}
+  {% for sublink in link.links %}
+    {% if sublink.title contains tag %}
+      {% assign subcatvar = tag %}
+    {% endif %}
+    <!-- and tag != "Hindi" and tag != "English" -->
+  {% endfor %}
+{% endfor %}
+
 {% assign img_size = settings.img_size_grid %}
 <div class="product-layout product-list col-xs-12 product-item">
   <div class="product-thumb">
@@ -509,6 +532,7 @@
   
   
   
+  
 
   
   
@@ -596,6 +620,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
