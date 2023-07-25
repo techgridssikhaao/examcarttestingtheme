@@ -297,6 +297,9 @@
                 class="add-to-cart-new button btn-cart {% if sold_out %} btn disabled {% endif %}"
                 type="button"
                 id="getPdf"
+                data-product-id="{{ product.variants.first.id }}"
+                data-product-page="{{ product.url }}"
+
                 data-toggle="tooltip"
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="Download Sample PDF"
@@ -320,7 +323,10 @@
                 data-bloglink="{{ blog }}"
                 class="add-to-cart-new button btn-cart"
                 type="button"
+                data-product-id="{{ product.variants.first.id }}"
+                data-product-page="{{ product.url }}"
                 data-toggle="tooltip"
+                id="blog"
                 data-loading-text="{{ 'products.product.loading' | t }}"
                 title="Read Blog"
                 onclick="processBlogLink(this)"
@@ -347,6 +353,7 @@
 <!-- product-layout -->
 
 <script>
+  
   
   
   
@@ -576,6 +583,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
