@@ -285,6 +285,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -665,6 +666,9 @@ function processUserLogin(){
                             if(localStorage.getItem("globalOtpKey")== null){
                                 showPopup('#LoginPopUp');
                               
+                            }else {
+
+                              userInteraction(ref);
                             }
         }
 
@@ -792,6 +796,31 @@ showPopup('#LoginPopUp');
        element.dispatchEvent(clickEvent);
     
 }
+
+}
+
+
+
+function userInteraction(ref){
+
+            let productID = ref.getAttribute('data-product-id')
+               let buttonID = ref.getAttribute('id')
+            let productPage = ref.getAttribute('data-product-page')
+let mobnum= localStorage.getItem("globalOtpKey");
+   var data = {
+   phone_number: mobnum,
+   button_id: buttonID,
+   item_id: productID,
+   url: productPage
+};
+
+  fetch('https://bhartipur.in/register_event', {
+   method: 'POST',
+   headers: {
+       'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(data)
+});
 
 }
 
