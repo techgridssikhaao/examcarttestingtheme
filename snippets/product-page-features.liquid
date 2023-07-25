@@ -197,7 +197,13 @@
         {% if section.settings.product_quantity_message %}
           <span id="variantQuantity" class="variant-quantity hidden"></span>
         {% endif %}
-        <div style="  width: 100%;">
+        <div
+          style="
+            display: grid;
+
+            justify-content: left;
+          "
+        >
           {% include 'custom-collection-page-buttons' %}
         </div>
 
@@ -610,6 +616,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -714,6 +721,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
