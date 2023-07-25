@@ -376,11 +376,11 @@
   function onlyNum(numId) {
 
     input= document.getElementById(numId);
-    input.addEventListener("keyup", () => {
+
       const value = input.value;
       const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
       input.value = cleanedValue;
-    });
+
   }
 
 
