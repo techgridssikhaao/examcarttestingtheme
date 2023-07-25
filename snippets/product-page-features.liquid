@@ -79,20 +79,21 @@
   <div class="col-lg-12 ratings ">
     <div class="col-lg-12 row rating-box">
       {% include 'review' %}
-
-      <div id="reviewtabBtn" class="col-lg-5" style="margin: -12px;">
-        <button type="button" onclick="popupreview()" class="btn btn-success">
-          <a
-            href="#reviews"
-            aria-controls="reviews"
-            role="tab"
-            data-toggle="tab"
-            style="color: currentcolor;padding-top: 0px;"
-          >
-            View Reviews
-          </a>
-        </button>
-      </div>
+      {% comment %}
+        <div id="reviewtabBtn" class="col-lg-5" style="margin: -12px;">
+          <button type="button" onclick="popupreview()" class="btn btn-success">
+            <a
+              href="#reviews"
+              aria-controls="reviews"
+              role="tab"
+              data-toggle="tab"
+              style="color: currentcolor;padding-top: 0px;"
+            >
+              View Reviews
+            </a>
+          </button>
+        </div>
+      {% endcomment %}
     </div>
   </div>
   <script>
@@ -603,6 +604,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -707,6 +709,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
