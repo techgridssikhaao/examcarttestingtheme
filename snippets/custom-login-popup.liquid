@@ -392,7 +392,7 @@
     });
 
     function addListener(input) {
-
+      input.addEventListener("input", () => {
         const code = parseInt(input.value);
         if (code >= 0 && code <= 9) {
           const n = input.nextElementSibling;
@@ -406,7 +406,7 @@
           const prev = input.previousElementSibling;
           if (prev) prev.focus();
         }
-
+      });
     }
 </script>
 
