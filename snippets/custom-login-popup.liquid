@@ -277,7 +277,7 @@
             class="number-field"
             placeholder="Enter Mobile Number"
             onkeyup="validateLength('otp-btn-login','#number-login')"
-            oninput='onlynum(document.getElementById("number-login"))'
+            oninput="onlyNum('number-login')"
             required
           >
           <br>
@@ -359,7 +359,7 @@
 
 <script>
   // const inp = document.getElementById("number-login");
-  onlynum(document.getElementById("number-login"));
+  //onlynum(document.getElementById("number-login"));
 
   // function addList(input) {
 
@@ -373,7 +373,9 @@
   //   });
   // }
 
-  function onlynum(input) {
+  function onlyNum(numId) {
+
+    input= document.getElementById(numId);
     input.addEventListener("input", () => {
       const value = input.value;
       const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
