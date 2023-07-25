@@ -197,8 +197,10 @@
         {% if section.settings.product_quantity_message %}
           <span id="variantQuantity" class="variant-quantity hidden"></span>
         {% endif %}
+        <div style=" display: flex; width: 100%;">
+          {% include 'custom-collection-page-buttons' %}
+        </div>
 
-        {% include 'custom-collection-page-buttons' %}
         {% if template != 'product.pre-order' %}
           <button
             onclick="processAddtoCartPopup(this)"
@@ -606,6 +608,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -710,6 +713,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
