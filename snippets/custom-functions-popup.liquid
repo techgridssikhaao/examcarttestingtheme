@@ -289,6 +289,7 @@
   
   
   
+  
 
  // pp_addtocart funcitons
 
@@ -733,14 +734,16 @@ if(id == "openPdfFile") {
   console.log(id)
   openProductPdf();
 }else{
+  userInteraction(ref)
    console.log(ref)
    window.open(`${pdfLink}`, "_blank")
+  
 }
 
 
      
    }
-userInteraction(ref)
+
    
  }
 
@@ -764,10 +767,10 @@ showPopup('#LoginPopUp');
    window.open(`${blogUrl}`, "_blank");
  }
    
-    
+    userInteraction(ref);
   }
 
-  userInteraction(ref);
+  
     
 }
 
@@ -864,6 +867,7 @@ function userInteraction(ref) {
         console.error('Error:', error);
     });
 }
+
 
 
 
