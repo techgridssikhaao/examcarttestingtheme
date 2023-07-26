@@ -129,13 +129,14 @@
   <button
     class="more-button  {% if sold_out %} more-button-disabled  {% endif %}"
     onclick="processAddtoCartPopup(this)"
+    data="{{ sold_out }}"
     id="button-cart"
     data-toggle="tooltip"
     data-product-id="{{ product.variants.first.id }}"
     data-product-available="{{ product.variants.first.available }}"
     data-product-page="{{ product.url }}"
     data-loading-text="{{ products.product.loading | t }}"
-    data="{{ sold_out }}"
+
     {% if sold_out %}
       disabled
     {% endif %}
