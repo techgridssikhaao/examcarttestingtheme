@@ -1,0 +1,155 @@
+<style>
+                                      .textBox{
+
+                                      height: 1em;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        gap: 2em;
+
+                                      }
+
+                                      .buy-now-row{
+
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        margin-bottom: .8em;
+                                      }
+
+
+
+                       .buy-now-text {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #A82B0B !important;
+    padding: .6em 1em !important;
+    border-radius: 20px !important;
+    color: white !important;
+    border: none !important;
+  }
+
+                      .more-buttons-div{
+                                       height: 4em; display: flex; align-items: center; justify-content: center; gap: 2px
+
+                      }
+          .more-button-disabled{
+
+            opacity: .5;
+                cursor: not-allowed;
+          }
+    .more-button {
+      padding: .5em .5em !important;
+      color: #004AAD !important;
+      background-color: white !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+        .button-icons{
+      height: 2em;
+          width: 2em;
+        margin-right: .3em;
+        }
+</style>
+
+<div class="buy-now-row">
+  <!-- <button class="buy-now-icon">lo</button> -->
+  {% if sold_out %}
+    <div class="label-product label_sale l_sold">
+      <span>Available on Amazon</span>
+      <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
+    </div>
+  {% else %}
+    <button
+      onclick="processCollectionBuyNowPopup(this)"
+
+      data-product-id="{{ product.variants.first.id }}"
+      data-product-available="{{ product.variants.first.available }}"
+      data-product-page="{{ product.url }}"
+
+      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
+    >
+      <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+      BUY NOW
+    </button>
+  {% endif %}
+</div>
+<div class="textBox">
+  <div
+    class="horizontal-line"
+    style="
+        width:30%;
+
+        background-color: gray;
+      height:1px;
+    "
+  ></div>
+  <div
+    style="                                 color: #ADA9A9;"
+    class="text-between-lines"
+  >
+    Extra Link
+  </div>
+  <div
+    class="horizontal-line"
+    style="
+                            background-color: gray;
+        width:30%;
+      height:1px;
+    "
+  ></div>
+</div>
+<div
+  class="more-buttons-div"
+>
+  <button
+    class="more-button  {% if sold_out %} more-button-disabled  {% endif %}"
+    onclick="processAddtoCartPopup(this)"
+
+    data-toggle="tooltip"
+    data-product-id="{{ product.variants.first.id }}"
+    data-product-available="{{ product.variants.first.available }}"
+    data-product-page="{{ product.url }}"
+    data-loading-text="{{ 'products.product.loading' | t }}"
+    title="{{ 'products.product.add_to_cart' | t }}"
+    {% if sold_out %}
+      disabled
+    {% endif %}
+  >
+    <img class="button-icons" src="{{ 'Cart-button.svg' | asset_url }}" loading="lazy" alt="logo">
+    Add to Cart
+  </button>
+  <button
+    class="more-button {% if pdf == '' %} more-button-disabled  {% endif %}"
+    onclick="processPdflink(this)"
+    data-pdflink="{{ pdf }}"
+    id="getPdf"
+    type="button"
+    data-toggle="tooltip"
+    data-loading-text="{{ 'products.product.loading' | t }}"
+    title="Download Sample PDF"
+    {% if pdf == '' %}
+      disabled
+    {% endif %}
+  >
+    <img class="button-icons" src="{{ 'Pdf-button.svg' | asset_url }}" loading="lazy" alt="logo">
+    View PDF
+  </button>
+  <button
+    class="more-button {% if blog == '' %} more-button-disabled  {% endif %}"
+    data-bloglink="{{ blog }}"
+    data-toggle="tooltip"
+    data-loading-text="{{ 'products.product.loading' | t }}"
+    title="Read Blog"
+    onclick="processBlogLink(this)"
+    {% if blog == '' %}
+      disabled
+    {% endif %}
+  >
+    <img class="button-icons" src="{{ 'Bell-button.svg' | asset_url }}" loading="lazy" alt="logo">
+    Notification
+  </button>
+</div>
