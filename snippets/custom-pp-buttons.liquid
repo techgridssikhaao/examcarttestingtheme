@@ -65,7 +65,12 @@
     {% assign pdf = tag | replace: 'elssp\', '' %}
   {% endif %}
 {% endfor %}
-
+{% assign t = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'elssp\h' %}
+    {% assign t = tag | replace: 'elssp\', '' %}
+  {% endif %}
+{% endfor %}
 <div class="buy-now-row">
   <!-- <button class="buy-now-icon">lo</button> -->
   {% if sold_out %}
