@@ -132,6 +132,23 @@
 <div
   class="more-buttons-div"
 >
+  {% if section.settings.show_buy_now or template == 'product.pre-order' %}
+    <button
+      class="more-button  {% if sold_out %} more-button-disabled  {% endif %}"
+      {% if template != 'product.pre-order' %}
+      {% endif %}
+      style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+      type="button"
+      id="button-cart-buy"
+      data-loading-text="{{ 'products.product.loading' | t }}"
+    >
+      {% if template == 'product.pre-order' -%}
+        {{- 'products.product.pre_order' | t }}
+      {% else -%}
+        {{- 'products.product.buy_now' | t -}}
+      {%- endif %}
+    </button>
+  {% endif %}
   <button
     class="more-button  {% if sold_out %} more-button-disabled  {% endif %}"
     onclick="processAddtoCartPopup(this)"
