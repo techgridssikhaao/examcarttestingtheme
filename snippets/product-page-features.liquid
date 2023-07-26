@@ -206,15 +206,6 @@
             margin-top: 2em;
           "
         >
-          <button
-            id="button-cart-buy"
-            data-product-id="{{ product.variants.first.id }}"
-            data-product-available="{{ product.variants.first.available }}"
-            data-product-page="{{ product.url }}"
-          >
-            <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
-            BUY NOW
-          </button>
           {% include 'custom-pp-buttons' %}
         </div>
 
@@ -638,6 +629,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -742,6 +734,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
