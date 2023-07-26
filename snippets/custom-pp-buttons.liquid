@@ -108,7 +108,7 @@
   <button
     class="more-button  {% if sold_out %} more-button-disabled  {% endif %}"
     onclick="processAddtoCartPopup(this)"
-
+    id="button-cart"
     data-toggle="tooltip"
     data-product-id="{{ product.variants.first.id }}"
     data-product-available="{{ product.variants.first.available }}"
