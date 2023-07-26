@@ -60,7 +60,12 @@
 
   }
 </style>
-
+{% assign blog = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'blog\h' %}
+    {% assign blog = tag | replace: 'blog\', '' %}
+  {% endif %}
+{% endfor %}
 <div class="inner">
   {% if section.settings.show_tags_tab %}
     <p class="product-tag">
@@ -633,6 +638,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -737,6 +743,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
