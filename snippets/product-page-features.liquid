@@ -65,7 +65,11 @@
   {% if tag contains 'blog\h' %}
     {% assign blog = tag | replace: 'blog\', '' %}
   {% endif %}
+  {% if tag contains 'elssp\h' %}
+    {% assign pdf = tag | replace: 'elssp\', '' %}
+  {% endif %}
 {% endfor %}
+
 <div class="inner">
   {% if section.settings.show_tags_tab %}
     <p class="product-tag">
@@ -640,6 +644,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -744,6 +749,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
