@@ -78,15 +78,13 @@
         data-product-available="{{ product.variants.first.available }}"
         data-product-page="{{ product.url }}"
         data-loading-text="{{ 'products.product.loading' | t }}"
-      >
+
         {% if template == 'product.pre-order' -%}
           {{- 'products.product.pre_order' | t }}
         {% else -%}
           {{- 'products.product.buy_now' | t -}}
         {%- endif %}
-
-        >
-      </button>
+      ></button>
     {% endif %}
   {% endif %}
 </div>
