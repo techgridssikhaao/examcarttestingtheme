@@ -494,7 +494,12 @@
           style="display:none"
           >Share karo!</a
         >
-
+        {% assign t = '' %}
+        {% for tag in product.tags %}
+          {% if tag contains 'elssp\h' %}
+            {% assign t = tag | replace: 'elssp\', '' %}
+          {% endif %}
+        {% endfor %}
         <div class="row ">
           {% if samplepaper != '' %}
             <div onclick="processPdflink(this)" id="openPdfFile">
@@ -686,12 +691,12 @@ function popupbuy() {
   
 
   
-function openProductPdf() {
-  var t = {{ t | json }}
-         window.open(t, "_blank");  
+// function openProductPdf() {
+//   var t = {{ t | json }}
+//          window.open(t, "_blank");  
   
        
-    }
+//     }
 
   function submitFn(){
     
