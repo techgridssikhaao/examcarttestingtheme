@@ -72,23 +72,17 @@
   {% endif %}
 {% endfor %}
 <div class="buy-now-row">
-  {% if section.settings.show_buy_now or template == 'product.pre-order' %}
-    <button
-      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
-      {% if template != 'product.pre-order' %}
-      {% endif %}
+  <button
+    id="button-cart-buy"
+    data-product-id="{{ product.variants.first.id }}"
+    data-product-available="{{ product.variants.first.available }}"
+    data-product-page="{{ product.url }}"
 
-      type="button"
-      id="button-cart-buy"
-      data-loading-text="{{ products.product.loading | t }}"
-    >
-      {% if template == 'product.pre-order' -%}
-        {{ products.product.pre_order | t }}
-      {% else -%}
-        {{ products.product.buy_now | t -}}
-      {%- endif %}
-    </button>
-  {% endif %}
+    class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
+  >
+    <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+    BUY NOW
+  </button>
 </div>
 <div class="textBox">
   <div
