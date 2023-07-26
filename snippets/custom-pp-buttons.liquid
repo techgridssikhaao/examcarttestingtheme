@@ -112,7 +112,7 @@
 <div
   class="more-buttons-div"
 >
-  <button>
+  <div>
     <img class="button-icons" src="{{ 'Cart-button.svg' | asset_url }}" loading="lazy" alt="logo">
     <button
       class="more-button"
@@ -130,7 +130,7 @@
 
       Add To Cart
     </button>
-  </button>
+  </div>
   <button
     class="more-button {% if pdf == '' %} more-button-disabled  {% endif %}"
     onclick="processPdflink(this)"
