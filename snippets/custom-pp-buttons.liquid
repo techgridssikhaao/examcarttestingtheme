@@ -133,7 +133,7 @@
     <img class="button-icons" src="{{ 'Cart-button.svg' | asset_url }}" loading="lazy" alt="logo">
   </button>
   <button
-    class="more-button {% if samplepaper != '' %} more-button-disabled  {% endif %}"
+    class="more-button {% if pdf != '' %} more-button-disabled  {% endif %}"
     onclick="processPdflink(this)"
     data-pdflink="{{ pdf }}"
     id="openPdfFile"
@@ -141,7 +141,7 @@
     data-toggle="tooltip"
     data-loading-text="{{ 'products.product.loading' | t }}"
     title="Download Sample PDF"
-    {% if samplepaper != '' %}
+    {% if pdf != '' %}
       disabled
     {% endif %}
   >
