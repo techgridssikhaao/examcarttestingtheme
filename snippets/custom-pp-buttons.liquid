@@ -112,25 +112,25 @@
 <div
   class="more-buttons-div"
 >
-  <img class="button-icons" src="{{ 'Cart-button.svg' | asset_url }}" loading="lazy" alt="logo">
-  <button
-    class="more-button disabled"
-    style=" padding-left: 0px! important"
-    onclick="processAddtoCartPopup(this)"
-    data="{{ sold_out }}"
-    id="button-cart"
-    data-toggle="tooltip"
-    data-product-id="{{ product.variants.first.id }}"
-    data-product-available="{{ product.variants.first.available }}"
-    data-product-page="{{ product.url }}"
-    data-loading-text="{{ 'products.product.loading' | t }}"
-  >
-    <div>
+  <div>
+    <img class="button-icons" src="{{ 'Cart-button.svg' | asset_url }}" loading="lazy" alt="logo">
+    <button
+      class="more-button"
+      style=" padding-left: 0px! important"
+      onclick="processAddtoCartPopup(this)"
+      data="{{ sold_out }}"
+      id="button-cart"
+      data-toggle="tooltip"
+      data-product-id="{{ product.variants.first.id }}"
+      data-product-available="{{ product.variants.first.available }}"
+      data-product-page="{{ product.url }}"
+      data-loading-text="{{ 'products.product.loading' | t }}"
+    >
       <img class="button-icons" src="{{ 'Cart-button.svg' | asset_url }}" loading="lazy" alt="logo">
-    </div>
-    Add To Cart
-  </button>
 
+      Add To Cart
+    </button>
+  </div>
   <button
     class="more-button {% if pdf == '' %} more-button-disabled  {% endif %}"
     onclick="processPdflink(this)"
