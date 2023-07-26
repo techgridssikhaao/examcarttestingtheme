@@ -268,13 +268,6 @@
             {{- 'products.product.buy_now' | t -}}
           {%- endif %}
         </button>
-        <!--
-          <form action="/checkout" method="post">
-            <input type="hidden" name="quantity" value="1">
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <input type="submit" value="Buy Now">
-          </form>
-        -->
 
         {% comment %} extra button {% endcomment %}
         {% include 'product-wishlist' %}
@@ -495,7 +488,6 @@
           >Share karo!</a
         >
         {% comment %}
-
           {% assign t = '' %}
           {% for tag in product.tags %}
             {% if tag contains 'elssp\h' %}
@@ -595,6 +587,7 @@
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -749,6 +742,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
