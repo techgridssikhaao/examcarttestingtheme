@@ -38,12 +38,12 @@
     "popup_no_link_text": "",
     "social_sidebar_enable": true,
     "social_twitter_link": "",
-    "social_facebook_link": "https://facebook.com/examCart",
+    "social_facebook_link": "https:\/\/facebook.com\/examCart",
     "social_pinterest_link": "",
     "social_google_plus_link": "",
-    "social_instagram_link": "https://instagram.com/examcart_agp",
+    "social_instagram_link": "https:\/\/instagram.com\/examcart_agp",
     "social_tumblr_link": "",
-    "social_youtube_link": "https://www.youtube.com/c/ExamcartLive",
+    "social_youtube_link": "https:\/\/www.youtube.com\/c\/ExamcartLive",
     "social_vimeo_link": "",
     "social_fancy_link": "",
     "show_dollar_symbol": false,
@@ -61,7 +61,7 @@
     "cookie_constent_button_text": "",
     "cookie_constent_url": "",
     "checkout_use_storefront_logo": true,
-    "checkout_logo_image": "shopify://shop_images/Untitled-1.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Untitled-1.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "large",
     "checkout_body_background_image": "",
@@ -77,11 +77,11 @@
     "product_page_layout": "horizontal_thumbs",
     "show_summary": true,
     "product_summary_words": "20",
-    "trust_badge_image": "shopify://shop_images/trust-badge.png",
+    "trust_badge_image": "shopify:\/\/shop_images\/trust-badge.png",
     "show_buy_now": true,
     "show_third_tab": true,
     "third_tab_title": "Additional Information",
-    "third_tab_text": "<p>You can use this tab for adding shipping details, return policies and information or measurements etc. </p>\n<p>\nLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi</p>",
+    "third_tab_text": "<p>You can use this tab for adding shipping details, return policies and information or measurements etc. <\/p>\n<p>\nLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi<\/p>",
     "show_tags_tab": true,
     "custom_tab_title": "Additional Info",
     "product_quantity_enable": true,
@@ -105,7 +105,7 @@
     "show_trust_badge": true,
     "color_menu_links": "#ffffff",
     "show_map": true,
-    "map_code": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.6822073234102!2d-83.71685604946924!3d42.30664594636449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cac2c20114b69%3A0x96fe590afa21efb6!2s2300+Traverwood+Dr%2C+Ann+Arbor%2C+MI+48105!5e0!3m2!1sen!2s!4v1461260551915\" width=\"100%\" height=\"400\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>",
+    "map_code": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2950.6822073234102!2d-83.71685604946924!3d42.30664594636449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cac2c20114b69%3A0x96fe590afa21efb6!2s2300+Traverwood+Dr%2C+Ann+Arbor%2C+MI+48105!5e0!3m2!1sen!2s!4v1461260551915\" width=\"100%\" height=\"400\" frameborder=\"0\" style=\"border:0\" allowfullscreen><\/iframe>",
     "product_count_per_page": "12",
     "show_collection_sidebar": "no",
     "collection_view_default": "list",
@@ -154,7 +154,7 @@
     "share_google": true,
     "type_base_size": "13px",
     "show_banner": true,
-    "sidebar_image_link": "collections/all",
+    "sidebar_image_link": "collections\/all",
     "collection_prod_image_sizes": "large",
     "product_reviews_star_color": "#e5c649",
     "footer_legallinks_enable": true,
@@ -214,7 +214,7 @@
               "mega_menu_ll_col_4": "main-menu",
               "mega_menu_collection_col_4": "",
               "mega_menu_product_col_4": "",
-              "mega_menu_image_link_col_4": "shopify://collections/all"
+              "mega_menu_image_link_col_4": "shopify:\/\/collections\/all"
             }
           },
           "1522697402496": {
@@ -298,9 +298,9 @@
         "settings": {
           "header_layout": "header-3",
           "use_top_bar": true,
-          "top_bar_message": "Trouble Ordering Books From Our Website? | See Full <b> \n<ahref target=\"_blank\">Tutorial Here </ahref></b>",
-          "header_message_1": "<p>Free Support 24/7</p>\n<p>+01-202-555-0181</p>",
-          "logo": "shopify://shop_images/Agrawal_Examcart_Books__1.png",
+          "top_bar_message": "Trouble Ordering Books From Our Website? | See Full <b> \n<ahref target=\"_blank\">Tutorial Here <\/ahref><\/b>",
+          "header_message_1": "<p>Free Support 24\/7<\/p>\n<p>+01-202-555-0181<\/p>",
+          "logo": "shopify:\/\/shop_images\/Agrawal_Examcart_Books__1.png",
           "logo_padding": "10px 0px 10px 0px",
           "header_menu_1": "main-menu",
           "header_menu_ver": "main-menu",
@@ -312,9 +312,9 @@
         "settings": {
           "footer_layout": "footer-1",
           "footer_top_margin": true,
-          "image": "shopify://shop_images/Untitled-4-01.png",
+          "image": "shopify:\/\/shop_images\/Untitled-4-01.png",
           "footer_about_us": "© 2023, All rights reserved to Agrawal Group of Publications",
-          "footer_address": "28/115, Jyoti Block (Opp. Post Office) Sanjay Place, Civil Lines, Agra, Uttar Pradesh 282002",
+          "footer_address": "28\/115, Jyoti Block (Opp. Post Office) Sanjay Place, Civil Lines, Agra, Uttar Pradesh 282002",
           "footer_phone": "+91 8937099777",
           "footer_email": "quickreply@agpgroup.in",
           "footer_menu_1": "legal",
@@ -323,7 +323,7 @@
           "heading": "Subscribe",
           "footer_social_enable": true,
           "payment_info_box": "",
-          "footer_content_text": "All Right Reserved to Agrawal Group  <a href=\"http://masstechnologist.com/\">MassTechnologist.com.</a> All rights reserved."
+          "footer_content_text": "All Right Reserved to Agrawal Group  <a href=\"http:\/\/masstechnologist.com\/\">MassTechnologist.com.<\/a> All rights reserved."
         }
       },
       "1480267833382": {
@@ -333,7 +333,7 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify://shop_images/CTET_SP.jpg",
+              "image": "shopify:\/\/shop_images\/CTET_SP.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -345,7 +345,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/ctet",
+              "slide_link": "shopify:\/\/collections\/ctet",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -360,7 +360,7 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify://shop_images/SSC_CGL.jpg",
+              "image": "shopify:\/\/shop_images\/SSC_CGL.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -372,7 +372,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/best-ssc-cgl-book",
+              "slide_link": "shopify:\/\/collections\/best-ssc-cgl-book",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -386,7 +386,7 @@
           "44e597e3-441a-4503-9837-8fa1b1aa97c9": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/DSSSB_003_-_Updated.jpg",
+              "image": "shopify:\/\/shop_images\/DSSSB_003_-_Updated.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -398,7 +398,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/dsssb",
+              "slide_link": "shopify:\/\/collections\/dsssb",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -412,7 +412,7 @@
           "61cbd9b2-481c-45c8-aaf1-74f97ce76fcb": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Bank_PO.jpg",
+              "image": "shopify:\/\/shop_images\/Bank_PO.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -424,7 +424,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/best-bank-insurance-intelligence-bureau-exam-book",
+              "slide_link": "shopify:\/\/collections\/best-bank-insurance-intelligence-bureau-exam-book",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -439,7 +439,7 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify://shop_images/MPTET_Updated.jpg",
+              "image": "shopify:\/\/shop_images\/MPTET_Updated.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -451,7 +451,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/mpesb-teaching",
+              "slide_link": "shopify:\/\/collections\/mpesb-teaching",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -465,7 +465,7 @@
           "52f1d223-2222-4964-814c-23f77ffb4c09": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/UPSC_IAS.jpg",
+              "image": "shopify:\/\/shop_images\/UPSC_IAS.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -477,7 +477,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/upsc-ias",
+              "slide_link": "shopify:\/\/collections\/upsc-ias",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -491,7 +491,7 @@
           "1480267833382-0": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Sainik_School_Entrance.jpg",
+              "image": "shopify:\/\/shop_images\/Sainik_School_Entrance.jpg",
               "animation_style": "slider-3",
               "heading": "",
               "heading_size": "4vw",
@@ -503,7 +503,7 @@
               "description_size": "2vw",
               "description_color": "#777777",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/school-entrance",
+              "slide_link": "shopify:\/\/collections\/school-entrance",
               "link_bg": "rgba(0,0,0,0)",
               "link_color": "#62ab00",
               "image_clickable": true,
@@ -517,7 +517,7 @@
           "0ef7a43a-1fd6-4190-91c4-8a3c890d356b": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Website_Banner.jpg",
+              "image": "shopify:\/\/shop_images\/Website_Banner.jpg",
               "animation_style": "slider-3",
               "heading": "",
               "heading_size": "36px",
@@ -529,7 +529,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/all-exam-books",
+              "slide_link": "shopify:\/\/collections\/all-exam-books",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -543,7 +543,7 @@
           "cdea92b1-3995-47a9-8fbb-60d10f304b9f": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/UP_TET_-8_ce324696-6491-4dae-8380-1f33358ec4c3.jpg",
+              "image": "shopify:\/\/shop_images\/UP_TET_-8_ce324696-6491-4dae-8380-1f33358ec4c3.jpg",
               "animation_style": "slider-1",
               "heading": "",
               "heading_size": "36px",
@@ -555,7 +555,7 @@
               "description_size": "18px",
               "description_color": "#242424",
               "slide_link_text": "",
-              "slide_link": "shopify://collections/up-entrance-degree-polytechnic",
+              "slide_link": "shopify:\/\/collections\/up-entrance-degree-polytechnic",
               "link_bg": "#f03368",
               "link_color": "#ffffff",
               "image_clickable": true,
@@ -591,10 +591,15 @@
         "blocks": {
           "1499679798583": {
             "type": "image",
-            "settings": { "image": "", "link": "" }
+            "settings": {
+              "image": "",
+              "link": ""
+            }
           }
         },
-        "block_order": ["1499679798583"],
+        "block_order": [
+          "1499679798583"
+        ],
         "settings": {
           "layout": "brands",
           "heading": "Our brands",
@@ -644,7 +649,10 @@
           "1504781997946-1",
           "1552303915285"
         ],
-        "settings": { "layout": "feature-service1", "fullwidth": true }
+        "settings": {
+          "layout": "feature-service1",
+          "fullwidth": true
+        }
       },
       "collection-page": {
         "type": "collection-page",
@@ -653,7 +661,7 @@
           "collection_view_default": "3",
           "show_summary": true,
           "product_summary_words": "9",
-          "collection_top": "shopify://shop_images/category-image-870x371.jpg",
+          "collection_top": "shopify:\/\/shop_images\/category-image-870x371.jpg",
           "show_collection_sidebar": "left",
           "show_sidebar_categories": true,
           "category_count": "10",
@@ -661,8 +669,8 @@
           "show_sidebar_vendors": true,
           "collection_sidebar_filters": "groups",
           "show_collection_side_image": true,
-          "collection_side_image": "shopify://shop_images/img-sidebar.jpg",
-          "collection_side_link": "shopify://collections/cheapest",
+          "collection_side_image": "shopify:\/\/shop_images\/img-sidebar.jpg",
+          "collection_side_link": "shopify:\/\/collections\/cheapest",
           "show_collection_side_listing": true,
           "collection_side_listing_title": "New Products",
           "collection_side_listing": ""
@@ -698,7 +706,7 @@
           "product_page_layout": "horizontal_thumbs",
           "show_summary": true,
           "product_summary_words": "30",
-          "trust_badge_image": "shopify://shop_images/trust-badge.png",
+          "trust_badge_image": "shopify:\/\/shop_images\/trust-badge.png",
           "show_buy_now": true,
           "show_third_tab": true,
           "third_tab_title": "Custom Tab",
@@ -720,7 +728,7 @@
         "type": "contact-page",
         "settings": {
           "show_map": true,
-          "map_code": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.6822073234102!2d-83.71685604946924!3d42.30664594636449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cac2c20114b69%3A0x96fe590afa21efb6!2s2300+Traverwood+Dr%2C+Ann+Arbor%2C+MI+48105!5e0!3m2!1sen!2s!4v1461260551915\" width=\"100%\" height=\"400\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"></iframe>",
+          "map_code": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2950.6822073234102!2d-83.71685604946924!3d42.30664594636449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cac2c20114b69%3A0x96fe590afa21efb6!2s2300+Traverwood+Dr%2C+Ann+Arbor%2C+MI+48105!5e0!3m2!1sen!2s!4v1461260551915\" width=\"100%\" height=\"400\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"><\/iframe>",
           "show_content": false,
           "accept_check_enable": true,
           "accept_text": "I agree with the terms and conditions."
@@ -764,7 +772,8 @@
           "1536575354550",
           "1536575381102"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "1537796717812": {
         "type": "ad-banner",
@@ -772,7 +781,7 @@
           "1537796717812-0": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Defence_Banner_-_2_-_Copy.jpg",
+              "image": "shopify:\/\/shop_images\/Defence_Banner_-_2_-_Copy.jpg",
               "sale_heading": "",
               "heading": "",
               "heading_color": "#014071",
@@ -780,7 +789,7 @@
               "description": "",
               "description_color": "#444444",
               "link_text": "",
-              "link": "shopify://collections/best-defence-exam-books-collection-solved-paper-practice-set-guide-book",
+              "link": "shopify:\/\/collections\/best-defence-exam-books-collection-solved-paper-practice-set-guide-book",
               "link_color": "#f03368",
               "ad_text_position": "left",
               "ad_align": "left"
@@ -789,7 +798,7 @@
           "1537796717812-1": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Defence_Banner_-_2_-_Copy_-_Copy_2.jpg",
+              "image": "shopify:\/\/shop_images\/Defence_Banner_-_2_-_Copy_-_Copy_2.jpg",
               "sale_heading": "",
               "heading": "",
               "heading_color": "#014071",
@@ -797,14 +806,17 @@
               "description": "",
               "description_color": "#444444",
               "link_text": "Browse",
-              "link": "shopify://collections/madhya-pradesh",
+              "link": "shopify:\/\/collections\/madhya-pradesh",
               "link_color": "#f03368",
               "ad_text_position": "left",
               "ad_align": "left"
             }
           }
         },
-        "block_order": ["1537796717812-0", "1537796717812-1"],
+        "block_order": [
+          "1537796717812-0",
+          "1537796717812-1"
+        ],
         "settings": {
           "feature_advert_design": "feature-advert2",
           "fullwidth": true
@@ -826,8 +838,8 @@
           "no_of_products": 6,
           "products_tab_count": 99,
           "product_grid_img_carousel": true,
-          "link1": "shopify://collections/all",
-          "link2": "shopify://collections/best-sellers",
+          "link1": "shopify:\/\/collections\/all",
+          "link2": "shopify:\/\/collections\/best-sellers",
           "background": true,
           "top_margin": true
         }
@@ -846,7 +858,7 @@
               "description": "50% off for selected products in Smartbook.",
               "description_color": "#555555",
               "link_text": "See More",
-              "link": "shopify://collections/all",
+              "link": "shopify:\/\/collections\/all",
               "link_color": "#f03368",
               "ad_text_position": "right",
               "ad_align": "center"
@@ -856,20 +868,23 @@
             "type": "image",
             "settings": {
               "sale_heading": "$26.00",
-              "heading": "Praise for <span>The Night Child</span>",
+              "heading": "Praise for <span>The Night Child<\/span>",
               "heading_color": "#fffefe",
               "heading_size": "24px",
               "description": "",
               "description_color": "#444444",
               "link_text": "Buy Now",
-              "link": "shopify://collections/all",
+              "link": "shopify:\/\/collections\/all",
               "link_color": "#f03368",
               "ad_text_position": "left",
               "ad_align": "left"
             }
           }
         },
-        "block_order": ["1543237151862-0", "1552305401181"],
+        "block_order": [
+          "1543237151862-0",
+          "1552305401181"
+        ],
         "settings": {
           "feature_advert_design": "feature-advert2alt",
           "fullwidth": false
@@ -882,32 +897,40 @@
           "1544501819548-0": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/logo_1.png",
-              "link": "shopify://collections/all"
+              "image": "shopify:\/\/shop_images\/logo_1.png",
+              "link": "shopify:\/\/collections\/all"
             }
           },
           "1544501819548-1": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Untitled-1.png",
-              "link": "shopify://collections/all"
+              "image": "shopify:\/\/shop_images\/Untitled-1.png",
+              "link": "shopify:\/\/collections\/all"
             }
           },
           "1544501874687": {
             "type": "image",
-            "settings": { "link": "shopify://collections/all" }
+            "settings": {
+              "link": "shopify:\/\/collections\/all"
+            }
           },
           "1544501892902": {
             "type": "image",
-            "settings": { "link": "shopify://collections/all" }
+            "settings": {
+              "link": "shopify:\/\/collections\/all"
+            }
           },
           "1544501910506": {
             "type": "image",
-            "settings": { "link": "shopify://collections/all" }
+            "settings": {
+              "link": "shopify:\/\/collections\/all"
+            }
           },
           "1544501928843": {
             "type": "image",
-            "settings": { "link": "shopify://collections/all" }
+            "settings": {
+              "link": "shopify:\/\/collections\/all"
+            }
           }
         },
         "block_order": [
@@ -943,7 +966,10 @@
       },
       "list-collection-page": {
         "type": "list-collection-page",
-        "settings": { "display_type": "all", "sort": "alphabetical" }
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
       },
       "1552313150048": {
         "type": "ad-banner",
@@ -959,7 +985,7 @@
               "description": "Cover up front of book and leave summary",
               "description_color": "#ffffff",
               "link_text": "$78.09 - Learn More",
-              "link": "shopify://collections/all",
+              "link": "shopify:\/\/collections\/all",
               "link_color": "#f03368",
               "ad_text_position": "left",
               "ad_align": "center"
@@ -997,11 +1023,15 @@
         "blocks": {
           "1552563746975-0": {
             "type": "deal",
-            "settings": { "product_deal": "a-wing-and-a-prayer" }
+            "settings": {
+              "product_deal": "a-wing-and-a-prayer"
+            }
           },
           "1552563746975-1": {
             "type": "deal",
-            "settings": { "product_deal": "copy-of-brothers-beasts-bernheimer" }
+            "settings": {
+              "product_deal": "copy-of-brothers-beasts-bernheimer"
+            }
           },
           "1552563838525": {
             "type": "deal",
@@ -1011,11 +1041,15 @@
           },
           "1552564033505": {
             "type": "deal",
-            "settings": { "product_deal": "copy-of-rising-crow-by-k-l-byles" }
+            "settings": {
+              "product_deal": "copy-of-rising-crow-by-k-l-byles"
+            }
           },
           "1552564067732": {
             "type": "deal",
-            "settings": { "product_deal": "copy-of-a-million-little-pieces" }
+            "settings": {
+              "product_deal": "copy-of-a-million-little-pieces"
+            }
           }
         },
         "block_order": [
@@ -1039,13 +1073,13 @@
         "settings": {
           "collection_layout": "feature-carousal",
           "heading": "BEST SELLER BOOKS",
-          "link": "shopify://collections/all",
+          "link": "shopify:\/\/collections\/all",
           "collection": "all-books",
           "listing_rows": 1,
           "no_of_products": 6,
           "products_tab_count": 42,
           "fullwidth": true,
-          "product_grid_img_carousel": true,
+          "product_grid_img_carousel": false,
           "background": false,
           "top_margin": false
         }
@@ -1083,10 +1117,15 @@
         "blocks": {
           "29e51ab5-5c0a-4dff-baa9-a7b3e5003be0": {
             "type": "image",
-            "settings": { "image": "shopify://shop_images/3.jpg", "link": "" }
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3.jpg",
+              "link": ""
+            }
           }
         },
-        "block_order": ["29e51ab5-5c0a-4dff-baa9-a7b3e5003be0"],
+        "block_order": [
+          "29e51ab5-5c0a-4dff-baa9-a7b3e5003be0"
+        ],
         "settings": {
           "layout": "instafeed",
           "fetch_mode": "insta",
@@ -1152,7 +1191,10 @@
             }
           }
         },
-        "block_order": ["1652856684f4fb3163-0", "1652856684f4fb3163-1"],
+        "block_order": [
+          "1652856684f4fb3163-0",
+          "1652856684f4fb3163-1"
+        ],
         "settings": {
           "autoplay": true,
           "autoplay_speed": "5000",
@@ -1175,10 +1217,17 @@
           },
           "165285846655336a00-1": {
             "type": "testimonial",
-            "settings": { "title": "", "description": "", "author": "" }
+            "settings": {
+              "title": "",
+              "description": "",
+              "author": ""
+            }
           }
         },
-        "block_order": ["165285846655336a00-0", "165285846655336a00-1"],
+        "block_order": [
+          "165285846655336a00-0",
+          "165285846655336a00-1"
+        ],
         "settings": {
           "layout": "testimonials",
           "heading": "WHAT OUR CLIENTS SAY",
@@ -1216,43 +1265,32 @@
       "52cbcea3-9d00-4666-8da5-91023bd52622"
     ],
     "blocks": {
-      "uppromote-affiliate-referral-customer-referral-91891-64c32457-930d-4cb9-9641-e24c0d9cf1f4": {
-        "type": "shopify://apps/uppromote-affiliate-referral/blocks/customer-referral/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
-        "disabled": true,
-        "settings": {}
-      },
-      "uppromote-affiliate-referral-message-bar-91891-64c32457-930d-4cb9-9641-e24c0d9cf1f4": {
-        "type": "shopify://apps/uppromote-affiliate-referral/blocks/message-bar/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
-        "disabled": true,
-        "settings": {}
-      },
       "13808347755494404075": {
-        "type": "shopify://apps/noindexly-sitemap-manager/blocks/gropulse-noindex/1ebb161d-2855-45b0-be8b-0de45dbb5725",
+        "type": "shopify:\/\/apps\/noindexly-sitemap-manager\/blocks\/gropulse-noindex\/1ebb161d-2855-45b0-be8b-0de45dbb5725",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
       },
       "14060646107696862457": {
-        "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {}
-      },
-      "10956798698494376089": {
-        "type": "shopify://apps/floatify-cta-social-buttons/blocks/app-embed/38f6d0e7-3732-47a7-bc73-9635042e08d7",
-        "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "14891880417847397424": {
-        "type": "shopify://apps/product-labels-badges-shine/blocks/email-popup-block/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
+        "type": "shopify:\/\/apps\/product-labels-badges-shine\/blocks\/email-popup-block\/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "1551801274261955848": {
-        "type": "shopify://apps/getbutton-whatsapp-fb-more/blocks/embed/8496319f-de1e-4949-b0de-1602d715f2b0",
+        "type": "shopify:\/\/apps\/getbutton-whatsapp-fb-more\/blocks\/embed\/8496319f-de1e-4949-b0de-1602d715f2b0",
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "4887604186841085581": {
-        "type": "shopify://apps/yanet-back-in-stock/blocks/bis/4a272ca4-2ae2-4e8b-9da8-8dc6353ba485",
+        "type": "shopify:\/\/apps\/yanet-back-in-stock\/blocks\/bis\/4a272ca4-2ae2-4e8b-9da8-8dc6353ba485",
         "disabled": true,
         "settings": {
           "top": 190,
@@ -1267,26 +1305,31 @@
         }
       },
       "5353151597754436091": {
-        "type": "shopify://apps/product-labels-badges-shine/blocks/bought-together-embed/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
+        "type": "shopify:\/\/apps\/product-labels-badges-shine\/blocks\/bought-together-embed\/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "7934412544136609288": {
-        "type": "shopify://apps/product-labels-badges-shine/blocks/sticky-cart/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
+        "type": "shopify:\/\/apps\/product-labels-badges-shine\/blocks\/sticky-cart\/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "7334036550383421287": {
-        "type": "shopify://apps/product-labels-badges-shine/blocks/quantity-discount-block/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
+        "type": "shopify:\/\/apps\/product-labels-badges-shine\/blocks\/quantity-discount-block\/02c12337-3f93-45f7-a60d-aabc0cb2c5dd",
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "10570433277407501837": {
-        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/gsf-gcr/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "type": "shopify:\/\/apps\/simprosys-google-shopping-feed\/blocks\/gsf-gcr\/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       }
     }
   },
-  "presets": {}
+  "presets": {
+  }
 }
