@@ -72,30 +72,22 @@
   {% endif %}
 {% endfor %}
 <div class="buy-now-row">
-  <!-- <button class="buy-now-icon">lo</button> -->
-  {% if sold_out %}
-    <div class="label-product label_sale l_sold">
-      <span>Available on Amazon</span>
-      <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
-    </div>
-  {% else %}
-    {% if section.settings.show_buy_now or template == 'product.pre-order' %}
-      <button
-        class="btn button button-cart"
-        {% if template != 'product.pre-order' %}
-        {% endif %}
-        style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
-        type="button"
-        id="button-cart-buy"
-        data-loading-text="{{ 'products.product.loading' | t }}"
-      >
-        {% if template == 'product.pre-order' -%}
-          {{- 'products.product.pre_order' | t }}
-        {% else -%}
-          {{- 'products.product.buy_now' | t -}}
-        {%- endif %}
-      </button>
-    {% endif %}
+  {% if section.settings.show_buy_now or template == 'product.pre-order' %}
+    <button
+      class="btn button button-cart"
+      {% if template != 'product.pre-order' %}
+      {% endif %}
+      style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+      type="button"
+      id="button-cart-buy"
+      data-loading-text="{{ 'products.product.loading' | t }}"
+    >
+      {% if template == 'product.pre-order' -%}
+        {{- 'products.product.pre_order' | t }}
+      {% else -%}
+        {{- 'products.product.buy_now' | t -}}
+      {%- endif %}
+    </button>
   {% endif %}
 </div>
 <div class="textBox">
