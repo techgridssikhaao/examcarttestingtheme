@@ -63,18 +63,33 @@
       <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
     </div>
   {% else %}
-    <button
-      onclick="processCollectionBuyNowPopup(this)"
+    {% if section.settings.show_buy_now or template == 'product.pre-order' %}
+      <button
+        onclick="processCollectionBuyNowPopup(this)"
 
-      data-product-id="{{ product.variants.first.id }}"
-      data-product-available="{{ product.variants.first.available }}"
-      data-product-page="{{ product.url }}"
+        class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
 
-      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
-    >
-      <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
-      BUY NOW
-    </button>
+        {% if template != 'product.pre-order' %}
+        {% endif %}
+        style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+        type="button"
+        id="button-cart-buy"
+        data-product-id="{{ product.variants.first.id }}"
+        data-product-available="{{ product.variants.first.available }}"
+        data-product-page="{{ product.url }}"
+        data-loading-text="{{ 'products.product.loading' | t }}"
+      >
+        {% if template == 'product.pre-order' -%}
+          {{- 'products.product.pre_order' | t }}
+        {% else -%}
+          {{- 'products.product.buy_now' | t -}}
+        {%- endif %}
+
+        >
+        <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+        BUY NOW
+      </button>
+    {% endif %}
   {% endif %}
 </div>
 <div class="textBox">
