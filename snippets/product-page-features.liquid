@@ -221,7 +221,7 @@
 
         {% if template != 'product.pre-order' %}
           <button
-            style=""
+            style="display: none;"
             onclick="processAddtoCartPopup(this)"
             style="width:25% margin-right:15px;"
             class="btn button button-cart"
@@ -241,7 +241,7 @@
             class="btn button button-cart"
             {% if template != 'product.pre-order' %}
             {% endif %}
-            style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+            style=" clear:none;margin-left:15px;padding:0 55px; "
             type="button"
             id="button-cart-buy"
             data-loading-text="{{ 'products.product.loading' | t }}"
