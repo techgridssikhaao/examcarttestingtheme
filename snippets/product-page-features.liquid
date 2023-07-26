@@ -197,17 +197,7 @@
         {% if section.settings.product_quantity_message %}
           <span id="variantQuantity" class="variant-quantity hidden"></span>
         {% endif %}
-        <button
-          id="button-cart-buy"
-          data-product-id="{{ product.variants.first.id }}"
-          data-product-available="{{ product.variants.first.available }}"
-          data-product-page="{{ product.url }}"
 
-          class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
-        >
-          <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
-          BUY NOW
-        </button>
         <div
           style="
               display: grid;
@@ -216,6 +206,15 @@
             margin-top: 2em;
           "
         >
+          <button
+            id="button-cart-buy"
+            data-product-id="{{ product.variants.first.id }}"
+            data-product-available="{{ product.variants.first.available }}"
+            data-product-page="{{ product.url }}"
+          >
+            <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+            BUY NOW
+          </button>
           {% include 'custom-pp-buttons' %}
         </div>
 
@@ -241,7 +240,7 @@
             class="btn button button-cart"
             {% if template != 'product.pre-order' %}
             {% endif %}
-            style=" clear:none;margin-left:15px;padding:0 55px; "
+            style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
             type="button"
             id="button-cart-buy"
             data-loading-text="{{ 'products.product.loading' | t }}"
@@ -249,7 +248,7 @@
             {% if template == 'product.pre-order' -%}
               {{- 'products.product.pre_order' | t }}
             {% else -%}
-              {{ 'products.product.buy_now' | t }}
+              {{- 'products.product.buy_now' | t -}}
             {%- endif %}
           </button>
         {% endif %}
@@ -639,7 +638,6 @@
   
   
   
-  
 
   $( document ).ready(function() {
     
@@ -744,7 +742,6 @@ var t = {{ t | json }}
     
   }
   
-
 
 
 
