@@ -134,7 +134,7 @@
     data-product-id="{{ product.variants.first.id }}"
     data-product-available="{{ product.variants.first.available }}"
     data-product-page="{{ product.url }}"
-    data-loading-text="{{ 'products.product.loading' | t }}"
+    data-loading-text="{{ products.product.loading | t }}"
 
     {% if sold_out %}
       disabled
