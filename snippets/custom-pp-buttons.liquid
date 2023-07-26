@@ -80,12 +80,12 @@
 
       type="button"
       id="button-cart-buy"
-      data-loading-text="{{ 'products.product.loading' | t }}"
+      data-loading-text="{{ products.product.loading | t }}"
     >
       {% if template == 'product.pre-order' -%}
-        {{- 'products.product.pre_order' | t }}
+        {{ products.product.pre_order | t }}
       {% else -%}
-        {{- 'products.product.buy_now' | t -}}
+        {{ products.product.buy_now | t -}}
       {%- endif %}
     </button>
   {% endif %}
