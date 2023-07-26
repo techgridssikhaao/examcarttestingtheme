@@ -494,6 +494,15 @@
           style="display:none"
           >Share karo!</a
         >
+        {% comment %}
+
+          {% assign t = '' %}
+          {% for tag in product.tags %}
+            {% if tag contains 'elssp\h' %}
+              {% assign t = tag | replace: 'elssp\', '' %}
+            {% endif %}
+          {% endfor %}
+        {% endcomment %}
 
         <div class="row ">
           {% if samplepaper != '' %}
