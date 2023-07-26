@@ -249,7 +249,7 @@
             {% if template == 'product.pre-order' -%}
               {{- 'products.product.pre_order' | t }}
             {% else -%}
-              {{- 'products.product.buy_now' | t -}}
+              {{ 'products.product.buy_now' | t }}
             {%- endif %}
           </button>
         {% endif %}
@@ -639,6 +639,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -743,6 +744,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
