@@ -74,10 +74,10 @@
 <div class="buy-now-row">
   {% if section.settings.show_buy_now or template == 'product.pre-order' %}
     <button
-      class="btn button button-cart"
+      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
       {% if template != 'product.pre-order' %}
       {% endif %}
-      style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+
       type="button"
       id="button-cart-buy"
       data-loading-text="{{ 'products.product.loading' | t }}"
