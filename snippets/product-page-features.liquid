@@ -494,12 +494,7 @@
           style="display:none"
           >Share karo!</a
         >
-        {% assign t = '' %}
-        {% for tag in product.tags %}
-          {% if tag contains 'elssp\h' %}
-            {% assign t = tag | replace: 'elssp\', '' %}
-          {% endif %}
-        {% endfor %}
+
         <div class="row ">
           {% if samplepaper != '' %}
             <div onclick="processPdflink(this)" id="openPdfFile">
@@ -591,6 +586,7 @@
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -744,6 +740,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
