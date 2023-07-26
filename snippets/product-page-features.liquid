@@ -506,13 +506,13 @@
           {% endif %}
         {% endfor %}
         <div class="row ">
-          {% if t != '' %}
+          {% if samplepaper != '' %}
             <div onclick="processPdflink(this)" id="openPdfFile">
               <button
                 style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
                 class="btn button"
                 type="button"
-                data-pdflink="{{ t }}"
+                data-pdflink="{{ samplepaper }}"
                 id="SamplePaperbtn"
                 data-loading-text=""
               >
@@ -596,6 +596,7 @@
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -743,6 +744,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
