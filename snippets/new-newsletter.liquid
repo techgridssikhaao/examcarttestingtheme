@@ -253,7 +253,16 @@
               id="number"
             >
             <br>
+
             <div class="get-otp-btn-div">
+              <button
+                class="otp-btn"
+                id="otp-btn-login"
+                onclick="newsLetterSendOtp()"
+                disabled
+              >
+                Get OTP
+              </button>
               <button class="get-btn" id="otp-btn" onclick="newsLetterSendOtp()">Get OTP</button>
             </div>
             <br>
@@ -282,6 +291,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -407,6 +417,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
