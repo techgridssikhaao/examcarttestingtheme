@@ -70,16 +70,18 @@
         Out of Stock
       </button>
     {% else %}
-      <button
-        data-product-id="{{ product.variants.first.id }}"
-        data-product-available="{{ product.variants.first.available }}"
-        data-product-page="{{ product.url }}"
+      <a href="{{ amazonLink }}">
+        <button
+          data-product-id="{{ product.variants.first.id }}"
+          data-product-available="{{ product.variants.first.available }}"
+          data-product-page="{{ product.url }}"
 
-        class="buy-now-text more-button-disabled "
+          class="buy-now-text"
+        >
+          <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+          Buy on Amazon
+        </button></a
       >
-        <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
-        <a href="{{ amazonLink }}">Buy on Amazon</a>
-      </button>
     {% endif %}
 
   {% else %}
