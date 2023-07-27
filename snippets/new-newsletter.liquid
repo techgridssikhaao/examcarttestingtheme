@@ -301,6 +301,7 @@
   
   
   
+  
    let phoneNumber = "";
   
   function validateL(buttonShowAndHide, getlength) {
@@ -356,9 +357,12 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
     //   }
       validate = () =>{
         const myInput = document.querySelector('#number');
+
+         console.log(myInput)
         if(myInput.value.length == 10) {
             document.getElementById("otp-btn").disabled = false;
           document.getElementById("otp-btn").style.opacity = "1";
+          
         }
         else{
            document.getElementById("otp-btn").disabled = true;
@@ -434,6 +438,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
