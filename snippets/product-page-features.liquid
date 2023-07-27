@@ -350,7 +350,7 @@
                 data-product-id="{{ product.variants.first.id }}"
                 data-product-available="{{ product.variants.first.available }}"
                 data-product-page="{{ product.url }}"
-
+                type="button"
                 class="buy-now-text"
               >
                 <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
@@ -652,6 +652,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -756,6 +757,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
