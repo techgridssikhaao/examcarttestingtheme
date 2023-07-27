@@ -249,7 +249,7 @@
             <input
               type="tel"
               class="input-field-newsletter"
-              onkeyup="validateL('news-popup-otp-btn','#news-letter-number')"
+              onkeyup="validateLength('news-popup-otp-btn','#news-letter-number')"
               oninput="onlyNum('news-letter-number')"
               maxlength="10"
               id="news-letter-number"
@@ -293,6 +293,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -444,6 +445,7 @@ let url = `https://bhartipur.in/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
