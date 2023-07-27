@@ -249,7 +249,7 @@
             <input
               type="tel"
               class="input-field-newsletter"
-              onkeyup="validateLength( 'otp-btn' ,'#number')"
+              onkeyup="validate()"
               id="number"
             >
             <br>
@@ -282,6 +282,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -323,17 +324,17 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
           
     //      fun();
     //   }
-//       validate = () =>{
-//         const myInput = document.querySelector('#number');
-//         if(myInput.value.length == 10) {
-//             document.getElementById("otp-btn").disabled = false;
-//           document.getElementById("otp-btn").style.opacity = "1";
-//         }
-//         else{
-//            document.getElementById("otp-btn").disabled = true;
-//            document.getElementById("otp-btn").style.opacity = "0.5";
-//         }
-//       }
+      validate = () =>{
+        const myInput = document.querySelector('#number');
+        if(myInput.value.length == 10) {
+            document.getElementById("otp-btn").disabled = false;
+          document.getElementById("otp-btn").style.opacity = "1";
+        }
+        else{
+           document.getElementById("otp-btn").disabled = true;
+           document.getElementById("otp-btn").style.opacity = "0.5";
+        }
+      }
 
 //       async function fun(){
 //         let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
@@ -403,6 +404,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
 // }
 
   
+
 
 
 
