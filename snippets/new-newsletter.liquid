@@ -316,6 +316,7 @@
   
   
   
+  
 //       let serverOtp = '';
 //   otpMaker = () =>{
 //      serverOtp = Math.floor(Math.random() * 9000 + 1000);
@@ -407,6 +408,14 @@ closeModal = () =>{
 
 
 
+
+  let idSetTimeOut = ""
+      {% if template.name != "theme" %}
+        document.addEventListener('DOMContentLoaded', function(){
+
+         idSetTimeOut = setTimeout(closeModal(), 5000);
+      })
+      {% endif %}
 
 
 
