@@ -317,6 +317,7 @@
   
   
   
+  
 //       let serverOtp = '';
 //   otpMaker = () =>{
 //      serverOtp = Math.floor(Math.random() * 9000 + 1000);
@@ -403,7 +404,7 @@
 closeModal = () =>{
   clearTimeout(idSetTimeOut);
   clearAllForm();
-  document.getElementById('myModal1').style.display = 'none';
+  document.getElementById('news-letter-popup').style.display = 'none';
   
 
 
@@ -416,6 +417,7 @@ closeModal = () =>{
          idSetTimeOut = setTimeout(closeModal(), 5000);
       })
       {% endif %}
+
 
 
 
