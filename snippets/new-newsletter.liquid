@@ -208,64 +208,77 @@
     }
 </style>
 
-<div class="parent-newsletter" id="parent-newsletter">
-  <div class="child-newsletter">
-    <div class="top-div-newsletter">
-      <div class="examcart-logo-img">
-        <img src="{{ 'Exlogo.jpg' | asset_url }}" alt="logo" class="exlogo-image">
-      </div>
-      <div
-        class="cross"
-        class="cross"
-        onclick="closeModal()"
-        class="close"
-        data-dismiss="modal"
-        aria-label="Close"
-      >
-        &#x274C;
-      </div>
-    </div>
-
-    <div class="middle-div-newsletter">
-      <div class="otp-design-newsletter">
-        <span class="download-txt-head">Download for <span class="free-txt">FREE</span></span>
-        <br>
-        <span class="current-affairs-txt">Current Affairs E-Book</span>
-        <div class="verify-txt" id="verify-txt">Verify your number</div>
-        <div class="download-para-txt">Download July 2023 monthly current</div>
-        <div class="download-para-txt">affairs e-book for all competitive exams.</div>
-        <br>
-        <label class="enter-mobile-number">Enter Mobile Number</label>
-        <br>
-        <input type="number" class="input-field-newsletter" onkeyup="validate()" id="number">
-        <br>
-        <div class="get-otp-btn-div">
-          <button class="get-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+<div
+  class="modal fade"
+  id="news-letter-popup"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
+    <div class="parent-newsletter" id="parent-newsletter">
+      <div class="child-newsletter">
+        <div class="top-div-newsletter">
+          <div class="examcart-logo-img">
+            <img src="{{ 'Exlogo.jpg' | asset_url }}" alt="logo" class="exlogo-image">
+          </div>
+          <div
+            class="cross"
+            class="cross"
+            onclick="closeModal()"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            &#x274C;
+          </div>
         </div>
-        <br>
-        <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
-        <label for="Verify" class="verify-otp">Verify OTP</label>
-        <br>
-        <input type="number" class="otp-input-field" id="otp1">
-        <div class="dont-receive-otp">
-          Didn't you receive the OTP?
-          <span class="resend-otp-btn" onclick="resendOtp()" style="cursor: pointer;">Resend OTP</span>
+
+        <div class="middle-div-newsletter">
+          <div class="otp-design-newsletter">
+            <span class="download-txt-head">Download for <span class="free-txt">FREE</span></span>
+            <br>
+            <span class="current-affairs-txt">Current Affairs E-Book</span>
+            <div class="verify-txt" id="verify-txt">Verify your number</div>
+            <div class="download-para-txt">Download July 2023 monthly current</div>
+            <div class="download-para-txt">affairs e-book for all competitive exams.</div>
+            <br>
+            <label class="enter-mobile-number">Enter Mobile Number</label>
+            <br>
+            <input type="number" class="input-field-newsletter" onkeyup="validate()" id="number">
+            <br>
+            <div class="get-otp-btn-div">
+              <button class="get-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+            </div>
+            <br>
+            <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
+            <label for="Verify" class="verify-otp">Verify OTP</label>
+            <br>
+            <input type="number" class="otp-input-field" id="otp1">
+            <div class="dont-receive-otp">
+              Didn't you receive the OTP?
+              <span class="resend-otp-btn" onclick="resendOtp()" style="cursor: pointer;">Resend OTP</span>
+            </div>
+          </div>
+          <div class="otp-design-newsletter-image">
+            <img src="{{ 'Mockup.jpg' | asset_url }}" alt="image" class="mockup-image">
+          </div>
+        </div>
+
+        <div class="lower-div-newsletter">
+          <button class="download-pdf-btn-newsletter get-btn">
+            <span class="download-pdf-txt cross" onclick="downloadBtn()">Download PDF </span>
+          </button>
         </div>
       </div>
-      <div class="otp-design-newsletter-image">
-        <img src="{{ 'Mockup.jpg' | asset_url }}" alt="image" class="mockup-image">
-      </div>
-    </div>
-
-    <div class="lower-div-newsletter">
-      <button class="download-pdf-btn-newsletter get-btn">
-        <span class="download-pdf-txt cross" onclick="downloadBtn()">Download PDF </span>
-      </button>
     </div>
   </div>
 </div>
 
 <script>
+  
   
   
   
@@ -379,6 +392,7 @@ resendOtp = () =>{
     otpMaker();
     otpSend();
 }
+
 
 
 
