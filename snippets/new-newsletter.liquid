@@ -156,8 +156,6 @@
             class="closeicon"
           >
             <span
-              onclick="hidePopup('#LoginPopUp')"
-
               data-dismiss="modal"
               aria-label="Close"
             >
@@ -253,7 +251,7 @@
   
   
   
-   let phoneNumber ;
+
   
   function validateL(buttonShowAndHide, getlength) {
   //  console.log(buttonShowAndHide, getlength)
@@ -271,10 +269,10 @@
   function newsLetterSendOtp(){
 randomOtp();
      document.getElementById('verify-txt').style.display = "block";
-    phoneNumber = document.getElementById("news-letter-number").value;
+    mobNumber = document.getElementById("news-letter-number").value;
 
 
-let url = `https://bhartipur.in/send_otp_get/${phoneNumber}/${smsotp}`;
+let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
        fetch(url).then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -345,7 +343,7 @@ let url = `https://bhartipur.in/send_otp_get/${phoneNumber}/${smsotp}`;
         let parseOtp = parseInt(finalOtp);
         if(parseOtp == smsotp){
          
-          localStorage.setItem("globalOtpKey", phoneNumber);
+          localStorage.setItem("globalOtpKey", mobNumber);
             hidePopup('#news-letter-popup');
         }
         else{
@@ -389,6 +387,7 @@ let url = `https://bhartipur.in/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
