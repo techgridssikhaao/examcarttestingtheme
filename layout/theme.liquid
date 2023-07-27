@@ -305,44 +305,31 @@
     {{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
 
     {% include 'shine-trust-js.liquid' %}
+
     {% if settings.show_pupup and template == 'index' %}
-      <div
-        class="modal fade"
-        id="myModal5"
-        data-backdrop="static"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
-          <div id="mod">
-            {% include 'new-newsletter' %}
-          </div>
-        </div>
-      </div>
+      {% include 'new-newsletter' %}
     {% endif %}
     <script>
-      let idSetTimeOut = ""
-      {% if template.name != "theme" %}
-        document.addEventListener('DOMContentLoaded', function(){
+      // let idSetTimeOut = ""
+      // {% if template.name != "theme" %}
+      //   document.addEventListener('DOMContentLoaded', function(){
 
-         // idSetTimeOut = setTimeout(newsletterpopup(), 5000);
-      })
-      {% endif %}
-
-
-
-      function newsletterpopup() {
-            if(localStorage.getItem("newsletterkey")== null)
-            {
-                 $("#myModal5").modal('show');
-            }else{
+      //    // idSetTimeOut = setTimeout(newsletterpopup(), 5000);
+      // })
+      // {% endif %}
 
 
-            }
 
-          }
+      // function newsletterpopup() {
+      //       if(localStorage.getItem("newsletterkey")== null)
+      //       {
+      //            $("#myModal5").modal('show');
+      //       }else{
+
+
+      //       }
+
+      //     }
     </script>
   </body>
 </html>
