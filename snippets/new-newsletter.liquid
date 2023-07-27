@@ -249,7 +249,7 @@
             <input
               type="tel"
               class="input-field-newsletter"
-              onkeyup="validateLength('otp-btn','#number')"
+              onkeyup="validateL('otp-btn','#number')"
               id="number"
             >
             <br>
@@ -297,9 +297,20 @@
   
   
   
+  
    let phoneNumber = "";
   
-  
+  function validateL(buttonShowAndHide, getlength) {
+    
+  const myInput = document.querySelector(getlength);
+  if (myInput.value.length == 10) {
+    document.getElementById(buttonShowAndHide).disabled = false;
+    document.getElementById(buttonShowAndHide).style.opacity = "1";
+  } else {
+    document.getElementById(buttonShowAndHide).disabled = true;
+    document.getElementById(buttonShowAndHide).style.opacity = "0.5";
+  }
+}
   
   
   function newsLetterSendOtp(){
@@ -420,6 +431,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
