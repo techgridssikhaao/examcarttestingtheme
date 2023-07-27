@@ -71,6 +71,48 @@
 {% endfor %}
 
 <div class="buy-now-row">
+  {% if sold_out %}
+    {% if amazonLink == '' %}
+      <button
+        data-product-id="{{ product.variants.first.id }}"
+        data-product-available="{{ product.variants.first.available }}"
+        data-product-page="{{ product.url }}"
+
+        class="buy-now-text more-button-disabled "
+      >
+        <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+        Out of Stock
+      </button>
+    {% else %}
+      <a href="{{ amazonLink }}">
+        <button
+          data-product-id="{{ product.variants.first.id }}"
+          data-product-available="{{ product.variants.first.available }}"
+          data-product-page="{{ product.url }}"
+
+          class="buy-now-text"
+        >
+          <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+          Buy From Amazon
+        </button></a
+      >
+    {% endif %}
+
+  {% else %}
+    <button
+      onclick="processCollectionBuyNowPopup(this)"
+
+      data-product-id="{{ product.variants.first.id }}"
+      data-product-available="{{ product.variants.first.available }}"
+      data-product-page="{{ product.url }}"
+
+      class="buy-now-text {% if sold_out %} more-button-disabled  {% endif %}"
+    >
+      <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+      BUY NOW
+    </button>
+  {% endif %}
+
   <button
     id="button-cart-buy"
     class="buy-now-text"
