@@ -249,9 +249,9 @@
             <input
               type="tel"
               class="input-field-newsletter"
-              onkeyup="validateL('otp-btn','#number')"
+              onkeyup="validateL('otp-btn','#news-letter-number')"
               oninput="validate()"
-              id="number"
+              id="news-letter-number"
             >
             <br>
 
@@ -303,7 +303,8 @@
   
   
   
-   let phoneNumber = "";
+  
+   let phoneNumber ;
   
   function validateL(buttonShowAndHide, getlength) {
   //  console.log(buttonShowAndHide, getlength)
@@ -321,7 +322,7 @@
   function newsLetterSendOtp(){
 randomOtp();
      document.getElementById('verify-txt').style.display = "block";
-    phoneNumber = document.getElementById("number").value;
+    phoneNumber = document.getElementById("news-letter-number").value;
 
 
 let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
@@ -439,6 +440,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
