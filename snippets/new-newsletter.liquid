@@ -239,13 +239,15 @@
   
   
   
-function newsLetterVerifyButton(){
+  
+function newsLetterVerifyButton(ref){
         let newsOtp = document.getElementById('news-popup-otp').value;
         let finalNewsOtp = newsOtp.toString() 
         let newsLetterParseOtp = parseInt(finalNewsOtp);
         if(newsLetterParseOtp == smsotp){
          
           localStorage.setItem("globalOtpKey", mobNumber);
+          userInteraction(ref);
             hidePopup('#news-letter-popup');
         }
         else{
@@ -316,20 +318,20 @@ let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
 
   
 
-    downloadBtn = () =>{
-        let newsOtp = document.getElementById('news-popup-otp').value;
-        let finalNewsOtp = newsOtp.toString() 
-        let newsLetterParseOtp = parseInt(finalNewsOtp);
-        if(newsLetterParseOtp == smsotp){
+    // downloadBtn = () =>{
+    //     let newsOtp = document.getElementById('news-popup-otp').value;
+    //     let finalNewsOtp = newsOtp.toString() 
+    //     let newsLetterParseOtp = parseInt(finalNewsOtp);
+    //     if(newsLetterParseOtp == smsotp){
          
-          localStorage.setItem("globalOtpKey", mobNumber);
-            hidePopup('#news-letter-popup');
-        }
-        else{
+    //       localStorage.setItem("globalOtpKey", mobNumber);
+    //         hidePopup('#news-letter-popup');
+    //     }
+    //     else{
           
-          document.getElementById('wrong-otp-txt').style.display = "block";
-        }
-    }
+    //       document.getElementById('wrong-otp-txt').style.display = "block";
+    //     }
+    // }
 
 
 // clearAllForm = () => {
@@ -366,6 +368,7 @@ let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
