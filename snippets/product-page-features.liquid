@@ -343,9 +343,23 @@
         {% endif %}
 
         {% if amazonLink != '' %}
+          <a href="{{ amazonUrl }}">
+            <button
+              id="amzon"
+              data-product-id="{{ product.variants.first.id }}"
+              data-product-available="{{ product.variants.first.available }}"
+              data-product-page="{{ product.url }}"
+
+              class="buy-now-text"
+            >
+              <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+              Buy From Amazon
+            </button></a
+          >
+
           <a target="_blank" href="{{amazonLink}}">
             <button
-              style="overflow: hidden;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
+              style=" display: none; overflow: hidden;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
               class="btn button"
               type="button"
               id=""
@@ -632,6 +646,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -736,6 +751,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
