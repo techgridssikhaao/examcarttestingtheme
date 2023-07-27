@@ -226,7 +226,7 @@
           </div>
           <div
             class="cross"
-            onclick="closeModal()"
+            onclick="hidePopup('#news-letter-popup')"
             class="close"
             data-dismiss="modal"
             aria-label="Close"
@@ -292,6 +292,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -397,7 +398,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
         if(parseOtp == smsotp){
          
           localStorage.setItem("globalOtpKey", phoneNumber);
-            
+            hidePopup('#news-letter-popup');
         }
         else{
           
@@ -440,6 +441,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
