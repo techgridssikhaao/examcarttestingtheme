@@ -247,6 +247,7 @@
   
   
   
+  
 function newsLetterVerifyButton(ref){
         let newsOtp = document.getElementById('news-popup-otp').value;
         let finalNewsOtp = newsOtp.toString() 
@@ -254,7 +255,7 @@ function newsLetterVerifyButton(ref){
         if(newsLetterParseOtp == smsotp){
          
           localStorage.setItem("globalOtpKey", mobNumber);
-          userInteraction(ref);
+          // userInteraction(ref);
             hidePopup('#news-letter-popup');
         }
         else{
@@ -375,6 +376,7 @@ let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
