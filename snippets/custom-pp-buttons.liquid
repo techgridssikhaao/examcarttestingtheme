@@ -90,7 +90,7 @@
         Out of Stock
       </button>
     {% else %}
-      <a href="{{ amazonUrl }}">
+      <a target="_blank" href="{{ amazonUrl }}">
         <button
           id="amzon"
           data-product-id="{{ product.variants.first.id }}"
