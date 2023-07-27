@@ -295,17 +295,22 @@
   
   
   
-function newsl(){
-  showPopup('#news-letter-popup')
+  
+// function newsl(){
+//   showPopup('#news-letter-popup')
 
   
-}
+// }
 
-  setTimeout(function() {
-  showPopup('#news-letter-popup'); // Replace '#myModal' with the actual ID of your modal
-}, 5000);
+//   setTimeout(function() {
+//   showPopup('#news-letter-popup'); // Replace '#myModal' with the actual ID of your modal
+// }, 5000);
   
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      showPopup('#news-letter-popup'); // Replace '#myModal' with the actual ID of your modal
+    }, 5000);
+  });
   
   
   
@@ -885,6 +890,7 @@ function userInteraction(ref) {
         console.error('Error:', error);
     });
 }
+
 
 
 
