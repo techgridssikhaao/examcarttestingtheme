@@ -318,6 +318,7 @@
   
   
   
+  
 //       let serverOtp = '';
 //   otpMaker = () =>{
 //      serverOtp = Math.floor(Math.random() * 9000 + 1000);
@@ -408,7 +409,10 @@ closeModal = () =>{
   
 
 
-
+function newsl(){
+  document.getElementById('news-letter-popup').style.display = 'block';
+  
+}
 
   let idSetTimeOut = ""
       {% if template.name != "theme" %}
@@ -417,6 +421,7 @@ closeModal = () =>{
          idSetTimeOut = setTimeout(closeModal(), 5000);
       })
       {% endif %}
+
 
 
 
