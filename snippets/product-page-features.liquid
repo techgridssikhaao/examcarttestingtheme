@@ -344,7 +344,7 @@
 
         {% if amazonLink != '' %}
           <div>
-            <a href="{{ amazonUrl }}">
+            <a target="_blank" href="{{ amazonUrl }}">
               <button
                 id="amzon"
                 data-product-id="{{ product.variants.first.id }}"
@@ -650,6 +650,7 @@
   
   
   
+  
 
   $( document ).ready(function() {
     
@@ -754,6 +755,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
