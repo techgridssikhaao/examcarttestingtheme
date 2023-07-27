@@ -59,9 +59,7 @@
   {% assign sold_out = false %}
 {% endif %}
 {% assign amazonLink = '' %}
-{% if tag contains 'amztag\h' %}
-  {% assign amazonLink = tag | replace: 'amztag\', '' %}
-{% endif %}
+
 {% assign blog = '' %}
 {% assign pdf = '' %}
 {% for tag in product.tags %}
@@ -70,6 +68,9 @@
   {% endif %}
   {% if tag contains 'elssp\h' %}
     {% assign pdf = tag | replace: 'elssp\', '' %}
+  {% endif %}
+  {% if tag contains 'amztag\h' %}
+    {% assign amazonLink = tag | replace: 'amztag\', '' %}
   {% endif %}
 {% endfor %}
 
