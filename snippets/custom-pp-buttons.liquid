@@ -58,7 +58,7 @@
 {% if product.available %}
   {% assign sold_out = false %}
 {% endif %}
-{% assign amazonLink = '' %}
+{% assign amazonUrl = '' %}
 
 {% assign blog = '' %}
 {% assign pdf = '' %}
@@ -70,13 +70,13 @@
     {% assign pdf = tag | replace: 'elssp\', '' %}
   {% endif %}
   {% if tag contains 'amztag\h' %}
-    {% assign amazonLink = tag | replace: 'amztag\', '' %}
+    {% assign amazonUrl = tag | replace: 'amztag\', '' %}
   {% endif %}
 {% endfor %}
 
 <div class="buy-now-row">
   {% if sold_out %}
-    {% if amazonLink == '' %}
+    {% if amazonUrl == '' %}
       <button
         data-product-id="{{ product.variants.first.id }}"
         data-product-available="{{ product.variants.first.available }}"
@@ -88,7 +88,7 @@
         Out of Stock
       </button>
     {% else %}
-      <a href="{{ amazonLink }}">
+      <a href="{{ amazonUrl }}">
         <button
           data-product-id="{{ product.variants.first.id }}"
           data-product-available="{{ product.variants.first.available }}"
