@@ -287,13 +287,14 @@
   
   
   
+  
   function newsLetterSendOtp(){
 randomOtp();
      document.getElementById('verify-txt').style.display = "block";
     phoneNumber = document.getElementById("number").value;
 
 
-let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
+let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
        fetch(url).then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -405,6 +406,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
 // }
 
   
+
 
 
 
