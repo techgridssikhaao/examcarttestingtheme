@@ -288,6 +288,7 @@
   
   
   
+  
   function newsLetterSendOtp(){
 randomOtp();
      document.getElementById('verify-txt').style.display = "block";
@@ -362,7 +363,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
         let parseOtp = parseInt(finalOtp);
         if(parseOtp == smsotp){
          
-          localStorage.setItem("newsletterkey", phoneNumber);
+          localStorage.setItem("globalOtpKey", phoneNumber);
             
         }
         else{
@@ -406,6 +407,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
