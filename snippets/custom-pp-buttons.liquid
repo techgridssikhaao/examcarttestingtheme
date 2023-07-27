@@ -79,6 +79,7 @@
     {% if amazonUrl == '' %}
       <button
         id="button-cart-buy"
+        type="button"
         data-product-id="{{ product.variants.first.id }}"
         data-product-available="{{ product.variants.first.available }}"
         data-product-page="{{ product.url }}"
@@ -95,7 +96,7 @@
           data-product-id="{{ product.variants.first.id }}"
           data-product-available="{{ product.variants.first.available }}"
           data-product-page="{{ product.url }}"
-
+          type="button"
           class="buy-now-text"
         >
           <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
@@ -108,6 +109,7 @@
     <button
       id="button-cart-buy"
       class="buy-now-text"
+      type="button"
       data-product-id="{{ product.variants.first.id }}"
       data-product-available="{{ product.variants.first.available }}"
       data-product-page="{{ product.url }}"
@@ -161,6 +163,7 @@
       "
       onclick="processAddtoCartPopup(this)"
       id="button-cart"
+      type="button"
       data-toggle="tooltip"
       data-product-id="{{ product.variants.first.id }}"
       data-product-available="{{ product.variants.first.available }}"
@@ -190,7 +193,7 @@
     class="more-button {% if blog == '' %} more-button-disabled  {% endif %}"
     data-bloglink="{{ blog }}"
     data-toggle="tooltip"
-
+    type="button"
     title="Read Blog"
     onclick="processBlogLink(this)"
     {% if blog == '' %}
