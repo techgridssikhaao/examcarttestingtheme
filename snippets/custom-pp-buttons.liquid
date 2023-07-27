@@ -54,6 +54,10 @@
         margin-right: .3em;
         }
 </style>
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
 
 {% assign blog = '' %}
 {% assign pdf = '' %}
