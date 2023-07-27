@@ -208,7 +208,7 @@
             <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
             <label for="Verify" class="verify-otp">Verify OTP</label>
             <br>
-            <input type="num" class="otp-input-field" id="otp1">
+            <input type="num" class="otp-input-field" id="news-popup-otp">
             <div class="dont-receive-otp">
               Didn't you receive the OTP?
               <span class="resend-otp-btn" onclick="resendOtp()" style="cursor: pointer;">Resend OTP</span>
@@ -221,7 +221,7 @@
 
         <div class="lower-div-newsletter">
           <button class="download-pdf-btn-newsletter get-btn">
-            <span class="download-pdf-txt cross" onclick="downloadBtn()">Download PDF </span>
+            <span class="download-pdf-txt cross" onclick="newsLetterVerifyButton()">Download PDF </span>
           </button>
         </div>
       </div>
@@ -235,38 +235,23 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+function newsLetterVerifyButton(){
+        let newsOtp = document.getElementById('news-popup-otp').value;
+        let finalNewsOtp = newsOtp.toString() 
+        let newsLetterParseOtp = parseInt(finalNewsOtp);
+        if(newsLetterParseOtp == smsotp){
+         
+          localStorage.setItem("globalOtpKey", mobNumber);
+            hidePopup('#news-letter-popup');
+        }
+        else{
+          
+          document.getElementById('wrong-otp-txt').style.display = "block";
+        }
+    }
 
   
-  function validateL(buttonShowAndHide, getlength) {
-  //  console.log(buttonShowAndHide, getlength)
-  const myInput = document.querySelector(getlength);
-  if (myInput.value.length == 10) {
-    document.getElementById(buttonShowAndHide).disabled = false;
-    document.getElementById(buttonShowAndHide).style.opacity = "1";
-  } else {
-    document.getElementById(buttonShowAndHide).disabled = true;
-    document.getElementById(buttonShowAndHide).style.opacity = "0.5";
-  }
-}
+
   
   
   function newsLetterSendOtp(){
@@ -307,20 +292,7 @@ let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
           
     //      fun();
     //   }
-      validate = () =>{
-        const myInput = document.querySelector('#news-letter-number');
-
-         console.log(myInput)
-        if(myInput.value.length == 10) {
-            document.getElementById("otp-btn").disabled = false;
-          document.getElementById("otp-btn").style.opacity = "1";
-          
-        }
-        else{
-           document.getElementById("otp-btn").disabled = true;
-           document.getElementById("otp-btn").style.opacity = "0.5";
-        }
-      }
+     
 
 //       async function fun(){
 //         let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
@@ -341,10 +313,10 @@ let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
   
 
     downloadBtn = () =>{
-        let otpInput1 = document.getElementById('otp1').value;
-        let finalOtp = otpInput1.toString() 
-        let parseOtp = parseInt(finalOtp);
-        if(parseOtp == smsotp){
+        let newsOtp = document.getElementById('news-popup-otp').value;
+        let finalNewsOtp = newsOtp.toString() 
+        let newsLetterParseOtp = parseInt(finalNewsOtp);
+        if(newsLetterParseOtp == smsotp){
          
           localStorage.setItem("globalOtpKey", mobNumber);
             hidePopup('#news-letter-popup');
@@ -390,6 +362,7 @@ let url = `https://bhartipur.in/send_otp_get/${mobNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
