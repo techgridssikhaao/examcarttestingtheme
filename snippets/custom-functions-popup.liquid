@@ -282,6 +282,7 @@
   
   
   
+  
   if(localStorage.getItem("globalOtpKey") == null){
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -820,8 +821,16 @@ function userInteraction(ref) {
     let productID = ref.getAttribute('data-product-id');
     let buttonID = ref.getAttribute('id');
     let productPage = ref.getAttribute('data-product-page');
-    let mobnum = localStorage.getItem("globalOtpKey");
+     let mobnum ;
+if(localStorage.getItem("globalOtpKey") != null) {
+  
+    mobnum = localStorage.getItem("globalOtpKey");
+}else {
+mobnum ='1234567890'
+  
+}
 
+  
     var data = {
         phone_number: mobnum,
         button_id: buttonID,
@@ -851,6 +860,7 @@ function userInteraction(ref) {
         console.error('Error:', error);
     });
 }
+
 
 
 
