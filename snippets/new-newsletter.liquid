@@ -250,7 +250,7 @@
               type="tel"
               class="input-field-newsletter"
               onkeyup="validateL('otp-btn','#number')"
-              input="validate()"
+              oninput="validate()"
               id="number"
             >
             <br>
@@ -302,10 +302,11 @@
   
   
   
+  
    let phoneNumber = "";
   
   function validateL(buttonShowAndHide, getlength) {
-    console.log(buttonShowAndHide, getlength)
+  //  console.log(buttonShowAndHide, getlength)
   const myInput = document.querySelector(getlength);
   if (myInput.value.length == 10) {
     document.getElementById(buttonShowAndHide).disabled = false;
@@ -438,6 +439,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
