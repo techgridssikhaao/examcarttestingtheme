@@ -152,7 +152,9 @@
           <div class="examcart-logo-img">
             <img src="{{ 'Exlogo.jpg' | asset_url }}" alt="logo" class="exlogo-image">
           </div>
-          <div>
+          <div
+            class="closeicon"
+          >
             <span
               onclick="hidePopup('#LoginPopUp')"
 
@@ -160,7 +162,7 @@
               aria-label="Close"
             >
               <svg
-                Style=" width: 1em; height: 1em; "
+                Style=" width: 1.5em; height: 1.5em;"
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 384 512"
@@ -230,6 +232,7 @@
 </div>
 
 <script>
+  
   
   
   
@@ -386,6 +389,7 @@ let url = `https://bhartipur.in/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
