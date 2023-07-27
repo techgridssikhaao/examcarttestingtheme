@@ -315,89 +315,95 @@
   
   
   
-      let serverOtp = '';
-  otpMaker = () =>{
-     serverOtp = Math.floor(Math.random() * 9000 + 1000);
-  }
-  otpMaker();
-       let getResponse = {};
   
-      let phoneNumber = "";
+//       let serverOtp = '';
+//   otpMaker = () =>{
+//      serverOtp = Math.floor(Math.random() * 9000 + 1000);
+//   }
+//   otpMaker();
+//        let getResponse = {};
   
-      otpSend = () => {
-        otpMaker();
-        document.getElementById('verify-txt').style.display = "block";
-          phoneNumber = document.getElementById("number").value;
+//       let phoneNumber = "";
+  
+//       otpSend = () => {
+//         otpMaker();
+//         document.getElementById('verify-txt').style.display = "block";
+//           phoneNumber = document.getElementById("number").value;
           
-         fun();
-      }
-      validate = () =>{
-        const myInput = document.querySelector('#number');
-        if(myInput.value.length == 10) {
-            document.getElementById("otp-btn").disabled = false;
-          document.getElementById("otp-btn").style.opacity = "1";
-        }
-        else{
-           document.getElementById("otp-btn").disabled = true;
-           document.getElementById("otp-btn").style.opacity = "0.5";
-        }
-      }
+//          fun();
+//       }
+//       validate = () =>{
+//         const myInput = document.querySelector('#number');
+//         if(myInput.value.length == 10) {
+//             document.getElementById("otp-btn").disabled = false;
+//           document.getElementById("otp-btn").style.opacity = "1";
+//         }
+//         else{
+//            document.getElementById("otp-btn").disabled = true;
+//            document.getElementById("otp-btn").style.opacity = "0.5";
+//         }
+//       }
 
-      async function fun(){
-        let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
-       fetch(url).then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-        })
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-      }
+//       async function fun(){
+//         let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
+//        fetch(url).then(response => {
+//           if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//           }
+//         })
+//         .then(data => {
+//           console.log(data);
+//         })
+//         .catch(error => {
+//           console.error('Error:', error);
+//         });
+//       }
 
 
   
 
-    downloadBtn = () =>{
-        let otpInput1 = document.getElementById('otp1').value;
-        let finalOtp = otpInput1.toString() 
-        let parseOtp = parseInt(finalOtp);
-        if(parseOtp == serverOtp){
-          alert("success");
-          localStorage.setItem("newsletterkey", phoneNumber);
-            clearAllForm();
-        }
-        else{
+//     downloadBtn = () =>{
+//         let otpInput1 = document.getElementById('otp1').value;
+//         let finalOtp = otpInput1.toString() 
+//         let parseOtp = parseInt(finalOtp);
+//         if(parseOtp == serverOtp){
+//           alert("success");
+//           localStorage.setItem("newsletterkey", phoneNumber);
+//             clearAllForm();
+//         }
+//         else{
           
-          document.getElementById('wrong-otp-txt').style.display = "block";
-        }
-    }
+//           document.getElementById('wrong-otp-txt').style.display = "block";
+//         }
+//     }
 
 
-clearAllForm = () => {
-   let otpInput1 = document.getElementById('otp1').value;
-  otpInput1 = "";
-  document.getElementById('number').value = ""; 
-}
+// clearAllForm = () => {
+//    let otpInput1 = document.getElementById('otp1').value;
+//   otpInput1 = "";
+//   document.getElementById('number').value = ""; 
+// }
+// closeModal = () =>{
+//   clearTimeout(idSetTimeOut);
+//   clearAllForm();
+//   document.getElementById('myModal1').style.display = 'none';
+  
+// }
+// resendOtp = () =>{
+//     otpMaker();
+//     otpSend();
+// }
+
+
+
+
+
+
 closeModal = () =>{
   clearTimeout(idSetTimeOut);
   clearAllForm();
   document.getElementById('myModal1').style.display = 'none';
   
-}
-resendOtp = () =>{
-    otpMaker();
-    otpSend();
-}
-
-
-
-
-
-
 
 
 
