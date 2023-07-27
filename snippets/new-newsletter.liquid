@@ -246,7 +246,12 @@
             <br>
             <label class="enter-mobile-number">Enter Mobile Number</label>
             <br>
-            <input type="number" class="input-field-newsletter" onkeyup="validate()" id="number">
+            <input
+              type="tel"
+              class="input-field-newsletter"
+              onkeyup="validateLength( 'otp-btn' ,'#number')"
+              id="number"
+            >
             <br>
             <div class="get-otp-btn-div">
               <button class="get-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
@@ -255,7 +260,7 @@
             <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
             <label for="Verify" class="verify-otp">Verify OTP</label>
             <br>
-            <input type="number" class="otp-input-field" id="otp1">
+            <input type="num" class="otp-input-field" id="otp1">
             <div class="dont-receive-otp">
               Didn't you receive the OTP?
               <span class="resend-otp-btn" onclick="resendOtp()" style="cursor: pointer;">Resend OTP</span>
@@ -279,48 +284,26 @@
 <script>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  function newsLetterSendOtp(){
+randomOtp();
+     document.getElementById('verify-txt').style.display = "block";
+    phoneNumber = document.getElementById("number").value;
+
+
+let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
+       fetch(url).then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    
+  }
   
   
 //       let serverOtp = '';
@@ -332,13 +315,13 @@
   
 //       let phoneNumber = "";
   
-//       otpSend = () => {
-//         otpMaker();
-//         document.getElementById('verify-txt').style.display = "block";
-//           phoneNumber = document.getElementById("number").value;
+      otpSend = () => {
+    randomOtp();
+        document.getElementById('verify-txt').style.display = "block";
+          phoneNumber = document.getElementById("number").value;
           
-//          fun();
-//       }
+         fun();
+      }
 //       validate = () =>{
 //         const myInput = document.querySelector('#number');
 //         if(myInput.value.length == 10) {
@@ -419,6 +402,7 @@
 // }
 
   
+
 
 
 
