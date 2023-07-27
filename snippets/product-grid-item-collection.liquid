@@ -64,6 +64,12 @@
     {% assign pages = tag | replace: 'pages\', '' %}
   {% endif %}
 {% endfor %}
+{% assign amazonLink = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'amztag\h' %}
+    {% assign amazonLink = tag | replace: 'amztag\', '' %}
+  {% endif %}
+{% endfor %}
 
 {% comment %}Select the product image size from settings.{% endcomment %}
 {% comment %}
@@ -544,6 +550,7 @@
   
   
   
+  
 
   
   
@@ -631,6 +638,7 @@ var buttons = document.getElementsByClassName('add-to-cart-event_tracker');
       // Make the API call or perform other actions as needed for the clicked product
     };
   }
+
 
 
 
