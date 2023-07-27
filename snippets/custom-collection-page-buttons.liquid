@@ -58,10 +58,21 @@
 <div class="buy-now-row">
   <!-- <button class="buy-now-icon">lo</button> -->
   {% if sold_out %}
-    <div class="label-product label_sale l_sold">
-      <span>Available on Amazon</span>
-      <!-- <span>{{ 'products.product.sold_out' | t }}</span> -->
-    </div>
+    {% if amazonLink == '' %}
+      <button
+        data-product-id="{{ product.variants.first.id }}"
+        data-product-available="{{ product.variants.first.available }}"
+        data-product-page="{{ product.url }}"
+
+        class="buy-now-text more-button-disabled "
+      >
+        <img class="button-icons" src="{{ 'Buy-now-button.svg' | asset_url }}" loading="lazy" alt="logo">
+        Out of Stock
+      </button>
+    {% else %}
+      <a href="{{ amazonLink }}">Buy on Amazon</a>
+    {% endif %}
+
   {% else %}
     <button
       onclick="processCollectionBuyNowPopup(this)"
