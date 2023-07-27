@@ -254,7 +254,7 @@
             >
             <br>
             <div class="get-otp-btn-div">
-              <button class="get-btn" id="otp-btn" onclick="otpSend()" disabled>Get OTP</button>
+              <button class="get-btn" id="otp-btn" onclick="newsLetterSendOtp()" disabled>Get OTP</button>
             </div>
             <br>
             <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
@@ -282,6 +282,7 @@
 </div>
 
 <script>
+  
   
   
   function newsLetterSendOtp(){
@@ -315,13 +316,13 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
   
 //       let phoneNumber = "";
   
-      otpSend = () => {
-    randomOtp();
-        document.getElementById('verify-txt').style.display = "block";
-          phoneNumber = document.getElementById("number").value;
+    //   otpSend = () => {
+    // randomOtp();
+    //     document.getElementById('verify-txt').style.display = "block";
+    //       phoneNumber = document.getElementById("number").value;
           
-         fun();
-      }
+    //      fun();
+    //   }
 //       validate = () =>{
 //         const myInput = document.querySelector('#number');
 //         if(myInput.value.length == 10) {
@@ -352,20 +353,20 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
 
   
 
-//     downloadBtn = () =>{
-//         let otpInput1 = document.getElementById('otp1').value;
-//         let finalOtp = otpInput1.toString() 
-//         let parseOtp = parseInt(finalOtp);
-//         if(parseOtp == serverOtp){
-//           alert("success");
-//           localStorage.setItem("newsletterkey", phoneNumber);
-//             clearAllForm();
-//         }
-//         else{
+    downloadBtn = () =>{
+        let otpInput1 = document.getElementById('otp1').value;
+        let finalOtp = otpInput1.toString() 
+        let parseOtp = parseInt(finalOtp);
+        if(parseOtp == smsotp){
+         
+          localStorage.setItem("newsletterkey", phoneNumber);
+            
+        }
+        else{
           
-//           document.getElementById('wrong-otp-txt').style.display = "block";
-//         }
-//     }
+          document.getElementById('wrong-otp-txt').style.display = "block";
+        }
+    }
 
 
 // clearAllForm = () => {
@@ -402,6 +403,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${serverOtp}`;
 // }
 
   
+
 
 
 
