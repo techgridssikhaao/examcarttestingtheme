@@ -249,7 +249,7 @@
             <input
               type="tel"
               class="input-field-newsletter"
-              onkeyup="validateL('otp-btn','#news-letter-number')"
+              onkeyup="validateL('news-popup-otp-btn','#news-letter-number')"
               oninput="validate()"
               id="news-letter-number"
             >
@@ -258,7 +258,7 @@
             <div class="get-otp-btn-div">
               <button
                 class="otp-btn"
-                id="otp-btn"
+                id="news-popup-otp-btn"
                 onclick="newsLetterSendOtp()"
                 disabled
               >
@@ -305,6 +305,7 @@
   
   
   
+  
    let phoneNumber ;
   
   function validateL(buttonShowAndHide, getlength) {
@@ -326,7 +327,7 @@ randomOtp();
     phoneNumber = document.getElementById("news-letter-number").value;
 
 
-let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
+let url = `https://bhartipur.in/send_otp_get/${phoneNumber}/${smsotp}`;
        fetch(url).then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -359,7 +360,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
     //      fun();
     //   }
       validate = () =>{
-        const myInput = document.querySelector('#number');
+        const myInput = document.querySelector('#news-letter-number');
 
          console.log(myInput)
         if(myInput.value.length == 10) {
@@ -441,6 +442,7 @@ let url = `https://bhartipur.in:5000/send_otp_get/${phoneNumber}/${smsotp}`;
 // }
 
   
+
 
 
 
