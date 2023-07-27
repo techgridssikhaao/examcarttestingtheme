@@ -147,110 +147,93 @@
     </script>
   {% endif %}
   <div id="product">
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="form_buy" name="form_buy">
-      <div
-        class="form-group"
-        {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-          style="display:none"
-        {% endif %}
-      >
-        <select name="id" id="productSelect" class="form-control">
-          {% for variant in product.variants %}
-            {% if variant.available %}
-              <option
-                {% if variant == product.selected_or_first_available_variant %}
-                  selected="selected"
-                {% endif %}
-                data-sku="{{ variant.sku }}"
-                value="{{ variant.id }}"
-              >
-                {{ variant.title }} - {{ variant.price | money_with_currency }}
-              </option>
-            {% else %}
-              <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
-            {% endif %}
-          {% endfor %}
-        </select>
-        {% if section.settings.show_variant_swatches != 'false' %}
-          {% if product.available and product.variants.size > 1 %}
-            {% for option in product.options %}
-              {% include 'swatch' with option %}
-            {% endfor %}
+    <div
+      class="form-group"
+      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        style="display:none"
+      {% endif %}
+    >
+      <select name="id" id="productSelect" class="form-control">
+        {% for variant in product.variants %}
+          {% if variant.available %}
+            <option
+              {% if variant == product.selected_or_first_available_variant %}
+                selected="selected"
+              {% endif %}
+              data-sku="{{ variant.sku }}"
+              value="{{ variant.id }}"
+            >
+              {{ variant.title }} - {{ variant.price | money_with_currency }}
+            </option>
+          {% else %}
+            <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
           {% endif %}
+        {% endfor %}
+      </select>
+      {% if section.settings.show_variant_swatches != 'false' %}
+        {% if product.available and product.variants.size > 1 %}
+          {% for option in product.options %}
+            {% include 'swatch' with option %}
+          {% endfor %}
         {% endif %}
-      </div>
-      <div class="form-group" style="padding: 0px;">
-        {% if section.settings.product_quantity_enable %}
-          <label class="control-label" for="Quantity"
-            ><b>{{ 'products.product.quantity' | t }} </b>:</label
-          >
-          <input
-            type="text"
-            name="quantity"
-            value="1"
-            size="2"
-            id="Quantity"
-            onkeyup="updatecartsticky(1)"
-            class="form-control"
-          >
-        {% endif %}
-        {% if section.settings.product_quantity_message %}
-          <span id="variantQuantity" class="variant-quantity hidden"></span>
-        {% endif %}
-
-        <div
-          style="
-              display: grid;
-
-              justify-content: left;
-            margin-top: 2em;
-          "
+      {% endif %}
+    </div>
+    <div class="form-group" style="padding: 0px;">
+      {% if section.settings.product_quantity_enable %}
+        <label class="control-label" for="Quantity"
+          ><b>{{ 'products.product.quantity' | t }} </b>:</label
         >
-          {% include 'custom-pp-buttons' %}
-        </div>
+        <input
+          type="text"
+          name="quantity"
+          value="1"
+          size="2"
+          id="Quantity"
+          onkeyup="updatecartsticky(1)"
+          class="form-control"
+        >
+      {% endif %}
+      {% if section.settings.product_quantity_message %}
+        <span id="variantQuantity" class="variant-quantity hidden"></span>
+      {% endif %}
 
-        {% if template != 'product.pre-order' %}
-          <button
-            style="display: none;"
-            onclick="processAddtoCartPopup(this)"
-            style="width:25% margin-right:15px;"
-            class="btn button button-cart"
-            data-product-id="{{ product.variants.first.id }}"
-            data-product-available="{{ product.variants.first.available }}"
-            data-product-page="{{ product.url }}"
-            type="button"
-            id="button-cart"
+      <div
+        style="
+            display: grid;
 
-            data-loading-text="{{ 'products.product.loading' | t }}"
-          >
-            {{ 'products.product.add_to_cart' | t }}
-          </button>
-        {% endif %}
-        {% if section.settings.show_buy_now or template == 'product.pre-order' %}
-          <button
-            class="btn button button-cart"
-            {% if template != 'product.pre-order' %}
-            {% endif %}
-            style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
-            type="button"
-            id="button-cart-buy"
-            data-loading-text="{{ 'products.product.loading' | t }}"
-          >
-            {% if template == 'product.pre-order' -%}
-              {{- 'products.product.pre_order' | t }}
-            {% else -%}
-              {{- 'products.product.buy_now' | t -}}
-            {%- endif %}
-          </button>
-        {% endif %}
-        {% comment %} extra button {% endcomment %}
+            justify-content: left;
+          margin-top: 2em;
+        "
+      >
+        {% include 'custom-pp-buttons' %}
+      </div>
 
+      {% if template != 'product.pre-order' %}
         <button
-          onclick="processBuyNow(this)"
+          style="display: none;"
+          onclick="processAddtoCartPopup(this)"
+          style="width:25% margin-right:15px;"
           class="btn button button-cart"
-          style="clear:none;margin-left:15px;padding:0 55px; display: none;"
+          data-product-id="{{ product.variants.first.id }}"
+          data-product-available="{{ product.variants.first.available }}"
+          data-product-page="{{ product.url }}"
           type="button"
-          id="button-cart-buy-mine"
+          id="button-cart"
+
+          data-loading-text="{{ 'products.product.loading' | t }}"
+        >
+          {{ 'products.product.add_to_cart' | t }}
+        </button>
+      {% endif %}
+      {% if section.settings.show_buy_now or template == 'product.pre-order' %}
+        <button
+          class="btn button button-cart"
+          {% if template != 'product.pre-order' %}
+          {% endif %}
+          style=" clear:none;margin-left:15px;padding:0 55px; display: none;"
+          type="button"
+          id="button-cart-buy"
+          data-loading-text="{{ 'products.product.loading' | t }}"
         >
           {% if template == 'product.pre-order' -%}
             {{- 'products.product.pre_order' | t }}
@@ -258,252 +241,268 @@
             {{- 'products.product.buy_now' | t -}}
           {%- endif %}
         </button>
+      {% endif %}
+      {% comment %} extra button {% endcomment %}
 
-        {% comment %} extra button {% endcomment %}
-        {% include 'product-wishlist' %}
-      </div>
-      <div>
-        {% assign ebook = '' %}
-        {% assign course = '' %}
+      <button
+        onclick="processBuyNow(this)"
+        class="btn button button-cart"
+        style="clear:none;margin-left:15px;padding:0 55px; display: none;"
+        type="button"
+        id="button-cart-buy-mine"
+      >
+        {% if template == 'product.pre-order' -%}
+          {{- 'products.product.pre_order' | t }}
+        {% else -%}
+          {{- 'products.product.buy_now' | t -}}
+        {%- endif %}
+      </button>
 
-        {% assign testseries = '' %}
+      {% comment %} extra button {% endcomment %}
+      {% include 'product-wishlist' %}
+    </div>
+    <div>
+      {% assign ebook = '' %}
+      {% assign course = '' %}
 
-        {% assign samplepaper = '' %}
-        {% assign amazonLink = '' %}
-        {% assign preOrderDate = '' %}
+      {% assign testseries = '' %}
 
-        {% for tag in product.tags %}
-          {% if tag contains 'elscs\h' %}
-            {% assign course = tag | replace: 'elscs\', '' %}
-          {% endif %}
-          {% if tag contains 'elseb\h' %}
-            {% assign ebook = tag | replace: 'elseb\', '' %}
-          {% endif %}
+      {% assign samplepaper = '' %}
+      {% assign amazonLink = '' %}
+      {% assign preOrderDate = '' %}
 
-          {% if tag contains 'elsts\h' %}
-            {% assign testseries = tag | replace: 'elsts\', '' %}
-          {% endif %}
+      {% for tag in product.tags %}
+        {% if tag contains 'elscs\h' %}
+          {% assign course = tag | replace: 'elscs\', '' %}
+        {% endif %}
+        {% if tag contains 'elseb\h' %}
+          {% assign ebook = tag | replace: 'elseb\', '' %}
+        {% endif %}
 
-          {% if tag contains 'elssp\h' %}
-            {% assign samplepaper = tag | replace: 'elssp\', '' %}
-          {% endif %}
+        {% if tag contains 'elsts\h' %}
+          {% assign testseries = tag | replace: 'elsts\', '' %}
+        {% endif %}
 
-          {% if tag contains 'amztag\h' %}
-            {% assign amazonLink = tag | replace: 'amztag\', '' %}
-          {% endif %}
-          {% if tag contains 'preod\\' %}
-            {% assign preOrderDate = tag | replace: 'preod\', '' %}
+        {% if tag contains 'elssp\h' %}
+          {% assign samplepaper = tag | replace: 'elssp\', '' %}
+        {% endif %}
+
+        {% if tag contains 'amztag\h' %}
+          {% assign amazonLink = tag | replace: 'amztag\', '' %}
+        {% endif %}
+        {% if tag contains 'preod\\' %}
+          {% assign preOrderDate = tag | replace: 'preod\', '' %}
+        {% endif %}
+      {% endfor %}
+
+      {% if course != '' or ebook != '' or testseries != '' or amazonLink != '' %}
+        <h2 id="or"><span>OR</span></h2>
+      {% endif %}
+    </div>
+    <div class="col-lg-12" style="margin-left: 1%;">
+      {% if ebook != '' %}
+        <a target="_blank" href="{{ebook}}">
+          <button
+            style="border: 1px solid #62ab00;color: black;"
+            class="btn button"
+            type="button"
+            id="ebook"
+            data-loading-text="{{ 'products.product.loading' | t }}"
+          >
+            E-Book
+          </button>
+        </a>
+      {% endif %}
+      {% if testseries != '' %}
+        <a target="_blank" href="{{testseries}}">
+          <button
+            style="overflow: hidden; border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
+            class="btn button"
+            type="button"
+            id="SamplePaperbtn"
+            data-loading-text=""
+          >
+            Test Series
+          </button>
+        </a>
+      {% endif %}
+
+      {% if course != '' %}
+        <a target="_blank" href="{{course}}">
+          <button
+            style="border: 1px solid #62ab00;color: black;margin-left:12px"
+            class="btn button"
+            type="button"
+            id="course"
+            data-loading-text="{{ 'products.product.loading' | t }}"
+          >
+            Course
+          </button>
+        </a>
+      {% endif %}
+
+      {% if amazonLink != '' %}
+        <a target="_blank" href="{{amazonLink}}">
+          <button
+            style="overflow: hidden;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
+            class="btn button"
+            type="button"
+            id=""
+            data-loading-text=""
+          >
+            Buy From Amazon
+          </button>
+        </a>
+      {% endif %}
+    </div>
+
+    <ul class="list-unstyled" style="font-size: 14px;">
+      {% if section.settings.product_vendor_enable %}
+      {% endif %}
+      <link
+        itemprop="availability"
+        href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
+      >
+    </ul>
+    {% if section.settings.product_show_sku %}
+      {% assign current_variant = product.selected_or_first_available_variant %}
+    {% endif %}
+    <table class="table" style="">
+      <tr>
+        <td style="border: none;width: 15%;">
+          <b>{{ 'products.product.sku' | t }}</b>
+        </td>
+        <td style="border: none;width: 2%;">:</td>
+        <td style="border: none;padding-left: 55px;">{{ current_variant.sku }}</td>
+      </tr>
+
+      {% assign catvar = '' %}
+      {% assign subcatvar = '' %}
+      {% assign booktypevar = '' %}
+      {% assign bookmediumvar = '' %}
+
+      {% for tag in product.tags %}
+        {% for link in linklists['main-menu'].links %}
+          {% assign test = link.title | uppercase %}
+          {% assign tagtest = tag | uppercase %}
+          {% if test == tagtest %}
+            {% assign catvar = tag %}
           {% endif %}
         {% endfor %}
 
-        {% if course != '' or ebook != '' or testseries != '' or amazonLink != '' %}
-          <h2 id="or"><span>OR</span></h2>
+        {% for link in linklists['main-menu'].links %}
+          {% for sublink in link.links %}
+            {% if sublink.title contains tag %}
+              {% assign subcatvar = tag %}
+            {% endif %}
+            <!-- and tag != "Hindi" and tag != "English" -->
+          {% endfor %}
+        {% endfor %}
+
+        {% if tag contains 'Chapter-wise Q&A'
+          or tag contains 'Chapter-wise Solved Papers'
+          or tag contains 'GuideBook'
+          or tag contains 'Practice Sets'
+          or tag contains 'Solved Papers'
+          or tag contains 'TextBook'
+          or tag contains 'Objective Q&A'
+        %}
+          {% assign booktypevar = tag %}
         {% endif %}
-      </div>
-      <div class="col-lg-12" style="margin-left: 1%;">
-        {% if ebook != '' %}
-          <a target="_blank" href="{{ebook}}">
+        {% if tag contains 'Hindi' or tag contains 'English' or tag contains 'Bilingual' %}
+          {% assign bookmediumvar = tag %}
+        {% endif %}
+      {% endfor %}
+      <tr>
+        <td style="border: none;width: 15%;"><b>Category</b></td>
+        <td style="border: none;width: 2%;"><b>:</b></td>
+        <td style="border: none;padding-left: 55px;">{{ catvar }}</td>
+      </tr>
+      <tr>
+        <td style="border: none;width: 15%;"><b>Sub-Category</b></td>
+        <td style="border: none;width: 2%;"><b>:</b></td>
+        <td style="border: none;padding-left: 55px;">{{ subcatvar }}</td>
+      </tr>
+
+      {% assign catvar = '' %}
+      {% assign subcatvar = '' %}
+      <tr>
+        <td style="border: none;width: 15%;"><b>Book Type</b></td>
+        <td style="border: none;width: 2%;"><b>:</b></td>
+        <td style="border: none;padding-left: 55px;">{{ booktypevar }}</td>
+      </tr>
+      <tr>
+        <td style="border: none;width: 15%;"><b>Book Medium</b></td>
+        <td style="border: none;width: 2%;"><b>:</b></td>
+        <td style="border: none;padding-left: 55px;">{{ bookmediumvar }}</td>
+      </tr>
+
+      <tr>
+        <td style="border: none;width: 15%;">
+          <b>{{ 'products.product.availability' | t }}</b>
+        </td>
+        <td style="border: none;width: 2%;"><b>:</b></td>
+
+        {% if product.template_suffix == 'pre-order' %}
+          <td style="border: none;padding-left: 55px;">Available Soon</td>
+        {% elsif product.available == true %}
+          <td style="border: none;padding-left: 55px;">In Stock</td>
+        {% else %}
+          <td style="border: none;padding-left: 55px;">Available on Amazon</td>
+        {% endif %}
+      </tr>
+
+      <tr>
+        <td style="border: none;width: 15%;">
+          <b> {{ 'products.product.brand' | t }}</b>
+        </td>
+        <td style="border: none;width: 2%;">:</td>
+        <td style="border: none;padding-left: 55px;">{{ product.vendor | link_to_vendor }}</td>
+      </tr>
+    </table>
+
+    <div style="margin-top:10px">
+      <a
+        href="whatsapp://send"
+        data-text="Hey I really liked this exam book. Check it out! {{ product.title }}, "
+        data-href="http://{{ shop.domain }}{{ product.url }}"
+        data-type="WhatsApp Share"
+        data-bdcolor="{{bdcolor}}"
+        data-fcolor="{{fcolor}}"
+        data-bgcolor="{{bgcolor}}"
+        data-temp="{{template_name}}"
+        data-image="{{ 'sp_whatsapp_icon.svg' | asset_url }}"
+        class="wa_btn wa_btn_s wp_share_btn"
+        style="display:none"
+        >Share karo!</a
+      >
+      {% comment %}
+        {% assign t = '' %}
+        {% for tag in product.tags %}
+          {% if tag contains 'elssp\h' %}
+            {% assign t = tag | replace: 'elssp\', '' %}
+          {% endif %}
+        {% endfor %}
+      {% endcomment %}
+
+      <div class="row ">
+        {% if samplepaper != '' %}
+          <div onclick="processPdflink(this)" id="openPdfFile">
             <button
-              style="border: 1px solid #62ab00;color: black;"
+              style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
               class="btn button"
               type="button"
-              id="ebook"
-              data-loading-text="{{ 'products.product.loading' | t }}"
-            >
-              E-Book
-            </button>
-          </a>
-        {% endif %}
-        {% if testseries != '' %}
-          <a target="_blank" href="{{testseries}}">
-            <button
-              style="overflow: hidden; border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
-              class="btn button"
-              type="button"
+              data-pdflink="{{ samplepaper }}"
               id="SamplePaperbtn"
               data-loading-text=""
             >
-              Test Series
+              Get Free Sample E-Book
             </button>
-          </a>
-        {% endif %}
-
-        {% if course != '' %}
-          <a target="_blank" href="{{course}}">
-            <button
-              style="border: 1px solid #62ab00;color: black;margin-left:12px"
-              class="btn button"
-              type="button"
-              id="course"
-              data-loading-text="{{ 'products.product.loading' | t }}"
-            >
-              Course
-            </button>
-          </a>
-        {% endif %}
-
-        {% if amazonLink != '' %}
-          <a target="_blank" href="{{amazonLink}}">
-            <button
-              style="overflow: hidden;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
-              class="btn button"
-              type="button"
-              id=""
-              data-loading-text=""
-            >
-              Buy From Amazon
-            </button>
-          </a>
+          </div>
         {% endif %}
       </div>
+    </div>
 
-      <ul class="list-unstyled" style="font-size: 14px;">
-        {% if section.settings.product_vendor_enable %}
-        {% endif %}
-        <link
-          itemprop="availability"
-          href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
-        >
-      </ul>
-      {% if section.settings.product_show_sku %}
-        {% assign current_variant = product.selected_or_first_available_variant %}
-      {% endif %}
-      <table class="table" style="">
-        <tr>
-          <td style="border: none;width: 15%;">
-            <b>{{ 'products.product.sku' | t }}</b>
-          </td>
-          <td style="border: none;width: 2%;">:</td>
-          <td style="border: none;padding-left: 55px;">{{ current_variant.sku }}</td>
-        </tr>
-
-        {% assign catvar = '' %}
-        {% assign subcatvar = '' %}
-        {% assign booktypevar = '' %}
-        {% assign bookmediumvar = '' %}
-
-        {% for tag in product.tags %}
-          {% for link in linklists['main-menu'].links %}
-            {% assign test = link.title | uppercase %}
-            {% assign tagtest = tag | uppercase %}
-            {% if test == tagtest %}
-              {% assign catvar = tag %}
-            {% endif %}
-          {% endfor %}
-
-          {% for link in linklists['main-menu'].links %}
-            {% for sublink in link.links %}
-              {% if sublink.title contains tag %}
-                {% assign subcatvar = tag %}
-              {% endif %}
-              <!-- and tag != "Hindi" and tag != "English" -->
-            {% endfor %}
-          {% endfor %}
-
-          {% if tag contains 'Chapter-wise Q&A'
-            or tag contains 'Chapter-wise Solved Papers'
-            or tag contains 'GuideBook'
-            or tag contains 'Practice Sets'
-            or tag contains 'Solved Papers'
-            or tag contains 'TextBook'
-            or tag contains 'Objective Q&A'
-          %}
-            {% assign booktypevar = tag %}
-          {% endif %}
-          {% if tag contains 'Hindi' or tag contains 'English' or tag contains 'Bilingual' %}
-            {% assign bookmediumvar = tag %}
-          {% endif %}
-        {% endfor %}
-        <tr>
-          <td style="border: none;width: 15%;"><b>Category</b></td>
-          <td style="border: none;width: 2%;"><b>:</b></td>
-          <td style="border: none;padding-left: 55px;">{{ catvar }}</td>
-        </tr>
-        <tr>
-          <td style="border: none;width: 15%;"><b>Sub-Category</b></td>
-          <td style="border: none;width: 2%;"><b>:</b></td>
-          <td style="border: none;padding-left: 55px;">{{ subcatvar }}</td>
-        </tr>
-
-        {% assign catvar = '' %}
-        {% assign subcatvar = '' %}
-        <tr>
-          <td style="border: none;width: 15%;"><b>Book Type</b></td>
-          <td style="border: none;width: 2%;"><b>:</b></td>
-          <td style="border: none;padding-left: 55px;">{{ booktypevar }}</td>
-        </tr>
-        <tr>
-          <td style="border: none;width: 15%;"><b>Book Medium</b></td>
-          <td style="border: none;width: 2%;"><b>:</b></td>
-          <td style="border: none;padding-left: 55px;">{{ bookmediumvar }}</td>
-        </tr>
-
-        <tr>
-          <td style="border: none;width: 15%;">
-            <b>{{ 'products.product.availability' | t }}</b>
-          </td>
-          <td style="border: none;width: 2%;"><b>:</b></td>
-
-          {% if product.template_suffix == 'pre-order' %}
-            <td style="border: none;padding-left: 55px;">Available Soon</td>
-          {% elsif product.available == true %}
-            <td style="border: none;padding-left: 55px;">In Stock</td>
-          {% else %}
-            <td style="border: none;padding-left: 55px;">Available on Amazon</td>
-          {% endif %}
-        </tr>
-
-        <tr>
-          <td style="border: none;width: 15%;">
-            <b> {{ 'products.product.brand' | t }}</b>
-          </td>
-          <td style="border: none;width: 2%;">:</td>
-          <td style="border: none;padding-left: 55px;">{{ product.vendor | link_to_vendor }}</td>
-        </tr>
-      </table>
-
-      <div style="margin-top:10px">
-        <a
-          href="whatsapp://send"
-          data-text="Hey I really liked this exam book. Check it out! {{ product.title }}, "
-          data-href="http://{{ shop.domain }}{{ product.url }}"
-          data-type="WhatsApp Share"
-          data-bdcolor="{{bdcolor}}"
-          data-fcolor="{{fcolor}}"
-          data-bgcolor="{{bgcolor}}"
-          data-temp="{{template_name}}"
-          data-image="{{ 'sp_whatsapp_icon.svg' | asset_url }}"
-          class="wa_btn wa_btn_s wp_share_btn"
-          style="display:none"
-          >Share karo!</a
-        >
-        {% comment %}
-          {% assign t = '' %}
-          {% for tag in product.tags %}
-            {% if tag contains 'elssp\h' %}
-              {% assign t = tag | replace: 'elssp\', '' %}
-            {% endif %}
-          {% endfor %}
-        {% endcomment %}
-
-        <div class="row ">
-          {% if samplepaper != '' %}
-            <div onclick="processPdflink(this)" id="openPdfFile">
-              <button
-                style="overflow: hidden; width:30%;border: 1px solid #62ab00;color: black; margin-left:10px;margin-bottom:10px"
-                class="btn button"
-                type="button"
-                data-pdflink="{{ samplepaper }}"
-                id="SamplePaperbtn"
-                data-loading-text=""
-              >
-                Get Free Sample E-Book
-              </button>
-            </div>
-          {% endif %}
-        </div>
-      </div>
-    </form>
     <!-- end-button -->
   </div>
   {% if section.settings.trust_badge_image %}
@@ -577,6 +576,7 @@
 <div id="productTags" data-tags="{{ product.tags | escape }}"></div>
 
 <script type="text/javascript">
+  
   
   
   
@@ -735,6 +735,7 @@ var t = {{ t | json }}
     
   }
   
+
 
 
 
