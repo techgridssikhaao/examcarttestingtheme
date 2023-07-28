@@ -56,12 +56,7 @@
     padding-bottom: 1em;
   }
 </style>
-{% assign pag = '' %}
-{% for tag in product.tags %}
-  {% if tag contains 'pages' %}
-    {% assign pages = tag | replace: 'pages\', '' %}
-  {% endif %}
-{% endfor %}
+
 <div id="mysidecart" class="sidecart">
   <div class="big-button-container">
     <button class="proceed-to-buy-btn">Proceed to Buy ({{ cart.item_count }} items)</button>
