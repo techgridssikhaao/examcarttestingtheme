@@ -37,8 +37,8 @@
                       <td class="text-left info-item">
                         <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                         <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
-                        <button id="addCart" onclick='updateCartCount(this)' product-id = {{item.product.id }} cart-quantity={{ item.quantity }}>+</button>
-                        <button id="minusCart" onclick='updateCartCount(this)' product-id = {{item.product.id }} cart-quantity={{ item.quantity }}>-</button>
+                        <button id="addCart" onclick='updateCartCount(this)' product-id = {{item.product.id }} cart-quantity={{ item.quantity }}>p</button>
+                        <button id="minusCart" onclick='updateCartCount(this)' product-id = {{item.product.id }} cart-quantity={{ item.quantity }}>m</button>
                         <p class="cart-price">{{ item.line_price | money }}</p>
                       </td>
                       <td class="text-center cart-close">
