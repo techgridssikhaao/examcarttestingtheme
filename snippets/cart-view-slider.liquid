@@ -142,7 +142,7 @@
           {% endcomment %}
 
           <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-          <button style=" background-color: red;" onclick="checkOut()">{{ 'cart.general.checkout' | t }}</button>
+          <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
         </p>
       </li>
     </ul>
@@ -162,14 +162,14 @@
       case 'addCart':
         cart.update(productId, cartQuantity + 1);
           $('#itemQuantityBox').html(cartQuantity + 1);
-          ref.setAttribute('cart-quantity', cartQuantity+1)
+          ref.setAttribute('cart-quantity', cartQuantity + 1)
 
         break;
       case 'minusCart':
 
         cart.update(productId, cartQuantity - 1)
            $('#itemQuantityBox').html( cartQuantity - 1);
-           ref.setAttribute('cart-quantity', cartQuantity-1)
+           ref.setAttribute('cart-quantity', cartQuantity - 1)
                break;
       default:
         break;
