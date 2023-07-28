@@ -88,9 +88,9 @@
                   <td class="text-left info-item">
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                      {% include 'custom-product-page-count' %}
-                {% include 'price' %}
+              
                     <p style=" color: green; font-weight: bold;">{{ item.line_price | money }}</p>
-                   
+                     {% include 'price' %}
                    <div style="    display: flex;
     justify-content: space-between;
     align-items: center; ">
