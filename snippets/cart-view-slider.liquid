@@ -91,7 +91,8 @@
                     <button
                       product-id="{{ item.variant_id }}"
                       cart-quantity="{{ item.quantity  }}"
-                      id="addCart"
+                      id="minusCart"
+                      type="button"
                       onclick="updateCartCount(this)"
                       style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
                     >
@@ -100,7 +101,8 @@
                     ><button
                       product-id="{{ item.variant_id }}"
                       cart-quantity="{{ item.quantity  }}"
-                      id="minusCart"
+                      type="button"
+                      id="addCart"
                       onclick="updateCartCount(this)"
                       style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
                     >
