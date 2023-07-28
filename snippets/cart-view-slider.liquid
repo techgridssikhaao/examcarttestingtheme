@@ -88,7 +88,14 @@
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                     <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
                     <p class="cart-price">{{ item.line_price | money }}</p>
-
+                   <button
+                      type="button"
+                      onclick="removeItem(this, {{ item.variant_id }});"
+                      title="Remove"
+                      class="btn btn-danger btn-xs"
+                    >
+                      delete
+                    </button>
                     <div></div>
                     <button
                       product-id="{{ item.variant_id }}"
@@ -110,14 +117,7 @@
                     >
                       +
                     </button>
-                    <button
-                      type="button"
-                      onclick="removeItem(this, {{ item.variant_id }});"
-                      title="Remove"
-                      class="btn btn-danger btn-xs"
-                    >
-                      delete
-                    </button>
+                   
                   </td>
                   <td class="text-center cart-close"></td>
                 </tr>
