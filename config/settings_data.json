@@ -1251,7 +1251,7 @@
       "9e9030a4-d660-46e8-b33b-7869eded673d": {
         "type": "collection-tab",
         "settings": {
-          "products_tab_layout": "products-tab4",
+          "products_tab_layout": "products-tab1",
           "heading": "",
           "fullwidth": true,
           "products_tab_collection1": "top-rated-upsc-ias-prelims-books",
@@ -1260,7 +1260,7 @@
           "products_tab_collection4": "",
           "products_tab_collection5": "",
           "listing_rows": 1,
-          "no_of_products": 5,
+          "no_of_products": 6,
           "products_tab_count": 8,
           "product_grid_img_carousel": true,
           "link1": "",
