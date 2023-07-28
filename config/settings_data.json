@@ -1251,7 +1251,7 @@
       "9e9030a4-d660-46e8-b33b-7869eded673d": {
         "type": "collection-tab",
         "settings": {
-          "products_tab_layout": "products-tab1",
+          "products_tab_layout": "products-tab2",
           "heading": "",
           "fullwidth": false,
           "products_tab_collection1": "best-haryana-books",
@@ -1261,7 +1261,7 @@
           "products_tab_collection5": "",
           "listing_rows": 1,
           "no_of_products": 1,
-          "products_tab_count": 8,
+          "products_tab_count": 36,
           "product_grid_img_carousel": true,
           "link1": "",
           "link2": "",
