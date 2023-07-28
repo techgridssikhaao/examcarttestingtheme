@@ -15,7 +15,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <ul>
+        <ul class="dropdown-menu pull-right">
           <li class="has-scroll">
             <table class="table">
               <tbody>
@@ -37,8 +37,6 @@
                       <td class="text-left info-item">
                         <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                         <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
-                        <button type="button" id="addCart" onclick='updateCartCount(this)' product-id = {{item.product.variants.first.id }} cart-quantity={{ item.quantity }}>p</button>
-                        <button type="button" id="minusCart" onclick='updateCartCount(this)' product-id = {{item.product.variants.first.id }} cart-quantity={{ item.quantity }}>m</button>
                         <p class="cart-price">{{ item.line_price | money }}</p>
                       </td>
                       <td class="text-center cart-close">
@@ -97,7 +95,7 @@
     let productId = ref.getAttribute('product-id')
     let actionType = ref.getAttribute('id')
     cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
-    
+
     if (actionType !=null) {
       switch (actionType) {
       case 'addCart':
