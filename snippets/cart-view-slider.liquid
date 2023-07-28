@@ -162,6 +162,7 @@
       case 'addCart':
         cart.update(productId, cartQuantity + 1);
           $('#itemQuantityBox').html(cartQuantity + 1);
+          ref.removeAttribute('cart-quantity')
           ref.setAttribute('cart-quantity', cartQuantity + 1)
 
         break;
@@ -169,6 +170,7 @@
 
         cart.update(productId, cartQuantity - 1)
            $('#itemQuantityBox').html( cartQuantity - 1);
+          ref.removeAttribute('cart-quantity')
            ref.setAttribute('cart-quantity', cartQuantity - 1)
                break;
       default:
