@@ -150,43 +150,42 @@
 </div>
 
 <script>
-  function updateCartCount(ref)
-  {
-    console.log(ref)
-    let productId = ref.getAttribute('product-id')
-    let actionType = ref.getAttribute('id')
-    cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
+   function updateCartCount(ref)
+   {
+     console.log(ref)
+     let productId = ref.getAttribute('product-id')
+     let actionType = ref.getAttribute('id')
+     cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
 
-    if (actionType !=null) {
-      switch (actionType) {
-      case 'addCart':
-        newQuantity = cartQuantity + 1
-        cart.update(productId, cartQuantity + 1);
-          $('#itemQuantityBox').val(newQuantity);
-
-
-        break;
-      case 'minusCart':
-        newQuantity = cartQuantity - 1
-        cart.update(productId, cartQuantity - 1)
+     if (actionType !=null) {
+       switch (actionType) {
+       case 'addCart':
+         newQuantity = cartQuantity + 1
+         cart.update(productId, cartQuantity + 1);
+           $('#itemQuantityBox').val(newQuantity);
 
 
-        break;
-      default:
-        break;
-      }
-    }
-  }
+         break;
+       case 'minusCart':
+         newQuantity = cartQuantity - 1
+         cart.update(productId, cartQuantity - 1)
+  $('#itemQuantityBox').val(newQuantity);
+         break;
+       default:
+         break;
+       }
+     }
+   }
 
 
 
-    function openCartView() {
-      document.getElementById("mysidecart").style.width = "80%";
-    }
+     function openCartView() {
+       document.getElementById("mysidecart").style.width = "80%";
+     }
 
-    function closeCartView() {
-      document.getElementById("mysidecart").style.width = "0";
-    }
+     function closeCartView() {
+       document.getElementById("mysidecart").style.width = "0";
+     }
 </script>
 
 <!--
