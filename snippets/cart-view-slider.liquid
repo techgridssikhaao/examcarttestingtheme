@@ -86,8 +86,6 @@
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                     <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
                     <p class="cart-price">{{ item.line_price | money }}</p>
-                  </td>
-                  <td class="text-center cart-close">
                     <button
                       type="button"
                       onclick="cart.remove('{{ item.variant_id }}');"
@@ -97,6 +95,7 @@
                       <i class="icon-delete"></i>
                     </button>
                   </td>
+                  <td class="text-center cart-close"></td>
                 </tr>
               {% endfor %}
             {% endif %}
