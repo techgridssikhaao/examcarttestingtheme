@@ -612,6 +612,7 @@
         "blocks": {
           "1504781997946-0": {
             "type": "box",
+            "disabled": true,
             "settings": {
               "feature_service_icon": "fa-shipping-fast",
               "feature_service_title": "Free Shipping Item",
@@ -620,6 +621,7 @@
           },
           "1533603164812": {
             "type": "box",
+            "disabled": true,
             "settings": {
               "feature_service_icon": "fa-redo",
               "feature_service_title": "Money Back Guarantee",
@@ -628,6 +630,7 @@
           },
           "1504781997946-1": {
             "type": "box",
+            "disabled": true,
             "settings": {
               "feature_service_icon": "fa-money-bill-wave",
               "feature_service_title": "Cash on Delivery",
@@ -1244,6 +1247,27 @@
           "items": 5,
           "fullwidth": false
         }
+      },
+      "9e9030a4-d660-46e8-b33b-7869eded673d": {
+        "type": "collection-tab",
+        "settings": {
+          "products_tab_layout": "products-tab1",
+          "heading": "",
+          "fullwidth": false,
+          "products_tab_collection1": "all-books",
+          "products_tab_collection2": "",
+          "products_tab_collection3": "",
+          "products_tab_collection4": "",
+          "products_tab_collection5": "",
+          "listing_rows": 1,
+          "no_of_products": 3,
+          "products_tab_count": 8,
+          "product_grid_img_carousel": true,
+          "link1": "",
+          "link2": "",
+          "background": false,
+          "top_margin": false
+        }
       }
     },
     "content_for_index": [
@@ -1253,6 +1277,7 @@
       "1543060429425",
       "1554206168271",
       "1552563746975",
+      "9e9030a4-d660-46e8-b33b-7869eded673d",
       "1552581993254",
       "1544630300721",
       "1543237151862",
