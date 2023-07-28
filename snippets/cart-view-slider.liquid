@@ -163,15 +163,16 @@
       case 'addCart':
         newQuantity = cartQuantity + 1
         cart.update(productId, cartQuantity + 1);
-          $('#itemQuantityBox').val(newQuantity);
+          $('#itemQuantityBox').html(newQuantity);
 
 
         break;
       case 'minusCart':
         newQuantity = cartQuantity - 1
         cart.update(productId, cartQuantity - 1)
-        #getCartQuantity(productId)
-        break;
+           $('#itemQuantityBox').html(newQuantity);
+
+               break;
       default:
         break;
       }
