@@ -152,34 +152,32 @@
 </div>
 
 <script>
-  function updateCartCount(ref)
-  {
-    console.log(ref)
-    let productId = ref.getAttribute('product-id')
-    let actionType = ref.getAttribute('id')
-    cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
+ function updateCartCount(ref) {
+  console.log(ref);
+  let productId = ref.getAttribute('product-id');
+  let actionType = ref.getAttribute('id').split('-')[0]; // Get 'addCart' or 'minusCart'
+  let cartQuantity = parseInt(ref.getAttribute('cart-quantity'));
 
-    if (actionType !=null) {
-      switch (actionType) {
+  if (actionType != null) {
+    switch (actionType) {
       case 'addCart':
         cart.update(productId, cartQuantity + 1);
-          $('#itemQuantityBox').html(cartQuantity + 1);
-          ref.removeAttribute('cart-quantity')
-          ref.setAttribute('cart-quantity', cartQuantity + 1)
-
+        $('#itemQuantityBox-' + productId).html(cartQuantity + 1);
+        ref.removeAttribute('cart-quantity');
+        ref.setAttribute('cart-quantity', cartQuantity + 1);
         break;
       case 'minusCart':
         cart.update(productId, cartQuantity - 1);
-        $('#itemQuantityBox').html(cartQuantity - 1);
+        $('#itemQuantityBox-' + productId).html(cartQuantity - 1);
         ref.removeAttribute('cart-quantity');
         ref.setAttribute('cart-quantity', cartQuantity - 1);
         break;
-
       default:
         break;
-      }
     }
   }
+}
+
 
 
     function openCartView() {
