@@ -88,8 +88,9 @@
                     <p class="cart-price">{{ item.line_price | money }}</p>
 
                     <div></div>
-                    <button style="border: none;">-</button><span style="padding: 0 .5em;">1</span
-                    ><button style="border: none;">+</button>
+                    <button style="border: none; padding: 0px border-radius: 2px; color: gray;">-</button
+                    ><span style="padding: 0 .5em;">1</span
+                    ><button style="border: none; padding: 0px border-radius: 2px; color: gray;">+</button>
                     <button
                       type="button"
                       onclick="cart.remove('{{ item.variant_id }}');"
