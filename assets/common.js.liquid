@@ -519,6 +519,31 @@ var cart = {
       }
     });
   }
+  'update': function(Id, count) {
+    $.ajax({
+      url: '/cart/update.js',
+      type: 'post',
+      data: 'updates['+Id+']= '+count+'',
+      dataType: 'json',
+      beforeSend: function() {
+        //$('#cart > button').button('loading');
+      },
+      success: function(json) {
+        $('#cart > button').button('reset');
+
+        if (getURLVar('route') == '/cart' || getURLVar('route') == '/checkout') {
+          location = '/cart';
+        } else {
+          setTimeout(function () {
+            load(json);
+          }, 5);       
+        }
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        alert(xhr.responseText);
+      }
+    });
+  }
 }
 
 function load(cart){
