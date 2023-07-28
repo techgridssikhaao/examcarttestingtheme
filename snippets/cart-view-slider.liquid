@@ -88,18 +88,9 @@
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                      {% include 'custom-product-page-count' %}
                     <p class="cart-price">{{ item.line_price | money }}</p>
-                    <p class="cart-price">{{ item.product.price | money }}</p>
-                    <p class="cart-price">{{ item.product.price_max | money }}</p>
-                    <p class="cart-price">{{ item.product.price_min | money }}</p>
-                   <button
-                      type="button"
-                      onclick="removeItem(this, {{ item.variant_id }});"
-                      title="Remove"
-                      class="btn btn-danger btn-xs"
-                    >
-                      delete
-                    </button>
-                    <div></div>
+                   
+                   
+                    <div>
                     <button
                       product-id="{{ item.variant_id }}"
                       cart-quantity="{{ item.quantity  }}"
@@ -120,7 +111,15 @@
                     >
                       +
                     </button>
-                   
+                    </div>
+                    <button
+                      type="button"
+                      onclick="removeItem(this, {{ item.variant_id }});"
+                      title="Remove"
+                      class="btn btn-danger btn-xs"
+                    >
+                      delete
+                    </button>
                   </td>
                   <td class="text-center cart-close"></td>
                 </tr>
