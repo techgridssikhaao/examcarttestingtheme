@@ -54,102 +54,102 @@
     padding-bottom: 1em;
   }
 </style>
-<div id="cart-total">
-  <div id="mysidecart" class="sidecart">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeCartView()">&times;</a>
-    <div class="big-button-container">
-      <button class="proceed-to-buy-btn">Proceed to Buy (4 items)</button>
-    </div>
-    <h2 class="shopping-cart-heading">Shopping Cart</h2>
-    <a href="javascript:void(0)" class="closebtn" onclick="closeCartView()">&times;</a>
-    <div class="shopping-cart-items">
-      <ul>
-        <li class="has-scroll">
-          <table class="table">
-            <tbody>
-              {% if cart.item_count < 1 %}
-                <p class="text-center cart-empty">{{ 'cart.general.no_items' | t }}</p>
-              {% else %}
-                {% for item in cart.items %}
-                  <tr>
-                    <td class="text-center">
-                      <a href="{{ item.url }}">
-                        <img
-                          style="width: 18em;"
-                          class="cart-image"
-                          src="{{ item | img_url: '100x100' }}"
-                          alt="{{ item.title | escape }}"
-                          title="{{ item.title | escape }}"
-                        >
-                      </a>
-                    </td>
-                    <td class="text-left info-item">
-                      <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
-                      <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
-                      <p class="cart-price">{{ item.line_price | money }}</p>
 
-                      <div></div>
-                      <button
-                        product-id="{{ item.variant_id }}"
-                        cart-quantity="{{ item.quantity  }}"
-                        id="minusCart"
-                        type="button"
-                        onclick="updateCartCount(this)"
-                        style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+<div id="mysidecart" class="sidecart">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeCartView()">&times;</a>
+  <div class="big-button-container">
+    <button class="proceed-to-buy-btn">Proceed to Buy (4 items)</button>
+  </div>
+  <h2 class="shopping-cart-heading">Shopping Cart</h2>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeCartView()">&times;</a>
+  <div class="shopping-cart-items">
+    <ul>
+      <li class="has-scroll">
+        <table class="table">
+          <tbody>
+            {% if cart.item_count < 1 %}
+              <p class="text-center cart-empty">{{ 'cart.general.no_items' | t }}</p>
+            {% else %}
+              {% for item in cart.items %}
+                <tr>
+                  <td class="text-center">
+                    <a href="{{ item.url }}">
+                      <img
+                        style="width: 18em;"
+                        class="cart-image"
+                        src="{{ item | img_url: '100x100' }}"
+                        alt="{{ item.title | escape }}"
+                        title="{{ item.title | escape }}"
                       >
-                        -</button
-                      ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
-                      ><button
-                        product-id="{{ item.variant_id }}"
-                        cart-quantity="{{ item.quantity  }}"
-                        type="button"
-                        id="addCart"
-                        onclick="updateCartCount(this)"
-                        style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
-                      >
-                        +
-                      </button>
-                      <button
-                        type="button"
-                        onclick="cart.remove('{{ item.variant_id }}');"
-                        title="Remove"
-                        class="btn btn-danger btn-xs"
-                      >
-                        delete
-                      </button>
-                    </td>
-                    <td class="text-center cart-close"></td>
-                  </tr>
-                {% endfor %}
-              {% endif %}
-            </tbody>
-          </table>
-        </li>
-        <li
-          {% if cart.item_count < 1 %}
-            class="hide"
-          {% endif %}
-        >
-          <table class="table">
-            <tr>
-              <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
-              <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
-            </tr>
-          </table>
-          <p class="text-center cart-button">
-            {% comment %}
-              <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
-              <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
-            {% endcomment %}
+                    </a>
+                  </td>
+                  <td class="text-left info-item">
+                    <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
+                    <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
+                    <p class="cart-price">{{ item.line_price | money }}</p>
 
-            <button onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-            <button onclick="checkOut()">{{ 'cart.general.checkout' | t }}</button>
-          </p>
-        </li>
-      </ul>
-    </div>
+                    <div></div>
+                    <button
+                      product-id="{{ item.variant_id }}"
+                      cart-quantity="{{ item.quantity  }}"
+                      id="minusCart"
+                      type="button"
+                      onclick="updateCartCount(this)"
+                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                    >
+                      -</button
+                    ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
+                    ><button
+                      product-id="{{ item.variant_id }}"
+                      cart-quantity="{{ item.quantity  }}"
+                      type="button"
+                      id="addCart"
+                      onclick="updateCartCount(this)"
+                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      onclick="cart.remove('{{ item.variant_id }}');"
+                      title="Remove"
+                      class="btn btn-danger btn-xs"
+                    >
+                      delete
+                    </button>
+                  </td>
+                  <td class="text-center cart-close"></td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      </li>
+      <li
+        {% if cart.item_count < 1 %}
+          class="hide"
+        {% endif %}
+      >
+        <table class="table">
+          <tr>
+            <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
+            <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
+          </tr>
+        </table>
+        <p class="text-center cart-button">
+          {% comment %}
+            <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
+            <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+          {% endcomment %}
+
+          <button onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
+          <button onclick="checkOut()">{{ 'cart.general.checkout' | t }}</button>
+        </p>
+      </li>
+    </ul>
   </div>
 </div>
+
 <script>
   function updateCartCount(ref)
   {
@@ -182,11 +182,11 @@
 
 
     function openCartView() {
-      document.getElementById("cart-total").style.width = "80%";
+      document.getElementById("mysidecart").style.width = "80%";
     }
 
     function closeCartView() {
-      document.getElementById("cart-total").style.width = "0";
+      document.getElementById("mysidecart").style.width = "0";
     }
 </script>
 
