@@ -1,0 +1,131 @@
+<style>
+
+
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+.container{
+  max-width: 500px;
+  border: 1px solid gray;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
+}
+
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 2rem;
+    margin-left: 2em;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+.open-text{
+  display: block;
+  width: 22%;
+  margin-left: auto;
+}
+
+.proceed-to-buy-btn{
+  display: block;
+  background-color: #FFDE59;
+  margin: 1em auto;
+  border: none;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.big-button-container{
+  border-bottom: 2px solid gray ;
+  padding: .5em;
+}
+.shopping-cart-heading{
+  text-align: center;
+}
+
+.shopping-cart-items{
+  display: flex;
+  gap: 1em;
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+}
+  
+
+  
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="big-button-container">
+        <button class="proceed-to-buy-btn">Proceed to Buy (4 items)</button>
+      </div>
+      <h2 class="shopping-cart-heading">Shopping Cart</h2>
+      <div class="shopping-cart-items">
+        <img
+          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9vayUyMGNvdmVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+          alt="book-image" width="30%" height="150em">
+        <div>
+          <p style="margin: 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, labore!</p>
+          <div style="margin: .5em 0;">
+            <span style="color: green; margin-right: .5em;">Book code:</span><span style="color: gray;margin-right: .4em;">CB437 |</span><span
+              style="color: green;">Pages:</span><span style="color: gray">148</span>
+          </div>
+          <div style="margin: .5em 0">
+            <span style="color: green; margin-right: .5em;">Rs. 115.00</span>
+            <del style="color: gray; margin-right: .5em;">Rs. 119.00</del>
+            <span style="background-color: red; color: white;">-3%</span>
+          </div>
+          <button style="border: none;">-</button><span style="padding: 0 .5em;">1</span><button style="border: none;">+</button>
+          <button style="margin-left: 3em;">Delete Item</button>
+        </div>
+      </div>
+    </div>
+    <span class="open-text" style="font-size:30px;cursor:pointer;" onclick="openNav()">open &#9776;</span>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "80%";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</body>
+
+</html>
