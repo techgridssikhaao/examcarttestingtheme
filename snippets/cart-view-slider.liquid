@@ -89,7 +89,7 @@
                      {% include 'custom-product-page-count' %}
                     <p class="cart-price">{{ item.line_price | money }}</p>
                    
-                   
+                   <div>
                     <div>
                     <button
                       product-id="{{ item.variant_id }}"
@@ -121,6 +121,7 @@
                     >
                       delete
                     </button>
+                   </div>
                   </td>
                   <td class="text-center cart-close"></td>
                 </tr>
