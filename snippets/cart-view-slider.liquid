@@ -161,17 +161,14 @@
     if (actionType !=null) {
       switch (actionType) {
       case 'addCart':
-        newQuantity = cartQuantity + 1
         cart.update(productId, cartQuantity + 1);
-          $('#itemQuantityBox').html(newQuantity);
+          $('#itemQuantityBox').html(cartQuantity + 1);
 
 
         break;
       case 'minusCart':
-        newQuantity = cartQuantity - 1
         cart.update(productId, cartQuantity - 1)
-           $('#itemQuantityBox').html(newQuantity);
-
+           $('#itemQuantityBox').html( cartQuantity - 1);
                break;
       default:
         break;
