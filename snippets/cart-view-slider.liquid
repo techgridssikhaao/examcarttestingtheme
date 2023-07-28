@@ -90,7 +90,9 @@
                     <p class="cart-price">{{ item.line_price | money }}</p>
                    
                    
-                    <div>
+                   
+                  </td>
+                   <div>
                     <button
                       product-id="{{ item.variant_id }}"
                       cart-quantity="{{ item.quantity  }}"
@@ -120,7 +122,6 @@
                     >
                       delete
                     </button>
-                  </td>
                   <td class="text-center cart-close"></td>
                 </tr>
               {% endfor %}
