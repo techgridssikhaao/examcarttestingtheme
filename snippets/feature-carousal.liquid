@@ -59,7 +59,7 @@
   $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       $(".tab-container-{{section.id}}").owlCarousel({
-      items: 2,
+      items: {{ section.settings.no_of_products }},
       loop:  false ,
       margin:  0 ,
       nav:  false ,
@@ -85,13 +85,6 @@
       },
       992:{
       items: 4
-      },
-      1200:{
-      items: {{ section.settings.no_of_products }}
-      },
-      1600:{
-      items: {{ section.settings.no_of_products }}
-      }
       },
       onInitialized: function() {
       var count = $(".tab-container-{{section.id}} .owl-item.active").length;
