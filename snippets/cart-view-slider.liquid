@@ -150,43 +150,44 @@
 </div>
 
 <script>
-  var cartQuantity;
-   function updateCartCount(ref)
-   {
-     console.log(ref)
-     let productId = ref.getAttribute('product-id')
-     let actionType = ref.getAttribute('id')
-     cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
 
-     if (actionType !=null) {
-       switch (actionType) {
-       case 'addCart':
-         newQuantity = cartQuantity + 1
-         cart.update(productId, cartQuantity + 1);
-         document.getElementByID("itemQuantityBox").innerHTML = newQuantity
+  function updateCartCount(ref)
+  {
+    console.log(ref)
+    let productId = ref.getAttribute('product-id')
+    let actionType = ref.getAttribute('id')
+    cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
 
-         break;
-       case 'minusCart':
-         newQuantity = cartQuantity - 1
-         cart.update(productId, cartQuantity - 1)
-         document.getElementByID("itemQuantityBox").innerHTML = newQuantity
-
-         break;
-       default:
-         break;
-       }
-     }
-   }
+    if (actionType !=null) {
+      switch (actionType) {
+      case 'addCart':
+        newQuantity = cartQuantity + 1
+        cart.update(productId, cartQuantity + 1);
+          $('#itemQuantityBox').value = newQuantity;
 
 
+        break;
+      case 'minusCart':
+        newQuantity = cartQuantity - 1
+        cart.update(productId, cartQuantity - 1)
 
-     function openCartView() {
-       document.getElementById("mysidecart").style.width = "80%";
-     }
 
-     function closeCartView() {
-       document.getElementById("mysidecart").style.width = "0";
-     }
+        break;
+      default:
+        break;
+      }
+    }
+  }
+
+
+
+    function openCartView() {
+      document.getElementById("mysidecart").style.width = "80%";
+    }
+
+    function closeCartView() {
+      document.getElementById("mysidecart").style.width = "0";
+    }
 </script>
 
 <!--
