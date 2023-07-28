@@ -20,13 +20,9 @@
 <section class="row-products">
   <p>iehriuewirye2ifiwefuygrewuguwgfuywgufygewufuwefuifbdsauhbcuwdfuw</p>
   <div class="product-row">
-    {% for product in collections.first %}
-      <div class="product-item">
-        <a href="{{ product.url }}">
-          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-          <h3>{{ product.title }}</h3>
-          <p>{{ product.price | money }}</p>
-        </a>
+    {% for collection in collections %}
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        {% include 'collection-grid-item' %}
       </div>
     {% endfor %}
   </div>
