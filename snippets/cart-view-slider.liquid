@@ -86,8 +86,9 @@
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                     <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
                     <p class="cart-price">{{ item.line_price | money }}</p>
-                    <span
-                      ><button
+
+                    <div>
+                      <button
                         type="button"
                         onclick="cart.remove('{{ item.variant_id }}');"
                         title="Remove"
@@ -95,7 +96,10 @@
                       >
                         delete
                       </button>
-                    </span>
+                    </div>
+                    <button style="border: none;">-</button><span style="padding: 0 .5em;">1</span
+                    ><button style="border: none;">+</button>
+                    <button style="margin-left: 3em;">Delete Item</button>
                   </td>
                   <td class="text-center cart-close"></td>
                 </tr>
