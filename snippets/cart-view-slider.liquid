@@ -110,7 +110,7 @@
                     </button>
                     <button
                       type="button"
-                      onclick="cart.remove({{ item.variant_id }});"
+                      onclick="removeItem(this, {{ item.variant_id }});"
                       title="Remove"
                       class="btn btn-danger btn-xs"
                     >
@@ -150,41 +150,50 @@
 </div>
 
 <script>
- function updateCartCount(ref) {
-    console.log(ref)
-    let productId = ref.getAttribute('product-id')
-    let actionType = ref.getAttribute('id')
-    let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
-    let newQuantity = cartQuantity;
-    
-    if (actionType !=null) {
-      switch (actionType) {
-        case 'addCart':
-          newQuantity = cartQuantity + 1;
-          break;
-        case 'minusCart':
-          newQuantity = cartQuantity - 1;
-          break;
-        default:
-          break;
-      }
-    }
-    
-    cart.update(productId, newQuantity);
-    $('#itemQuantityBox').html(newQuantity);
-    
-    // Updates the 'cart-quantity' attribute for both buttons
-    $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
+  function removeItem(ref, variantId) {
+ 
+  cart.remove(variantId);
+
+  let row = ref.closest('tr');
+  
+  row.remove();
 }
 
+   function updateCartCount(ref) {
+      console.log(ref)
+      let productId = ref.getAttribute('product-id')
+      let actionType = ref.getAttribute('id')
+      let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
+      let newQuantity = cartQuantity;
 
-    function openCartView() {
-      document.getElementById("mysidecart").style.width = "80%";
-    }
+      if (actionType !=null) {
+        switch (actionType) {
+          case 'addCart':
+            newQuantity = cartQuantity + 1;
+            break;
+          case 'minusCart':
+            newQuantity = cartQuantity - 1;
+            break;
+          default:
+            break;
+        }
+      }
 
-    function closeCartView() {
-      document.getElementById("mysidecart").style.width = "0";
-    }
+      cart.update(productId, newQuantity);
+      $('#itemQuantityBox').html(newQuantity);
+
+      // Updates the 'cart-quantity' attribute for both buttons
+      $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
+  }
+
+
+      function openCartView() {
+        document.getElementById("mysidecart").style.width = "80%";
+      }
+
+      function closeCartView() {
+        document.getElementById("mysidecart").style.width = "0";
+      }
 </script>
 
 <!--
