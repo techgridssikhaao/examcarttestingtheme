@@ -90,9 +90,7 @@
                     <p class="cart-price">{{ item.line_price | money }}</p>
                    
                    
-                   
-                  </td>
-                   <div>
+                    <div>
                     <button
                       product-id="{{ item.variant_id }}"
                       cart-quantity="{{ item.quantity  }}"
@@ -115,6 +113,7 @@
                     </button>
                     </div>
                     <button
+                      style="padding: 0px;"
                       type="button"
                       onclick="removeItem(this, {{ item.variant_id }});"
                       title="Remove"
@@ -122,6 +121,7 @@
                     >
                       delete
                     </button>
+                  </td>
                   <td class="text-center cart-close"></td>
                 </tr>
               {% endfor %}
