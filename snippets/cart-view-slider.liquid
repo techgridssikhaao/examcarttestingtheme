@@ -88,28 +88,26 @@
                     <p class="cart-price">{{ item.line_price | money }}</p>
 
                     <div></div>
-                   <button
-  product-id="{{ item.variant_id }}"
-  cart-quantity="{{ item.quantity }}"
-  id="minusCart-{{ item.variant_id }}"
-  type="button"
-  onclick="updateCartCount(this)"
-  style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
->
-  -
-</button>
-<span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">{{ item.quantity }}</span>
-<button
-  product-id="{{ item.variant_id }}"
-  cart-quantity="{{ item.quantity }}"
-  type="button"
-  id="addCart-{{ item.variant_id }}"
-  onclick="updateCartCount(this)"
-  style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
->
-  +
-</button>
-
+                    <button
+                      product-id="{{ item.variant_id }}"
+                      cart-quantity="{{ item.quantity  }}"
+                      id="minusCart"
+                      type="button"
+                      onclick="updateCartCount(this)"
+                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                    >
+                      -</button
+                    ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
+                    ><button
+                      product-id="{{ item.variant_id }}"
+                      cart-quantity="{{ item.quantity  }}"
+                      type="button"
+                      id="addCart"
+                      onclick="updateCartCount(this)"
+                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                    >
+                      +
+                    </button>
                     <button
                       type="button"
                       onclick="cart.remove('{{ item.variant_id }}');"
@@ -153,31 +151,31 @@
 
 <script>
  function updateCartCount(ref) {
-  console.log(ref);
-  let productId = ref.getAttribute('product-id');
-  let actionType = ref.getAttribute('id').split('-')[0]; // Get 'addCart' or 'minusCart'
-  let cartQuantity = parseInt(ref.getAttribute('cart-quantity'));
-
-  if (actionType != null) {
-    switch (actionType) {
-      case 'addCart':
-        cart.update(productId, cartQuantity + 1);
-        $('#itemQuantityBox-' + productId).html(cartQuantity + 1);
-        ref.removeAttribute('cart-quantity');
-        ref.setAttribute('cart-quantity', cartQuantity + 1);
-        break;
-      case 'minusCart':
-        cart.update(productId, cartQuantity - 1);
-        $('#itemQuantityBox-' + productId).html(cartQuantity - 1);
-        ref.removeAttribute('cart-quantity');
-        ref.setAttribute('cart-quantity', cartQuantity - 1);
-        break;
-      default:
-        break;
+    console.log(ref)
+    let productId = ref.getAttribute('product-id')
+    let actionType = ref.getAttribute('id')
+    let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
+    let newQuantity = cartQuantity;
+    
+    if (actionType !=null) {
+      switch (actionType) {
+        case 'addCart':
+          newQuantity = cartQuantity + 1;
+          break;
+        case 'minusCart':
+          newQuantity = cartQuantity - 1;
+          break;
+        default:
+          break;
+      }
     }
-  }
+    
+    cart.update(productId, newQuantity);
+    $('#itemQuantityBox').html(newQuantity);
+    
+    // Updates the 'cart-quantity' attribute for both buttons
+    $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
 }
-
 
 
     function openCartView() {
