@@ -87,19 +87,17 @@
                     <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
                     <p class="cart-price">{{ item.line_price | money }}</p>
 
-                    <div>
-                      <button
-                        type="button"
-                        onclick="cart.remove('{{ item.variant_id }}');"
-                        title="Remove"
-                        class="btn btn-danger btn-xs"
-                      >
-                        delete
-                      </button>
-                    </div>
+                    <div></div>
                     <button style="border: none;">-</button><span style="padding: 0 .5em;">1</span
                     ><button style="border: none;">+</button>
-                    <button style="margin-left: 3em;">Delete Item</button>
+                    <button
+                      type="button"
+                      onclick="cart.remove('{{ item.variant_id }}');"
+                      title="Remove"
+                      class="btn btn-danger btn-xs"
+                    >
+                      delete
+                    </button>
                   </td>
                   <td class="text-center cart-close"></td>
                 </tr>
