@@ -1,22 +1,10 @@
 <style>
-  body {
-      font-family: "Lato", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
 
 
-  .container{
-    max-width: 500px;
-    border: 1px solid gray;
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
-    height: 100vh;
-  }
 
 
-    .sidenav {
+
+    .sidecart {
       height: 100%;
       width: 0;
       position: absolute;
@@ -28,7 +16,7 @@
       transition: 0.5s;
     }
 
-    .sidenav .closebtn {
+    .sidecart .closebtn {
       position: absolute;
       top: 0;
       right: 25px;
@@ -71,7 +59,7 @@
   }
 </style>
 
-<div id="mySidenav" class="sidenav">
+<div id="mysidecart" class="sidecart">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="big-button-container">
     <button class="proceed-to-buy-btn">Proceed to Buy (4 items)</button>
@@ -173,11 +161,11 @@
 
 
      function openNav() {
-       document.getElementById("mySidenav").style.width = "80%";
+       document.getElementById("mysidecart").style.width = "80%";
      }
 
      function closeNav() {
-       document.getElementById("mySidenav").style.width = "0";
+       document.getElementById("mysidecart").style.width = "0";
      }
 </script>
 
