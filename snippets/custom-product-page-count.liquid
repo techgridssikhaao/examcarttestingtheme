@@ -1,6 +1,6 @@
 <style></style>
 {% assign pages = '' %}
-{% for tag in item.product.tags %}
+{% for tag in product.tags %}
   {% if tag contains 'pages' %}
     {% assign pages = tag | replace: 'pages\', '' %}
   {% endif %}
