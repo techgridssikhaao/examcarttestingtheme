@@ -1253,7 +1253,7 @@
         "settings": {
           "products_tab_layout": "products-tab4",
           "heading": "",
-          "fullwidth": false,
+          "fullwidth": true,
           "products_tab_collection1": "top-rated-upsc-ias-prelims-books",
           "products_tab_collection2": "",
           "products_tab_collection3": "",
