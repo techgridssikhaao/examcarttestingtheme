@@ -163,10 +163,11 @@
       case 'addCart':
         cart.update(productId, cartQuantity + 1);
           $('#itemQuantityBox').html(cartQuantity + 1);
-
+          ref.setAttribute('cart-quantity', cartQuantity+1)
 
         break;
       case 'minusCart':
+          ref.setAttribute('cart-quantity', cartQuantity+1)
         cart.update(productId, cartQuantity - 1)
            $('#itemQuantityBox').html( cartQuantity - 1);
                break;
