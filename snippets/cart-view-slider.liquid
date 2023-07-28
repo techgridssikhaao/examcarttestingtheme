@@ -161,13 +161,13 @@
        case 'addCart':
          newQuantity = cartQuantity + 1
          cart.update(productId, cartQuantity + 1);
-         document.getElementByID("itemQuantityBox").textcontent = newQuantity
+         document.getElementByID("itemQuantityBox").innerHtml = newQuantity
 
          break;
        case 'minusCart':
          newQuantity = cartQuantity - 1
          cart.update(productId, cartQuantity - 1)
-         document.getElementByID("itemQuantityBox").textcontent = newQuantity
+         document.getElementByID("itemQuantityBox").innerHtml = newQuantity
 
          break;
        default:
