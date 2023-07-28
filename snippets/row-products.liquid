@@ -20,7 +20,7 @@
 <section class="row-products">
   <p>iehriuewirye2ifiwefuygrewuguwgfuywgufygewufuwefuifbdsauhbcuwdfuw</p>
   <div class="product-row">
-    {% for product in collections.frontpage.products %}
+    {% for product in collection.products %}
       <div class="product-item">
         <a href="{{ product.url }}">
           <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
