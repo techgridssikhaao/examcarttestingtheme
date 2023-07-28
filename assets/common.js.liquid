@@ -519,11 +519,11 @@ var cart = {
       }
     });
   }
-  'update': function(Id, count) {
+  'update': function(id, count) {
     $.ajax({
       url: '/cart/update.js',
       type: 'post',
-      data: 'updates['+Id+']= '+count+'',
+      data: 'updates['+id+']= '+count+'',
       dataType: 'json',
       beforeSend: function() {
         //$('#cart > button').button('loading');
