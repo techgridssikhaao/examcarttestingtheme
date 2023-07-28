@@ -98,13 +98,16 @@
     let cartQuantity = ref.getAttribute('cart-quantity')
 
     if (actionType !=null) {
-      switch (actionType)
+      switch (actionType) {
       case 'addCart':
         cart.update(productId, cartQuantity + 1);
         break;
       case 'minusCart':
         cart.update(productId, cartQuantity - 1)
         break;
+      default:
+        break;
+      }
     }
   }
 </script>
