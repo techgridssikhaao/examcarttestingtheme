@@ -96,7 +96,7 @@
                       style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
                     >
                       -</button
-                    ><span style="padding: 0.1em 0.5em;">{{ item.quantity }}</span
+                    ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
                     ><button
                       product-id="{{ item.variant_id }}"
                       cart-quantity="{{ item.quantity  }}"
@@ -161,12 +161,14 @@
        case 'addCart':
          newQuantity = cartQuantity + 1
          cart.update(productId, cartQuantity + 1);
-         cartQuantity = newQuantity
+         document.getElementByID("itemQuantityBox").textcontent = newQuantity
+
          break;
        case 'minusCart':
          newQuantity = cartQuantity - 1
          cart.update(productId, cartQuantity - 1)
-         cartQuantity = newQuantity
+         document.getElementByID("itemQuantityBox").textcontent = newQuantity
+
          break;
        default:
          break;
