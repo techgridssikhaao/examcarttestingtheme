@@ -142,8 +142,8 @@
             <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
           {% endcomment %}
 
-          <button onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-          <button onclick="checkOut()">{{ 'cart.general.checkout' | t }}</button>
+          <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
+          <button style=" background-color: red;" onclick="checkOut()">{{ 'cart.general.checkout' | t }}</button>
         </p>
       </li>
     </ul>
@@ -167,9 +167,10 @@
 
         break;
       case 'minusCart':
-          ref.setAttribute('cart-quantity', cartQuantity+1)
+
         cart.update(productId, cartQuantity - 1)
            $('#itemQuantityBox').html( cartQuantity - 1);
+           ref.setAttribute('cart-quantity', cartQuantity-1)
                break;
       default:
         break;
