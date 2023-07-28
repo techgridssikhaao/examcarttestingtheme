@@ -4,7 +4,7 @@
 
   .row-products {
     display: flex;
-    flex-wrap: wrap;
+
   }
 
   .product-item {
@@ -21,7 +21,6 @@
   <p>iehriuewirye2ifiwefuygrewuguwgfuywgufygewufuwefuifbdsauhbcuwdfuw</p>
   <div class="product-row">
     {% for collection in collections %}
-      {{ collection.tags }}
       <div class="row-md-4 row-sm-6 row-xs-12">
         {% include 'collection-grid-item' %}
       </div>
