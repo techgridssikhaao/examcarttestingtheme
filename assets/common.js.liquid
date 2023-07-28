@@ -494,11 +494,11 @@ var cart = {
       }
     });
   },
-  'remove': function(key) {
+  'remove': function(key, count) {
     $.ajax({
       url: '/cart/update.js',
       type: 'post',
-      data: 'updates['+key+']=0',
+      data: 'updates['+key+']='+count,
       dataType: 'json',
       beforeSend: function() {
         //$('#cart > button').button('loading');
