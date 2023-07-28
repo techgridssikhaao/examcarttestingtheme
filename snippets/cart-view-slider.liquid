@@ -88,26 +88,28 @@
                     <p class="cart-price">{{ item.line_price | money }}</p>
 
                     <div></div>
-                    <button
-                      product-id="{{ item.variant_id }}"
-                      cart-quantity="{{ item.quantity  }}"
-                      id="minusCart"
-                      type="button"
-                      onclick="updateCartCount(this)"
-                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
-                    >
-                      -</button
-                    ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
-                    ><button
-                      product-id="{{ item.variant_id }}"
-                      cart-quantity="{{ item.quantity  }}"
-                      type="button"
-                      id="addCart"
-                      onclick="updateCartCount(this)"
-                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
-                    >
-                      +
-                    </button>
+                   <button
+  product-id="{{ item.variant_id }}"
+  cart-quantity="{{ item.quantity }}"
+  id="minusCart-{{ item.variant_id }}"
+  type="button"
+  onclick="updateCartCount(this)"
+  style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+>
+  -
+</button>
+<span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">{{ item.quantity }}</span>
+<button
+  product-id="{{ item.variant_id }}"
+  cart-quantity="{{ item.quantity }}"
+  type="button"
+  id="addCart-{{ item.variant_id }}"
+  onclick="updateCartCount(this)"
+  style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+>
+  +
+</button>
+
                     <button
                       type="button"
                       onclick="cart.remove('{{ item.variant_id }}');"
@@ -178,7 +180,6 @@
       }
     }
   }
-
 
 
     function openCartView() {
