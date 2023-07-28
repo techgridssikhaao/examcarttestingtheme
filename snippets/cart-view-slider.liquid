@@ -95,7 +95,7 @@
     console.log(ref)
     let productId = ref.getAttribute('product-id')
     let actionType = ref.getAttribute('id')
-    let cartQuantity = ref.getAttribute('cart-quantity')
+    let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
 
     if (actionType !=null) {
       switch (actionType) {
