@@ -37,6 +37,8 @@
                       <td class="text-left info-item">
                         <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
                         <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
+                        <button id="addCart" onclick='updateCartCount(this)' product-id = {{item.product.id }} cart-quantity={{ item.quantity }}>+</button>
+                        <button id="minusCart" onclick='updateCartCount(this)' product-id = {{item.product.id }} cart-quantity={{ item.quantity }}>-</button>
                         <p class="cart-price">{{ item.line_price | money }}</p>
                       </td>
                       <td class="text-center cart-close">
@@ -85,3 +87,23 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  function updateCartCount(ref) 
+  {
+    let productId = ref.getAttribute('product-id')
+    let actionType = ref.getAttribute('id')
+    let cartQuantity = ref.getAttribute('cart-quantity')
+
+    if (actionType !=null) {
+      switch (actionType)
+      case 'addCart':
+        cart.update(productId, cartQuantity + 1);
+        break;
+      case 'minusCart':
+        cart.update(productId, cartQuantity - 1)
+        break;
+    }
+  }
+</script>
