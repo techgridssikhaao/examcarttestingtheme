@@ -226,7 +226,7 @@
       {% if template == 'index' %}
         </div>
       {% endif %}
-
+      {% include 'row-products' %}
       <!-- End Content -->
 
       {% include 'quickview' %}
@@ -308,7 +308,6 @@
 
     {% if settings.show_pupup and template == 'index' %}
       {% include 'new-newsletter' %}
-      {% include 'row-products' %}
     {% endif %}
     <script>
       // let idSetTimeOut = ""
