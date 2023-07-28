@@ -150,7 +150,6 @@
 </div>
 
 <script>
-
   function updateCartCount(ref)
   {
     console.log(ref)
@@ -163,7 +162,7 @@
       case 'addCart':
         newQuantity = cartQuantity + 1
         cart.update(productId, cartQuantity + 1);
-          $('#itemQuantityBox').value = newQuantity;
+          $('#itemQuantityBox').val(newQuantity);
 
 
         break;
