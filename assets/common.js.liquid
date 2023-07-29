@@ -558,7 +558,11 @@ function load(cart){
     var price = parseInt(cartItem.price / 100) + "." + cents + cartItem.price % 100;
 
     var cartRemove = 'onclick="cart.remove(\''+cartItem.id+'\')"';
-    var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'> 'text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a><p class='cart-quantity'>" + cartItem.quantity + "&nbsp;×&nbsp;</p><p class='cart-price'><span class='money'>" + price + "</span></p></td><td class='text-center cart-close'><button type='button' "+cartRemove+"' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
+    var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td>" + 
+"<td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a></td><p class='cart-quantity'>" + cartItem.quantity + "&nbsp;×&nbsp;</p><p class='cart-price'><span class='money'>" + price + "</span></p>" + 
+"<td class='text-center cart-close'><button type='button' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
+
+    // var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'> 'text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a><p class='cart-quantity'>" + cartItem.quantity + "&nbsp;×&nbsp;</p><p class='cart-price'><span class='money'>" + price + "</span></p></td><td class='text-center cart-close'><button type='button' "+cartRemove+"' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
     $('#cart .dropdown-menu > li:first-child .table > tbody').append(cartItem);
   });
   if (cart.item_count < 1) {
