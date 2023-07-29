@@ -1,13 +1,18 @@
-<script>
-  function discountTag(){
-   let originalPrice = {{ item.product.compare_at_price }}
-     let newPrice= {{ item.line_price }}
+<div style=" display: flex;">
+  <span style=" color: #62ab00; font-weight: bold;">{{ item.line_price | money }}</span>
+  <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price | money }}</span>
 
-  finalPriceTag= ((originalPrice - newPrice)/originalPrice)*100
-
-
-     }
-    document.querySelector("#discountpriceTag").textContent = discountTag();
-</script>
-
-<p id="discountpriceTag" style=" color: #62ab00; font-weight: bold;"></p>
+  <div class="label-product label_sale" style="font-size: 100%;">
+    <span
+      >-
+      {{-
+        item.product.compare_at_price
+        | minus: item.line_price
+        | times: 100.0
+        | divided_by: item.product.compare_at_price
+        | round
+      -}}
+      %</span
+    >
+  </div>
+</div>
