@@ -59,12 +59,14 @@
 <div id="mysidecart" class="sidecart">
   <div class="big-button-container">
     <a href="/checkout"
-      ><button type="button" class="proceed-to-buy-btn">Proceed to Buy (<span id="totalCartQuantity">{{ cart.item_count }}</span> items)</button></a
+      ><button type="button" class="proceed-to-buy-btn">
+        Proceed to Buy (<span id="totalCartQuantity">{{ cart.item_count }}</span> items)
+      </button></a
     >
   </div>
   <h2 class="shopping-cart-heading">{{ 'cart.general.title' | t }}</h2>
 
-  <div class="shopping-cart-items">
+  <div style=" margin-bottom: 5em;" class="shopping-cart-items">
     <ul>
       <li class="has-scroll">
         <table class="table">
@@ -196,14 +198,14 @@
                   break;
               }
             }
-    
+
             cart.update(productId, newQuantity);
             $("#itemQuantityBox-" + productId).html(newQuantity);
-    
+
             // Updates the 'cart-quantity' attribute for both buttons
             $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
-    
-            
+
+
         }
        }
 
