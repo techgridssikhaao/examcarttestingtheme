@@ -2,9 +2,15 @@
 <div id="checkout-cart" class="container">
   {% include 'breadcrumb' %}
   <div>
-    <div>
+    <div
+      style="
+        display: flex;
+
+        justify-content: space-between;
+      "
+    >
       <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-      <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
+      <button style=" background-color: #ffc000;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
     </div>
     <h1>{{ 'cart.general.title' | t }}</h1>
     <ul>
