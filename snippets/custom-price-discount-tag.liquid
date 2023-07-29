@@ -6,7 +6,7 @@
       margin-bottom: 1em;
   "
 >
-  {% if item.line_price < item.product.compare_at_price %}
+  {% if item.product.price < item.product.compare_at_price %}
     <span style=" color: #62ab00; font-weight: bold;">{{ item.line_price | money }}</span>
     <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price | money }}</span>
 
