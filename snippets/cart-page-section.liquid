@@ -87,7 +87,8 @@
                           style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
                         >
                           -</button
-                        ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
+                        ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">
+                          {{- item.quantity -}}</span
                         ><button
                           product-id="{{ item.variant_id }}"
                           cart-quantity="{{ item.quantity  }}"
