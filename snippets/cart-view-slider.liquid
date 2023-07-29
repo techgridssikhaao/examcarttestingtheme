@@ -166,12 +166,12 @@
 </div>
 
 <script>
-    function removeItem(ref, variantId) {
-    let productCartQuantity = ref
-      
+    function removeItem(ref, variantId)
+    let totalCartQuantity = $('#totalCartQuantity').html()
+    let productQuantity = $("#itemQuantityBox-" + variantId).html();
     cart.remove(variantId);
     
-    let row = ref.closest('tr');
+    let row = ref.closest('tr')
 
     row.remove();
   }
