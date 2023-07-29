@@ -1,10 +1,11 @@
 <style>
     .sidecart {
-      padding-top: 4em;
+      margin-top: 4em;
+      padding-top:0.5em;
       height: 100%;
       width: 0;
       position: fixed;
-      z-index: 25;
+      z-index: 24;
       top: 0;
       right: 0;
       background-color: white;
@@ -32,11 +33,12 @@
 
   .proceed-to-buy-btn{
     display: block;
-    background-color: #FFDE59;
+    background-color: #ffc000;
     margin: 1em auto;
     border: none;
-    padding: 1em;
-    border-radius: 10px;
+    padding: 0.6em 2em;
+    border-radius: 8px;
+    color: black;
   }
 
   .big-button-container{
@@ -45,13 +47,12 @@
   }
   .shopping-cart-heading{
     text-align: center;
+    font-size: 2rem;
   }
 
   .shopping-cart-items{
     display: flex;
-    gap: 1em;
-    border-bottom: 1px solid gray;
-    padding-bottom: 1em;
+       justify-content: center;
   }
 </style>
 
