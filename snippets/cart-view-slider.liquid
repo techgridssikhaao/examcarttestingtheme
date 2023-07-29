@@ -1,11 +1,10 @@
 <style>
     .sidecart {
-      margin-top: 4em;
-      padding-top:0.5em;
+      padding-top: 4em;
       height: 100%;
       width: 0;
       position: fixed;
-      z-index: 24;
+      z-index: 9;
       top: 0;
       right: 0;
       background-color: white;
@@ -33,12 +32,11 @@
 
   .proceed-to-buy-btn{
     display: block;
-    background-color: #ffc000;
+    background-color: #FFDE59;
     margin: 1em auto;
     border: none;
-    padding: 0.6em 2em;
-    border-radius: 8px;
-    color: black;
+    padding: 1em;
+    border-radius: 10px;
   }
 
   .big-button-container{
@@ -47,23 +45,22 @@
   }
   .shopping-cart-heading{
     text-align: center;
-    font-size: 2rem;
   }
 
   .shopping-cart-items{
     display: flex;
-       justify-content: center;
+    gap: 1em;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1em;
   }
 </style>
 
 <div id="mysidecart" class="sidecart">
   <div class="big-button-container">
-    <a href="/checkout"
-      ><button type="button" class="proceed-to-buy-btn">Proceed to Buy ({{ cart.item_count }} items)</button></a
-    >
+    <button class="proceed-to-buy-btn">Proceed to Buy (4 items)</button>
   </div>
   <h2 class="shopping-cart-heading">Shopping Cart</h2>
-
+  <a class="closebtn" onclick="closeCartView()">cros;</a>
   <div class="shopping-cart-items">
     <ul>
       <li class="has-scroll">
@@ -74,10 +71,10 @@
             {% else %}
               {% for item in cart.items %}
                 <tr>
-                  <td class="text-center" style="width: 7em;  ">
+                  <td class="text-center">
                     <a href="{{ item.url }}">
                       <img
-                        style="width: 7em;  "
+                        style="width: 18em;"
                         class="cart-image"
                         src="{{ item | img_url: '100x100' }}"
                         alt="{{ item.title | escape }}"
@@ -87,49 +84,40 @@
                   </td>
                   <td class="text-left info-item">
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
-                    {% include 'custom-cart-view-page-count' %}
-                    {% include 'custom-price-discount-tag' %}
+                    <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
+                    <p class="cart-price">{{ item.line_price | money }}</p>
 
-                    <div
-                      style="
-                         display: flex;
-                         justify-content: space-between;
-                         align-items: center;
-                        margin-right: 2em;
-                      "
+                    <div></div>
+                    <button
+                      product-id="{{ item.variant_id }}"
+                      cart-quantity="{{ item.quantity  }}"
+                      id="minusCart"
+                      type="button"
+                      onclick="updateCartCount(this)"
+                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
                     >
-                      <div>
-                        <button
-                          product-id="{{ item.variant_id }}"
-                          cart-quantity="{{ item.quantity  }}"
-                          id="minusCart"
-                          type="button"
-                          onclick="updateCartCount(this)"
-                          style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
-                        >
-                          -</button
-                        ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox">{{ item.quantity }}</span
-                        ><button
-                          product-id="{{ item.variant_id }}"
-                          cart-quantity="{{ item.quantity  }}"
-                          type="button"
-                          id="addCart"
-                          onclick="updateCartCount(this)"
-                          style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
-                        >
-                          +
-                        </button>
-                      </div>
-                      <button
-                        style="padding: 0.1em 0.5em;border: 1px solid black; border-radius: 2px; background-color: #e7e7e7; color: black;  "
-                        type="button"
-                        onclick="removeItem(this, {{ item.variant_id }});"
-                        title="Remove"
-                      >
-                        Delete item
-                      </button>
-                    </div>
+                      -</button
+                    ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">{{ item.quantity }}</span
+                    ><button
+                      product-id="{{ item.variant_id }}"
+                      cart-quantity="{{ item.quantity  }}"
+                      type="button"
+                      id="addCart"
+                      onclick="updateCartCount(this)"
+                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      onclick="removeItem(this, {{ item.variant_id }});"
+                      title="Remove"
+                      class="btn btn-danger btn-xs"
+                    >
+                      delete
+                    </button>
                   </td>
+                  <td class="text-center cart-close"></td>
                 </tr>
               {% endfor %}
             {% endif %}
@@ -141,79 +129,188 @@
           class="hide"
         {% endif %}
       >
-        {% comment %}
-          <table class="table">
-            <tr>
-              <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
-              <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
-            </tr>
-          </table>
-          <p class="text-center cart-button">
+        <table class="table">
+          <tr>
+            <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
+            <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
+          </tr>
+        </table>
+        <p class="text-center cart-button">
+          {% comment %}
+            <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
+            <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+          {% endcomment %}
 
-              <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
-              <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
-
-            <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-            <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
-          </p>
-        {% endcomment %}
+          <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
+          <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
+        </p>
       </li>
     </ul>
-  </div>
-  <div
-    style="
-      margin: 1.5em auto;
-      display: grid;
-             margin-bottom: 8em;    justify-items: center;
-    "
-  >
-    <button type="button" style=" background-color: red;" onclick="closeCartView()">close</button>
   </div>
 </div>
 
 <script>
-    function removeItem(ref, variantId) {
+  function removeItem(ref, variantId) {
+ 
+  cart.remove(variantId);
 
-    cart.remove(variantId);
+  let row = ref.closest('tr');
+  
+  row.remove();
+}
 
-    let row = ref.closest('tr');
+   function updateCartCount(ref) {
+      console.log(ref)
+      let productId = ref.getAttribute('product-id')
+      let actionType = ref.getAttribute('id')
+      let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
+      let newQuantity = cartQuantity;
 
-    row.remove();
+      if (actionType !=null) {
+        switch (actionType) {
+          case 'addCart':
+            newQuantity = cartQuantity + 1;
+            break;
+          case 'minusCart':
+            newQuantity = cartQuantity - 1;
+            break;
+          default:
+            break;
+        }
+      }
+
+      cart.update(productId, newQuantity);
+     QuantityBoxId = "#itemQuantityBox -" + productId
+      $(QuantityBoxId).html(newQuantity);
+
+      // Updates the 'cart-quantity' attribute for both buttons
+      $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
   }
 
-     function updateCartCount(ref) {
-        console.log(ref)
-        let productId = ref.getAttribute('product-id')
-        let actionType = ref.getAttribute('id')
-        let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
-        let newQuantity = cartQuantity;
 
-        if (actionType !=null) {
-          switch (actionType) {
-            case 'addCart':
-              newQuantity = cartQuantity + 1;
-              break;
-            case 'minusCart':
-              newQuantity = cartQuantity - 1;
-              break;
-            default:
-              break;
-          }
-        }
+      function openCartView() {
+        document.getElementById("mysidecart").style.width = "80%";
+      }
 
-        cart.update(productId, newQuantity);
-        $('#itemQuantityBox').html(newQuantity);
+      function closeCartView() {
+        document.getElementById("mysidecart").style.width = "0";
+      }
+</script>
 
-        // Updates the 'cart-quantity' attribute for both buttons
-        $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
-    }
+<!--
+  <div
+    class="modal fade"
+    id="cart-view-slider"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-slideout modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal sideout small</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="dropdown-menu pull-right">
+            <li class="has-scroll">
+              <table class="table">
+                <tbody>
+                  {% if cart.item_count < 1 %}
+                    <p class="text-center cart-empty">{{ 'cart.general.no_items' | t }}</p>
+                  {% else %}
+                    {% for item in cart.items %}
+                      <tr>
+                        <td class="text-center">
+                          <a href="{{ item.url }}">
+                            <img
+                              class="cart-image"
+                              src="{{ item | img_url: '100x100' }}"
+                              alt="{{ item.title | escape }}"
+                              title="{{ item.title | escape }}"
+                            >
+                          </a>
+                        </td>
+                        <td class="text-left info-item">
+                          <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
+                          <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
+                          <p class="cart-price">{{ item.line_price | money }}</p>
+                        </td>
+                        <td class="text-center cart-close">
+                          <button
+                            type="button"
+                            onclick="cart.remove('{{ item.variant_id }}');"
+                            title="Remove"
+                            class="btn btn-danger btn-xs"
+                          >
+                            <i class="icon-delete"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  {% endif %}
+                </tbody>
+              </table>
+            </li>
+            <li
+              {% if cart.item_count < 1 %}
+                class="hide"
+              {% endif %}
+            >
+              <table class="table">
+                <tr>
+                  <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
+                  <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
+                </tr>
+              </table>
+              <p class="text-center cart-button">
+                {% comment %}
+                  <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
+                  <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+                {% endcomment %}
 
+                <a onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</a>
+                <a onclick="checkOut()">{{ 'cart.general.checkout' | t }}</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
 
-        function openCartView() {
-          document.getElementById("mysidecart").style.width = "90%";
-        }
+<script>
+  // var cartQuantity;
+  // function updateCartCount(ref)
+  // {
+  //   console.log(ref)
+  //   let productId = ref.getAttribute('product-id')
+  //   let actionType = ref.getAttribute('id')
+  //   cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
 
-        function closeCartView() {
-          document.getElementById("mysidecart").style.width = "0";
-        }
+  //   if (actionType !=null) {
+  //     switch (actionType) {
+  //     case 'addCart':
+  //       newQuantity = cartQuantity + 1
+  //       cart.update(productId, cartQuantity + 1);
+  //       cartQuantity = newQuantity
+  //       break;
+  //     case 'minusCart':
+  //       newQuantity = cartQuantity - 1
+  //       cart.update(productId, cartQuantity - 1)
+  //       cartQuantity = newQuantity
+  //       break;
+  //     default:
+  //       break;
+  //     }
+  //   }
+  // }
 </script>
