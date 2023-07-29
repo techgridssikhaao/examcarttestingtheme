@@ -180,8 +180,7 @@
       }
 
       cart.update(productId, newQuantity);
-     QuantityBoxId = "#itemQuantityBox -" + productId
-      $(QuantityBoxId).html(newQuantity);
+      $("#itemQuantityBox -" + productId).html(newQuantity);
 
       // Updates the 'cart-quantity' attribute for both buttons
       $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
