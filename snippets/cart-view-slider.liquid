@@ -167,9 +167,9 @@
 
 <script>
     function removeItem(ref, variantId) {
-
+    let productCartQuantity = ref
     cart.remove(variantId);
-
+    
     let row = ref.closest('tr');
 
     row.remove();
@@ -182,7 +182,7 @@
         let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
         let newQuantity = cartQuantity;
         let totalCartQuantity = ($('#totalCartQuantity').html())
-
+        
         if (newQuantity != 0) {
             if (actionType !=null) {
               switch (actionType) {
@@ -192,7 +192,7 @@
                   break;
                 case 'minusCart':
                   newQuantity = cartQuantity - 1;
-                  $('#totalCartQuantity').html(parseInt(totalCartQuantity) - 1)
+                  $('#totalCartQuantity').html(totalCartQuantity - 1)
                   break;
                 default:
                   break;
