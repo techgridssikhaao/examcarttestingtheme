@@ -531,13 +531,13 @@ var cart = {
       success: function(json) {
         $('#cart > button').button('reset');
 
-        // if (getURLVar('route') == '/cart' || getURLVar('route') == '/checkout') {
-        //   location = '/cart';
-        // } else {
-        //   setTimeout(function () {
-        //     load(json);
-        //   }, 2);       
-        // }
+        if (getURLVar('route') == '/cart' || getURLVar('route') == '/checkout') {
+          location = '/cart';
+        } else {
+          setTimeout(function () {
+            load(json);
+          }, 2);       
+        }
       },
       error: function(xhr, ajaxOptions, thrownError) {
         alert(xhr.responseText);
