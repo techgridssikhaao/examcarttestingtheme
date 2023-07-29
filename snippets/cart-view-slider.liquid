@@ -91,10 +91,7 @@
 
                     <p style=" color: #62ab00; font-weight: bold;">{{ item.line_price | money }}</p>
                     <p style=" color: #62ab00; font-weight: bold;">{{ item.product.compare_at_price | money }}</p>
-                    <p style=" color: #62ab00; font-weight: bold;">
-                      (({{ item.product.compare_at_price }} - {{ item.line_price }}) /
-                      {{ item.product.compare_at_price }}) * 100
-                    </p>
+                    {% include 'custom-price-discount-tag' %}
                     <div
                       style="
                         display: flex;
