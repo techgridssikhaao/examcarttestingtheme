@@ -15,7 +15,7 @@
         >-
         {{-
           item.product.compare_at_price
-          | minus: item.line_price
+          | minus: item.product.price
           | times: 100.0
           | divided_by: item.product.compare_at_price
           | round
