@@ -71,10 +71,10 @@
             {% else %}
               {% for item in cart.items %}
                 <tr>
-                  <td class="text-center">
+                  <td class="text-center" style="width: 7em;  ">
                     <a href="{{ item.url }}">
                       <img
-                        style="width: 18em;"
+                        style="width: 7em;  "
                         class="cart-image"
                         src="{{ item | img_url: '100x100' }}"
                         alt="{{ item.title | escape }}"
@@ -84,40 +84,50 @@
                   </td>
                   <td class="text-left info-item">
                     <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
-                    <p class="cart-quantity">{{ item.quantity }}&nbsp;×&nbsp;</p>
-                    <p class="cart-price">{{ item.line_price | money }}</p>
+                    {% include 'custom-cart-view-page-count' %}
+                    {% include 'custom-price-discount-tag' %}
 
-                    <div></div>
-                    <button
-                      product-id="{{ item.variant_id }}"
-                      cart-quantity="{{ item.quantity  }}"
-                      id="minusCart"
-                      type="button"
-                      onclick="updateCartCount(this)"
-                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                    <div
+                      style="
+                         display: flex;
+                         justify-content: space-between;
+                         align-items: center;
+                        margin-right: 2em;
+                      "
                     >
-                      -</button
-                    ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">{{ item.quantity }}</span
-                    ><button
-                      product-id="{{ item.variant_id }}"
-                      cart-quantity="{{ item.quantity  }}"
-                      type="button"
-                      id="addCart"
-                      onclick="updateCartCount(this)"
-                      style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
-                    >
-                      +
-                    </button>
-                    <button
-                      type="button"
-                      onclick="removeItem(this, {{ item.variant_id }});"
-                      title="Remove"
-                      class="btn btn-danger btn-xs"
-                    >
-                      delete
-                    </button>
+                      <div>
+                        <button
+                          product-id="{{ item.variant_id }}"
+                          cart-quantity="{{ item.quantity  }}"
+                          id="minusCart"
+                          type="button"
+                          onclick="updateCartCount(this)"
+                          style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                        >
+                          -</button
+                        ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">
+                          {{- item.quantity -}}</span
+                        ><button
+                          product-id="{{ item.variant_id }}"
+                          cart-quantity="{{ item.quantity  }}"
+                          type="button"
+                          id="addCart"
+                          onclick="updateCartCount(this)"
+                          style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <button
+                        style="padding: 0.1em 0.5em;border: 1px solid black; border-radius: 2px; background-color: #e7e7e7; color: black;  "
+                        type="button"
+                        onclick="removeItem(this, {{ item.variant_id }});"
+                        title="Remove"
+                      >
+                        Delete item
+                      </button>
+                    </div>
                   </td>
-                  <td class="text-center cart-close"></td>
                 </tr>
               {% endfor %}
             {% endif %}
@@ -129,71 +139,72 @@
           class="hide"
         {% endif %}
       >
-        <table class="table">
-          <tr>
-            <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
-            <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
-          </tr>
-        </table>
-        <p class="text-center cart-button">
-          {% comment %}
-            <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
-            <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
-          {% endcomment %}
+        {% comment %}
+          <table class="table">
+            <tr>
+              <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
+              <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
+            </tr>
+          </table>
+          <p class="text-center cart-button">
 
-          <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-          <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
-        </p>
+              <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
+              <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+
+            <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
+            <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
+          </p>
+        {% endcomment %}
       </li>
     </ul>
   </div>
 </div>
 
 <script>
-  function removeItem(ref, variantId) {
- 
-  cart.remove(variantId);
+    function removeItem(ref, variantId) {
 
-  let row = ref.closest('tr');
-  
-  row.remove();
-}
+    cart.remove(variantId);
 
-   function updateCartCount(ref) {
-      console.log(ref)
-      let productId = ref.getAttribute('product-id')
-      let actionType = ref.getAttribute('id')
-      let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
-      let newQuantity = cartQuantity;
+    let row = ref.closest('tr');
 
-      if (actionType !=null) {
-        switch (actionType) {
-          case 'addCart':
-            newQuantity = cartQuantity + 1;
-            break;
-          case 'minusCart':
-            newQuantity = cartQuantity - 1;
-            break;
-          default:
-            break;
-        }
-      }
-
-      cart.update(productId, newQuantity);
-      $("#itemQuantityBox-" + productId).html(newQuantity);
-
-      // Updates the 'cart-quantity' attribute for both buttons
-      $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
+    row.remove();
   }
 
+     function updateCartCount(ref) {
+        console.log(ref)
+        let productId = ref.getAttribute('product-id')
+        let actionType = ref.getAttribute('id')
+        let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
+        let newQuantity = cartQuantity;
 
-      function openCartView() {
-        document.getElementById("mysidecart").style.width = "80%";
-      }
+        if (actionType !=null) {
+          switch (actionType) {
+            case 'addCart':
+              newQuantity = cartQuantity + 1;
+              break;
+            case 'minusCart':
+              newQuantity = cartQuantity - 1;
+              break;
+            default:
+              break;
+          }
+        }
 
-      function closeCartView() {
-        document.getElementById("mysidecart").style.width = "0";
-      }
+        cart.update(productId, newQuantity);
+        $("#itemQuantityBox-" + productId).html(newQuantity);
+
+        // Updates the 'cart-quantity' attribute for both buttons
+        $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
+    }
+
+
+        function openCartView() {
+          document.getElementById("mysidecart").style.width = "80%";
+        }
+
+        function closeCartView() {
+          document.getElementById("mysidecart").style.width = "0";
+        }
 </script>
 
 <!--
