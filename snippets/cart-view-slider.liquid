@@ -58,7 +58,9 @@
 
 <div id="mysidecart" class="sidecart">
   <div class="big-button-container">
-    <button class="proceed-to-buy-btn">Proceed to Buy (4 items)</button>
+    <a href="/checkout"
+      ><button type="button" class="proceed-to-buy-btn">Proceed to Buy ({{ cart.item_count }} items)</button></a
+    >
   </div>
   <h2 class="shopping-cart-heading">Shopping Cart</h2>
   <a class="closebtn" onclick="closeCartView()">cros;</a>
