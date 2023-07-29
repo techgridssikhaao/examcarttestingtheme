@@ -9,7 +9,7 @@
   {% if item.line_price < item.product.compare_at_price %}
     <span style=" color: #62ab00; font-weight: bold;">{{ item.line_price | money }}</span>
     <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price | money }}</span>
-    <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price_max | money }}</span>
+
     <div class="label-product label_sale" style="">
       <span
         >-
@@ -27,4 +27,5 @@
   {% else %}
     <span style=" color: #62ab00; font-weight: bold;">{{ item.line_price | money }}</span>
   {% endif %}
+  <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price_max | money }}</span>
 </div>
