@@ -2,6 +2,10 @@
 <div id="checkout-cart" class="container">
   {% include 'breadcrumb' %}
   <div>
+    <div>
+      <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
+      <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
+    </div>
     <h1>{{ 'cart.general.title' | t }}</h1>
     <ul>
       <li class="has-scroll">
