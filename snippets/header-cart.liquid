@@ -1,5 +1,11 @@
 <div id="cart" class="btn-group btn-block">
-  <button type="button" data-toggle="dropdown" data-loading-text="" class="btn dropdown-toggle">
+  <button
+    type="button"
+    onclick="openCartView()"
+    data-toggle="dropdown"
+    data-loading-text=""
+    class="btn dropdown-toggle"
+  >
     <span id="cart-total">
       <span class="txt_number" style="font-weight:22">{{ cart.item_count }}</span>
       <span class="txt_items" style="color: white;">{{ 'cart.general.my_cart' | t }} </span>
