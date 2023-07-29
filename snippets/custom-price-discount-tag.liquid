@@ -1,0 +1,13 @@
+<script>
+  function discountTag(){
+   let originalPrice = {{ item.product.compare_at_price }}
+     let newPrice= {{ item.line_price }}
+
+  finalPriceTag= ((originalPrice - newPrice)/originalPrice)*100
+
+
+     }
+    document.querySelector("#discountpriceTag").textContent = discountTag();
+</script>
+
+<p id="discountpriceTag" style=" color: #62ab00; font-weight: bold;"></p>
