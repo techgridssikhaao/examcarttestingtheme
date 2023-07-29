@@ -185,7 +185,7 @@
           switch (actionType) {
             case 'addCart':
               newQuantity = cartQuantity + 1;
-              $('#totalCartQuantity').html(totalCartQuantity + 1)
+              $('#totalCartQuantity').html(parseInt(totalCartQuantity) + 1)
               break;
             case 'minusCart':
               newQuantity = cartQuantity - 1;
