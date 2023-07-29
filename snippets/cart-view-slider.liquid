@@ -13,7 +13,7 @@
       transition: 0.5s;
     }
 
-    .sidecart .closebtn {
+    .sidecart {
       position: absolute;
       top: 0;
       right: 25px;
@@ -62,8 +62,8 @@
       ><button type="button" class="proceed-to-buy-btn">Proceed to Buy ({{ cart.item_count }} items)</button></a
     >
   </div>
-  <h2 class="shopping-cart-heading">Shopping Cart</h2>
-  <a class="closebtn" onclick="closeCartView()">cros;</a>
+  <h2 class="shopping-cart-heading">{{ 'cart.general.title' | t }}</h2>
+
   <div class="shopping-cart-items">
     <ul>
       <li class="has-scroll">
