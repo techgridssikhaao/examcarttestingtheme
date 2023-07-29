@@ -575,8 +575,8 @@ function load(cart){
     $('#cart .dropdown-menu li:not(:first-child):last-child').addClass('show');
   }
   $('#cart > button #cart-total .txt_number').html(cart.item_count);
-  $('#cart > button .total-price').html('<span class=money>'+Shopify.formatMoney(cart.total_price)+'<i class="fas fa-chevron-down"></i></span>');
-  $('#cart-subtotal').html('<span class=money>'+Shopify.formatMoney(cart.total_price)+'</span>');
+  $('#cart > button .total-price').html('<span class=money>'+cart.total_price+'<i class="fas fa-chevron-down"></i></span>');
+  $('#cart-subtotal').html('<span class=money>'+cart.total_price+'</span>');
   {% if settings.show_multiple_currencies %}
   if (Currency.cookie.read() != null) {
     Currency.convertAll(shopCurrency, Currency.cookie.read());
