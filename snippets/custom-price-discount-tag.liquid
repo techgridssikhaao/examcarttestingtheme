@@ -1,4 +1,11 @@
-<div style=" display: flex;">
+<div
+  style="
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  "
+>
   <span style=" color: #62ab00; font-weight: bold;">{{ item.line_price | money }}</span>
   <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price | money }}</span>
 
