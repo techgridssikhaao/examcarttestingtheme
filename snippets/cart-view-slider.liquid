@@ -179,7 +179,7 @@
         let actionType = ref.getAttribute('id')
         let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
         let newQuantity = cartQuantity;
-        let totalCartQuantity = $('#totalCartQuantity').html()
+        let totalCartQuantity = parseInt($('#totalCartQuantity').html())
 
         if (actionType !=null) {
           switch (actionType) {
