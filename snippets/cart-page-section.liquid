@@ -9,8 +9,13 @@
         justify-content: space-between;
       "
     >
+      <a href="/checkout"
+        ><button style=" background-color: green;" type="button" class="proceed-to-buy-btn">
+          Proceed to Buy ({{ cart.item_count }} items)
+        </button></a
+      >
       <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-      <button style=" background-color: #ffc000;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
+      <a> <button style=" background-color: #ffc000;" onclick="closeCartView()">Continue Shopping</button></a>
     </div>
     <h1>{{ 'cart.general.title' | t }}</h1>
     <ul>
