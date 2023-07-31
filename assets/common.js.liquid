@@ -576,6 +576,8 @@ function load(cart){
     $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('hide');
     $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('show');
   }
+
+  {% comment %}
   $('#cart > button #cart-total .txt_number').html(cart.item_count);
   $('#cart > button .total-price').html('<span class=money>'+cart.total_price+'<i class="fas fa-chevron-down"></i></span>');
   $('#cart-subtotal').html('<span class=money>'+cart.total_price+'</span>');
@@ -584,6 +586,7 @@ function load(cart){
     Currency.convertAll(shopCurrency, Currency.cookie.read());
   }
   {% endif %}
+   {% endcomment %}
 }
 
 
