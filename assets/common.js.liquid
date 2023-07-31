@@ -556,12 +556,13 @@ function load(cart) {
     var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
     var cartRemove = 'onclick="cart.remove(\'' + cartItem.id + '\')"';
     var pages = '';
-    for (var i = 0; i < cartItem.tags.length; i++) {
-      if (cartItem.tags[i].indexOf('pages') !== -1) {
-        pages = cartItem.tags[i].replace('pages\\', '');
-        break;
-      }
-    }
+    // for (var i = 0; i < cartItem.tags.length; i++) {
+    //   if (cartItem.tags[i].indexOf('pages') !== -1) {
+    //     pages = cartItem.tags[i].replace('pages\\', '');
+    //     break;
+    //   }
+    // }
+
     
     var bookCodeMarkup = "<span style='color: #8ABD1E; font-weight: bold;'>Book code: </span>" +
                          "<span style='color: #A6A6A6;'> " + cartItem.sku + " |</span>";
