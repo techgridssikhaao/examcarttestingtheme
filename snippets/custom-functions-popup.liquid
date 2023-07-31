@@ -297,9 +297,28 @@
   
   }
 
-  
+ let cartViewkey = true;
  
-  
+  function openCloseCartSlider()
+    {
+             switch(cartViewkey){
+               case true: {
+
+                        openCartView();
+                 cartViewkey = false;
+                 break;
+               }
+
+               case false: {
+
+closeCartView()
+                           cartViewkey = true;
+                  break;
+               }
+             }
+              
+      
+    }
   
     function openCartView() {
           document.getElementById("cartslider").style.width = "80%";
