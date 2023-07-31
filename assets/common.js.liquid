@@ -550,28 +550,30 @@ var cart = {
   }
 }
 
-function load(cart){
+function load(cart) {
   $('#cartslider .cart-menu > li:first-child .table > tbody > tr').remove();
+
   $.each(cart.items, function (index, cartItem) {
-    var line = index + 1;
-    var cents = "";
+    var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
+    var cartRemove = 'onclick="cart.remove(\'' + cartItem.id + '\')"';
 
-    if (cartItem.price % 100 < 10) {
-      cents = "0";
-    }
-    var price = parseInt(cartItem.price / 100) + "." + cents + cartItem.price % 100;
+    var cartItemMarkup = "<tr><td class='text-center' style='width: 7em;'><a href='" + cartItem.url + "'>" +
+                        "<img style='width: 7em;' class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td>" +
+                        "<td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a>" +
+                        // You can include custom snippets here as needed
+                        "<div style='display: flex; justify-content: space-between; align-items: center; margin-right: 2em;'>" +
+                        "<div><button product-id='" + cartItem.variant_id + "' cart-quantity='" + cartItem.quantity + "' id='minusCart' type='button' onclick='updateCartCount(this)' style='border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;'>-</button>" +
+                        "<span style='padding: 0.1em 0.5em;' id='itemQuantityBox-" + cartItem.variant_id + "'>" + cartItem.quantity + "</span>" +
+                        "<button product-id='" + cartItem.variant_id + "' cart-quantity='" + cartItem.quantity + "' type='button' id='addCart' onclick='updateCartCount(this)' style='border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;'>+</button></div>" +
+                        "<button style='padding: 0.1em 0.5em; border: 1px solid black; border-radius: 2px; background-color: #e7e7e7; color: black;' type='button' onclick='removeItem(this, " + cartItem.variant_id + ");' title='Remove'>Delete item</button>" +
+                        "</div></td></tr>";
 
-    var cartRemove = 'onclick="cart.remove(\''+cartItem.id+'\')"';
-    var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td>" + 
-"<td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a></td><p class='cart-quantity'>" + cartItem.quantity + "&nbsp;×&nbsp;</p><p class='cart-price'><span class='money'>" + price + "</span></p>" + 
-"<td class='text-center cart-close'><button type='button' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
-
-    // var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'> 'text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a><p class='cart-quantity'>" + cartItem.quantity + "&nbsp;×&nbsp;</p><p class='cart-price'><span class='money'>" + price + "</span></p></td><td class='text-center cart-close'><button type='button' "+cartRemove+"' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
-    $('#cartslider .cart-menu > li:first-child .table > tbody').append(cartItem);
+    $('#cartslider .cart-menu > li:first-child .table > tbody').append(cartItemMarkup);
   });
+
   if (cart.item_count < 1) {
     $('#cartslider .cart-menu > li:first-child .table > tbody').append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
-                                                                     $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('show');
+    $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('show');
     $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('hide');
   } else {
     $('#cartslider .cart-menu p.cart-empty').remove();
