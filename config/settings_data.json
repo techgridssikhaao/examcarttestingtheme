@@ -1266,8 +1266,11 @@
       },
       "80e69e01-c4b0-4459-a7d7-38a062917af0": {
         "type": "collection",
+        "custom_css": [
+
+        ],
         "settings": {
-          "collection_layout": "feature-carousal2",
+          "collection_layout": "feature-carousal",
           "heading": "all",
           "link": "",
           "collection": "top-rated-books-for-bihar-police",
@@ -1276,7 +1279,7 @@
           "products_tab_count": 8,
           "fullwidth": true,
           "product_grid_img_carousel": false,
-          "background": true,
+          "background": false,
           "top_margin": false
         }
       }
