@@ -1275,13 +1275,13 @@
           "collection_layout": "feature-carousal",
           "heading": "All Books",
           "link": "",
-          "collection": "all-books",
+          "collection": "best-haryana-books",
           "listing_rows": 1,
-          "no_of_products": 4,
+          "no_of_products": 6,
           "products_tab_count": 8,
           "fullwidth": true,
           "product_grid_img_carousel": false,
-          "background": true,
+          "background": false,
           "top_margin": false
         }
       }
