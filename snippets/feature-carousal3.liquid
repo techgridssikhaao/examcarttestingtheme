@@ -58,6 +58,13 @@
   <div class="clearfix"></div>
 </div>
 <script >
+  $(".tab-container-{{section.id}}").owlCarousel({
+  // ... (other settings)
+  animateOut: false,
+  animateIn: false,
+  // ... (other settings)
+});
+
   $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       $(".tab-container-{{section.id}}").owlCarousel({
@@ -70,7 +77,7 @@
       autoplayTimeout:  1000 ,
       autoplayHoverPause: true,
       autoplaySpeed:  1000 ,
-      navSpeed:  100 ,
+      navSpeed:  1000 ,
       dotsSpeed:  1000 ,
       lazyLoad: false,
       responsive:{
