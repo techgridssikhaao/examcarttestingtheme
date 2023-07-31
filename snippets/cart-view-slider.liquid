@@ -166,7 +166,7 @@
 </div>
 
 <script>
-    function removeItem(ref, variantId)
+    function removeItem(ref, variantId){
     let totalCartQuantity = $('#totalCartQuantity').html()
     let productQuantity = $("#itemQuantityBox-" + variantId).html();
     cart.remove(variantId);
