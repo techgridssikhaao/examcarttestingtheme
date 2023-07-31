@@ -91,15 +91,17 @@
           
         </div>
         <!-- caption -->
-        <div>
+        <div style=" display:flex; flex-direction: column;">
           <h4 class="product-name">
               <a href="{{ product.url | within: collection }}">
                 {% if settings.limit_title_words == true %}{{ product.title | truncatewords:settings.limit_title_words_count, "" }}{% else %}{{ product.title }}{% endif %}
               </a>
             </h4> 
+
+              {% include 'price' %}
         </div>
          
-         {% include 'price' %}
+     
       </div>
     </div>
   </div>
