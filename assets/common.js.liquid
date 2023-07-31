@@ -570,14 +570,25 @@ function load(cart) {
     }
     bookCodeMarkup = "<div>" + bookCodeMarkup + "</div>";
 
-    
-
+    var priceMarkup = "";
+    if (cartItem.price < cartItem.compare_at_price) {
+      var discountPercentage = Math.round((cartItem.compare_at_price - cartItem.price) * 100.0 / cartItem.compare_at_price);
+      priceMarkup = "<div style='display: flex; gap: 0.2em; margin-bottom: 1em;'>" +
+                    "<span style='color: #62ab00; font-weight: bold;'>" + (cartItem.price / 100).toFixed(2) + "</span>" +
+                    "<span style='color: gray; text-decoration: line-through;'>" + (cartItem.compare_at_price / 100).toFixed(2) + "</span>" +
+                    "<div class='label-product label_sale' style=''><span>-" + discountPercentage + "%</span></div>" +
+                    "</div>";
+    } else {
+      priceMarkup = "<div style='display: flex; gap: 0.2em; margin-bottom: 1em;'>" +
+                    "<span style='color: #62ab00; font-weight: bold;'>" + (cartItem.line_price / 100).toFixed(2) + "</span>" +
+                    "</div>";
+    }
+      
     var cartItemMarkup = "<tr><td class='text-center' style='width: 7em;'><a href='" + cartItem.url + "'>" +
                         "<img style='width: 7em;' class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td>" +
                         "<td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a>" +
                          bookCodeMarkup + 
-
-      
+                         priceMarkup + 
                         "<div style='display: flex; justify-content: space-between; align-items: center; margin-right: 2em;'>" +
                         "<div><button product-id='" + cartItem.variant_id + "' cart-quantity='" + cartItem.quantity + "' id='minusCart' type='button' onclick='updateCartCount(this)' style='border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;'>-</button>" +
                         "<span style='padding: 0.1em 0.5em;' id='itemQuantityBox-" + cartItem.variant_id + "'>" + cartItem.quantity + "</span>" +
