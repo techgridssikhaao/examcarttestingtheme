@@ -18,7 +18,7 @@
   <div class="product-thumb transition">
     <div class="item">
       
-       <div style=" display:flex; flex-direction: column;">
+       <div style=" display:flex; flex-direction: column; width: 10em;">
           <a href="{{ product.url }}" class="product-image">
             <img class="img-responsive has-rotator img-default-image img-cate-{{product.id}}{% if section %}-{{section.id}}{%endif %}" src="{{ product.featured_image.src | img_url: img_size }}" alt="{{ product.featured_image.alt | escape }}">
             {% if settings.hide_hover != true %}
