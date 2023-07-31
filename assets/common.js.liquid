@@ -549,7 +549,7 @@ var cart = {
 }
 
 function load(cart){
-  $('#cart .dropdown-menu > li:first-child .table > tbody > tr').remove();
+  $('#cartslider .cart-menu > li:first-child .table > tbody > tr').remove();
   $.each(cart.items, function (index, cartItem) {
     var line = index + 1;
     var cents = "";
@@ -565,16 +565,16 @@ function load(cart){
 "<td class='text-center cart-close'><button type='button' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
 
     // var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'> 'text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a><p class='cart-quantity'>" + cartItem.quantity + "&nbsp;×&nbsp;</p><p class='cart-price'><span class='money'>" + price + "</span></p></td><td class='text-center cart-close'><button type='button' "+cartRemove+"' title='Remove' class='btn btn-danger btn-xs'><i class='icon-delete'></i></button></td></tr>";
-    $('#cart .dropdown-menu > li:first-child .table > tbody').append(cartItem);
+    $('#cartslider .cart-menu > li:first-child .table > tbody').append(cartItem);
   });
   if (cart.item_count < 1) {
-    $('#cart .dropdown-menu > li:first-child .table > tbody').append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
+    $('#cartslider .cart-menu > li:first-child .table > tbody').append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
                                                                      $('#cart .dropdown-menu li:not(:first-child):last-child').removeClass('show');
-    $('#cart .dropdown-menu li:not(:first-child):last-child').addClass('hide');
+    $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('hide');
   } else {
-    $('#cart .dropdown-menu p.cart-empty').remove();
-    $('#cart .dropdown-menu li:not(:first-child):last-child').removeClass('hide');
-    $('#cart .dropdown-menu li:not(:first-child):last-child').addClass('show');
+    $('#cartslider .cart-menu p.cart-empty').remove();
+    $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('hide');
+    $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('show');
   }
   $('#cart > button #cart-total .txt_number').html(cart.item_count);
   $('#cart > button .total-price').html('<span class=money>'+cart.total_price+'<i class="fas fa-chevron-down"></i></span>');
