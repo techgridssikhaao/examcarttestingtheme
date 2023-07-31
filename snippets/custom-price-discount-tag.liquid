@@ -10,8 +10,7 @@
     <span style=" color: gray; text-decoration: line-through; ">{{ item.product.compare_at_price | money }}</span>
 
     <div class="label-product label_sale" style="">
-      <span
-        >-
+      <span>-
         {{-
           item.product.compare_at_price
           | minus: item.product.price
@@ -19,8 +18,7 @@
           | divided_by: item.product.compare_at_price
           | round
         -}}
-        %</span
-      >
+        %</span>
     </div>
 
   {% else %}
