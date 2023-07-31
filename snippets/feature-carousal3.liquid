@@ -9,9 +9,7 @@
     /* transition: none !improtant; */
    
   }
-.tab-container-{{section.id}} .owl-item {
-  transition: none !important;
-}
+
 
   /* .tab-container-{{section.id}} .owl-item {
   transition: none !important;
@@ -71,17 +69,6 @@
 </div>
 <script >
 
-
-  $(document).ready(function() {
-    // Replace '.tab-container-{{section.id}}' with the correct carousel selector
-    var carousel = $('.tab-container-{{section.id}}');
-
-    carousel.on('dragged.owl.carousel', function(event) {
-      event.preventDefault();
-      var currentItem = event.relatedTarget.current();
-      carousel.trigger('to.owl.carousel', [currentItem, 0, true]);
-    });
-  });
 
 
 
