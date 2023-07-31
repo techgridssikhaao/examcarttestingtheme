@@ -576,7 +576,7 @@ function load(cart) {
     if (cartItem.price < cartItem.compare_at_price) {
       var discountPercentage = Math.round((cartItem.compare_at_price - cartItem.price) * 100.0 / cartItem.compare_at_price);
       priceMarkup = "<div style='display: flex; gap: 0.2em; margin-bottom: 1em;'>" +
-                    "<span style='color: #62ab00; font-weight: bold;'>" + (cartItem.price / 100).toFixed(2) + "</span>" +
+                    "<span style='color: #62ab00; font-weight: bold;'>" + "Rs. " + (cartItem.price / 100).toFixed(2) + "</span>" +
                     "<span style='color: gray; text-decoration: line-through;'>" + (cartItem.compare_at_price / 100).toFixed(2) + "</span>" +
                     "<div class='label-product label_sale' style=''><span>-" + discountPercentage + "%</span></div>" +
                     "</div>";
