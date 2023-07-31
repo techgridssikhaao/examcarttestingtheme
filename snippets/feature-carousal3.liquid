@@ -65,6 +65,12 @@
   <div class="clearfix"></div>
 </div>
 <script >
+$(".tab-container-{{section.id}}").carousel({
+  // ... (other options)
+  interval: false,
+  ride: false,
+  // ... (other options)
+});
 
   $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
