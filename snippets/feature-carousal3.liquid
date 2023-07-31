@@ -58,12 +58,11 @@
   <div class="clearfix"></div>
 </div>
 <script >
-  $(".tab-container-{{section.id}}").owlCarousel({
-  // ... (other settings)
-  animateOut: false,
-  animateIn: false,
-  // ... (other settings)
-});
+.tab-container-{{section.id}} .owl-item {
+  transition: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+}
 
   $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
