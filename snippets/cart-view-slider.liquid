@@ -56,7 +56,7 @@
   }
 </style>
 
-<div id="cartslider" class="sidecart">
+<div id="mycartslider" class="sidecart">
   <div class="big-button-container">
     <a href="/checkout"
       ><button type="button" class="proceed-to-buy-btn">
@@ -66,7 +66,7 @@
   </div>
   <h2 class="shopping-cart-heading">{{ 'cart.general.title' | t }}</h2>
 
-  <div style=" margin-bottom: 5em;" class="shopping-cart-items">
+  <div id="cartslider" style=" margin-bottom: 5em;" class="shopping-cart-items">
     <ul class="cart-menu">
       <li class="has-scroll">
         <table class="table">
@@ -211,11 +211,11 @@
        }
 
         function openCartView() {
-          document.getElementById("cartslider").style.width = "80%";
+          document.getElementById("mycartslider").style.width = "80%";
         }
 
         function closeCartView() {
-          document.getElementById("cartslider").style.width = "0";
+          document.getElementById("mycartslider").style.width = "0";
         }
 </script>
 
