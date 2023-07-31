@@ -8,8 +8,8 @@
     "img_size_grid": "600x600",
     "product_reviews_enable": true,
     "product_show_compare_at_price": true,
-    "grid_color_swatches": "color",
-    "limit_title_words": false,
+    "grid_color_swatches": "thumb",
+    "limit_title_words": true,
     "limit_title_words_count": "10",
     "product_new_time": "14",
     "product_grid_img_carousel": true,
@@ -1266,11 +1266,8 @@
       },
       "80e69e01-c4b0-4459-a7d7-38a062917af0": {
         "type": "collection",
-        "custom_css": [
-
-        ],
         "settings": {
-          "collection_layout": "feature-carousal",
+          "collection_layout": "feature-carousal3",
           "heading": "all",
           "link": "",
           "collection": "top-rated-books-for-bihar-police",
