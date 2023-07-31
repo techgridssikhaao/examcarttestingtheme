@@ -1268,6 +1268,22 @@
           "background": false,
           "top_margin": false
         }
+      },
+      "141d22ab-6f3f-442a-bcd9-8b4cb3d93cc2": {
+        "type": "collection",
+        "settings": {
+          "collection_layout": "feature-carousal",
+          "heading": "All Books",
+          "link": "",
+          "collection": "all-books",
+          "listing_rows": 1,
+          "no_of_products": 4,
+          "products_tab_count": 8,
+          "fullwidth": true,
+          "product_grid_img_carousel": false,
+          "background": true,
+          "top_margin": false
+        }
       }
     },
     "content_for_index": [
@@ -1277,6 +1293,7 @@
       "1543060429425",
       "1554206168271",
       "1552563746975",
+      "141d22ab-6f3f-442a-bcd9-8b4cb3d93cc2",
       "9e9030a4-d660-46e8-b33b-7869eded673d",
       "1552581993254",
       "1544630300721",
