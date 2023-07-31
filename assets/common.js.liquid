@@ -551,7 +551,7 @@ var cart = {
 
 function load(cart) {
   $('#cartslider .cart-menu > li:first-child .table > tbody > tr').remove();
-  $('#totalCartQuantity').cart.item_count
+  $('#totalCartQuantity').html(cart.item_count)
   $.each(cart.items, function (index, cartItem) {
     var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
     var cartRemove = 'onclick="cart.remove(\'' + cartItem.id + '\')"';
