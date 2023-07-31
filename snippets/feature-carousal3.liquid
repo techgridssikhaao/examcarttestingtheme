@@ -10,11 +10,11 @@
    
   }
 
-  .tab-container-{{section.id}} .owl-item {
+  /* .tab-container-{{section.id}} .owl-item {
   transition: none !important;
   animation: none !important;
   opacity: 1 !important;
-}
+} */
 
 </style>
 
@@ -65,11 +65,7 @@
   <div class="clearfix"></div>
 </div>
 <script >
-$(".tab-container-{{section.id}}").owlCarousel({
-  // ... (other settings)
-  smartSpeed: 0,
-  // ... (other settings)
-});
+
   $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       $(".tab-container-{{section.id}}").owlCarousel({
