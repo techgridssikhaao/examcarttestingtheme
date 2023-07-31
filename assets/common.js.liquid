@@ -569,7 +569,7 @@ function load(cart){
   });
   if (cart.item_count < 1) {
     $('#cartslider .cart-menu > li:first-child .table > tbody').append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
-                                                                     $('#cart .dropdown-menu li:not(:first-child):last-child').removeClass('show');
+                                                                     $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('show');
     $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('hide');
   } else {
     $('#cartslider .cart-menu p.cart-empty').remove();
