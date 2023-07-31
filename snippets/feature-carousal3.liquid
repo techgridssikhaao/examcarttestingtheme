@@ -62,17 +62,14 @@
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       $(".tab-container-{{section.id}}").owlCarousel({
       items: {{ section.settings.no_of_products }},
-      loop:  false ,
-      margin:  10 ,
-      nav:  false ,
-      dots:  true ,
-      autoplay:   false ,
-      autoplayTimeout:  1000 ,
+
+      loop: true, // Enable the loop to scroll infinitely
+      margin: 10, // Add a small margin between items (adjust as needed)
+      nav: true, // Show navigation arrows (previous/next)
+      dots: true, // Show navigation dots (indicators)
+      autoplay: true, // Enable autoplay
+      autoplayTimeout: 3000, // Set autoplay interval (in milliseconds)
       autoplayHoverPause: true,
-      autoplaySpeed:  1000 ,
-      navSpeed:  1000 ,
-      dotsSpeed:  1000 ,
-      lazyLoad: false,
       responsive:{
       0:{
       items: 3,
