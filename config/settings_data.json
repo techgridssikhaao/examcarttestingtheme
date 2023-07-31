@@ -1251,7 +1251,7 @@
       "9e9030a4-d660-46e8-b33b-7869eded673d": {
         "type": "collection-tab",
         "settings": {
-          "products_tab_layout": "products-tab2",
+          "products_tab_layout": "products-tab1",
           "heading": "",
           "fullwidth": true,
           "products_tab_collection1": "upsc-ias",
