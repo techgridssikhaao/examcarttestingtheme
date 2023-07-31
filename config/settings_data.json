@@ -1274,6 +1274,7 @@
         "settings": {
           "collection_layout": "feature-carousal",
           "heading": "All Books",
+          "image": "{{ shop.brand.logo }}",
           "link": "",
           "collection": "best-haryana-books",
           "listing_rows": 1,
