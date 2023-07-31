@@ -92,6 +92,17 @@
         </div>
         <!-- caption -->
         <div style=" display:flex; flex-direction: column;">
+          <a href="{{ product.url }}" class="product-image">
+            <img class="img-responsive has-rotator img-default-image img-cate-{{product.id}}{% if section %}-{{section.id}}{%endif %}" src="{{ product.featured_image.src | img_url: img_size }}" alt="{{ product.featured_image.alt | escape }}">
+            {% if settings.hide_hover != true %}
+            <img class="img-r" src="{{ product.images.last | product_img_url: img_size }}" alt="{{ product.images.last.alt | escape }}">
+            {% endif %}
+            {% if settings.grid_color_swatches != 'false' %}
+            {% if product.available and product.variants.size > 1 %}
+            {% include 'swatch-grid-img' with 'Color'  %}
+            {% endif %}
+            {% endif %}
+          </a>
           <h4 class="product-name">
               <a href="{{ product.url | within: collection }}">
                 {% if settings.limit_title_words == true %}{{ product.title | truncatewords:settings.limit_title_words_count, "" }}{% else %}{{ product.title }}{% endif %}
