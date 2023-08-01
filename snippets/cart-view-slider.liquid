@@ -66,7 +66,7 @@
   </div>
   <h2 class="shopping-cart-heading">{{ 'cart.general.title' | t }}</h2>
 
-  <div  style=" margin-bottom: 5em;" class="shopping-cart-items">
+  <div style=" margin-bottom: 5em;" class="shopping-cart-items">
     <ul class="cart-menu">
       <li class="has-scroll">
         <table class="table">
@@ -163,7 +163,6 @@
       </li>
     </ul>
   </div>
-
 </div>
 
 <script>
@@ -171,20 +170,22 @@
     let totalCartQuantity = $('#totalCartQuantity').html()
     let productQuantity = $("#itemQuantityBox-" + variantId).html();
     cart.remove(variantId);
-    
+
     let row = ref.closest('tr')
 
     row.remove();
   }
 
      function updateCartCount(ref) {
-      
+
+       console.log(ref)
+
         let productId = ref.getAttribute('product-id')
         let actionType = ref.getAttribute('id')
         let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
         let newQuantity = cartQuantity;
         let totalCartQuantity = ($('#totalCartQuantity').html())
-        
+
         if (newQuantity != 0) {
             if (actionType !=null) {
               switch (actionType) {
@@ -210,7 +211,4 @@
 
         }
        }
-
-        
 </script>
-
