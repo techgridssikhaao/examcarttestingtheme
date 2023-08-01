@@ -84,7 +84,7 @@
   
       <span
         class="price"
-        style="font-size: 1.3rem; margin:0px;"
+        style="font-size: 1.2rem; margin:0px;"
         {% if page %}
           id="productPrice"
         {% endif %}
@@ -99,7 +99,7 @@
     <p class="old-price " style="     padding:0px; margin:0px !important;">
       <span
         class="price edit-price"
-        style="font-size: 1.2rem;"
+        style="font-size: 1.1rem;"
         {% if page %}
           id="comparePrice"
         {% endif %}
@@ -126,7 +126,7 @@
   {% if on_sale %}
     <div  style="font-size: 10px; border-radius:8px; background-color: #A82B0B; padding:0.2em 0.4em; color: white; ">
       <span
-        >-
+        >
         {{-
           product.compare_at_price
           | minus: product.price
