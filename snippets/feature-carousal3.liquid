@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 {% assign product_collection = section.settings.collection %}
 <style>
   /* .owl-item{
@@ -68,7 +71,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
-<script >
+<!-- <script >
 
 
 
@@ -137,6 +140,33 @@
 
 
   
+</script> -->
+<script >
+
+
+$(document).ready(function() {
+  var product_slickCarousel = $("#product_module{{section.id}} .tt-product");
+  console.log("this is slick carousels")
+  product_slickCarousel.slick({
+    infinite: false,
+    slidesToShow: {{ section.settings.no_of_products }},
+    slidesToScroll: 1,
+    swipeToSlide: true, 
+    arrows: true,
+  prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+  nextArrow: '<button type="button" class="slick-next">Next</button>',
+    responsive: [
+      { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+      { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+      { breakpoint: 992, settings: { slidesToShow: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 2, nav: true } },
+      { breakpoint: 480, settings: { slidesToShow: 2, nav: true } },
+      { breakpoint: 0, settings: { slidesToShow: 1, nav: true } }
+    ]
+  });
+
+  // Optional: Custom logic for dots or other functionality can be added here
+});
 </script>
 
  <!-- <script>
