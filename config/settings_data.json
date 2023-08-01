@@ -1327,6 +1327,22 @@
           "background": false,
           "top_margin": false
         }
+      },
+      "0c981581-b346-4e72-a842-3b94a7f1913d": {
+        "type": "collection",
+        "settings": {
+          "collection_layout": "feature-carousal",
+          "heading": "FEATURED PRODUCTS",
+          "link": "",
+          "collection": "uttar-pradesh",
+          "listing_rows": 1,
+          "no_of_products": 6,
+          "products_tab_count": 8,
+          "fullwidth": false,
+          "product_grid_img_carousel": false,
+          "background": false,
+          "top_margin": false
+        }
       }
     },
     "content_for_index": [
@@ -1342,6 +1358,7 @@
       "f54a0a3e-f205-423f-a712-9eb3e01f654e",
       "2d273162-718a-422b-b79c-e764365f015d",
       "b86b6359-e11d-48a3-8262-9bbb32844bf9",
+      "0c981581-b346-4e72-a842-3b94a7f1913d",
       "1544630300721",
       "1543237151862",
       "1552653275118",
