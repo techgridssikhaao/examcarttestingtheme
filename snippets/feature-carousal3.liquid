@@ -144,10 +144,9 @@
 <script >
 
 
-$(document).ready(function() {
-  var product_slickCarousel = $("#product_module{{section.id}} .tt-product");
-  console.log("this is slick carousels")
-  product_slickCarousel.slick({
+ $(document).ready(function() {
+    $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+      $(".tab-container-{{section.id}}").slick({
     infinite: false,
     slidesToShow: {{ section.settings.no_of_products }},
     slidesToScroll: 1,
