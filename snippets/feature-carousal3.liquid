@@ -149,9 +149,9 @@
         margin: 10,
         nav: true,
         responsive: {
-          0: { items: 1 },
-          600: { items: 3 },
-          1000: { items: 5 }
+          0: { items: {{ section.settings.no_of_products }} },
+          600: { items: {{ section.settings.no_of_products }} },
+          1000: { items: {{ section.settings.no_of_products }} }
         }
       });
 
