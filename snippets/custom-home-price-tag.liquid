@@ -95,22 +95,7 @@
 
        
       </span>
-    
-    <p class="old-price " style="     padding:0px; margin:0px !important;">
-      <span
-        class="price edit-price"
-        style="font-size: 1.1rem;"
-        {% if page %}
-          id="comparePrice"
-        {% endif %}
-      >
-        {% assign originalPrice = product.selected_or_first_available_variant.compare_at_price | money %}
-{% assign modifiedPrice = originalPrice | replace: "Rs.", "" | replace: ".00", "" %}
-{{ modifiedPrice }}
-
-     
-      </span>
-    </p>
+   
   {% else %}
     <p class="regular-price" style="font-size: 1.2rem;">
       <span
@@ -124,7 +109,7 @@
     </p>
   {% endif %}
   {% if on_sale %}
- <div>
+ <div style=" display: flex;">
 
  <p class="old-price " style="     padding:0px; margin:0px !important;">
       <span
