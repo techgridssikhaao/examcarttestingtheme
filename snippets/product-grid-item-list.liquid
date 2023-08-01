@@ -33,7 +33,7 @@
             {% endif %}
           </a>
           <h4 class="product-name">
-              <a href="{{ product.url | within: collection }}">
+              <a style= "    font-size: 12px;" href="{{ product.url | within: collection }}">
                 {% if settings.limit_title_words == true %}{{ product.title | truncatewords:settings.limit_title_words_count, "" }}{% else %}{{ product.title }}{% endif %}
               </a>
             </h4> 
