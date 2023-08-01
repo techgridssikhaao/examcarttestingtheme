@@ -177,9 +177,6 @@
   }
 
      function updateCartCount(ref) {
-
-       console.log(ref)
-
         let productId = ref.getAttribute('product-id')
         let actionType = ref.getAttribute('id')
         let cartQuantity = parseInt(ref.getAttribute('cart-quantity'))
@@ -203,10 +200,10 @@
             }
 
             cart.update(productId, newQuantity);
-            $("#itemQuantityBox-" + productId).html(newQuantity);
+            //$("#itemQuantityBox-" + productId).html(newQuantity);
 
             // Updates the 'cart-quantity' attribute for both buttons
-            $("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
+            //$("button[product-id='" + productId + "']").attr('cart-quantity', newQuantity);
 
 
         }
