@@ -70,7 +70,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
-<script >
+<!-- <script >
 
 
 
@@ -139,5 +139,69 @@
 
 
   
-</script>
+</script> -->
+
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = $(".owl-carousel-1 ").owlCarousel({
+        items: 3,
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: { items: 1 },
+          600: { items: 3 },
+          1000: { items: 5 }
+        }
+      });
+
+      let isDragging = false;
+      let startX = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+
+  // const containerWidth = carousel.width();
+      // console.log(carousel.width())
+      // console.log(carousel.length)
+      // const carouselContainer = carousel.find('.owl-stage');
+
+      function handleDragStart(e) {
+        isDragging = true;
+        startX = e.clientX || e.touches[0].clientX;
+        prevTranslate = currentTranslate;
+        carousel.css('transition', 'none'); // Disable transitions while dragging
+      }
+
+      function handleDragMove(e) {
+        if (!isDragging) return;
+        const moveX = (e.clientX || e.touches[0].clientX) - startX;
+         const carouselWidth = carousel.width();
+        const itemsWidth = carousel.find('.owl-item').width() * carousel.find('.owl-item').length;
+        const minTranslate = carouselWidth - itemsWidth;
+        const maxTranslate = 0;
+        
+        currentTranslate = prevTranslate + moveX;
+        currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
+        carousel.css('transform', `translateX(${currentTranslate}px)`);
+      }
+
+      function handleDragEnd() {
+        if (isDragging) {
+          isDragging = false;
+          prevTranslate = currentTranslate;
+          carousel.css('transition', ''); // Re-enable transitions
+        }
+      }
+
+      // Touch events for mobile devices
+      carousel[0].addEventListener('touchstart', handleDragStart, false);
+      carousel[0].addEventListener('touchmove', handleDragMove, false);
+      carousel[0].addEventListener('touchend', handleDragEnd, false);
+
+      // Mouse events for desktops
+      carousel[0].addEventListener('mousedown', handleDragStart, false);
+      document.addEventListener('mousemove', handleDragMove, false);
+      document.addEventListener('mouseup', handleDragEnd, false);
+    });
+  </script>
 
