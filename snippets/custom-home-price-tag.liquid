@@ -1,0 +1,132 @@
+{% comment %}
+  <style>
+    .special-price{
+      display: block !important;
+    }
+    .old-price{
+      margin-right: 1.5rem !important;
+    }
+  @media screen and (max-width:480px)
+  {
+    .price-box{
+      margin-bottom: 0px !important;
+    }
+  }
+
+  </style>
+
+  <div class="price-box" line-height:0.6px !important;>
+    {% if product.selected_or_first_available_variant.price < product.selected_or_first_available_variant.compare_at_price and settings.product_show_compare_at_price != false %}
+    <p class="special-price" ><span class="price" style="font-size: 24px;"{% if page %}id="productPrice"{% endif %}>{{ product.selected_or_first_available_variant.price | money  }}</span></p>
+    <p class="old-price" ><span class="price" style="font-size: 18px;"{% if page %} id="comparePrice"{% endif %}>{{ product.selected_or_first_available_variant.compare_at_price | money }}</span></p>
+    {% else %}
+    <p class="regular-price"><span class="price" {% if page %} id="productPrice"{% endif %}>{{ product.selected_or_first_available_variant.price | money }}</span></p>
+    {% endif %}
+     {% if on_sale %}
+      <div class="label-product label_sale" style="font-size: 150%;">
+        <span
+          >-
+          {{-
+            product.compare_at_price
+            | minus: product.price
+            | times: 100.0
+            | divided_by: product.compare_at_price
+            | round
+          -}}
+          %</span
+        >
+      </div>
+    {% endif %}
+  </div>
+{% endcomment %}
+
+<style>
+    .web-price{
+      display: flex !important;
+      gap: 1em;
+      align-items: center;
+    }
+    .special-price{
+      display: block !important;
+    }
+    .old-price{
+      margin-right: 1.5rem !important;
+    }
+  @media screen and (max-width:480px)
+  {
+    .price-box{
+      margin-bottom: 0px !important;
+    }
+
+  }
+  @media screen and (max-width:500px)
+  {
+    .price-box{
+      margin-bottom: 0px !important;
+    }
+    .special-price{
+      display: block !important;
+    }
+    .old-price{
+      margin-right: 1.5rem !important;
+
+    }
+
+  }
+</style>
+
+<div class="price-box web-price" line-height:0.6px !important;>
+  {% if product.selected_or_first_available_variant.price < product.selected_or_first_available_variant.compare_at_price
+    and settings.product_show_compare_at_price != false
+  %}
+    <p class="special-price">
+      <span
+        class="price"
+        style="font-size: 24px;"
+        {% if page %}
+          id="productPrice"
+        {% endif %}
+      >
+        {{ product.selected_or_first_available_variant.price | money }}
+      </span>
+    </p>
+
+    <p class="old-price">
+      <span
+        class="price edit-price"
+        style="font-size: 18px;"
+        {% if page %}
+          id="comparePrice"
+        {% endif %}
+      >
+        {{ product.selected_or_first_available_variant.compare_at_price | money }}
+      </span>
+    </p>
+  {% else %}
+    <p class="regular-price">
+      <span
+        class="price"
+        {% if page %}
+          id="productPrice"
+        {% endif %}
+      >
+        {{ product.selected_or_first_available_variant.price | money }}
+      </span>
+    </p>
+  {% endif %}
+  {% if on_sale %}
+    <div class="label-product label_sale" style="font-size: 150%;">
+      <span
+        >-
+        {{-
+          product.compare_at_price
+          | minus: product.price
+          | times: 100.0
+          | divided_by: product.compare_at_price
+          | round
+        -}}
+        %</span
+      >
+    </div>
+  {% endif %}
+</div>
