@@ -98,7 +98,7 @@
           id="comparePrice"
         {% endif %}
       >
-        {{ product.selected_or_first_available_variant.compare_at_price | money }}
+        {{ product.selected_or_first_available_variant.compare_at_price /100 }}
       </span>
     </p>
   {% else %}
