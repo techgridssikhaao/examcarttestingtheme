@@ -98,7 +98,11 @@
           id="comparePrice"
         {% endif %}
       >
-        {{ product.selected_or_first_available_variant.compare_at_price | money }}
+        {% assign originalPrice = product.selected_or_first_available_variant.compare_at_price | money %}
+{% assign modifiedPrice = originalPrice | replace: "Rs.", "" | replace: ".00", "" %}
+{{ modifiedPrice }}
+
+     
       </span>
     </p>
   {% else %}
