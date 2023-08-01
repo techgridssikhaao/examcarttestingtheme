@@ -175,13 +175,13 @@
       function handleDragMove(e) {
         if (!isDragging) return;
         const moveX = (e.clientX || e.touches[0].clientX) - startX;
-         const carouselWidth = carousel.width();
-        const itemsWidth = carousel.find('.owl-item').width() * carousel.find('.owl-item').length;
-        const minTranslate = carouselWidth - itemsWidth;
-        const maxTranslate = 0;
+        //  const carouselWidth = carousel.width();
+        // const itemsWidth = carousel.find('.owl-item').width() * carousel.find('.owl-item').length;
+        // const minTranslate = carouselWidth - itemsWidth;
+        // const maxTranslate = 0;
         
         currentTranslate = prevTranslate + moveX;
-        currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
+        // currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
         carousel.css('transform', `translateX(${currentTranslate}px)`);
       }
 
