@@ -145,7 +145,7 @@
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       const carousel = $(".owl-carousel-1 ").owlCarousel({
         items: {{ section.settings.no_of_products }},
-        loop: true,
+        loop: false,
         margin: 10,
         nav: true,
         responsive: {
