@@ -1,36 +1,38 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<script
+  defer
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+></script>
 
 {% assign product_collection = section.settings.collection %}
 <style>
-  /* .owl-item{
-    width:20% !important;
-  } */
+    /* .owl-item{
+      width:20% !important;
+    } */
 
-  /* .owl-stage{
-    transform: none !important; 
-     transition: none !improtant;
-  } */
+    /* .owl-stage{
+      transform: none !important;
+       transition: none !improtant;
+    } */
 
+    /* .tab-container-{{section.id}} .owl-item {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  } */
   /* .tab-container-{{section.id}} .owl-item {
-  transition: none !important;
-  animation: none !important;
-  opacity: 1 !important;
-} */
-/* .tab-container-{{section.id}} .owl-item {
-  transition: none !important;
-} */
-
-
-
+    transition: none !important;
+  } */
 </style>
 
-
-
-<div class="tt_tabsproduct_module tabs-category-slider list-module {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}" id="product_module{{section.id}}">
+<div
+  class="tt_tabsproduct_module tabs-category-slider list-module {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}"
+  id="product_module{{section.id}}"
+>
   <div class="module-title">
-    {% if section.settings.heading != blank %}  
-    <h2>{{ section.settings.heading }}</h2>
+    {% if section.settings.heading != blank %}
+      <h2>{{ section.settings.heading }}</h2>
     {% endif %}
     <div class="box-tab">
       <ul class="tab-heading tabs-categorys">
@@ -47,22 +49,25 @@
     <div class="owl-container">
       <div class="tt-product ">
         <div class="tab-content">
-          <div class="tab-container-{{section.id}}  owl-carousel owl-theme owl-carousel-1 tab-pane tab-product-container  " id="tab-{{section.id}}0">
+          <div
+            class="tab-container-{{section.id}}  owl-carousel owl-theme owl-carousel-1 tab-pane tab-product-container  "
+            id="tab-{{section.id}}0"
+          >
             {% if section.settings.listing_rows == 1 %}
-            {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
-            <div class="row_items {% cycle 'odd','even' %}">
-              {% include 'product-grid-item-list' %}
-            </div>
-            {% endfor %}
-            {% else %}
-            <div class="row_items {% cycle 'odd','even' %}">
-              {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
-              {% include 'product-grid-item-list' %}
-              {% if forloop.last == false %}
-              {% cycle '','</div><div class="row_items">' %}
-              {% endif %}
+              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+                <div class="row_items {% cycle 'odd','even' %}">
+                  {% include 'product-grid-item-list' %}
+                </div>
               {% endfor %}
-            </div>
+            {% else %}
+              <div class="row_items {% cycle 'odd','even' %}">
+                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+                  {% include 'product-grid-item-list' %}
+                  {% if forloop.last == false %}
+                    {% cycle '', '</div><div class="row_items">' %}
+                  {% endif %}
+                {% endfor %}
+              </div>
             {% endif %}
           </div>
         </div>
@@ -71,105 +76,113 @@
   </div>
   <div class="clearfix"></div>
 </div>
-<!-- <script >
+<!--
+  <script >
 
 
 
 
-  
-  $(document).ready(function() {
-    $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
-      $(".tab-container-{{section.id}}").owlCarousel({
-      items: {{ section.settings.no_of_products }},
-      loop:  false ,
-      margin:  10 ,
-      nav:  false ,
-      dots:  false ,
-      autoplay:   false ,
-      autoplayTimeout:  1000 ,
-      autoplayHoverPause: true,
-      autoplaySpeed:  1000 ,
-      navSpeed:  1000 ,
-      dotsSpeed:  1000 ,
-         smartSpeed: 0, 
-      lazyLoad: false,
-      responsive:{
-      0:{
-      items: 3,
-      nav: false
-      },
-      500:{
-      items: 3,
-      nav: false
-      },
-      768:{
-      items: 4
-      },
-      992:{
-      items: 5
-      },
-      1200:{
-      items: {{ section.settings.no_of_products }}
-      },
-      1600:{
-      items: {{ section.settings.no_of_products }}
-      }
-      },
-      onInitialized: function() {
-      var count = $(".tab-container-{{section.id}} .owl-item.active").length;
-                    if(count == 1) {
-        $(".tab-container-{{section.id}} .owl-item").removeClass('first');
-          $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
-          } else {
+
+    $(document).ready(function() {
+      $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+        $(".tab-container-{{section.id}}").owlCarousel({
+        items: {{ section.settings.no_of_products }},
+        loop:  false ,
+        margin:  10 ,
+        nav:  false ,
+        dots:  false ,
+        autoplay:   false ,
+        autoplayTimeout:  1000 ,
+        autoplayHoverPause: true,
+        autoplaySpeed:  1000 ,
+        navSpeed:  1000 ,
+        dotsSpeed:  1000 ,
+           smartSpeed: 0,
+        lazyLoad: false,
+        responsive:{
+        0:{
+        items: 3,
+        nav: false
+        },
+        500:{
+        items: 3,
+        nav: false
+        },
+        768:{
+        items: 4
+        },
+        992:{
+        items: 5
+        },
+        1200:{
+        items: {{ section.settings.no_of_products }}
+        },
+        1600:{
+        items: {{ section.settings.no_of_products }}
+        }
+        },
+        onInitialized: function() {
+        var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                      if(count == 1) {
           $(".tab-container-{{section.id}} .owl-item").removeClass('first');
-          $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
-          }
-          },
-          onTranslated: function() {
-          var count = $(".tab-container-{{section.id}} .owl-item.active").length;
-                        if(count == 1) {
+            $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+            } else {
             $(".tab-container-{{section.id}} .owl-item").removeClass('first');
-              $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
-              } else {
+            $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+            }
+            },
+            onTranslated: function() {
+            var count = $(".tab-container-{{section.id}} .owl-item.active").length;
+                          if(count == 1) {
               $(".tab-container-{{section.id}} .owl-item").removeClass('first');
-              $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
-              }
-              }
-              });
-          });
+                $(".tab-container-{{section.id}} .owl-item.active").addClass('first');
+                } else {
+                $(".tab-container-{{section.id}} .owl-item").removeClass('first');
+                $(".tab-container-{{section.id}} .owl-item.active:first").addClass('first');
+                }
+                }
+                });
+            });
 
 
-  
-</script> -->
-<script >
 
+  </script>
+-->
+<script>
+   $(document).ready(function() {
+      $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+        $(".tab-container-{{section.id}}").slick({
+      infinite: false,
+      slidesToShow: {{ section.settings.no_of_products }},
+      slidesToScroll: 1,
+      swipeToSlide: true,
+    edgeFriction : 0.5,
+          easing: 'linear',
+          touchThreshold: 10,
+     speed: 300,
+          useTransform: true,
+          cssEase : 'ease-out',
+          waitForAnimate: false,
 
- $(document).ready(function() {
-    $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
-      $(".tab-container-{{section.id}}").slick({
-    infinite: false,
-    slidesToShow: {{ section.settings.no_of_products }},
-    slidesToScroll: 1,
-    swipeToSlide: true, 
-  
-    arrows: false,
-  // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-  // nextArrow: '<button type="button" class="slick-next">Next</button>',
-    responsive: [
-      { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-      { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-      { breakpoint: 992, settings: { slidesToShow: 5 } },
-      { breakpoint: 768, settings: { slidesToShow: 4, nav: false } },
-      { breakpoint: 480, settings: { slidesToShow: 3, nav: false } },
-      { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
-    ]
+      arrows: false,
+    // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+    // nextArrow: '<button type="button" class="slick-next">Next</button>',
+      responsive: [
+        { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+        { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+        { breakpoint: 992, settings: { slidesToShow: 5 } },
+        { breakpoint: 768, settings: { slidesToShow: 4, nav: false } },
+        { breakpoint: 480, settings: { slidesToShow: 3, nav: false } },
+        { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
+      ]
+    });
+
+    // Optional: Custom logic for dots or other functionality can be added here
   });
-
-  // Optional: Custom logic for dots or other functionality can be added here
-});
 </script>
 
- <!-- <script>
+<!--
+  <script>
     $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       const carousel = $(".owl-carousel-1 ").owlCarousel({
@@ -208,7 +221,7 @@
         const itemsWidth = carousel.find('.owl-item').width() * carousel.find('.owl-item').length;
         const minTranslate = carouselWidth - itemsWidth;
         const maxTranslate = 0;
-        
+
         currentTranslate = prevTranslate + moveX;
         currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
         carousel.css('transform', `translateX(${currentTranslate}px)`);
@@ -232,5 +245,5 @@
       document.addEventListener('mousemove', handleDragMove, false);
       document.addEventListener('mouseup', handleDragEnd, false);
     });
-  </script> -->
-
+  </script>
+-->
