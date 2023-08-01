@@ -1295,6 +1295,22 @@
           "background": false,
           "top_margin": false
         }
+      },
+      "2d273162-718a-422b-b79c-e764365f015d": {
+        "type": "collection",
+        "settings": {
+          "collection_layout": "feature-carousal",
+          "heading": "jharkhand",
+          "link": "",
+          "collection": "jharkhand",
+          "listing_rows": 1,
+          "no_of_products": 6,
+          "products_tab_count": 8,
+          "fullwidth": false,
+          "product_grid_img_carousel": false,
+          "background": false,
+          "top_margin": false
+        }
       }
     },
     "content_for_index": [
@@ -1308,6 +1324,7 @@
       "141d22ab-6f3f-442a-bcd9-8b4cb3d93cc2",
       "1552581993254",
       "f54a0a3e-f205-423f-a712-9eb3e01f654e",
+      "2d273162-718a-422b-b79c-e764365f015d",
       "1544630300721",
       "1543237151862",
       "1552653275118",
