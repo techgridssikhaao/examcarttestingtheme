@@ -1258,7 +1258,7 @@
           "listing_rows": 1,
           "no_of_products": 6,
           "products_tab_count": 10,
-          "fullwidth": true,
+          "fullwidth": false,
           "product_grid_img_carousel": false,
           "background": false,
           "top_margin": false
@@ -1274,7 +1274,7 @@
           "listing_rows": 1,
           "no_of_products": 6,
           "products_tab_count": 10,
-          "fullwidth": true,
+          "fullwidth": false,
           "product_grid_img_carousel": false,
           "background": false,
           "top_margin": false
