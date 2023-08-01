@@ -142,8 +142,9 @@
 </script> -->
 
  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const carousel = $(".owl-carousel-1 ").owlCarousel({
+    $(document).ready(function() {
+    $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+      $(".tab-container-{{section.id}}").owlCarousel({
         items: 3,
         loop: true,
         margin: 10,
