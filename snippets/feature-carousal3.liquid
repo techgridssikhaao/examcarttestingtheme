@@ -149,30 +149,39 @@
   </script>
 -->
 <script>
-   $(document).ready(function() {
-      $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
-        $(".tab-container-{{section.id}}").slick({
-      infinite: false,
-      slidesToShow: {{ section.settings.no_of_products }},
-      slidesToScroll: 1,
-      swipeToSlide: true,
+    $(document).ready(function() {
+       $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+         $(".tab-container-{{section.id}}").slick({
+       infinite: false,
+       slidesToShow: {{ section.settings.no_of_products }},
+       slidesToScroll: 1,
+       swipeToSlide: true,
+  arrows: false,
+   infinite: false,
+   swipeToSlide: true,
+   draggable: true,
+   easing: 'linear',
+   touchThreshold: 10,
+   speed: 300,
+   useTransform: true,
+   cssEase: 'ease-out',
+   waitForAnimate: false,
 
+       arrows: false,
+     // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+     // nextArrow: '<button type="button" class="slick-next">Next</button>',
+       responsive: [
+         { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+         { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+         { breakpoint: 992, settings: { slidesToShow: 5 } },
+         { breakpoint: 768, settings: { slidesToShow: 4, nav: false } },
+         { breakpoint: 480, settings: { slidesToShow: 3, nav: false } },
+         { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
+       ]
+     });
 
-      arrows: false,
-    // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-    // nextArrow: '<button type="button" class="slick-next">Next</button>',
-      responsive: [
-        { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-        { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-        { breakpoint: 992, settings: { slidesToShow: 5 } },
-        { breakpoint: 768, settings: { slidesToShow: 4, nav: false } },
-        { breakpoint: 480, settings: { slidesToShow: 3, nav: false } },
-        { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
-      ]
-    });
-
-    // Optional: Custom logic for dots or other functionality can be added here
-  });
+     // Optional: Custom logic for dots or other functionality can be added here
+   });
 </script>
 
 <!--
