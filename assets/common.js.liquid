@@ -550,20 +550,24 @@ var cart = {
 }
 
 function load(cart) {
-  $('#cartslider .cart-menu > li:first-child .table > tbody > tr').remove();
-  $('#totalCartQuantity').html(cart.item_count)
-  $('#cartIconTotalCount').html(cart.item_count)
+  var targets = [
+    { container: '#cartslider .cart-menu > li:first-child .table > tbody', noItems: '#cartslider .cart-menu li:not(:first-child):last-child' },
+  ];
   
-  $.each(cart.items, function (index, cartItem) {
-    var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
+  if ($('#pageCart .table > tbody').length) {
+    targets.push({ container: '#pageCart .table > tbody', noItems: '#pageCart .no-items' }); // Adjust the selector for the page cart
+  }
+
+  $('#totalCartQuantity, #cartIconTotalCount').html(cart.item_count);
+
+  $.each(targets, function(_, target) {
+    $(target.container + ' > tr').remove();
+
+    $.each(cart.items, function (_, cartItem) {
+      var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
+      var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
     var cartRemove = 'onclick="cart.remove(\'' + cartItem.id + '\')"';
     var pages = '';
-    // for (var i = 0; i < cartItem.tags.length; i++) {
-    //   if (cartItem.tags[i].indexOf('pages') !== -1) {
-    //     pages = cartItem.tags[i].replace('pages\\', '');
-    //     break;
-    //   }
-    // }
     var bookCodeMarkup = "<span style='color: #8ABD1E; font-weight: bold;'>Book code: </span>" +
                          "<span style='color: #A6A6A6;'> " + cartItem.sku + " |</span>";
     if (pages !== '') {
@@ -598,19 +602,90 @@ function load(cart) {
                         "<button style='padding: 0.1em 0.5em; border: 1px solid black; border-radius: 2px; background-color: #e7e7e7; color: black;' type='button' onclick='removeItem(this, " + cartItem.variant_id + ");' title='Remove'>Delete item</button>" +
                         "</div></td></tr>";
 
-    $('#cartslider .cart-menu > li:first-child .table > tbody').append(cartItemMarkup);
-  });
+      $(target.container).append(cartItemMarkup);
+    });
 
-  if (cart.item_count < 1) {
-    $('#cartslider .cart-menu > li:first-child .table > tbody').append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
-    $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('show');
-    $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('hide');
-  } else {
-    $('#cartslider .cart-menu p.cart-empty').remove();
-    $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('hide');
-    $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('show');
-  }
+    if (cart.item_count < 1) {
+      $(target.container).append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
+      $(target.noItems).removeClass('show').addClass('hide');
+    } else {
+      $(target.container + ' p.cart-empty').remove();
+      $(target.noItems).removeClass('hide').addClass('show');
+    }
+  });
 }
+
+
+// function load(cart) {
+//   var targets = ['#cartslider .cart-menu > li:first-child .table > tbody > tr'];
+//   if ($('#pageCart .table > tbody').length) {
+//     targets.push('#pageCart .table > tbody');
+//   }
+//     $('#totalCartQuantity, #cartIconTotalCount').html(cart.item_count);
+// $.each(targets, function(index, target) {
+//     $(target + ' > tr').remove();
+  
+//   $('#cartslider .cart-menu > li:first-child .table > tbody > tr').remove();
+//   $.each(cart.items, function (index, cartItem) {
+
+//     var price = parseInt(cartItem.price / 100) + "." + (cartItem.price % 100 < 10 ? "0" : "") + cartItem.price % 100;
+//     var cartRemove = 'onclick="cart.remove(\'' + cartItem.id + '\')"';
+//     var pages = '';
+//     var bookCodeMarkup = "<span style='color: #8ABD1E; font-weight: bold;'>Book code: </span>" +
+//                          "<span style='color: #A6A6A6;'> " + cartItem.sku + " |</span>";
+//     if (pages !== '') {
+//       bookCodeMarkup += "<span style='color: #8ABD1E; font-weight: bold;'>Pages: </span>" +
+//                         "<span style='color: #A6A6A6;'>" + pages + "</span>";
+//     }
+//     bookCodeMarkup = "<div>" + bookCodeMarkup + "</div>";
+
+//     var priceMarkup = "";
+//     if (cartItem.price < cartItem.compare_at_price) {
+//       var discountPercentage = Math.round((cartItem.compare_at_price - cartItem.price) * 100.0 / cartItem.compare_at_price);
+//       priceMarkup = "<div style='display: flex; gap: 0.2em; margin-bottom: 1em;'>" +
+//                     "<span style='color: #62ab00; font-weight: bold;'>" + "Rs. " + (cartItem.price / 100).toFixed(2) + "</span>" +
+//                     "<span style='color: gray; text-decoration: line-through;'>" + (cartItem.compare_at_price / 100).toFixed(2) + "</span>" +
+//                     "<div class='label-product label_sale' style=''><span>-" + discountPercentage + "%</span></div>" +
+//                     "</div>";
+//     } else {
+//       priceMarkup = "<div style='display: flex; gap: 0.2em; margin-bottom: 1em;'>" +
+//                     "<span style='color: #62ab00; font-weight: bold;'>" +  "Rs. " + (cartItem.original_price / 100).toFixed(2) + "</span>" +
+//                     "</div>";
+//     }
+      
+//     var cartItemMarkup = "<tr><td class='text-center' style='width: 7em;'><a href='" + cartItem.url + "'>" +
+//                         "<img style='width: 7em;' class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td>" +
+//                         "<td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a>" +
+//                          bookCodeMarkup + 
+//                          priceMarkup + 
+//                         "<div style='display: flex; justify-content: space-between; align-items: center; margin-right: 2em;'>" +
+//                         "<div><button product-id='" + cartItem.variant_id + "' cart-quantity='" + cartItem.quantity + "' id='minusCart' type='button' onclick='updateCartCount(this)' style='border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;'>-</button>" +
+//                         "<span style='padding: 0.1em 0.5em;' id='itemQuantityBox-" + cartItem.variant_id + "'>" + cartItem.quantity + "</span>" +
+//                         "<button product-id='" + cartItem.variant_id + "' cart-quantity='" + cartItem.quantity + "' type='button' id='addCart' onclick='updateCartCount(this)' style='border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray;'>+</button></div>" +
+//                         "<button style='padding: 0.1em 0.5em; border: 1px solid black; border-radius: 2px; background-color: #e7e7e7; color: black;' type='button' onclick='removeItem(this, " + cartItem.variant_id + ");' title='Remove'>Delete item</button>" +
+//                         "</div></td></tr>";
+
+//     //$('#cartslider .cart-menu > li:first-child .table > tbody').append(cartItemMarkup);
+//           $(target).append(cartItemMarkup); 
+
+//   });
+// if (cart.item_count < 1) {
+//       $(target).append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
+//   $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('show');
+//     $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('hide');
+//     }
+//   });
+// //   if (cart.item_count < 1) {
+// //     $('#cartslider .cart-menu > li:first-child .table > tbody').append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
+// //     $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('show');
+// //     $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('hide');
+// //   } 
+//   else {
+//     $('#cartslider .cart-menu p.cart-empty').remove();
+//     $('#cartslider .cart-menu li:not(:first-child):last-child').removeClass('hide');
+//     $('#cartslider .cart-menu li:not(:first-child):last-child').addClass('show');
+//   }
+// }
 
 
 /* Agree to Terms */
