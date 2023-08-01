@@ -1075,9 +1075,9 @@
         "type": "collection",
         "settings": {
           "collection_layout": "feature-carousal3",
-          "heading": "BEST SELLER BOOKS",
+          "heading": "bihar",
           "link": "shopify:\/\/collections\/all",
-          "collection": "all-books",
+          "collection": "top-rated-books-for-bihar-police",
           "listing_rows": 1,
           "no_of_products": 6,
           "products_tab_count": 10,
@@ -1252,9 +1252,9 @@
         "type": "collection",
         "settings": {
           "collection_layout": "feature-carousal3",
-          "heading": "Haryana Books",
+          "heading": "central exams",
           "link": "",
-          "collection": "best-haryana-books",
+          "collection": "central-exams",
           "listing_rows": 1,
           "no_of_products": 6,
           "products_tab_count": 10,
