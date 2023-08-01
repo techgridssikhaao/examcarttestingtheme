@@ -555,7 +555,7 @@ function load(cart) {
   ];
   
   if ($('#pageCart .table > tbody').length) {
-    targets.push({ container: '#pageCart .table > tbody', noItems: '#pageCart .no-items' }); // Adjust the selector for the page cart
+    targets.push({ container: '#pageCart .table > tbody', noItems: '#pageCart .no-items' }); 
   }
 
   $('#totalCartQuantity, #cartIconTotalCount').html(cart.item_count);
