@@ -7,8 +7,7 @@
   /* .owl-stage{
     transform: none !important; 
      transition: none !improtant;
-  }
- */
+  } */
 
   /* .tab-container-{{section.id}} .owl-item {
   transition: none !important;
@@ -70,6 +69,11 @@
   <div class="clearfix"></div>
 </div>
 <script >
+
+
+
+
+  
   $(document).ready(function() {
     $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
       $(".tab-container-{{section.id}}").owlCarousel({
@@ -84,9 +88,8 @@
       autoplaySpeed:  1000 ,
       navSpeed:  1000 ,
       dotsSpeed:  1000 ,
-      smartSpeed: 0, 
+         smartSpeed: 0, 
       lazyLoad: false,
-      fluidSpeed: true,
       responsive:{
       0:{
       items: 3,
@@ -171,13 +174,13 @@
       function handleDragMove(e) {
         if (!isDragging) return;
         const moveX = (e.clientX || e.touches[0].clientX) - startX;
-        //  const carouselWidth = carousel.width();
-        // const itemsWidth = carousel.find('.owl-item').width() * carousel.find('.owl-item').length;
-        // const minTranslate = carouselWidth - itemsWidth;
-        // const maxTranslate = 0;
+         const carouselWidth = carousel.width();
+        const itemsWidth = carousel.find('.owl-item').width() * carousel.find('.owl-item').length;
+        const minTranslate = carouselWidth - itemsWidth;
+        const maxTranslate = 0;
         
         currentTranslate = prevTranslate + moveX;
-        // currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
+        currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
         carousel.css('transform', `translateX(${currentTranslate}px)`);
       }
 
@@ -199,5 +202,5 @@
       document.addEventListener('mousemove', handleDragMove, false);
       document.addEventListener('mouseup', handleDragEnd, false);
     });
-  </script>
- -->
+  </script> -->
+
