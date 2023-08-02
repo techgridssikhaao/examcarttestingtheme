@@ -297,7 +297,7 @@
         ],
         "settings": {
           "header_layout": "header-3",
-          "use_top_bar": true,
+          "use_top_bar": false,
           "top_bar_message": "Trouble Ordering Books From Our Website? | See Full <b> \n<ahref target=\"_blank\">Tutorial Here <\/ahref><\/b>",
           "header_message_1": "<p>Free Support 24\/7<\/p>\n<p>+01-202-555-0181<\/p>",
           "logo": "shopify:\/\/shop_images\/Agrawal_Examcart_Books__1.png",
