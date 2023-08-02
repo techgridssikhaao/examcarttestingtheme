@@ -478,9 +478,9 @@ var cart = {
         if (json['redirect']) {
           location = json['redirect'];
         }
-
+        {% comment %}
         toastr.success('{{ 'cart.general.item_added' | t }}');
-
+  {% endcomment %}
                        $.getJSON('/cart.js', function(cart) {
           load(cart);
         });
