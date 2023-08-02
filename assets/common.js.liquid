@@ -137,9 +137,9 @@ $(document).ready(function() {
           // Highlight any found errors
           $('.text-danger').parent().addClass('has-error');
         }
-
+  {% comment %}
         toastr.success('{{ 'cart.general.item_added' | t }}');
-
+  {% endcomment %}
                        $.getJSON('/cart.js', function(cart) {
           load(cart);
         });
@@ -192,9 +192,9 @@ $(document).ready(function() {
           // Highlight any found errors
           $('.text-danger').parent().addClass('has-error');
         }
-
+  {% comment %}
         toastr.success('{{ 'cart.general.item_added' | t }}');
-
+  {% endcomment %}
                        $.getJSON('/cart.js', function(cart) {
           load(cart);
         });
