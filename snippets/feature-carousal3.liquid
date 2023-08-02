@@ -51,72 +51,49 @@
    }
 </style>
 
-<div
-  class="tt_tabsproduct_module tabs-category-slider list-module {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}"
-  id="product_module{{section.id}}"
-  style="text-align: left;   "
->
-  <div
-    class="module-title"
-    style="
-      justify-content: space-between;
-      padding-bottom: 0px;
-      display: flex;
-      align-items: center;
-    "
-  >
-    {% if section.settings.heading != blank %}
-      <h2 style="margin: 0px;">{{ section.settings.heading }}</h2>
-      <span section-name="{{ section.settings.heading }}" onclick="collectionUrls(this)">
-        <svg
-          style="height: 3rem; width: 2rem;  fill: gray;     display: grid;"
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="far"
-          data-icon="angle-right"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 320 512"
-          class="svg-inline--fa fa-angle-right fa-4x"
-        >
-          <path  d="M273 239c9.4 9.4 9.4 24.6 0 33.9L113 433c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l143-143L79 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L273 239z" class=""></path>
-        </svg>
-      </span>
+<div class="tt_tabsproduct_module tabs-category-slider list-module {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}" id="product_module{{section.id}}">
+  <div class="module-title">
+    {% if section.settings.heading != blank %}  
+    <h2>{{ section.settings.heading }}</h2>
     {% endif %}
     <div class="box-tab">
       <ul class="tab-heading tabs-categorys">
         <li>
-          <a data-toggle="pill" href="#tab-{{section.id}}0">
+          <a data-splide-control href="#splide{{section.id}}" class="splide__slide">
             <span>{{ section.settings.heading }}</span>
           </a>
         </li>
       </ul>
     </div>
+    <div class="clearfix"></div>
   </div>
   <div class="box-style">
-    <div class="owl-container">
-      <div class="tt-product ">
-        <div class="tab-content">
-          <div
-            class="tab-container-{{section.id}}  owl-carousel owl-theme owl-carousel-1 tab-pane tab-product-container  "
-            id="tab-{{section.id}}0"
-          >
-            {% if section.settings.listing_rows == 1 %}
-              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                <div class="row_items {% cycle 'odd','even' %}">
-                  {% include 'product-grid-item-list' %}
-                </div>
-              {% endfor %}
-            {% else %}
-              <div class="row_items {% cycle 'odd','even' %}">
-                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                  {% include 'product-grid-item-list' %}
+    <div class="tt-product ">
+      <div class="tab-content">
+        <div id="splide{{section.id}}" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {% if section.settings.listing_rows == 1 %}
+                {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
+                  <li class="splide__slide">
+                    <div class="row_items {% cycle 'odd','even' %}">
+                      {% include 'product-grid-item-list' %}
+                    </div>
+                  </li>
+                {% endfor %}
+              {% else %}
+                {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
+                  <li class="splide__slide">
+                    <div class="row_items {% cycle 'odd','even' %}">
+                      {% include 'product-grid-item-list' %}
+                    </div>
+                  </li>
                   {% if forloop.last == false %}
-                    {% cycle '', '</div><div class="row_items">' %}
+                    {% cycle '','' %}
                   {% endif %}
                 {% endfor %}
-              </div>
-            {% endif %}
+              {% endif %}
+            </ul>
           </div>
         </div>
       </div>
@@ -124,6 +101,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
+
 <!--
   <script >
 
@@ -252,44 +230,21 @@
      }
    }
 
+<!-- Include the Splide CSS and JavaScript files -->
 
-        $(document).ready(function() {
-           $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
-             $(".tab-container-{{section.id}}").slick({
-           infinite: false,
-           slidesToShow: {{ section.settings.no_of_products }},
-           slidesToScroll: 2,
-           swipeToSlide: true,
-      arrows: false,
-       infinite: false,
-       swipeToSlide: true,
-       draggable: true,
-       easing: 'linear',
-       touchThreshold: 60,
-       speed: 600,
-       useTransform: true,
-       cssEase: 'linear',
-       waitForAnimate: false,
-     mobileFirst: true,
-                touchMove: true,
-      swipe: true,
-      fade: false,
-           arrows: false,
-         // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-         // nextArrow: '<button type="button" class="slick-next">Next</button>',
-           responsive: [
-             { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-             { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-             { breakpoint: 992, settings: { slidesToShow: 6 } },
-             { breakpoint: 768, settings: { slidesToShow: 5, nav: false } },
-             { breakpoint: 500, settings: { slidesToShow: 4, nav: false } },
-             { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
-           ]
-         });
 
-         // Optional: Custom logic for dots or other functionality can be added here
-       });
+  document.addEventListener('DOMContentLoaded', function() {
+    var splide = new Splide('.splide', {
+      type: 'loop',
+      drag: 'free',
+      perPage: 3,
+    });
+
+    splide.mount();
+  });
 </script>
+
+
 
 <!--
   <script>
