@@ -39,13 +39,32 @@
   id="product_module{{section.id}}"
   style="text-align: left; margin-bottom: 1rem "
 >
-  <div class="module-title" style="    justify-content: space-between;
-    padding-bottom: 0px;
-    display: flex;
-    align-items: center;">
+  <div
+    class="module-title"
+    style="
+      justify-content: space-between;
+      padding-bottom: 0px;
+      display: flex;
+      align-items: center;
+    "
+  >
     {% if section.settings.heading != blank %}
-      <h2 >{{ section.settings.heading }}</h2>
-      <span section-name="{{ section.settings.heading }}" onclick="collectionUrls(this)"> <svg style="height: 3rem; width: 2rem;  fill: gray;" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-angle-right fa-4x"><path  d="M273 239c9.4 9.4 9.4 24.6 0 33.9L113 433c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l143-143L79 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L273 239z" class=""></path></svg> </span>
+      <h2>{{ section.settings.heading }}</h2>
+      <span section-name="{{ section.settings.heading }}" onclick="collectionUrls(this)">
+        <svg
+          style="height: 3rem; width: 2rem;  fill: gray;"
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="far"
+          data-icon="angle-right"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+          class="svg-inline--fa fa-angle-right fa-4x"
+        >
+          <path  d="M273 239c9.4 9.4 9.4 24.6 0 33.9L113 433c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l143-143L79 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L273 239z" class=""></path>
+        </svg>
+      </span>
     {% endif %}
     <div class="box-tab">
       <ul class="tab-heading tabs-categorys">
@@ -56,7 +75,6 @@
         </li>
       </ul>
     </div>
-   
   </div>
   <div class="box-style">
     <div class="owl-container">
@@ -162,56 +180,66 @@
   </script>
 -->
 <script>
+  function collectionUrls(ref){
+       console.log(ref);
+      sectionTitle= ref.getAttribute('section-name');
 
-function collectionUrls(ref){
-     console.log(ref);
-    sectionTitle= ref.getAttribute('section-name');
-  
-  switch (sectionTitle){
-    case 'central exams':{
-      location.href='https://examcart.in/collections/central-exams'
+    switch (sectionTitle){
+
+       case 'all exams books':  {
+
+                      location.href='https://examcart.in/collections/all-exam-books'
+
+        }
+      case 'central exams':{
+        location.href='https://examcart.in/collections/central-exams'
+      }
+         case 'bihar':{
+        location.href='https://examcart.in/collections/central-exams'
+      }
+         case 'central exams':{
+        location.href='https://examcart.in/collections/central-exams'
+      }
     }
-      
   }
-}
 
-  
-     $(document).ready(function() {
-        $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
-          $(".tab-container-{{section.id}}").slick({
-        infinite: false,
-        slidesToShow: {{ section.settings.no_of_products }},
-        slidesToScroll: 2,
-        swipeToSlide: true,
-   arrows: false,
-    infinite: false,
-    swipeToSlide: true,
-    draggable: true,
-    easing: 'linear',
-    touchThreshold: 50,
-    speed: 600,
-    useTransform: true,
-    cssEase: 'ease-out',
-    waitForAnimate: false,
-  mobileFirst: true,
-             touchMove: true,
-   swipe: true,
-   fade: false,
-        arrows: false,
-      // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-      // nextArrow: '<button type="button" class="slick-next">Next</button>',
-        responsive: [
-          { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-          { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-          { breakpoint: 992, settings: { slidesToShow: 5 } },
-          { breakpoint: 768, settings: { slidesToShow: 4, nav: false } },
-          { breakpoint: 480, settings: { slidesToShow: 3, nav: false } },
-          { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
-        ]
+
+       $(document).ready(function() {
+          $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+            $(".tab-container-{{section.id}}").slick({
+          infinite: false,
+          slidesToShow: {{ section.settings.no_of_products }},
+          slidesToScroll: 2,
+          swipeToSlide: true,
+     arrows: false,
+      infinite: false,
+      swipeToSlide: true,
+      draggable: true,
+      easing: 'linear',
+      touchThreshold: 50,
+      speed: 600,
+      useTransform: true,
+      cssEase: 'ease-out',
+      waitForAnimate: false,
+    mobileFirst: true,
+               touchMove: true,
+     swipe: true,
+     fade: false,
+          arrows: false,
+        // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+        // nextArrow: '<button type="button" class="slick-next">Next</button>',
+          responsive: [
+            { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+            { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+            { breakpoint: 992, settings: { slidesToShow: 5 } },
+            { breakpoint: 768, settings: { slidesToShow: 4, nav: false } },
+            { breakpoint: 480, settings: { slidesToShow: 3, nav: false } },
+            { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
+          ]
+        });
+
+        // Optional: Custom logic for dots or other functionality can be added here
       });
-
-      // Optional: Custom logic for dots or other functionality can be added here
-    });
 </script>
 
 <!--
