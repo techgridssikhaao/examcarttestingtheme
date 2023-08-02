@@ -1,46 +1,61 @@
 {% unless current_collection %}
-{% assign current_collection = collection %}
+  {% assign current_collection = collection %}
 {% endunless %}
 
 {% assign on_sale = false %}
 {% if product.compare_at_price > product.price %}
-{% assign on_sale = true %}
+  {% assign on_sale = true %}
 {% endif %}
 
 {% assign sold_out = true %}
-{% if product.available  %}
-{% assign sold_out = false %}
+{% if product.available %}
+  {% assign sold_out = false %}
 {% endif %}
 
 {% comment %}Select the product image size from settings.{% endcomment %}
 {% assign img_size = settings.img_size_grid %}
 <div class="product-layout list-style  {% if c == true %} product-customize {% endif %}">
   <div class="product-thumb transition">
-    <div class="item" style="display: flex;
-    align-items: center;
-    justify-content: center; ">
-      
-       <div style=" display:flex; flex-direction: column;  width: 90%; ">
-          <a href="{{ product.url }}" class="product-image">
-            <img class="img-responsive has-rotator img-default-image img-cate-{{product.id}}{% if section %}-{{section.id}}{%endif %}" src="{{ product.featured_image.src | img_url: img_size }}" alt="{{ product.featured_image.alt | escape }}">
-            {% if settings.hide_hover != true %}
-            <img class="img-r" src="{{ product.images.last | product_img_url: img_size }}" alt="{{ product.images.last.alt | escape }}">
-            {% endif %}
-            {% if settings.grid_color_swatches != 'false' %}
+    <div
+      class="item"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center; margin-bottom: 1em;
+      "
+    >
+      <div style=" display:flex; flex-direction: column;  width: 90%; ">
+        <a href="{{ product.url }}" class="product-image">
+          <img
+            class="img-responsive has-rotator img-default-image img-cate-{{product.id}}{% if section %}-{{section.id}}{%endif %}"
+            src="{{ product.featured_image.src | img_url: img_size }}"
+            alt="{{ product.featured_image.alt | escape }}"
+          >
+          {% if settings.hide_hover != true %}
+            <img
+              class="img-r"
+              src="{{ product.images.last | product_img_url: img_size }}"
+              alt="{{ product.images.last.alt | escape }}"
+            >
+          {% endif %}
+          {% if settings.grid_color_swatches != 'false' %}
             {% if product.available and product.variants.size > 1 %}
-            {% include 'swatch-grid-img' with 'Color'  %}
+              {% include 'swatch-grid-img' with 'Color' %}
             {% endif %}
-            {% endif %}
+          {% endif %}
+        </a>
+        <h4 class="product-name">
+          <a style="  line-height: 1.3;  font-size: 1.1rem;" href="{{ product.url | within: collection }}">
+            {% if settings.limit_title_words == true -%}
+              {{- product.title | truncatewords: settings.limit_title_words_count, '' -}}
+            {%- else -%}
+              {{- product.title -}}
+            {%- endif %}
           </a>
-          <h4 class="product-name">
-              <a style= "  line-height: 1.3;  font-size: 1.1rem;" href="{{ product.url | within: collection }}">
-                {% if settings.limit_title_words == true %}{{ product.title | truncatewords:settings.limit_title_words_count, "" }}{% else %}{{ product.title }}{% endif %}
-              </a>
-            </h4> 
+        </h4>
 
-             {% include 'custom-home-price-tag' %}
-        </div>
-         
+        {% include 'custom-home-price-tag' %}
+      </div>
     </div>
   </div>
   <!-- product-thumb -->
