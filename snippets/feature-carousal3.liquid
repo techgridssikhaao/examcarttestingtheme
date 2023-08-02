@@ -62,7 +62,7 @@
 
 <div class="tt_tabsproduct_module tabs-category-slider list-module {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}" id="product_module{{section.id}}">
   <div class="module-title">
-    {% if section.settings.heading != blank %}  
+    {% if section.settings.heading != blank %}
     <h2>{{ section.settings.heading }}</h2>
     {% endif %}
     <div class="box-tab">
@@ -77,30 +77,30 @@
     <div class="clearfix"></div>
   </div>
   <div class="box-style">
-    <div class="tt-product ">
+    <div class="tt-product">
       <div class="tab-content">
         <div id="splide{{section.id}}" class="splide">
           <div class="splide__track">
             <ul class="splide__list">
               {% if section.settings.listing_rows == 1 %}
-                {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
-                  <li class="splide__slide">
-                    <div class="row_items {% cycle 'odd','even' %}">
-                      {% include 'product-grid-item-list' %}
-                    </div>
-                  </li>
-                {% endfor %}
+              <li class="splide__slide">
+                <div class="row_items {% cycle 'odd','even' %}">
+                  {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
+                  {% include 'product-grid-item-list' %}
+                  {% endfor %}
+                </div>
+              </li>
               {% else %}
-                {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
-                  <li class="splide__slide">
-                    <div class="row_items {% cycle 'odd','even' %}">
-                      {% include 'product-grid-item-list' %}
-                    </div>
-                  </li>
-                  {% if forloop.last == false %}
-                    {% cycle '','' %}
-                  {% endif %}
-                {% endfor %}
+              {% for product in collections[product_collection].products limit:section.settings.products_tab_count %}
+              <li class="splide__slide">
+                <div class="row_items {% cycle 'odd','even' %}">
+                  {% include 'product-grid-item-list' %}
+                </div>
+              </li>
+              {% if forloop.last == false %}
+              {% cycle '','' %}
+              {% endif %}
+              {% endfor %}
               {% endif %}
             </ul>
           </div>
@@ -110,6 +110,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
+
 
 <!--
   <script >
