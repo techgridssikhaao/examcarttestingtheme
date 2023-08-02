@@ -1269,7 +1269,7 @@
         "settings": {
           "collection_layout": "feature-carousal3",
           "heading": "all books",
-          "link": "",
+          "link": "shopify:\/\/collections\/all-books",
           "collection": "all-books",
           "listing_rows": 1,
           "no_of_products": 6,
