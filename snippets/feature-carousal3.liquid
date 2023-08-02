@@ -37,12 +37,15 @@
 <div
   class="tt_tabsproduct_module tabs-category-slider list-module {% if section.settings.listing_rows != 1 %} multi-rows {% endif %}"
   id="product_module{{section.id}}"
-  style="text-align: left; margin-bottom: 1rem"
+  style="text-align: left; margin-bottom: 1rem "
 >
-  <div class="module-title" style="padding-bottom: 0px">
+  <div class="module-title" style="    justify-content: space-between;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;">
     {% if section.settings.heading != blank %}
       <h2 >{{ section.settings.heading }}</h2>
-      <button style=" padding: 0px; margin: 0px; color:white;"> <svg style="height: 1em; width: 1em;" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-angle-right fa-4x"><path  d="M273 239c9.4 9.4 9.4 24.6 0 33.9L113 433c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l143-143L79 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L273 239z" class=""></path></svg> </button>
+      <span> <svg style="height: 1em; width: 1em;" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-angle-right fa-4x"><path  d="M273 239c9.4 9.4 9.4 24.6 0 33.9L113 433c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l143-143L79 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L273 239z" class=""></path></svg> </span>
     {% endif %}
     <div class="box-tab">
       <ul class="tab-heading tabs-categorys">
