@@ -165,8 +165,14 @@
 
 collectionUrls(ref){
 
-    sectionTitle= ref.getAttribute('section-name')
+    sectionTitle= ref.getAttribute('section-name');
   
+  switch (sectionTitle){
+    case 'central exams':{
+      location.href='https://examcart.in/collections/central-exams'
+    }
+      
+  }
 }
 
   
