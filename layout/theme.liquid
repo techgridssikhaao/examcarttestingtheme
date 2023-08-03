@@ -278,13 +278,9 @@
           }());
         </script>
       {% endif %}
-      {% assign urlParts = request.url | split: '/cart' %}
-      {% assign lastPart = urlParts | last %}
 
-      {% if lastPart != '/cart' %}
-        <!-- Your search bar code goes here -->
-        {% if settings.search_autofil_enable %}{% include 'search-autocomplete' %}{% endif %}
-      {% endif %}
+      <!-- Your search bar code goes here -->
+      {% if settings.search_autofil_enable %}{% include 'search-autocomplete' %}{% endif %}
 
       {% if settings.show_gdpr_msg %}{% include 'cookie-consent' %} {% endif %}
       {% include 'currencies' %}
