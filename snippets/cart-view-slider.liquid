@@ -56,161 +56,188 @@
   }
 </style>
 
-
-
 <div id="cartslider" class="sidecart">
-  <div style="display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;">
-        <img src="{{ 'Current 2x.png' | asset_url }}" alt="logo" class="exlogo-image" style=" height: 100%;    width: 100%;">
-        <h2  style="color: #0ec50e; margin: 0.5em 2em; text-align: center;">GET YOUR FREE E-BOOK NOW!</h2>
-        <P style="margin: 1em 2em; text-align: center; ">Study best Current affairs of August 2023 with this monthly current affairs e-book</P>
-       <div style="width: 100%;      display: flex;
-    justify-content: center;    align-items: center;
-    flex-direction: column;" id="send-otp-newsletter">
-        <input  style="width: 70%;
-    background-color: #ebebeb;
-    padding: 1em 0.5em;
-    margin-bottom: 0px;
-    text-align: center;
-    letter-spacing: 2px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: 1px solid #0ec50e;"
-          type="tel"
-      placeholder="Enter Mobile Number"
-          maxlength="10"
-        >
-        <br>
-        <buttom style="width: 70%; color: white; background-color: #0ec50e; padding: 1em 0.5em; text-align: center; border-radius: 5px;" > Get OTP </buttom>
-    </div>
-    <div id="otp-verify-newsletter"   style="width: 100%;     display: flex;
-    justify-content: center;     align-items: center;
-    flex-direction: column; ">
-
-        <input  style="width: 70%;  background-color: #ebebeb; padding: 0.5em 0.5em; text-align: center; letter-spacing: 2px; font-size: 1.2rem; border-radius: 5px; border: 1px solid #0ec50e;"
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <img
+      src="{{ 'Current 2x.png' | asset_url }}"
+      alt="logo"
+      class="exlogo-image"
+      style=" height: 100%;    width: 100%;"
+    >
+    <h2 style="color: #0ec50e; margin: 0.5em 2em; text-align: center;">GET YOUR FREE E-BOOK NOW!</h2>
+    <P style="margin: 1em 2em; text-align: center; "
+      >Study best Current affairs of August 2023 with this monthly current affairs e-book</P
+    >
+    <div
+      style="
+        width: 100%;      display: flex;
+        justify-content: center;    align-items: center;
+        flex-direction: column;
+      "
+      id="send-otp-newsletter"
+    >
+      <input
+        style="
+          width: 70%;
+          background-color: #ebebeb;
+          padding: 1em 0.5em;
+          margin-bottom: 0px;
+          text-align: center;
+          letter-spacing: 2px;
+          font-size: 1.2rem;
+          border-radius: 5px;
+          border: 1px solid #0ec50e;
+        "
         type="tel"
-    placeholder="Verify OTP"
+        placeholder="Enter Mobile Number"
+        maxlength="10"
+      >
+      <br>
+      <buttom style="width: 70%; color: white; background-color: #0ec50e;     padding: 0.8em 0.5em; text-align: center; border-radius: 5px;">
+        Get OTP
+      </buttom>
+    </div>
+    <div
+      id="otp-verify-newsletter"
+      style="
+        width: 100%;    display: flex;
+        justify-content: center;     align-items: center;
+        flex-direction: column;
+      "
+    >
+      <input
+        style="width: 70%;  background-color: #ebebeb; padding: 0.5em 0.5em; text-align: center; letter-spacing: 2px; font-size: 1.2rem; border-radius: 5px; border: 1px solid #0ec50e;"
+        type="tel"
+        placeholder="Verify OTP"
         maxlength="6"
       >
       <p style="text-align: center;"><a onclick="">Resend OTP</a> | <a onclick="">Change Mobile No.</a></p>
-      <buttom style=" width: 70%;font-size: 1.2rem; color: white; background-color: #0ec50e; padding: 0.5em 0.5em; text-align: center; border-radius: 5px;" > Download PDF <svg style="fill: white;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg> </buttom>
-
+      <buttom style=" width: 70%;font-size: 1.2rem; color: white; background-color: #0ec50e; padding: 0.5em 0.5em; text-align: center; border-radius: 5px;">
+        Download PDF
+        <svg style="fill: white;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+          <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+        </svg>
+      </buttom>
     </div>
-      </div>
+  </div>
 </div>
-
 
 {% comment %}
-<div id="cartslider" class="sidecart">
-  <div class="big-button-container">
-    <a href="/checkout"
-      ><button type="button" class="proceed-to-buy-btn">
-        Proceed to Buy (<span id="totalCartQuantity">{{ cart.item_count }}</span> items)
-      </button></a
-    >
-  </div>
-  <h2 class="shopping-cart-heading">{{ 'cart.general.title' | t }}</h2>
+  <div id="cartslider" class="sidecart">
+    <div class="big-button-container">
+      <a href="/checkout"
+        ><button type="button" class="proceed-to-buy-btn">
+          Proceed to Buy (<span id="totalCartQuantity">{{ cart.item_count }}</span> items)
+        </button></a
+      >
+    </div>
+    <h2 class="shopping-cart-heading">{{ 'cart.general.title' | t }}</h2>
 
-  <div style=" margin-bottom: 5em;" class="shopping-cart-items">
-    <ul class="cart-menu">
-      <li class="has-scroll">
-        <table class="table">
-          <tbody>
-            {% if cart.item_count < 1 %}
-              <p class="text-center cart-empty">{{ 'cart.general.no_items' | t }}</p>
-            {% else %}
-              {% for item in cart.items %}
-                <tr>
-                  <td class="text-center" style="width: 7em;  ">
-                    <a href="{{ item.url }}">
-                      <img
-                        style="width: 7em;  "
-                        class="cart-image"
-                        src="{{ item | img_url: '100x100' }}"
-                        alt="{{ item.title | escape }}"
-                        title="{{ item.title | escape }}"
+    <div style=" margin-bottom: 5em;" class="shopping-cart-items">
+      <ul class="cart-menu">
+        <li class="has-scroll">
+          <table class="table">
+            <tbody>
+              {% if cart.item_count < 1 %}
+                <p class="text-center cart-empty">{{ 'cart.general.no_items' | t }}</p>
+              {% else %}
+                {% for item in cart.items %}
+                  <tr>
+                    <td class="text-center" style="width: 7em;  ">
+                      <a href="{{ item.url }}">
+                        <img
+                          style="width: 7em;  "
+                          class="cart-image"
+                          src="{{ item | img_url: '100x100' }}"
+                          alt="{{ item.title | escape }}"
+                          title="{{ item.title | escape }}"
+                        >
+                      </a>
+                    </td>
+                    <td class="text-left info-item">
+                      <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
+                      {% include 'custom-cart-view-page-count' %}
+                      {% include 'custom-price-discount-tag' %}
+
+                      <div
+                        style="
+                           display: flex;
+                           justify-content: space-between;
+                           align-items: center;
+                          margin-right: 2em;
+                        "
                       >
-                    </a>
-                  </td>
-                  <td class="text-left info-item">
-                    <a class="cart-name" href="{{ item.url }}">{{ item.product.title }}</a>
-                    {% include 'custom-cart-view-page-count' %}
-                    {% include 'custom-price-discount-tag' %}
-
-                    <div
-                      style="
-                         display: flex;
-                         justify-content: space-between;
-                         align-items: center;
-                        margin-right: 2em;
-                      "
-                    >
-                      <div>
+                        <div>
+                          <button
+                            product-id="{{ item.variant_id }}"
+                            cart-quantity="{{ item.quantity  }}"
+                            id="minusCart"
+                            type="button"
+                            onclick="updateCartCount(this)"
+                            style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray; color: white;"
+                          >
+                            -</button
+                          ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">
+                            {{- item.quantity -}}</span
+                          ><button
+                            product-id="{{ item.variant_id }}"
+                            cart-quantity="{{ item.quantity  }}"
+                            type="button"
+                            id="addCart"
+                            onclick="updateCartCount(this)"
+                            style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray; color: white;"
+                          >
+                            +
+                          </button>
+                        </div>
                         <button
-                          product-id="{{ item.variant_id }}"
-                          cart-quantity="{{ item.quantity  }}"
-                          id="minusCart"
+                          style="padding: 0.5em 1em;border: 1px solid black; border-radius: 5px; color: black;  "
                           type="button"
-                          onclick="updateCartCount(this)"
-                          style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray; color: white;"
+                          onclick="removeItem(this, {{ item.variant_id }});"
+                          title="Remove"
                         >
-                          -</button
-                        ><span style="padding: 0.1em 0.5em;" id="itemQuantityBox-{{ item.variant_id }}">
-                          {{- item.quantity -}}</span
-                        ><button
-                          product-id="{{ item.variant_id }}"
-                          cart-quantity="{{ item.quantity  }}"
-                          type="button"
-                          id="addCart"
-                          onclick="updateCartCount(this)"
-                          style="border: none; padding: 0.1em 0.5em; border-radius: 2px; background-color: gray; color: white;"
-                        >
-                          +
+                          Delete item
                         </button>
                       </div>
-                      <button
-                        style="padding: 0.5em 1em;border: 1px solid black; border-radius: 5px; color: black;  "
-                        type="button"
-                        onclick="removeItem(this, {{ item.variant_id }});"
-                        title="Remove"
-                      >
-                        Delete item
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              {% endfor %}
-            {% endif %}
-          </tbody>
-        </table>
-      </li>
-      <li
-        {% if cart.item_count < 1 %}
-          class="hide"
-        {% endif %}
-      >
-        {% comment %}
-          <table class="table">
-            <tr>
-              <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
-              <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
-            </tr>
+                    </td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
+            </tbody>
           </table>
-          <p class="text-center cart-button">
+        </li>
+        <li
+          {% if cart.item_count < 1 %}
+            class="hide"
+          {% endif %}
+        >
+          {% comment %}
+            <table class="table">
+              <tr>
+                <td class="text-left">{{ 'cart.general.subtotal' | t }} :</td>
+                <td class="text-right" id="cart-subtotal">{{ cart.total_price | money }}</td>
+              </tr>
+            </table>
+            <p class="text-center cart-button">
 
-              <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
-              <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+                <a href="/cart">{{ 'cart.general.view_cart' | t }}</a>
+                <a href="/checkout">{{ 'cart.general.checkout' | t }}</a>
 
-            <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
-            <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
-          </p>
-        {% endcomment %}
-      </li>
-    </ul>
+              <button style=" background-color: green;" onclick="viewCart()">{{ 'cart.general.view_cart' | t }}</button>
+              <button style=" background-color: red;" onclick="closeCartView()">{{ 'cart.general.checkout' | t }}</button>
+            </p>
+          {% endcomment %}
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 {% endcomment %}
 <script>
     function removeItem(ref, variantId){
