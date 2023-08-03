@@ -114,7 +114,7 @@
           border-radius: 5px;
           border: 1px solid #0ec50e;
         "
-        id="newsletter-verify-otp-button"
+        id="newsletter-verify-otp-input"
         type="tel"
         placeholder="Verify OTP"
         maxlength="6"
@@ -137,6 +137,7 @@
 <script>
   
   
+  
   let mNum =''
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
@@ -151,9 +152,11 @@ changeMobnum()
 
   function changeMobnum(){
     clearInput();
-    document.getElementById('newsletter-verify-otp-button').value = '';
+    document.getElementById('newsletter-verify-otp-input').value = '';
        document.getElementById("NewsletterWrongOtp").style.display = "none";
         document.getElementById("NewslettersendOtpMessage").style.display = "none";
+    document.getElementById("send-otp-newsletter").style.display = "flex";
+        document.getElementById("otp-verify-newsletter").style.display = "none";
   }
 
 
@@ -165,8 +168,7 @@ changeMobnum()
   function resendnewsletterOtpSms(){
      document.getElementById("NewsletterWrongOtp").style.display = "none";
         document.getElementById("NewslettersendOtpMessage").style.display = "block";
- document.getElementById("send-otp-newsletter").style.display = "flex";
-        document.getElementById("otp-verify-newsletter").style.display = "none";
+ 
    randomOtp();
    
  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mNum}/${smsotp}`)
@@ -182,6 +184,7 @@ mNum =   document.getElementById('newsletter-enter-mob').value;
 
            navigator.sendBeacon(`https://bhartipur.in/send_otp_get/${mNum}/${smsotp}`)
         }
+
 
 
 
