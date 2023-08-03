@@ -9,14 +9,14 @@
 {% assign product_collection = section.settings.collection %}
 <style>
   /* Override Swiper default styles */
-  .swiper {
+  .swiper-container {
     display: flex;
-    flex-wrap: nowrap; /* Ensure slides stay in a single row */
-    overflow: hidden; /* Hide overflow to prevent scrollbar */
+    flex-wrap: nowrap;
+    overflow: hidden;
   }
   .swiper-slide {
-    flex: 0 0 auto; /* Ensure slides don't shrink or grow */
-    width: calc(100% / {{ section.settings.no_of_products }}); /* Set slide width based on the number of products */
+    flex: 0 0 auto;
+    width: calc(100% / {{ section.settings.no_of_products }});
   }
 </style>
 
@@ -63,27 +63,30 @@
     </div>
   </div>
 
-  <div class="box-style">
-    <div class="tab-content">
-      <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <div
-            class="tab-container-{{section.id}}  "
-            id="tab-{{section.id}}0"
-          >
+  <div class="swiper-container">
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <div class="tab-container-{{section.id}}" id="tab-{{section.id}}0">
+          <!-- Slides -->
+          {% if section.settings.listing_rows == 1 %}
             {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-              <div class="row_items {% cycle 'odd','even' %}">
+              <div class="swiper-slide">
                 {% include 'product-grid-item-list' %}
               </div>
             {% endfor %}
-          </div>
+          {% else %}
+            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+              <div class="swiper-slide">
+                {% include 'product-grid-item-list' %}
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
-        <!-- If we need pagination -->
       </div>
+      <!-- If we need pagination -->
     </div>
   </div>
-  <div class="clearfix"></div>
 </div>
 <script>
   // Function to initialize the Swiper carousel
