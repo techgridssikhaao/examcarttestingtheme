@@ -99,9 +99,18 @@
   </div>
 </div>
 <script>
-  function sendOtpNewsletterSlider(){
+  function openNewsletter() {
+            document.getElementById("newsletter-slider").style.width = "80%";
+          }
 
-  document.getElementById("send-otp-newsletter").style.display = "none";
-  document.getElementById("otp-verify-newsletter").style.display = "flex";
-  }
+   function closeNewsletter() {
+            document.getElementById("newsletter-slider").style.width = "0";
+          }
+
+
+    function sendOtpNewsletterSlider(){
+
+    document.getElementById("send-otp-newsletter").style.display = "none";
+    document.getElementById("otp-verify-newsletter").style.display = "flex";
+    }
 </script>
