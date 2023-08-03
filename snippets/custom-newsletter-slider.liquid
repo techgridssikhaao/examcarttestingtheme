@@ -142,6 +142,7 @@
   
   
   
+  
   let mNum =''
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
@@ -150,7 +151,7 @@
        function closeNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "0";
 
-changeMobnum()
+
 
               }
 
@@ -195,7 +196,7 @@ let newsletterVerifyOtpValue =   document.getElementById('newsletter-verify-otp-
    let newsletterVerifyOtpValueparseOtp = parseInt(newsletterVerifyOtpValue);
   if (newsletterVerifyOtpValueparseOtp == smsotp) {
     localStorage.setItem("globalOtpKey", mobNumber);
-  
+  closeNewsletter()
      window.location.reload();
   } else {
       document.getElementById("NewsletterWrongOtp").style.display = "block";
@@ -203,6 +204,7 @@ let newsletterVerifyOtpValue =   document.getElementById('newsletter-verify-otp-
     
   }
 }
+
 
 
 
