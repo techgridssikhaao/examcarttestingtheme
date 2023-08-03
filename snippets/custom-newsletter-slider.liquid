@@ -119,7 +119,7 @@
         placeholder="Verify OTP"
         maxlength="6"
       >
-      <p style="text-align: center;"><a onclick="">Resend OTP</a> | <a onclick="">Change Mobile No.</a></p>
+      <p style="text-align: center;"><a onclick="">Resend OTP</a> | <a onclick="clearInput()">Change Mobile No.</a></p>
       <buttom
         disabled
         style="width: 70%; color: white; background-color: #0ec50e;     padding: 0.8em 0.5em; text-align: center; border-radius: 5px;"
@@ -133,21 +133,23 @@
   </div>
 </div>
 <script>
-  function openNewsletter() {
-            document.getElementById("newsletter-slider").style.width = "80%";
-          }
+    function openNewsletter() {
+              document.getElementById("newsletter-slider").style.width = "80%";
+            }
 
-   function closeNewsletter() {
-            document.getElementById("newsletter-slider").style.width = "0";
-
-
-
-          }
+     function closeNewsletter() {
+              document.getElementById("newsletter-slider").style.width = "0";
 
 
-    function sendOtpNewsletterSlider(){
 
-    document.getElementById("send-otp-newsletter").style.display = "none";
-    document.getElementById("otp-verify-newsletter").style.display = "flex";
+            }
+
+  function clearInput() {
+      document.getElementById('newsletter-enter-mob').value = '';
     }
+      function sendOtpNewsletterSlider(){
+
+      document.getElementById("send-otp-newsletter").style.display = "none";
+      document.getElementById("otp-verify-newsletter").style.display = "flex";
+      }
 </script>
