@@ -120,7 +120,7 @@
         maxlength="6"
       >
       <p style="text-align: center;">
-        <a onclick="">Resend OTP</a> | <a onclick="changeMobnum()">Change Mobile No.</a>
+        <a onclick="resendnewsletterOtpSms()">Resend OTP</a> | <a onclick="changeMobnum()">Change Mobile No.</a>
       </p>
       <buttom
         disabled
@@ -136,6 +136,7 @@
 </div>
 <script>
   
+  
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
               }
@@ -143,15 +144,15 @@
        function closeNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "0";
 
-
+changeMobnum()
 
               }
 
   function changeMobnum(){
     clearInput();
     document.getElementById('newsletter-verify-otp-button').value = '';
-       document.getElementById("send-otp-newsletter").style.display = "flex";
-        document.getElementById("otp-verify-newsletter").style.display = "none";
+       document.getElementById("NewsletterWrongOtp").style.display = "none";
+        document.getElementById("NewslettersendOtpMessage").style.display = "none";
   }
 
 
@@ -160,20 +161,24 @@
         document.getElementById('newsletter-enter-mob').value = '';
       }
 
-  function resendOtpSms(){
-  document.getElementById(wrongOtpId).style.display = "none";
-   document.getElementById(sendOtpId).style.display = "block";
-console.log(mobNumber)
-  console.log(smsotp)
+  function resendnewsletterOtpSms(){
+     document.getElementById("NewsletterWrongOtp").style.display = "none";
+        document.getElementById("NewslettersendOtpMessage").style.display = "block";
+ document.getElementById("send-otp-newsletter").style.display = "flex";
+        document.getElementById("otp-verify-newsletter").style.display = "none";
    randomOtp();
-    clearOtpInputForm();
+   
  navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
 }
   
         function sendOtpNewsletterSlider(){
-
+ randomOtp();
         document.getElementById("send-otp-newsletter").style.display = "none";
         document.getElementById("otp-verify-newsletter").style.display = "flex";
+
+
+           navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
         }
+
 
 </script>
