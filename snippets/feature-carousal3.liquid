@@ -72,22 +72,11 @@
             class="tab-container-{{section.id}}  "
             id="tab-{{section.id}}0"
           >
-            {% if section.settings.listing_rows == 1 %}
-              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                <div class="row_items {% cycle 'odd','even' %}">
-                  {% include 'product-grid-item-list' %}
-                </div>
-              {% endfor %}
-            {% else %}
+            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
               <div class="row_items {% cycle 'odd','even' %}">
-                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                  {% include 'product-grid-item-list' %}
-                  {% if forloop.last == false %}
-                    {% cycle '', '</div><div class="row_items">' %}
-                  {% endif %}
-                {% endfor %}
+                {% include 'product-grid-item-list' %}
               </div>
-            {% endif %}
+            {% endfor %}
           </div>
         </div>
         <!-- If we need pagination -->
