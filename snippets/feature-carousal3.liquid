@@ -127,6 +127,11 @@
   </div>
   <div class="clearfix"></div>
 </div>
+
+
+ 
+
+
 <!--
   <script >
 
@@ -254,6 +259,52 @@
 
      }
    }
+
+  $('.carousel').flickity({
+  // options for the default view
+  cellAlign: 'left',
+  contain: true,
+  wrapAround: true,
+  prevNextButtons: true,
+  pageDots: true,
+  // ... add other options for the default view
+
+  // Responsive breakpoints
+  responsive: true,
+  breakpoints: {
+    // When window width is >= 768px
+    768: {
+      slidesToShow: 3, // Show 3 items at this breakpoint
+      cellAlign: 'center',
+      wrapAround: false,
+      prevNextButtons: false, // Hide the previous and next arrows
+      pageDots: false,
+      contain: true,
+      // add other options for this breakpoint
+    },
+    // When window width is >= 992px
+    992: {
+      slidesToShow: 5, // Show 5 items at this breakpoint
+      cellAlign: 'left',
+      wrapAround: true,
+      prevNextButtons: false, // Hide the previous and next arrows
+      pageDots: true,
+      contain: false,
+      // add other options for this breakpoint
+    },
+    // Add more breakpoints and their corresponding options as needed
+    // Example:
+    1200: {
+      slidesToShow: 6, // Show 4 items at this breakpoint
+      cellAlign: 'left',
+      wrapAround: true,
+      prevNextButtons: false, // Hide the previous and next arrows
+      pageDots: true,
+      // add other options for this breakpoint
+    }
+  },
+});
+
 
      //    $(document).ready(function() {
      //       $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
