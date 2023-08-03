@@ -226,7 +226,7 @@
       {% if template == 'index' %}
         </div>
       {% endif %}
-
+      {% include 'row-products' %}
       <!-- End Content -->
 
       {% include 'quickview' %}
@@ -278,9 +278,7 @@
           }());
         </script>
       {% endif %}
-
-      <!-- Your search bar code goes here -->
-
+      {% if settings.search_autofil_enable %}{% include 'search-autocomplete' %}{% endif %}
       {% if settings.show_gdpr_msg %}{% include 'cookie-consent' %} {% endif %}
       {% include 'currencies' %}
     </div>
