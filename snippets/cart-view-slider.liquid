@@ -100,7 +100,10 @@
         maxlength="10"
       >
       <br>
-      <buttom style="width: 70%; color: white; background-color: #0ec50e;     padding: 0.8em 0.5em; text-align: center; border-radius: 5px;">
+      <buttom
+        onclick="sendOtpNewsletterSlider()"
+        style="width: 70%; color: white; background-color: #0ec50e;     padding: 0.8em 0.5em; text-align: center; border-radius: 5px;"
+      >
         Get OTP
       </buttom>
     </div>
@@ -138,7 +141,13 @@
     </div>
   </div>
 </div>
+<script>
+  function sendOtpNewsletterSlider(){
 
+  document.getElementById("myDiv").style.display = "block";
+
+  }
+</script>
 {% comment %}
   <div id="cartslider" class="sidecart">
     <div class="big-button-container">
