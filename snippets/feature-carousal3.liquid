@@ -260,13 +260,14 @@
      }
    }
 
- $('.carousel').flickity({
+$('.carousel').flickity({
   cellAlign: 'left',
   contain: true,
   wrapAround: true,
   pageDots: false,
   responsive: true,
-   cellSpacing: 10,
+  // Remove cellSpacing from here
+  // cellSpacing: 10,
   // Add breakpoints without prevNextButtons option
   breakpoints: {
     0: {
@@ -275,6 +276,7 @@
       wrapAround: false,
       pageDots: false,
       contain: true,
+      cellSpacing: 10, // Add cellSpacing here for the 0px breakpoint
     },
     500: {
       slidesToShow: 5,
@@ -282,10 +284,12 @@
       wrapAround: true,
       pageDots: true,
       contain: false,
+      cellSpacing: 20, // Add cellSpacing here for the 500px breakpoint
     },
     // Add more breakpoints and their corresponding options as needed
   },
 });
+
 
 
 
