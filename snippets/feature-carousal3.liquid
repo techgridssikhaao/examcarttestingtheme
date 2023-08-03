@@ -6,54 +6,16 @@
 
 {% assign product_collection = section.settings.collection %}
 <style>
-         /* .owl-item{
-           width:20% !important;
-         } */
-
-         /* .owl-stage{
-           transform: none !important;
-            transition: none !improtant;
-         } */
-
-         /* .tab-container-{{section.id}} .owl-item {
-         transition: none !important;
-         animation: none !important;
-         opacity: 1 !important;
-       } */
-       /* .tab-container-{{section.id}} .owl-item {
-         transition: none !important;
-       } */
-
-       .bestseller-full {
-       margin-top: 0px !important;
-       padding-bottom: 0px !important;
-   }
-
-     .module-title {
-       /* border-bottom: 1px solid #e5e5e5; */
-           border-bottom: none;
-       margin-top: 0px !important;
-       margin-bottom:0px !important;
-       padding-bottom: 9px !important;
-       text-align: left !important;
-     }
-
-   .module-title h2:after {
-  display: none;
-       /* background: white !important; */
-
-   }
-
-  .swiper-wrapper .swiper{
+  /* Override Swiper default styles */
+  .swiper {
     display: flex;
-    flex-direction: row;
+    flex-wrap: nowrap; /* Ensure slides stay in a single row */
+    overflow: hidden; /* Hide overflow to prevent scrollbar */
   }
-
-     .module-title h2 {
-
-       padding-bottom: 0px !important;
-       margin-top: 1em !important;
-   }
+  .swiper-slide {
+    flex: 0 0 auto; /* Ensure slides don't shrink or grow */
+    width: calc(100% / {{ section.settings.no_of_products }}); /* Set slide width based on the number of products */
+  }
 </style>
 
 <div
