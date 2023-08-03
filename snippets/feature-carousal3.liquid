@@ -94,11 +94,11 @@
     </div>
   </div>
   <div class="box-style">
-  
+    <div class="owl-container">
       <div class="tt-product ">
         <div class="tab-content">
           <div
-            class="tab-container-{{section.id}}  tab-pane tab-product-container  "
+            class="tab-container-{{section.id}}  owl-carousel owl-theme owl-carousel-1 tab-pane tab-product-container  "
             id="tab-{{section.id}}0"
           >
             {% if section.settings.listing_rows == 1 %}
@@ -120,14 +120,12 @@
           </div>
         </div>
       </div>
-  
+    </div>
   </div>
   <div class="clearfix"></div>
 </div>
 <!--
   <script >
-
-
 
 
 
@@ -251,6 +249,7 @@
 
      }
    }
+
 
         $(document).ready(function() {
            $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
