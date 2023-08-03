@@ -14,10 +14,10 @@
     flex-wrap: nowrap;
     overflow: hidden;
   }
-  .swiper-slide {
+  /* .swiper-slide {
     flex: 0 0 auto;
     width: calc(100% / {{ section.settings.no_of_products }});
-  }
+  } */
 </style>
 
 <div
@@ -95,7 +95,7 @@
     var noOfProducts = {{ section.settings.no_of_products }};
     var swiper = new Swiper(".tab-container-" + sectionId, {
       slidesPerView: noOfProducts,
-      spaceBetween: 30,
+
       loop: false,
       swipeToSlide: true,
       effect: "slide",
