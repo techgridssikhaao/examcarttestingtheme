@@ -1,9 +1,9 @@
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
->
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
 
-<script async src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!-- Swiper JS -->
+<script async src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+
 {% assign product_collection = section.settings.collection %}
 <style>
          /* .owl-item{
@@ -92,6 +92,44 @@
       </ul>
     </div>
   </div>
+
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <div
+        class="tab-container-{{section.id}} tab-pane tab-product-container  "
+        id="tab-{{section.id}}0"
+      >
+        {% if section.settings.listing_rows == 1 %}
+          {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+            <div class="row_items {% cycle 'odd','even' %}">
+              {% include 'product-grid-item-list' %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="row_items {% cycle 'odd','even' %}">
+            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+              {% include 'product-grid-item-list' %}
+              {% if forloop.last == false %}
+                {% cycle '', '</div><div class="row_items">' %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
   <div class="box-style">
     <div class="tab-content">
       <div
