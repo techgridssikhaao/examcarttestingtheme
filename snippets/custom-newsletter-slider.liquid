@@ -114,7 +114,7 @@
           border-radius: 5px;
           border: 1px solid #0ec50e;
         "
-
+        id="newsletter-verify-otp-button"
         type="tel"
         placeholder="Verify OTP"
         maxlength="6"
@@ -133,23 +133,30 @@
   </div>
 </div>
 <script>
-    function openNewsletter() {
-              document.getElementById("newsletter-slider").style.width = "80%";
-            }
+      function openNewsletter() {
+                document.getElementById("newsletter-slider").style.width = "80%";
+              }
 
-     function closeNewsletter() {
-              document.getElementById("newsletter-slider").style.width = "0";
+       function closeNewsletter() {
+                document.getElementById("newsletter-slider").style.width = "0";
 
 
 
-            }
+              }
 
-  function clearInput() {
-      document.getElementById('newsletter-enter-mob').value = '';
-    }
-      function sendOtpNewsletterSlider(){
+  function changeMobnum(){
+    clearInput();
+    document.getElementById('newsletter-verify-otp-button').value = '';
+  }
 
-      document.getElementById("send-otp-newsletter").style.display = "none";
-      document.getElementById("otp-verify-newsletter").style.display = "flex";
+
+
+    function clearInput() {
+        document.getElementById('newsletter-enter-mob').value = '';
       }
+        function sendOtpNewsletterSlider(){
+
+        document.getElementById("send-otp-newsletter").style.display = "none";
+        document.getElementById("otp-verify-newsletter").style.display = "flex";
+        }
 </script>
