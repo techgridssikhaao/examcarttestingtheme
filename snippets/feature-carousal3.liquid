@@ -1,6 +1,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<script
+  defer
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+></script>
 
-<script async src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 {% assign product_collection = section.settings.collection %}
 <style>
          /* .owl-item{
@@ -186,52 +190,6 @@
 
   </script>
 -->
-
-<!-- Swiper JS -->
-
-<!-- Initialize Swiper -->
-<script>
-  // Function to initialize the Swiper carousel
-  function initSwiper() {
-    var sectionId = "{{section.id}}";
-    var noOfProducts = {{ section.settings.no_of_products }};
-    var swiper = new Swiper(".tab-container-" + sectionId, {
-      slidesPerView: noOfProducts,
-      slidesPerGroup: 2,
-      spaceBetween: 0,
-      loop: false,
-      swipeToSlide: true,
-      effect: "slide", // Use "fade" for fade effect
-      speed: 600,
-      navigation: {
-        prevEl: ".your-prev-arrow-selector", // Add your custom prev arrow selector here
-        nextEl: ".your-next-arrow-selector", // Add your custom next arrow selector here
-      },
-      breakpoints: {
-        1600: { slidesPerView: noOfProducts },
-        1200: { slidesPerView: noOfProducts },
-        992: { slidesPerView: 6 },
-        768: { slidesPerView: 5, navigation: false },
-        500: { slidesPerView: 4, navigation: false },
-        0: { slidesPerView: 3, navigation: false },
-      },
-    });
-  }
-
-  // Initialize Swiper on page load
-  initSwiper();
-
-  // Reinitialize Swiper when the window is resized
-  window.addEventListener("resize", function () {
-    // Destroy the previous Swiper instance
-    if (window.mySwiper) {
-      window.mySwiper.destroy();
-    }
-    // Initialize a new Swiper instance
-    initSwiper();
-  });
-</script>
-
 <script>
    function collectionUrls(ref){
         console.log(ref);
@@ -287,6 +245,44 @@
 
      }
    }
+
+
+        $(document).ready(function() {
+           $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+             $(".tab-container-{{section.id}}").slick({
+           infinite: false,
+           slidesToShow: {{ section.settings.no_of_products }},
+           slidesToScroll: 2,
+           swipeToSlide: false,
+      arrows: false,
+       infinite: false,
+       swipeToSlide: true,
+       draggable: true,
+       easing: 'linear',
+       touchThreshold: 60,
+       speed: 600,
+       useTransform: true,
+       cssEase: 'linear',
+       waitForAnimate: false,
+     mobileFirst: true,
+                touchMove: true,
+      swipe: true,
+      fade: false,
+           arrows: false,
+         // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+         // nextArrow: '<button type="button" class="slick-next">Next</button>',
+           responsive: [
+             { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+             { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+             { breakpoint: 992, settings: { slidesToShow: 6 } },
+             { breakpoint: 768, settings: { slidesToShow: 5, nav: false } },
+             { breakpoint: 500, settings: { slidesToShow: 4, nav: false } },
+             { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
+           ]
+         });
+
+         // Optional: Custom logic for dots or other functionality can be added here
+       });
 </script>
 
 <!--
