@@ -1,9 +1,12 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+{% comment %} <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <script
   defer
   type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-></script>
+></script> {% endcomment %}
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 {% assign product_collection = section.settings.collection %}
 <style>
@@ -98,7 +101,7 @@
       <div class="tt-product ">
         <div class="tab-content">
           <div
-            class="tab-container-{{section.id}}  owl-carousel owl-theme owl-carousel-1 tab-pane tab-product-container  "
+            class="tab-container-{{section.id}}  owl-carousel owl-theme owl-carousel-1 tab-pane tab-product-container  carousel" data-flickity='{ "freeScroll": true }'
             id="tab-{{section.id}}0"
           >
             {% if section.settings.listing_rows == 1 %}
@@ -252,42 +255,42 @@
      }
    }
 
-        $(document).ready(function() {
-           $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
-             $(".tab-container-{{section.id}}").slick({
-           infinite: false,
-           slidesToShow: {{ section.settings.no_of_products }},
-           slidesToScroll: 2,
-           swipeToSlide: true,
-      arrows: false,
-       infinite: false,
-       swipeToSlide: true,
-       draggable: true,
-       easing: 'linear',
-       touchThreshold: 60,
-       speed: 600,
-       useTransform: true,
-       cssEase: 'linear',
-       waitForAnimate: false,
-     mobileFirst: true,
-                touchMove: true,
-      swipe: true,
-      fade: false,
-           arrows: false,
-         // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-         // nextArrow: '<button type="button" class="slick-next">Next</button>',
-           responsive: [
-             { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-             { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
-             { breakpoint: 992, settings: { slidesToShow: 6 } },
-             { breakpoint: 768, settings: { slidesToShow: 5, nav: false } },
-             { breakpoint: 500, settings: { slidesToShow: 4, nav: false } },
-             { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
-           ]
-         });
+     //    $(document).ready(function() {
+     //       $('a[href="#tab-{{section.id}}0"]').trigger( "click" );
+     //         $(".tab-container-{{section.id}}").slick({
+     //       infinite: false,
+     //       slidesToShow: {{ section.settings.no_of_products }},
+     //       slidesToScroll: 2,
+     //       swipeToSlide: true,
+     //  arrows: false,
+     //   infinite: false,
+     //   swipeToSlide: true,
+     //   draggable: true,
+     //   easing: 'linear',
+     //   touchThreshold: 60,
+     //   speed: 600,
+     //   useTransform: true,
+     //   cssEase: 'linear',
+     //   waitForAnimate: false,
+     // mobileFirst: true,
+     //            touchMove: true,
+     //  swipe: true,
+     //  fade: false,
+     //       arrows: false,
+     //     // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+     //     // nextArrow: '<button type="button" class="slick-next">Next</button>',
+     //       responsive: [
+     //         { breakpoint: 1600, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+     //         { breakpoint: 1200, settings: { slidesToShow: {{ section.settings.no_of_products }} } },
+     //         { breakpoint: 992, settings: { slidesToShow: 6 } },
+     //         { breakpoint: 768, settings: { slidesToShow: 5, nav: false } },
+     //         { breakpoint: 500, settings: { slidesToShow: 4, nav: false } },
+     //         { breakpoint: 0, settings: { slidesToShow: 3, nav: false } }
+     //       ]
+     //     });
 
-         // Optional: Custom logic for dots or other functionality can be added here
-       });
+     //     // Optional: Custom logic for dots or other functionality can be added here
+     //   });
 </script>
 
 <!--
