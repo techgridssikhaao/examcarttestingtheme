@@ -287,12 +287,12 @@
   
   
   
-  if(localStorage.getItem("globalOtpKey") != null){
+  if(localStorage.getItem("globalOtpKey") == null){
 
   document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
       showPopup('#news-letter-popup'); // Replace '#myModal' with the actual ID of your modal
-    }, 5000);
+    }, 1000);
   });
   
   }
