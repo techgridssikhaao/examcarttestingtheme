@@ -288,7 +288,8 @@
   
   
   
-  if(localStorage.getItem("globalOtpKey") != null){
+  
+  if(localStorage.getItem("globalOtpKey") == null){
 
   document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
@@ -891,6 +892,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
