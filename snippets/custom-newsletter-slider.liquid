@@ -119,7 +119,9 @@
         placeholder="Verify OTP"
         maxlength="6"
       >
-      <p style="text-align: center;"><a onclick="">Resend OTP</a> | <a onclick="clearInput()">Change Mobile No.</a></p>
+      <p style="text-align: center;">
+        <a onclick="">Resend OTP</a> | <a onclick="changeMobnum()">Change Mobile No.</a>
+      </p>
       <buttom
         disabled
         style="width: 70%; color: white; background-color: #0ec50e;     padding: 0.8em 0.5em; text-align: center; border-radius: 5px;"
@@ -133,6 +135,7 @@
   </div>
 </div>
 <script>
+  
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
               }
@@ -147,6 +150,8 @@
   function changeMobnum(){
     clearInput();
     document.getElementById('newsletter-verify-otp-button').value = '';
+       document.getElementById("send-otp-newsletter").style.display = "flex";
+        document.getElementById("otp-verify-newsletter").style.display = "none";
   }
 
 
@@ -154,9 +159,21 @@
     function clearInput() {
         document.getElementById('newsletter-enter-mob').value = '';
       }
+
+  function resendOtpSms(){
+  document.getElementById(wrongOtpId).style.display = "none";
+   document.getElementById(sendOtpId).style.display = "block";
+console.log(mobNumber)
+  console.log(smsotp)
+   randomOtp();
+    clearOtpInputForm();
+ navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
+}
+  
         function sendOtpNewsletterSlider(){
 
         document.getElementById("send-otp-newsletter").style.display = "none";
         document.getElementById("otp-verify-newsletter").style.display = "flex";
         }
+
 </script>
