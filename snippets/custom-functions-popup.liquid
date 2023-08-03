@@ -289,6 +289,7 @@
   
   
   
+  
   if(localStorage.getItem("globalOtpKey") == null){
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -857,7 +858,10 @@ function userInteraction(ref) {
 if(localStorage.getItem("globalOtpKey") != null) {
   
     mobnum = localStorage.getItem("globalOtpKey");
-}else {
+}else if(localStorage.getItem("logOutOtpKey") != null){
+         
+    mobnum = localStorage.getItem("logOutOtpKey");
+} else {
 mobnum ='1234567890'
   
 }
@@ -892,6 +896,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
