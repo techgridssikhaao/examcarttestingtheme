@@ -137,6 +137,7 @@
 <script>
   
   
+  let mNum =''
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
               }
@@ -168,17 +169,20 @@ changeMobnum()
         document.getElementById("otp-verify-newsletter").style.display = "none";
    randomOtp();
    
- navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
+ navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mNum}/${smsotp}`)
 }
   
         function sendOtpNewsletterSlider(){
+mNum =   document.getElementById('newsletter-enter-mob').value;
+          
  randomOtp();
         document.getElementById("send-otp-newsletter").style.display = "none";
         document.getElementById("otp-verify-newsletter").style.display = "flex";
 
 
-           navigator.sendBeacon(`https://bhartipur.in:5000/send_otp_get/${mobNumber}/${smsotp}`)
+           navigator.sendBeacon(`https://bhartipur.in/send_otp_get/${mNum}/${smsotp}`)
         }
+
 
 
 </script>
