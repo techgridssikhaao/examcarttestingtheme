@@ -143,93 +143,34 @@
     <div class="modal-dialog modal-dialog-centered" role="document" style="padding-top: 150px;">
       <div class="parent-newsletter" id="parent-newsletter">
         <div class="child-newsletter">
-          <div class="top-div-newsletter">
-            <div>
-              <img src="{{ 'Exlogo.jpg' | asset_url }}" alt="logo" class="exlogo-image">
-            </div>
-            <div
-              class="closeicon"
-            >
-              <span
-                onclick="hidePopup('#news-letter-popup')"
+         <div style="display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;">
+        <img src="logo.jpg" alt="logo" class="exlogo-image" style="    width: 100%;">
+        <h2  style="color: #0ec50e; margin: 0.5em 2em; text-align: center;">GET YOUR FREE E-BOOK NOW!</h2>
+        <P style="margin: 1em 2em; text-align: center; ">Study best Current affairs of August 2023 with this monthly current affairs e-book</P>
+       <div style="width: 100%;  display: grid; justify-content: center;" id="send-otp-newsletter">
+        <input  style=" background-color: #ebebeb; padding: 0.5em 0.5em; text-align: center; letter-spacing: 2px; font-size: 1.2rem; border-radius: 5px; border: 1px solid #0ec50e;"
+          type="tel"
+      placeholder="Enter Mobile Number"
+          maxlength="10"
+        >
+        <br>
+        <buttom style=" color: white; background-color: #0ec50e; padding: 1em 0.5em; text-align: center; border-radius: 5px;" > Get OTP </buttom>
+    </div>
+    <div id="otp-verify-newsletter"   style="width: 100%; display: none; justify-content: center;">
 
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <svg
-                  Style=" width: 1.5em; height: 1.5em;"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 384 512"
-                >
-                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#383838}</style><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
+        <input  style=" background-color: #ebebeb; padding: 0.5em 0.5em; text-align: center; letter-spacing: 2px; font-size: 1.2rem; border-radius: 5px; border: 1px solid #0ec50e;"
+        type="tel"
+    placeholder="Verify OTP"
+        maxlength="6"
+      >
+      <p style="text-align: center;"><a onclick="">Resend OTP</a> | <a onclick="">Change Mobile No.</a></p>
+      <buttom style=" font-size: 1.2rem; color: white; background-color: #0ec50e; padding: 0.5em 0.5em; text-align: center; border-radius: 5px;" > Download PDF <svg style="fill: white;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg> </buttom>
 
-          <div class="middle-div-newsletter">
-            <div class="otp-design-newsletter">
-              <span class="download-txt-head">Download for <span class="free-txt">FREE</span></span>
-              <br>
-              <span class="current-affairs-txt">Current Affairs E-Book</span>
-              <div class="verify-txt" id="verify-txt">Verify your number</div>
-              <div class="download-para-txt">Download July 2023 monthly current</div>
-              <div class="download-para-txt">affairs e-book for all competitive exams.</div>
-              <br>
-              <label class="enter-mobile-number">Enter Mobile Number</label>
-
-              <input
-                type="tel"
-                class="input-field-newsletter"
-                onkeyup="validateLength('news-popup-otp-btn','#news-letter-number')"
-                oninput="onlyNum('news-letter-number')"
-                maxlength="10"
-                id="news-letter-number"
-              >
-              <br>
-
-              <div class="get-otp-btn-div">
-                <button
-                  style="padding-top: 1em; padding-bottom: 1em; background-color: #62ab00; padding-top: 2px;  padding-bottom: 2px; "
-                  id="news-popup-otp-btn"
-                  onclick="newsLetterSendOtp(this)"
-                  button-name="news-letter"
-                  data-product-id="newsletterpopup"
-                  disabled
-                >
-                  Get OTP
-                </button>
-              </div>
-              <br>
-              <span class="wrong-otp" id="wrong-otp-txt">Wrong OTP!</span>
-              <label for="Verify" class="verify-otp">Verify OTP</label>
-              <br>
-              <input type="num" class="otp-input-field" id="news-popup-otp">
-              <div class="dont-receive-otp">
-                Didn't you receive the OTP?
-                <span class="resend-otp-btn" onclick="resendOtp()" style="cursor: pointer;">Resend OTP</span>
-              </div>
-            </div>
-            <div class="otp-design-newsletter-image">
-              <img src="{{ 'Mockup.jpg' | asset_url }}" alt="image" class="mockup-image">
-            </div>
-          </div>
-
-          <div class="lower-div-newsletter">
-            <button
-              onclick="newsLetterVerifyButton()"
-              style=" margin-top: 2em; padding: 1em; color: white; background-color: black;"
-            >
-              <span>Download PDF </span>
-              <span style=" margin-left: 4px;">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M256 464a208 208 0 1 1 0-416 208 208 0 1 1 0 416zM256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6c4.5-4.2 7.1-10.1 7.1-16.3c0-12.3-10-22.3-22.3-22.3H304V160c0-17.7-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32v96H150.3C138 256 128 266 128 278.3c0 6.2 2.6 12.1 7.1 16.3l107.1 99.9c3.8 3.5 8.7 5.5 13.8 5.5s10.1-2 13.8-5.5l107.1-99.9z"/>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </div>
+    </div>
+      </div>
       </div>
     </div>
   </div>
