@@ -609,8 +609,8 @@ function load(cart) {
       $(target.container).append('<p class="text-center cart-empty">{{ 'cart.general.no_items'| t }}</p>');
       $(target.noItems).removeClass('show').addClass('hide');
     } else {
-      // $(target.container + ' p.cart-empty').remove();
-      // $(target.noItems).removeClass('hide').addClass('show');
+      $(target.container + ' p.cart-empty').remove();
+      $(target.noItems).removeClass('hide').addClass('show');
     }
   });
 }
