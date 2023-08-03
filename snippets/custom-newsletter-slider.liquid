@@ -141,6 +141,7 @@
   
   
   
+  
   let mNum =''
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
@@ -194,13 +195,15 @@ let newsletterVerifyOtpValue =   document.getElementById('newsletter-verify-otp-
    let newsletterVerifyOtpValueparseOtp = parseInt(newsletterVerifyOtpValue);
   if (newsletterVerifyOtpValueparseOtp == smsotp) {
     localStorage.setItem("globalOtpKey", mobNumber);
-    closeNewsletter();
+  
+     window.location.reload();
   } else {
       document.getElementById("NewsletterWrongOtp").style.display = "block";
         document.getElementById("NewslettersendOtpMessage").style.display = "none";
     
   }
 }
+
 
 
 
