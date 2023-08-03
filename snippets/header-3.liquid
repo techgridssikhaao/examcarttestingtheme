@@ -292,7 +292,11 @@
               {% include 'header-cart' %}
             </div>
           </div>
-          <!-- {% include 'header-search' %} -->
+          {% assign urlParts = request.url | split: '/cart' %}
+          {% assign lastPart = urlParts | last %}
+          {% if lastPart == '/cart' %}
+            <!-- {% include 'header-search' %} -->
+          {% endif %}
         </div>
         <div class="clearfix"></div>
       </div>
