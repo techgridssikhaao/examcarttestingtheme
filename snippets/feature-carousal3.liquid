@@ -63,30 +63,30 @@
     </div>
   </div>
 
-  <div class="swiper-container">
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <div class="tab-container-{{section.id}}" id="tab-{{section.id}}0">
-          <!-- Slides -->
-          {% if section.settings.listing_rows == 1 %}
-            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-              <div class="swiper-slide">
-                {% include 'product-grid-item-list' %}
-              </div>
-            {% endfor %}
-          {% else %}
-            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-              <div class="swiper-slide">
-                {% include 'product-grid-item-list' %}
-              </div>
-            {% endfor %}
-          {% endif %}
+<div class="swiper-container">
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      {% if section.settings.listing_rows == 1 %}
+        <div class="swiper-slide">
+          {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+            {% include 'product-grid-item-list' %}
+          {% endfor %}
         </div>
-      </div>
-      <!-- If we need pagination -->
+      {% else %}
+        <div class="tab-container-{{section.id}}" id="tab-{{section.id}}0">
+          {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+            <div class="swiper-slide">
+              {% include 'product-grid-item-list' %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
+    <!-- If we need pagination -->
   </div>
+</div>
+
 </div>
 <script>
   // Function to initialize the Swiper carousel
