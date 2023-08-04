@@ -73,6 +73,7 @@
           id="tab-{{section.id}}0"
         >
           <div class="swiper-wrapper">
+                 <div class="swiper-slide">
              {% if section.settings.listing_rows == 1 %}
               {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
                 <div class="row_items {% cycle 'odd','even' %}">
@@ -89,6 +90,8 @@
                 {% endfor %}
               </div>
             {% endif %}
+
+          </div>
           </div>
           <!-- Add Swiper pagination -->
           <div class="swiper-pagination"></div>
