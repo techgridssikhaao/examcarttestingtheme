@@ -1,5 +1,6 @@
 <!-- Add the Swiper CSS styles -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
 
 {% assign product_collection = section.settings.collection %}
 <style>
@@ -82,7 +83,7 @@
 </div>
 
 <!-- Add the Swiper JS script -->
-<script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script async src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
 
 <script>
   function initSwiper() {
