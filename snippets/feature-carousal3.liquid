@@ -85,36 +85,26 @@
 <script async src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
 
 <script>
-  var swiper; // Declare the swiper variable outside the function
-
-  function initSwiper() {
+  	function initSwiper() {
     var sectionId = "{{section.id}}";
     var noOfProducts = {{ section.settings.no_of_products }};
-    swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      freeMode: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
+    var swiper = new Swiper(".swiper-container", {
+      slidesPerView: noOfProducts,
+      loop: false,
+      swipeToSlide: true,
+        freeMode: true,
+      effect: "slide",
+      speed: 600,
+
       breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        // when window width is >= 480px
-        480: {
-          slidesPerView: 3,
-          spaceBetween: 30
-        },
-        // when window width is >= 640px
-        640: {
-          slidesPerView: 4,
-          spaceBetween: 40
-        }
-      }
+        1600: { slidesPerView: noOfProducts },
+        1200: { slidesPerView: noOfProducts },
+        992: { slidesPerView: 6 },
+        768: { slidesPerView: 5, navigation: false },
+        500: { slidesPerView: 4, navigation: false },
+        0: { slidesPerView: 3, navigation: false },
+      },
+
     });
   }
 
@@ -124,14 +114,13 @@
   // Reinitialize Swiper when the window is resized
   window.addEventListener("resize", function () {
     // Destroy the previous Swiper instance
-    if (swiper) {
-      swiper.destroy();
+    if (window.mySwiper) {
+      window.mySwiper.destroy();
     }
     // Initialize a new Swiper instance
     initSwiper();
   });
 </script>
-
 <script>
    function collectionUrls(ref){
         console.log(ref);
