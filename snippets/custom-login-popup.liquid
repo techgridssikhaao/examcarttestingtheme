@@ -413,7 +413,23 @@
           if (prev) prev.focus();
         }
       });
+    };
+
+    input.addEventListener("paste", (event) => {
+    event.preventDefault();
+    const pastedText = event.clipboardData.getData('text');
+    if (pastedText.length === 6) {
+      for (let i = 0; i < 6; i++) {
+        const currentInput = document.getElementById(inputs[i]);
+        const code = parseInt(pastedText[i]);
+        if (code >= 0 && code <= 9) {
+          currentInput.value = code;
+        } else {
+          currentInput.value = "";
+        }
+      }
     }
+  });
 </script>
 
 <!--
