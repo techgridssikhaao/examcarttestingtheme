@@ -9,16 +9,9 @@
 {% assign product_collection = section.settings.collection %}
 <style>
 
-
 /* Ensure all items are in a single row */
 .swiper-slide {
-  display: inline-block;
-  width: 25%; /* Adjust this value based on the number of items you want to display in a row */
-}
-
-/* Ensure the container only takes the necessary width */
-.swiper-wrapper {
-  display: inline-flex;
+  display: flex;
 }
 
 /* Hide the scrollbar if you don't want it to be visible */
@@ -71,41 +64,92 @@
       </ul>
     </div>
   </div>
- <div class="box-style">
-  
-      <div class="tt-product ">
-        <div class="tab-content">
-          <div
-            class="tab-container-{{section.id}}  tab-pane tab-product-container  "
-            id="tab-{{section.id}}0"
-          >
-            {% if section.settings.listing_rows == 1 %}
-              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                <div class="row_items {% cycle 'odd','even' %}">
-                  {% include 'product-grid-item-list' %}
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {% if section.settings.listing_rows == 1 %}
+      {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+        <div class="swiper-slide">
+          <div class="box-style">
+            <div class="tt-product">
+              <div class="tab-content">
+                <div class="tab-container-{{section.id}} tab-pane tab-product-container">
+                  <div class="row_items {% cycle 'odd','even' %}">
+                    {% include 'product-grid-item-list' %}
+                  </div>
                 </div>
-              {% endfor %}
-            {% else %}
-              <div class="row_items {% cycle 'odd','even' %}">
-                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                  {% include 'product-grid-item-list' %}
-                  {% if forloop.last == false %}
-                    {% cycle '', '</div><div class="row_items">' %}
-                  {% endif %}
-                {% endfor %}
               </div>
-            {% endif %}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      {% endfor %}
+    {% else %}
+      {% for product in collections[product_collection].products %}
+        <div class="swiper-slide">
+          <div class="box-style">
+            <div class="tt-product">
+              <div class="tab-content">
+                <div class="tab-container-{{section.id}} tab-pane tab-product-container">
+                  <div class="row_items {% cycle 'odd','even' %}">
+                    {% include 'product-grid-item-list' %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+</div>
+
   </div>
 
 
 
 
  <script>
-	
+	function initSwiper() {
+  var sectionId = "{{section.id}}";
+  var noOfProducts = {{ section.settings.no_of_products }};
+  var swiper = new Swiper(".swiper-container", {
+    slidesPerView: noOfProducts,
+    loop: false,
+    swipeToSlide: true,
+    effect: "slide",
+    speed: 600,
+    navigation: {
+      prevEl: ".your-prev-arrow-selector",
+      nextEl: ".your-next-arrow-selector",
+    },
+    breakpoints: {
+      1600: { slidesPerView: noOfProducts },
+      1200: { slidesPerView: noOfProducts },
+      992: { slidesPerView: 6 },
+      768: { slidesPerView: 5, navigation: false },
+      500: { slidesPerView: 4, navigation: true },
+      0: { slidesPerView: 3, navigation: true },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}
+
+// Initialize Swiper on page load
+initSwiper();
+
+// Reinitialize Swiper when the window is resized
+window.addEventListener("resize", function () {
+  // Destroy the previous Swiper instance
+  if (window.mySwiper) {
+    window.mySwiper.destroy();
+  }
+  // Initialize a new Swiper instance
+  initSwiper();
+});
+
 
 </script>
 
