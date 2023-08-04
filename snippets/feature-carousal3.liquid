@@ -67,39 +67,21 @@
   </div>
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    {% if section.settings.listing_rows == 1 %}
-      {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-        <div class="swiper-slide">
-          <div class="box-style">
-            <div class="tt-product">
-              <div class="tab-content">
-                <div class="tab-container-{{section.id}} tab-pane tab-product-container">
-                  <div class="row_items {% cycle 'odd','even' %}">
-                    {% include 'product-grid-item-list' %}
-                  </div>
+    {% for product in collections[product_collection].products %}
+      <div class="swiper-slide">
+        <div class="box-style">
+          <div class="tt-product">
+            <div class="tab-content">
+              <div class="tab-container-{{section.id}} tab-pane tab-product-container">
+                <div class="row_items {% cycle 'odd','even' %}">
+                  {% include 'product-grid-item-list' %}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      {% endfor %}
-    {% else %}
-      {% for product in collections[product_collection].products %}
-        <div class="swiper-slide">
-          <div class="box-style">
-            <div class="tt-product">
-              <div class="tab-content">
-                <div class="tab-container-{{section.id}} tab-pane tab-product-container">
-                  <div class="row_items {% cycle 'odd','even' %}">
-                    {% include 'product-grid-item-list' %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    {% endif %}
+      </div>
+    {% endfor %}
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
