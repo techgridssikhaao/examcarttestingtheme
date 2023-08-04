@@ -298,6 +298,7 @@
           <div class="otp-parent">
             <input
               class="otp otp-form"
+              oninput="onInputHandler(1)"
               maxlength="1"
               pattern="[0-9]"
               type="tel"
@@ -307,6 +308,7 @@
             <input
               class="otp otp-form"
               maxlength="1"
+                oninput="onInputHandler(2)"
               pattern="[0-9]"
               type="tel"
               id="otp2-login"
@@ -317,6 +319,8 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
+              
+               oninput="onInputHandler(3)"
               id="otp3-login"
               onpaste="onPasteHandler(event)"
             >
@@ -325,6 +329,7 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
+               oninput="onInputHandler(4)"
               id="otp4-login"
               onpaste="onPasteHandler(event)"
             >
@@ -333,6 +338,7 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
+               oninput="onInputHandler(5)"
               id="otp5-login"
               onpaste="onPasteHandler(event)"
             >
@@ -341,6 +347,7 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
+               oninput="onInputHandler(6)"
               id="otp6-login"
               onpaste="onPasteHandler(event)"
             >
@@ -415,21 +422,21 @@ let input ='';
       });
     }
 
-    input.addEventListener("paste", (event) => {
-    event.preventDefault();
-    const pastedText = event.clipboardData.getData('text');
-    if (pastedText.length === 6) {
-      for (let i = 0; i < 6; i++) {
-        const currentInput = document.getElementById(inputs[i]);
-        const code = parseInt(pastedText[i]);
-        if (code >= 0 && code <= 9) {
-          currentInput.value = code;
-        } else {
-          currentInput.value = "";
-        }
-      }
-    }
-  });
+  //   input.addEventListener("paste", (event) => {
+  //   event.preventDefault();
+  //   const pastedText = event.clipboardData.getData('text');
+  //   if (pastedText.length === 6) {
+  //     for (let i = 0; i < 6; i++) {
+  //       const currentInput = document.getElementById(inputs[i]);
+  //       const code = parseInt(pastedText[i]);
+  //       if (code >= 0 && code <= 9) {
+  //         currentInput.value = code;
+  //       } else {
+  //         currentInput.value = "";
+  //       }
+  //     }
+  //   }
+  // });
 </script>
 
 <!--
