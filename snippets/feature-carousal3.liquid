@@ -73,13 +73,22 @@
           id="tab-{{section.id}}0"
         >
           <div class="swiper-wrapper">
-            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-              <div class="swiper-slide">
+             {% if section.settings.listing_rows == 1 %}
+              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
                 <div class="row_items {% cycle 'odd','even' %}">
                   {% include 'product-grid-item-list' %}
                 </div>
+              {% endfor %}
+            {% else %}
+              <div class="row_items {% cycle 'odd','even' %}">
+                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+                  {% include 'product-grid-item-list' %}
+                  {% if forloop.last == false %}
+                    {% cycle '', '</div><div class="row_items">' %}
+                  {% endif %}
+                {% endfor %}
               </div>
-            {% endfor %}
+            {% endif %}
           </div>
           <!-- Add Swiper pagination -->
           <div class="swiper-pagination"></div>
