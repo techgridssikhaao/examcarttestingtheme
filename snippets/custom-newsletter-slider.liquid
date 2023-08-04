@@ -150,6 +150,7 @@
   
   
   
+  
   let mNum =''
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
@@ -158,7 +159,7 @@
        function closeNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "0";
 
-
+                   sessionStorage.setItem('NewsLetterIsClosed', 'true');
 
               }
 
@@ -211,6 +212,7 @@ let newsletterVerifyOtpValue =   document.getElementById('newsletter-verify-otp-
     
   }
 }
+
 
 
 

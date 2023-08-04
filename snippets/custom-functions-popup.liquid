@@ -290,13 +290,21 @@
   
   
   
+  
   if(localStorage.getItem("globalOtpKey") == null){
 
-  document.addEventListener('DOMContentLoaded', function() {
+  if(sessionStorage.getItem('NewsLetterIsClosed')== null){
+
+      document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
       openNewsletter() ; // Replace '#myModal' with the actual ID of your modal
     }, 5000);
   });
+  }
+
+
+    
+
   
   }
 
@@ -896,6 +904,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
