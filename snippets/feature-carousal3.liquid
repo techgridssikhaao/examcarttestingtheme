@@ -1,25 +1,17 @@
-
 <!-- Add the Swiper CSS styles -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-
-
-
-
 {% assign product_collection = section.settings.collection %}
 <style>
+   /* .swiper-slide {
+    display: flex;
+  }
 
 
- /* .swiper-slide {
-  display: flex;
-}
-
-
-.swiper-container {
-  overflow: hidden;
-}
- */
-  
+  .swiper-container {
+    overflow: hidden;
+  }
+   */
 </style>
 
 <div
@@ -64,80 +56,73 @@
       </ul>
     </div>
   </div>
-<div class="box-style">
-  <div class="owl-container">
-    <div class="tt-product">
-      <div class="tab-content">
-        <div
-          class="tab-container-{{section.id}} swiper-container tab-product-container"
-          id="tab-{{section.id}}0"
-        >
-          <div class="swiper-wrapper">
-            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-              <div class="swiper-slide">
-                <div class="row_items {% cycle 'odd','even' %}">
-                  {% include 'product-grid-item-list' %}
+  <div class="box-style">
+    <div class="owl-container">
+      <div class="tt-product">
+        <div class="tab-content">
+          <div
+            class="tab-container-{{section.id}} swiper-container tab-product-container"
+            id="tab-{{section.id}}0"
+          >
+            <div class="swiper-wrapper">
+              {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+                <div class="swiper-slide">
+                  <div class="row_items {% cycle 'odd','even' %}">
+                    {% include 'product-grid-item-list' %}
+                  </div>
                 </div>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
+            <!-- Add Swiper pagination -->
+            <div class="swiper-pagination"></div>
           </div>
-          <!-- Add Swiper pagination -->
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
   </div>
+  <div class="clearfix"></div>
 </div>
-<div class="clearfix"></div>
-
-<div class="clearfix"></div>
-
-  </div>
 
 <!-- Add the Swiper JS script -->
 <script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<script>
+  	function initSwiper() {
+    var sectionId = "{{section.id}}";
+    var noOfProducts = {{ section.settings.no_of_products }};
+    var swiper = new Swiper(".swiper-container", {
+      slidesPerView: noOfProducts,
+      loop: false,
+      swipeToSlide: true,
+        freeMode: true,
+      effect: "slide",
+      speed: 1000,
 
- <script>
-	function initSwiper() {
-  var sectionId = "{{section.id}}";
-  var noOfProducts = {{ section.settings.no_of_products }};
-  var swiper = new Swiper(".swiper-container", {
-    slidesPerView: noOfProducts,
-    loop: false,
-    swipeToSlide: true,
-      freeMode: true,
-    effect: "slide",
-    speed: 1000,
-    
-    breakpoints: {
-      1600: { slidesPerView: noOfProducts },
-      1200: { slidesPerView: noOfProducts },
-      992: { slidesPerView: 6 },
-      768: { slidesPerView: 5, navigation: false },
-      500: { slidesPerView: 4, navigation: false },
-      0: { slidesPerView: 3, navigation: false },
-    },
-   
-  });
-}
+      breakpoints: {
+        1600: { slidesPerView: noOfProducts },
+        1200: { slidesPerView: noOfProducts },
+        992: { slidesPerView: 6 },
+        768: { slidesPerView: 5, navigation: false },
+        500: { slidesPerView: 4, navigation: false },
+        0: { slidesPerView: 3, navigation: false },
+      },
 
-// Initialize Swiper on page load
-initSwiper();
-
-// Reinitialize Swiper when the window is resized
-window.addEventListener("resize", function () {
-  // Destroy the previous Swiper instance
-  if (window.mySwiper) {
-    window.mySwiper.destroy();
+    });
   }
-  // Initialize a new Swiper instance
+
+  // Initialize Swiper on page load
   initSwiper();
-});
 
-
+  // Reinitialize Swiper when the window is resized
+  window.addEventListener("resize", function () {
+    // Destroy the previous Swiper instance
+    if (window.mySwiper) {
+      window.mySwiper.destroy();
+    }
+    // Initialize a new Swiper instance
+    initSwiper();
+  });
 </script>
-
 
 <script>
    function collectionUrls(ref){
