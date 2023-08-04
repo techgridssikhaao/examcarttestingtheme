@@ -67,7 +67,7 @@
 <div class="box-style">
   <div class="swiper-container tab-container-{{section.id}}">
     <div class="swiper-wrapper">
-      {% for product in collections[product_collection].products %}
+      {% for  product in collections[product_collection].products limit: section.settings.products_tab_count %}
         <div class="swiper-slide">
           <div class="tt-product">
             <div class="tab-content">
