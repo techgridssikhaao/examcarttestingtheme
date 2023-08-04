@@ -85,40 +85,46 @@
 <script async src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
 
 <script>
-  function initSwiper() {
-    var sectionId = "{{section.id}}";
-    var noOfProducts = {{ section.settings.no_of_products }};
-    var swiper = new Swiper(".swiper-container", {
-      slidesPerView: noOfProducts,
-      loop: false,
-      swipeToSlide: true,
-      freeMode: true,
-      effect: "slide",
-      speed: 600,
-
-      breakpoints: {
-        1600: { slidesPerView: noOfProducts },
-        1200: { slidesPerView: noOfProducts },
-        992: { slidesPerView: 6 },
-        768: { slidesPerView: 5 },
-        500: { slidesPerView: 4 },
-        0: { slidesPerView: 1 }
+    function initSwiper() {
+      var sectionId = "{{section.id}}";
+      var noOfProducts = {{ section.settings.no_of_products }};
+      const swiper = new Swiper('.swiper', {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 10,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 3,
+        spaceBetween: 20
       },
-    });
-  }
-
-  // Initialize Swiper on page load
-  initSwiper();
-
-  // Reinitialize Swiper when the window is resized
-  window.addEventListener("resize", function () {
-    // Destroy the previous Swiper instance
-    if (swiper) {
-      swiper.destroy();
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 5,
+        spaceBetween: 40
+      }
     }
-    // Initialize a new Swiper instance
-    initSwiper();
   });
+    }
+
+    // Initialize Swiper on page load
+    initSwiper();
+
+    // Reinitialize Swiper when the window is resized
+    window.addEventListener("resize", function () {
+      // Destroy the previous Swiper instance
+      if (swiper) {
+        swiper.destroy();
+      }
+      // Initialize a new Swiper instance
+      initSwiper();
+    });
 </script>
 
 <script>
