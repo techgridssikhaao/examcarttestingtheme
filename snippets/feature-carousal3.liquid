@@ -65,24 +65,31 @@
     </div>
   </div>
 <div class="box-style">
-  <div class="swiper-container tab-container-{{section.id}}">
-    <div class="swiper-wrapper">
-      {% for  product in collections[product_collection].products limit: section.settings.products_tab_count %}
-        <div class="swiper-slide">
-          <div class="tt-product">
-            <div class="tab-content">
-              <div class="tab-product-container">
+  <div class="owl-container">
+    <div class="tt-product">
+      <div class="tab-content">
+        <div
+          class="tab-container-{{section.id}} swiper-container tab-product-container"
+          id="tab-{{section.id}}0"
+        >
+          <div class="swiper-wrapper">
+            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+              <div class="swiper-slide">
                 <div class="row_items {% cycle 'odd','even' %}">
                   {% include 'product-grid-item-list' %}
                 </div>
               </div>
-            </div>
+            {% endfor %}
           </div>
+          <!-- Add Swiper pagination -->
+          <div class="swiper-pagination"></div>
         </div>
-      {% endfor %}
+      </div>
     </div>
   </div>
 </div>
+<div class="clearfix"></div>
+
   </div>
 
 <!-- Add the Swiper JS script -->
