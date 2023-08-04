@@ -11,13 +11,13 @@
   /* Override Swiper default styles */
   .swiper-container {
     display: flex;
-    flex-wrap: nowrap;
+ 
    overflow: hidden;
   }
-  .swiper-slide {
+  /* .swiper-slide {
     flex: 0 0 auto;
-    /* width: calc(100% / {{ section.settings.no_of_products }}); */
-  }
+  
+  } */
 </style>
 
 <div
@@ -109,8 +109,8 @@
         1200: { slidesPerView: noOfProducts },
         992: { slidesPerView: 6 },
         768: { slidesPerView: 5, navigation: false },
-        500: { slidesPerView: 4, navigation: false },
-        0: { slidesPerView: 3, navigation: false },
+        500: { slidesPerView: 4, navigation: true },
+        0: { slidesPerView: 3, navigation: true },
       },
     });
   }
