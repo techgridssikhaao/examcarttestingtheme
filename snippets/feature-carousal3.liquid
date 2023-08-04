@@ -100,29 +100,7 @@
       </div>
     </div>
   </div>
-<div class="">
-  <div class="">
-    <!-- Additional required wrapper -->
-    <div class="">
-      {% if section.settings.listing_rows == 1 %}
-        <div class="">
-          {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-            {% include 'product-grid-item-list' %}
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="tab-container-{{section.id}}" id="tab-{{section.id}}0">
-          {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-            <div class="">
-              {% include 'product-grid-item-list' %}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    </div>
-    <!-- If we need pagination -->
-  </div>
-</div>
+
 
 </div>
 
