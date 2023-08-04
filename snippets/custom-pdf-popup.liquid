@@ -282,6 +282,8 @@
               pattern="[0-9]"
               type="tel"
               id="otp1"
+              oninput="onInputHandler(1)"
+              onpaste="onPasteHandler(event)"
             >
             <input
               class="otp otp-form"
@@ -289,7 +291,8 @@
               pattern="[0-9]"
               type="tel"
               id="otp2"
-              disabled
+              oninput="onInputHandler(2)"
+              onpaste="onPasteHandler(event)"
             >
             <input
               class="otp otp-form"
@@ -297,7 +300,8 @@
               pattern="[0-9]"
               type="tel"
               id="otp3"
-              disabled
+              oninput="onInputHandler(3)"
+              onpaste="onPasteHandler(event)"
             >
             <input
               class="otp otp-form"
@@ -305,7 +309,8 @@
               pattern="[0-9]"
               type="tel"
               id="otp4"
-              disabled
+              oninput="onInputHandler(4)"
+              onpaste="onPasteHandler(event)"
             >
             <input
               class="otp otp-form"
@@ -313,7 +318,8 @@
               pattern="[0-9]"
               type="tel"
               id="otp5"
-              disabled
+              oninput="onInputHandler(5)"
+              onpaste="onPasteHandler(event)"
             >
             <input
               class="otp otp-form"
@@ -321,7 +327,8 @@
               pattern="[0-9]"
               type="tel"
               id="otp6"
-              disabled
+              oninput="onInputHandler(6)"
+              onpaste="onPasteHandler(event)"
             >
           </div>
           <p class="resend-para">
