@@ -301,7 +301,7 @@
           "top_bar_message": "Trouble Ordering Books From Our Website? | See Full <b> \n<ahref target=\"_blank\">Tutorial Here <\/ahref><\/b>",
           "header_message_1": "<p>Free Support 24\/7<\/p>\n<p>+01-202-555-0181<\/p>",
           "logo": "shopify:\/\/shop_images\/agp-new-logo.png",
-          "logo_padding": "0px 0px 0px 0px",
+          "logo_padding": "2px 0px 2px 0px",
           "header_menu_1": "main-menu",
           "header_menu_ver": "main-menu",
           "header_menu_ver_links": 12
