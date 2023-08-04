@@ -72,12 +72,12 @@
     </div>
   </div>
 
-<div class="swiper-container">
-  <div class="swiper">
+<div class="">
+  <div class="">
     <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
+    <div class="">
       {% if section.settings.listing_rows == 1 %}
-        <div class="swiper-slide">
+        <div class="">
           {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
             {% include 'product-grid-item-list' %}
           {% endfor %}
@@ -85,7 +85,7 @@
       {% else %}
         <div class="tab-container-{{section.id}}" id="tab-{{section.id}}0">
           {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-            <div class="swiper-slide">
+            <div class="">
               {% include 'product-grid-item-list' %}
             </div>
           {% endfor %}
