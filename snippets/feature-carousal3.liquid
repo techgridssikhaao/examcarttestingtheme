@@ -8,16 +8,25 @@
 
 {% assign product_collection = section.settings.collection %}
 <style>
-  /* Override Swiper default styles */
-  /* .swiper-container {
-    display: flex;
- 
+
+
+/* Ensure all items are in a single row */
+.swiper-slide {
+  display: inline-block;
+  width: 25%; /* Adjust this value based on the number of items you want to display in a row */
+}
+
+/* Ensure the container only takes the necessary width */
+.swiper-wrapper {
+  display: inline-flex;
+}
+
+/* Hide the scrollbar if you don't want it to be visible */
+.swiper-container {
+  overflow: hidden;
+}
+
   
-  } */
-  /* .swiper-slide {
-    flex: 0 0 auto;
-  
-  } */
 </style>
 
 <div
