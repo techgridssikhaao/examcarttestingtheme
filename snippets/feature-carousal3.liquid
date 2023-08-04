@@ -1,9 +1,8 @@
-<!-- Swiper CSS -->
+
 <!-- Add the Swiper CSS styles -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-<!-- Add the Swiper JS script -->
-<script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 
 
@@ -65,14 +64,14 @@
       </ul>
     </div>
   </div>
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    {% for product in collections[product_collection].products %}
-      <div class="swiper-slide">
-        <div class="box-style">
+<div class="box-style">
+  <div class="swiper-container tab-container-{{section.id}}">
+    <div class="swiper-wrapper">
+      {% for product in collections[product_collection].products %}
+        <div class="swiper-slide">
           <div class="tt-product">
             <div class="tab-content">
-              <div class="tab-container-{{section.id}} tab-pane tab-product-container">
+              <div class="tab-product-container">
                 <div class="row_items {% cycle 'odd','even' %}">
                   {% include 'product-grid-item-list' %}
                 </div>
@@ -80,16 +79,14 @@
             </div>
           </div>
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
 </div>
-
   </div>
 
-
+<!-- Add the Swiper JS script -->
+<script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 
  <script>
