@@ -85,14 +85,14 @@
 <script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script>
-  	function initSwiper() {
+  function initSwiper() {
     var sectionId = "{{section.id}}";
     var noOfProducts = {{ section.settings.no_of_products }};
     var swiper = new Swiper(".swiper-container", {
       slidesPerView: noOfProducts,
       loop: false,
       swipeToSlide: true,
-        freeMode: true,
+      freeMode: true,
       effect: "slide",
       speed: 600,
 
@@ -104,7 +104,6 @@
         500: { slidesPerView: 4, navigation: false },
         0: { slidesPerView: 3, navigation: false },
       },
-
     });
   }
 
@@ -114,8 +113,8 @@
   // Reinitialize Swiper when the window is resized
   window.addEventListener("resize", function () {
     // Destroy the previous Swiper instance
-    if (window.mySwiper) {
-      window.mySwiper.destroy();
+    if (swiper) {
+      swiper.destroy();
     }
     // Initialize a new Swiper instance
     initSwiper();
