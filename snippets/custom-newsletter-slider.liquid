@@ -21,6 +21,15 @@
        right: 0.5em;
     }
 </style>
+<div id="overlay" style="
+  width: 0;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000000000;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow:hidden;">
 <div id="newsletter-slider" class="newsletter-slider">
   <div
     style="
@@ -140,6 +149,7 @@
     </div>
   </div>
 </div>
+          </div>
 <script>
   
   
@@ -154,10 +164,14 @@
   let mNum =''
       function openNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "80%";
+                document.getElementById("overlay").style.width = "100%";
+        
               }
 
        function closeNewsletter() {
                 document.getElementById("newsletter-slider").style.width = "0";
+                document.getElementById("overlay").style.width = "0";
+         
 
                    sessionStorage.setItem('NewsLetterIsClosed', 'true');
 
