@@ -74,7 +74,7 @@
         >
           <div class="swiper-wrapper">
                
-             {% if section.settings.listing_rows == 1 %}
+           
                  <div class="swiper-slide">
               {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
                 <div class="row_items {% cycle 'odd','even' %}">
@@ -82,18 +82,7 @@
                 </div>
               {% endfor %}
           </div>
-            {% else %}
-                 <div class="swiper-slide">
-              <div class="row_items {% cycle 'odd','even' %}">
-                {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-                  {% include 'product-grid-item-list' %}
-                  {% if forloop.last == false %}
-                    {% cycle '', '</div><div class="row_items">' %}
-                  {% endif %}
-                {% endfor %}
-              </div>
-          </div>
-            {% endif %}
+          
 
             
           </div>
