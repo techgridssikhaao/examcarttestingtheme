@@ -100,21 +100,16 @@
       freeMode: true,
     effect: "slide",
     speed: 600,
-    navigation: {
-      prevEl: ".your-prev-arrow-selector",
-      nextEl: ".your-next-arrow-selector",
-    },
+    
     breakpoints: {
       1600: { slidesPerView: noOfProducts },
       1200: { slidesPerView: noOfProducts },
       992: { slidesPerView: 6 },
-      768: { slidesPerView: 5, navigation: false },
+      768: { slidesPerView: 5, navigation: true },
       500: { slidesPerView: 4, navigation: true },
-      0: { slidesPerView: 3, navigation: false },
+      0: { slidesPerView: 3, navigation: true },
     },
-    pagination: {
-      el: ".swiper-pagination",
-    },
+   
   });
 }
 
