@@ -8,7 +8,6 @@
 {% endif %}
 <div class="container" id="product-product" itemscope itemtype="http://schema.org/Product">
   {% comment %}
-
     {% include 'breadcrumb' %}
   {% endcomment %}
 
@@ -81,16 +80,18 @@
             </p>
           </div>
           {% if settings.product_reviews_enable %}
-            <div class="mobtab" role="presentation">
-              <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
-                {{- 'products.product.reviews' | t -}}
-              </a>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="reviews">
-              <p>
-                {% include 'product-review' %}
-              </p>
-            </div>
+            {% if product.metafields.spr.reviews != null %}
+              <div class="mobtab" role="presentation">
+                <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+                  {{- 'products.product.reviews' | t -}}
+                </a>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="reviews">
+                <p>
+                  {% include 'product-review' %}
+                </p>
+              </div>
+            {% endif %}
           {% endif %}
           {% if section.settings.show_third_tab %}
             <div class="mobtab" role="presentation">
