@@ -80,19 +80,18 @@
             </p>
           </div>
           {% if settings.product_reviews_enable %}
-            {% if product.metafields.spr.reviews != null %}
-              <div class="mobtab" role="presentation">
-                <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
-                  {{- 'products.product.reviews' | t -}}
-                </a>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="reviews">
-                <p>
-                  {% include 'product-review' %}
-                </p>
-              </div>
-            {% endif %}
+            <div class="mobtab" role="presentation">
+              <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+                {{- 'products.product.reviews' | t -}}
+              </a>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="reviews">
+              <p>
+                {% include 'product-review' %}
+              </p>
+            </div>
           {% endif %}
+
           {% if section.settings.show_third_tab %}
             <div class="mobtab" role="presentation">
               <a href="#data" aria-controls="data" role="tab" data-toggle="tab">
