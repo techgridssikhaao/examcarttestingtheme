@@ -401,39 +401,39 @@
      // }
 
 
-       const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
+  //      const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
 
-       inputs.map((id) => {
-         const input = document.getElementById(id);
-         addListener(input);
-       });
+  //      inputs.map((id) => {
+  //        const input = document.getElementById(id);
+  //        addListener(input);
+  //      });
 
-       function addListener(input) {
-         input.addEventListener("input", () => {
-           const code = parseInt(input.value);
-           if (code >= 0 && code <= 9) {
-             const n = input.nextElementSibling;
-             if (n) n.focus();
-           } else {
-             input.value = "";
-           }
+  //      function addListener(input) {
+  //        input.addEventListener("input", () => {
+  //          const code = parseInt(input.value);
+  //          if (code >= 0 && code <= 9) {
+  //            const n = input.nextElementSibling;
+  //            if (n) n.focus();
+  //          } else {
+  //            input.value = "";
+  //          }
 
-     const key = event.key; // const {key} = event; ES6+
-      if (key === "Backspace" || key === "Delete") {
-        const prev = input.previousElementSibling;
-        if (prev) {
-
-
-
-          prev.focus();
+  //    const key = event.key; // const {key} = event; ES6+
+  //     if (key === "Backspace" || key === "Delete") {
+  //       const prev = input.previousElementSibling;
+  //       if (prev) {
 
 
 
-                  }
+  //         prev.focus();
 
-      }
-    });
-  }
+
+
+  //                 }
+
+  //     }
+  //   });
+  // }
 
 
      //   input.addEventListener("paste", (event) => {
