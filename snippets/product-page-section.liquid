@@ -58,14 +58,17 @@
           {% endif %}
         </ul>
         <div class="tab-content">
-          <div class="mobtab" role="presentation" class="active">
-            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
-              {{- 'products.product.description' | t -}}
-            </a>
-          </div>
+          {% if product.description contains '[tab]' or product.description contains '[deal]' %}
+            <div class="mobtab" role="presentation" class="active">
+              <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
+                {{- 'products.product.description' | t -}}
+              </a>
+            </div>
+          {% endif %}
+
           <div role="tabpanel" class="tab-pane active" id="description">
             <p>
-              {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
+              {%- comment -%} {{ product.description | split:"[video]" | first | strip_html }} {%- endcomment -%}
               {{
                 product.description
                 | split: '[summary]'
@@ -142,9 +145,6 @@
   {% endif %}
 -->
 <script type="text/javascript">
-
-
-
     // related products
     $(document).ready(function() {
   var mySwiper = new Swiper(".swiper-container", {
