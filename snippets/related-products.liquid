@@ -20,7 +20,7 @@
     </div>
 
     <div class="swiper-container">
-      <div class="related-container tt-product swiper-wrapper">
+      <div class="swiper-wrapper">
         {% assign current_product = product %}
         {% assign current_product_found = false %}
         {% for product in collection.products limit: number_of_products_to_fetch %}
@@ -29,51 +29,32 @@
           {% else %}
             {% unless current_product_found == false and forloop.last %}
               <div class="swiper-slide">
-                <div class="row_items">
-                  {% include 'product-grid-item' %}
-                </div>
+                {% include 'product-grid-item' %}
               </div>
             {% endunless %}
           {% endif %}
         {% endfor %}
       </div>
     </div>
+
     <!-- End of Featured Product Area -->
   {% endif %}
 </div>
 <script async src="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.js"></script>
 
 <script>
-      	function initSwiper() {
-        var sectionId = "{{section.id}}";
-        var noOfProducts = {{ section.settings.no_of_products }};
-        var swiper = new Swiper(".swiper-container", {
-          slidesPerView: noOfProducts,
-          loop: false,
-           swipeToSlide: true,
-            freeMode: true,
-          effect: "slide",
-          speed: 600,
-    spaceBetween: 10,
-          breakpoints: {
-            1600: { slidesPerView: noOfProducts },
-            1200: { slidesPerView: noOfProducts },
-            992: { slidesPerView: 6 },
-            768: { slidesPerView: 5, navigation: false },
-            480: { slidesPerView: 4, navigation: false },
-            100: { slidesPerView: 3, navigation: false },
-          },
-
-        });
-      }
-
-      // Initialize Swiper on page load
-      initSwiper();
-
-      // Reinitialize Swiper when the window is resized
-    function updateSwiper() {
-    swiper.update();
-  }
-
-  window.addEventListener("resize", updateSwiper);
+  // Initialize Swiper when the DOM is ready
+  document.addEventListener("DOMContentLoaded", function () {
+    var mySwiper = new Swiper(".swiper-container", {
+      // Add any Swiper configuration options you need here
+      // For example:
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  });
 </script>
