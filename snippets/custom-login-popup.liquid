@@ -339,8 +339,9 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
-              count="onInputHandler(5)"
+
               id="otp5-login"
+              count="onInputHandler(5)"
               onpaste="onPasteHandler(event, '#otp6-login')"
             >
             <input
@@ -348,9 +349,11 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
-              count="onInputHandler(6)"
+
               id="otp6-login"
+              count="onInputHandler(6)"
               onpaste="onPasteHandler(event, '#otp6-login')"
+            >
             >
           </div>
           <p class="resend-para">
@@ -397,7 +400,7 @@
 
      // }
 
-   let input ='';
+
        const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
 
        inputs.map((id) => {
@@ -424,10 +427,10 @@
 
           prev.focus();
 
-    input.removeAttribute("disabled");
+
 
                   }
-        event.preventDefault();
+
       }
     });
   }
