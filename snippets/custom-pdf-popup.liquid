@@ -370,7 +370,13 @@
        const key = event.key; // const {key} = event; ES6+
        if (key === "Backspace" || key === "Delete") {
          const prev = input.previousElementSibling;
-         if (prev) prev.focus();
+         if (prev) {
+
+           input.disabled = false;
+
+           prev.focus();
+
+                   }
        }
      });
    }
