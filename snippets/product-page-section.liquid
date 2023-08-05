@@ -64,25 +64,24 @@
                 {{- 'products.product.description' | t -}}
               </a>
             </div>
+
+            <div role="tabpanel" class="tab-pane active" id="description">
+              <p>
+                {%- comment -%} {{ product.description | split:"[video]" | first | strip_html }} {%- endcomment -%}
+                {{
+                  product.description
+                  | split: '[summary]'
+                  | first
+                  | split: '[video]'
+                  | first
+                  | split: '[tab]'
+                  | first
+                  | split: '[deal]'
+                  | first
+                }}
+              </p>
+            </div>
           {% endif %}
-
-          <div role="tabpanel" class="tab-pane active" id="description">
-            <p>
-              {%- comment -%} {{ product.description | split:"[video]" | first | strip_html }} {%- endcomment -%}
-              {{
-                product.description
-                | split: '[summary]'
-                | first
-                | split: '[video]'
-                | first
-                | split: '[tab]'
-                | first
-                | split: '[deal]'
-                | first
-              }}
-            </p>
-          </div>
-
           {% if settings.product_reviews_enable %}
             <div class="mobtab" role="presentation">
               <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
