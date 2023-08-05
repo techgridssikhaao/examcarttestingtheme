@@ -83,43 +83,40 @@
 
 <!-- Add the Swiper JS script -->
 
-<script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+<script async src="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.js"></script>
 <script>
-        	 document.addEventListener("DOMContentLoaded", function () {
-          // var sectionId = "{{section.id}}";
-          // var noOfProducts = {{ section.settings.no_of_products }};
-          var swiper = new Swiper(".swiper-container", {
-            slidesPerView: 6,
-            loop: false,
-             swipeToSlide: true,
-              freeMode: true,
-            effect: "slide",
-            speed: 600,
-      spaceBetween: 10,
-            breakpoints: {
-  0: { slidesPerView: 3,  spaceBetween: 10 },
-               500: { slidesPerView: 4,  spaceBetween: 10 },
+      	function initSwiper() {
+        var sectionId = "{{section.id}}";
+        var noOfProducts = {{ section.settings.no_of_products }};
+        var swiper = new Swiper(".swiper-container", {
+          slidesPerView: noOfProducts,
+          loop: false,
+           swipeToSlide: true,
+            freeMode: true,
+          effect: "slide",
+          speed: 600,
+    spaceBetween: 10,
+          breakpoints: {
+            1600: { slidesPerView: noOfProducts },
+            1200: { slidesPerView: noOfProducts },
+            992: { slidesPerView: 6 },
+            768: { slidesPerView: 5, navigation: false },
+            500: { slidesPerView: 4, navigation: false },
+            0: { slidesPerView: 5, navigation: false },
+          },
 
-              768: { slidesPerView: 5,  spaceBetween: 20  },
-              992: { slidesPerView: 6,  spaceBetween: 30 },
+        });
+      }
 
+      // Initialize Swiper on page load
+      initSwiper();
 
+      // Reinitialize Swiper when the window is resized
+    function updateSwiper() {
+    swiper.update();
+  }
 
-            },
-
-          });
-        }
-
-        // Initialize Swiper on page load
-        initSwiper();
-
-        // Reinitialize Swiper when the window is resized
-      function updateSwiper() {
-      swiper.update();
-    }
-
-    window.addEventListener("resize", updateSwiper);
+  window.addEventListener("resize", updateSwiper);
 </script>
 <script>
    function collectionUrls(ref){
