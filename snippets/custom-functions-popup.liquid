@@ -291,6 +291,7 @@
   
   
   
+  
   function onPasteHandler(event) {
   event.preventDefault(); // Prevent the default paste behavior
   const clipboardData = event.clipboardData || window.clipboardData;
@@ -298,7 +299,7 @@
   
   if (pastedText.length === 6) {
     for (let i = 0; i < 6; i++) {
-      const currentInput = document.querySelector(`input[maxlength="1"][oninput="onInputHandler(${i + 1})"]`);
+      const currentInput = document.querySelector(`input[maxlength="1"][count="onInputHandler(${i + 1})"]`);
       if (currentInput) {
         currentInput.value = pastedText[i];
       }
@@ -925,6 +926,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
