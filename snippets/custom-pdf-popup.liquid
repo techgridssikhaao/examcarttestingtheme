@@ -350,34 +350,34 @@
 </div>
 
 <script>
-  const pdfinputs = ['otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6'];
+  // const pdfinputs = ['otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6'];
 
-   pdfinputs.map((id) => {
-     const input = document.getElementById(id);
-     addListener(input);
-   });
+  //  pdfinputs.map((id) => {
+  //    const input = document.getElementById(id);
+  //    addListener(input);
+  //  });
 
-   function addListener(input) {
-     input.addEventListener("keyup", () => {
-       const code = parseInt(input.value);
-       if (code >= 0 && code <= 9) {
-         const n = input.nextElementSibling;
-         if (n) n.focus();
-       } else {
-         input.value = "";
-       }
+  //  function addListener(input) {
+  //    input.addEventListener("keyup", () => {
+  //      const code = parseInt(input.value);
+  //      if (code >= 0 && code <= 9) {
+  //        const n = input.nextElementSibling;
+  //        if (n) n.focus();
+  //      } else {
+  //        input.value = "";
+  //      }
 
-       const key = event.key; // const {key} = event; ES6+
-       if (key === "Backspace" || key === "Delete") {
-         const prev = input.previousElementSibling;
-         if (prev) {
+  //      const key = event.key; // const {key} = event; ES6+
+  //      if (key === "Backspace" || key === "Delete") {
+  //        const prev = input.previousElementSibling;
+  //        if (prev) {
 
 
 
-           prev.focus();
+  //          prev.focus();
 
-                   }
-       }
-     });
-   }
+  //                  }
+  //      }
+  //    });
+  //  }
 </script>
