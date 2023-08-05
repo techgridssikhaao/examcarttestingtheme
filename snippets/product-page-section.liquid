@@ -58,29 +58,28 @@
           {% endif %}
         </ul>
         <div class="tab-content">
-          {% if product.description contains '[tab]' %}
-            <div class="mobtab" role="presentation" class="active">
-              <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
-                {{- 'products.product.description' | t -}}
-              </a>
-            </div>
-            <div role="tabpanel" class="tab-pane active" id="description">
-              <p>
-                {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
-                {{
-                  product.description
-                  | split: '[summary]'
-                  | first
-                  | split: '[video]'
-                  | first
-                  | split: '[tab]'
-                  | first
-                  | split: '[deal]'
-                  | first
-                }}
-              </p>
-            </div>
-          {% endif %}
+          <div class="mobtab" role="presentation" class="active">
+            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
+              {{- 'products.product.description' | t -}}
+            </a>
+          </div>
+          <div role="tabpanel" class="tab-pane active" id="description">
+            <p>
+              {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
+              {{
+                product.description
+                | split: '[summary]'
+                | first
+                | split: '[video]'
+                | first
+                | split: '[tab]'
+                | first
+                | split: '[deal]'
+                | first
+              }}
+            </p>
+          </div>
+
           {% if settings.product_reviews_enable %}
             {% if product.metafields.spr.reviews != null %}
               <div class="mobtab" role="presentation">
