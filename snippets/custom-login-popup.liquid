@@ -298,7 +298,7 @@
           <div class="otp-parent">
             <input
               class="otp otp-form"
-             
+
               maxlength="1"
               pattern="[0-9]"
               type="tel"
@@ -309,7 +309,7 @@
             <input
               class="otp otp-form"
               maxlength="1"
-                oninput="onInputHandler(2)"
+              oninput="onInputHandler(2)"
               pattern="[0-9]"
               type="tel"
               id="otp2-login"
@@ -320,8 +320,8 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
-              
-               oninput="onInputHandler(3)"
+
+              oninput="onInputHandler(3)"
               id="otp3-login"
               onpaste="onPasteHandler(event)"
             >
@@ -330,7 +330,7 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
-               oninput="onInputHandler(4)"
+              oninput="onInputHandler(4)"
               id="otp4-login"
               onpaste="onPasteHandler(event)"
             >
@@ -339,7 +339,7 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
-               oninput="onInputHandler(5)"
+              oninput="onInputHandler(5)"
               id="otp5-login"
               onpaste="onPasteHandler(event)"
             >
@@ -348,7 +348,7 @@
               maxlength="1"
               pattern="[0-9]"
               type="tel"
-               oninput="onInputHandler(6)"
+              oninput="onInputHandler(6)"
               id="otp6-login"
               onpaste="onPasteHandler(event)"
             >
@@ -372,72 +372,78 @@
 </div>
 
 <script>
-  // const inp = document.getElementById("number-login");
-  //onlynum(document.getElementById("number-login"));
+    // const inp = document.getElementById("number-login");
+    //onlynum(document.getElementById("number-login"));
 
-  // function addList(input) {
+    // function addList(input) {
 
-  //     input.addEventListener("input", () => {
-  //       const code = parseInt(input.value);
-  //       if (code >= 0 && code <= 9) {
+    //     input.addEventListener("input", () => {
+    //       const code = parseInt(input.value);
+    //       if (code >= 0 && code <= 9) {
 
-  //       } else {
-  //         input.value = "";
-  //       }
-  //   });
-  // }
+    //       } else {
+    //         input.value = "";
+    //       }
+    //   });
+    // }
 
-  // function onlyNum(numId) {
+    // function onlyNum(numId) {
 
-  //   input= document.getElementById(numId);
+    //   input= document.getElementById(numId);
 
-  //     const value = input.value;
-  //     const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
-  //     input.value = cleanedValue;
+    //     const value = input.value;
+    //     const cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+    //     input.value = cleanedValue;
 
-  // }
+    // }
 
-let input ='';
-    const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
+  let input ='';
+      const inputs = ['otp1-login', 'otp2-login', 'otp3-login', 'otp4-login', 'otp5-login', 'otp6-login'];
 
-    inputs.map((id) => {
-      const input = document.getElementById(id);
-      addListener(input);
-    });
-
-    function addListener(input) {
-      input.addEventListener("input", () => {
-        const code = parseInt(input.value);
-        if (code >= 0 && code <= 9) {
-          const n = input.nextElementSibling;
-          if (n) n.focus();
-        } else {
-          input.value = "";
-        }
-
-        const key = event.key; // const {key} = event; ES6+
-        if (key === "Backspace" || key === "Delete") {
-          const prev = input.previousElementSibling;
-          if (prev) prev.focus();
-        }
+      inputs.map((id) => {
+        const input = document.getElementById(id);
+        addListener(input);
       });
-    }
 
-  //   input.addEventListener("paste", (event) => {
-  //   event.preventDefault();
-  //   const pastedText = event.clipboardData.getData('text');
-  //   if (pastedText.length === 6) {
-  //     for (let i = 0; i < 6; i++) {
-  //       const currentInput = document.getElementById(inputs[i]);
-  //       const code = parseInt(pastedText[i]);
-  //       if (code >= 0 && code <= 9) {
-  //         currentInput.value = code;
-  //       } else {
-  //         currentInput.value = "";
-  //       }
-  //     }
-  //   }
-  // });
+      function addListener(input) {
+        input.addEventListener("input", () => {
+          const code = parseInt(input.value);
+          if (code >= 0 && code <= 9) {
+            const n = input.nextElementSibling;
+            if (n) n.focus();
+          } else {
+            input.value = "";
+          }
+
+          const key = event.key; // const {key} = event; ES6+
+          if (key === "Backspace" || key === "Delete") {
+            const prev = input.previousElementSibling;
+            if (prev) {
+
+              prev.focus();
+
+
+
+                      }
+                      }
+        });
+      }
+
+    //   input.addEventListener("paste", (event) => {
+    //   event.preventDefault();
+    //   const pastedText = event.clipboardData.getData('text');
+    //   if (pastedText.length === 6) {
+    //     for (let i = 0; i < 6; i++) {
+    //       const currentInput = document.getElementById(inputs[i]);
+    //       const code = parseInt(pastedText[i]);
+    //       if (code >= 0 && code <= 9) {
+    //         currentInput.value = code;
+    //       } else {
+    //         currentInput.value = "";
+    //       }
+    //     }
+    //   }
+    // });
 </script>
 
 <!--
