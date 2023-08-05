@@ -58,7 +58,11 @@
           {% endif %}
         </ul>
         <div class="tab-content">
-          {% if product.description contains '[tab]' or product.description contains '[deal]' %}
+          {% if product.description contains '[summary]'
+            or product.description contains '[video]'
+            or product.description contains '[tab]'
+            or product.description contains '[deal]'
+          %}
             <div class="mobtab" role="presentation" class="active">
               <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
                 {{- 'products.product.description' | t -}}
