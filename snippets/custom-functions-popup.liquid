@@ -297,23 +297,24 @@
   
   
   
-  function onPasteHandler(event, id) {
-  event.preventDefault(); // Prevent the default paste behavior
-  const clipboardData = event.clipboardData || window.clipboardData;
-  const pastedText = clipboardData.getData('text');
   
-  if (pastedText.length === 6) {
-    for (let i = 0; i < 6; i++) {
-      const currentInput = document.querySelector(`input[maxlength="1"][count="onInputHandler(${i + 1})"]`);
-      if (currentInput) {
-        currentInput.value = pastedText[i];
-      }
-    }
+//   function onPasteHandler(event, id) {
+//   event.preventDefault(); // Prevent the default paste behavior
+//   const clipboardData = event.clipboardData || window.clipboardData;
+//   const pastedText = clipboardData.getData('text');
   
-    document.querySelector(id).focus();
-  }
+//   if (pastedText.length === 6) {
+//     for (let i = 0; i < 6; i++) {
+//       const currentInput = document.querySelector(`input[maxlength="1"][count="onInputHandler(${i + 1})"]`);
+//       if (currentInput) {
+//         currentInput.value = pastedText[i];
+//       }
+//     }
+  
+//     document.querySelector(id).focus();
+//   }
    
-}
+// }
   
   
   
@@ -933,6 +934,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
