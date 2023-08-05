@@ -296,6 +296,7 @@
   
   
   
+  
   function onPasteHandler(event, id) {
   event.preventDefault(); // Prevent the default paste behavior
   const clipboardData = event.clipboardData || window.clipboardData;
@@ -359,10 +360,12 @@ closeCartView()
   
     function openCartView() {
           document.getElementById("cartslider").style.width = "80%";
+      document.getElementById("overlay-custom-bg").style.width = "100%";
         }
 
  function closeCartView() {
           document.getElementById("cartslider").style.width = "0";
+   document.getElementById("overlay-custom-bg").style.width = "0%";
         }
   
   
@@ -930,6 +933,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
