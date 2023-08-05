@@ -295,6 +295,7 @@
   
   
   
+  
   function onPasteHandler(event, id) {
   event.preventDefault(); // Prevent the default paste behavior
   const clipboardData = event.clipboardData || window.clipboardData;
@@ -308,7 +309,7 @@
       }
     }
   
-    document.querySelector(`#${id}`).focus();
+    document.querySelector(id).focus();
   }
    
 }
@@ -929,6 +930,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
