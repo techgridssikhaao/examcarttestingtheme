@@ -294,7 +294,8 @@
   
   
   
-  function onPasteHandler(event) {
+  
+  function onPasteHandler(event, id) {
   event.preventDefault(); // Prevent the default paste behavior
   const clipboardData = event.clipboardData || window.clipboardData;
   const pastedText = clipboardData.getData('text');
@@ -306,8 +307,8 @@
         currentInput.value = pastedText[i];
       }
     }
-
-    document.querySelector('count="onInputHandler(6)"').focus();
+  
+    document.querySelector(`#${id}`).focus();
   }
    
 }
@@ -928,6 +929,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
