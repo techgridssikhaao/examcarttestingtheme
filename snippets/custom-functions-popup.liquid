@@ -290,6 +290,7 @@
   
   
   
+  
   function onPasteHandler(event) {
   event.preventDefault(); // Prevent the default paste behavior
   const clipboardData = event.clipboardData || window.clipboardData;
@@ -302,8 +303,10 @@
         currentInput.value = pastedText[i];
       }
     }
-  }
+
     document.querySelector(`#otp6-login`).focus();
+  }
+   
 }
   
   
@@ -922,6 +925,7 @@ mobnum ='1234567890'
         console.error('Error:', error);
     });
 }
+
 
 
 
