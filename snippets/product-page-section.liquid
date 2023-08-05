@@ -63,10 +63,21 @@
               {{- 'products.product.description' | t -}}
             </a>
           </div>
-          {% if product.description contains '[summary]' %}Contains [summary]{% endif %}
-          {% if product.description contains '[video]' %}Contains [video]{% endif %}
-          {% if product.description contains '[tab]' %}Contains [tab]{% endif %}
-          {% if product.description contains '[deal]' %}Contains [deal]{% endif %}
+          {% if product.description contains '[summary]' %}
+            Contains [summary]
+          {% endif %}
+
+          {% if product.description contains '[video]' %}
+            Contains [video]
+          {% endif %}
+
+          {% if product.description contains '[tab]' %}
+            Contains [tab]
+          {% endif %}
+
+          {% if product.description contains '[deal]' %}
+            Contains [deal]
+          {% endif %}
           <div role="tabpanel" class="tab-pane active" id="description">
             <p>
               {%- comment -%} {{ product.description | split:"[video]" | first | strip_html }} {%- endcomment -%}
