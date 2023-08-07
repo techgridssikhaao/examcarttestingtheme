@@ -74,8 +74,8 @@
 
   }
 </style>
-{% assign myString = product.selected_or_first_available_variant.price %}
-{% assign modifiedString = myString | slice: 0, -2 %}
+
+
 
 <div class="price-box web-price" style="display: flex !important;
     justify-content: space-between;
@@ -92,9 +92,11 @@
         {% endif %}
       >Rs.
  
+{% assign myString = product.selected_or_first_available_variant.price %}
 
+
+{% assign modifiedString = myString | slice: 0, -2 %}
 {{ modifiedString }}
-
 
 
 
