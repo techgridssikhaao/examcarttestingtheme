@@ -90,7 +90,7 @@
         {% endif %}
       >Rs.
    {% assign originalPrice = product.selected_or_first_available_variant.price %} 
-{% assign modifiedPrice = originalPrice | split: '.' | first %}
+{% assign modifiedPrice = originalPrice | replace: "\.\d+", "" %}
 {{ modifiedPrice }}
 
 
