@@ -74,7 +74,9 @@
 
   }
 </style>
-
+{% assign myString = product.selected_or_first_available_variant.price %}
+{% assign myFloat = myString | times: 1.0 %}
+{% assign roundedValue = myFloat | round %}
 <div class="price-box web-price" style="display: flex !important;
     justify-content: space-between;
     align-items: center;">
@@ -90,9 +92,7 @@
         {% endif %}
       >Rs.
  
-{% assign myString = product.selected_or_first_available_variant.price %}
-{% assign myFloat = myString | times: 1.0 %}
-{% assign roundedValue = myFloat | round %}
+
 {{ roundedValue }}
 
 
