@@ -89,9 +89,16 @@
           id="productPrice"
         {% endif %}
       >
-        {% assign originalPrice = product.selected_or_first_available_variant.price | money %}
-{% assign modifiedPrice = originalPrice | replace: ".00", "" %}
+   {% assign originalPrice = product.selected_or_first_available_variant.price %}
+{% assign decimalIndex = originalPrice | split: '.' | size %}
+{% if decimalIndex == 2 %}
+  {% assign modifiedPrice = originalPrice | split: '.' | first %}
+{% else %}
+  {% assign modifiedPrice = originalPrice %}
+{% endif %}
 {{ modifiedPrice }}
+
+
 
        
       </span>
