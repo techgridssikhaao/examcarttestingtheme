@@ -6,8 +6,9 @@
     data-loading-text=""
     class="btn dropdown-toggle"
   >
-    <img src="{{ 'Cart Icon.svg' | asset_url }}" alt="cart Image" width="40px">
+   
     <span id="cart-total">
+       <img src="{{ 'Cart Icon.svg' | asset_url }}" alt="cart Image" width="40px">
       <span id="cartIconTotalCount" class="txt_number" style="font-weight:22">{{ cart.item_count }}</span>
       <span class="txt_items" style="color: white;">{{ 'cart.general.my_cart' | t }} </span>
       <span class="total-price" style="font-size: 13px;">{{ cart.total_price | money }}</span>
