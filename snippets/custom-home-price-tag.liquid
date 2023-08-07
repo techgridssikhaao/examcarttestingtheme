@@ -89,9 +89,9 @@
           id="productPrice"
         {% endif %}
       >Rs.
-   {% assign originalPrice = product.selected_or_first_available_variant.price %} 
-{% assign modifiedPrice = originalPrice | replace: "\.\d+", "" %}
-{{ modifiedPrice }}
+  {% assign originalPrice = product.selected_or_first_available_variant.price %}
+{{ originalPrice | money_without_currency }}
+
 
 
 
