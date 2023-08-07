@@ -89,10 +89,9 @@
           id="productPrice"
         {% endif %}
       >
-       {% assign originalPrice = product.selected_or_first_available_variant.price | money %}
+        {% assign originalPrice = product.selected_or_first_available_variant.price | money %}
 {% assign modifiedPrice = originalPrice | truncate: 0, '' %}
 {{ modifiedPrice }}
-
 
        
       </span>
