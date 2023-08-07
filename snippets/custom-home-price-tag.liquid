@@ -89,7 +89,7 @@
           id="productPrice"
         {% endif %}
       >
-   {% assign originalPrice = "Rs. 200.57" %}  {%- comment -%} Replace this with your product.selected_or_first_available_variant.price variable - {% endcomment -%}
+   {% assign originalPrice = product.selected_or_first_available_variant.price %} 
 {% assign modifiedPrice = originalPrice | split: '.' | first %}
 {{ modifiedPrice }}
 
