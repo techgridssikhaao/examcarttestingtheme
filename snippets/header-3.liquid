@@ -265,22 +265,26 @@
                         {% endif %}
                       {% endif %}
                     {% endif %}
-
-                    <a id="login" onclick="processUserLogin()"
-                      ><span>{{ 'login' }}</span></a
-                    >
-
-                    <a id="myAccount" onclick="myAccount()"
-                      ><span>{{ 'My account' }}</span></a
-                    >
-
-                    <a id="logout" onclick="logOut()">
-                      <span>{{ 'Log out' }}</span>
-                    </a>
-                    <a id="newsletter" onclick="openNewsletter()"
-                      ><span>{{ 'newsletter' }}</span></a
-                    >
-
+                    <li>
+                      <a id="login" onclick="processUserLogin()"
+                        ><span>{{ 'login' }}</span></a
+                      >
+                    </li>
+                    <li>
+                      <a id="myAccount" onclick="myAccount()"
+                        ><span>{{ 'My account' }}</span></a
+                      >
+                    </li>
+                    <li>
+                      <a id="logout" onclick="logOut()">
+                        <span>{{ 'Log out' }}</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a id="newsletter" onclick="openNewsletter()"
+                        ><span>{{ 'newsletter' }}</span></a
+                      >
+                    </li>
                     <!--
                       <li>
                         <a href="/cart"
