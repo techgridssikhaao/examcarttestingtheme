@@ -1,3 +1,9 @@
+<style>
+ @media screen and (max-width: 500px){
+    .pd-title{  height: 5em;}
+ }
+</style>
+
 {% unless current_collection %}
   {% assign current_collection = collection %}
 {% endunless %}
@@ -45,14 +51,14 @@
           {% endif %}
         </a>
         <h4 class="product-name">
-        <div style=" height: 2em;">  <a style="  line-height: 1.3;  font-size: 1.1rem;" href="{{ product.url | within: collection }}">
+    <a class="pd-title" style="  line-height: 1.3;  font-size: 1.1rem;" href="{{ product.url | within: collection }}">
             {% if settings.limit_title_words == true -%}
               {{- product.title | truncatewords: settings.limit_title_words_count, '' -}}
             {%- else -%}
               {{- product.title -}}
             {%- endif %}
           </a>
-        </div>
+       
         </h4>
 
         {% include 'custom-home-price-tag' %}
