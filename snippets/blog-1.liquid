@@ -6,33 +6,43 @@
         <h2>{{ section.settings.heading }}</h2>
       {% endif %}
     </div>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
+
+    <div class="owl-container">
+      <div class="articles-container owl-carousel owl-theme">
         {% for article in blogs[section.settings.blog].articles %}
-          <div class="swiper-slide">
+          <div class="row">
+            <!-- row_items -->
             <div class="articles-inner">
+              <p class="date-time-post">
+                <time datetime="{{ article.published_at | date }}">
+                  <span>
+                    {{ article.published_at | date: '<span class="date-post">%d %b 2023</span>' }}
+                  </span>
+                </time>
+              </p>
               <div class="articles-image">
-                <a href="{{ article.url }}">
+                <a class="" href="{{ article.url }}">
                   <img src="{{ article.image.src | img_url: '270x178' }}" alt="{{ article.title }}">
                   <span class="icon-view"></span>
                 </a>
               </div>
               <div class="aritcles-content">
                 <div class="content-inner">
-                  <div class="box-name">
-                    <p class="date-time-post">
-                      <time datetime="{{ article.published_at | date }}">
-                        <span>
-                          {{
-                            article.published_at
-                            | date: '<span class="date-post">%d</span><span class="month-post">%b</span>'
-                          }}
-                        </span>
-                      </time>
-                    </p>
-                    <a class="articles-name" href="{{ article.url }}" style="font-size:15px">{{ article.title }}</a>
-                  </div>
-                  <a class="read-more" href="{{ article.url }}">{{ 'blogs.article.readmore' | t }}</a>
+                  <a class="articles-name" href="{{ article.url }}" style="font-size:15px">{{ article.title }}</a>
+
+                  <!-- <p class="author-name">{{ 'blogs.article.by' | t }} <span>{{ article.author }}</span></p> -->
+                  <!--
+                    <div class="articles-intro">
+                      {% if article.excerpt.size > 0 %}
+                      {{ article.excerpt | truncatewords: 5 }}
+                      {% else %}
+                      {{ article.content | strip_html | truncatewords: 5 }}
+                      {% endif %}
+                    </div>
+                  -->
+                  <button class="read-more-btn">
+                    <a class="read-more" href="{{ article.url }}">{{ 'blogs.article.readmore' | t }}</a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -40,29 +50,105 @@
         {% endfor %}
       </div>
     </div>
+
+    {% comment %}
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {% for article in blogs[section.settings.blog].articles %}
+            <div class="swiper-slide">
+              <div class="articles-inner">
+                <div class="articles-image">
+                  <a href="{{ article.url }}">
+                    <img src="{{ article.image.src | img_url: '270x178' }}" alt="{{ article.title }}">
+                    <span class="icon-view"></span>
+                  </a>
+                </div>
+                <div class="aritcles-content">
+                  <div class="content-inner">
+                    <div class="box-name">
+                      <p class="date-time-post">
+                        <time datetime="{{ article.published_at | date }}">
+                          <span>
+                            {{
+                              article.published_at
+                              | date: '<span class="date-post">%d</span><span class="month-post">%b</span>'
+                            }}
+                          </span>
+                        </time>
+                      </p>
+                      <a class="articles-name" href="{{ article.url }}" style="font-size:15px">{{ article.title }}</a>
+                    </div>
+                    <a class="read-more" href="{{ article.url }}">{{ 'blogs.article.readmore' | t }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endcomment %}
   </div>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var myblog = new Swiper(".swiper-container", {
-      slidesPerView: 3,
-      spaceBetween: 10,
-      loop: false,
-      responsive: {
-        0: {
-          slidesPerView: 3,
-        },
-        500: {
-          slidesPerView: 4,
-        },
-        768: {
-          slidesPerView: 5,
-        },
-        992: {
-          slidesPerView: 6,
-        },
+    $(document).ready(function() {
+      $(".articles-container").owlCarousel({
+        autoPlay :  false ,
+        items : {{ section.settings.items }},
+        margin: 30,
+        loop: false,
+        navSpeed : 1000,
+        dotsSpeed : 1000,
+        autoplaySpeed : 1000,
+        nav :  false ,
+        dots :  true ,
+
+        responsive:{
+        0:{
+        items: 1,
+        nav: false
       },
+                                           480:{
+                                           items: 2,
+                                           nav: false
+                                           },
+                                           768:{
+                                           items: 3
+                                           },
+                                           992:{
+                                           items: 4
+                                           },
+                                           1200:{
+                                           items: 5
+  //                                          {{ section.settings.items }}
+                                           }
+                                           }
+                                           });
     });
-  });
 </script>
+
+<!--
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var myblog = new Swiper(".swiper-container", {
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: false,
+        responsive: {
+          0: {
+            slidesPerView: 3,
+          },
+          500: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 5,
+          },
+          992: {
+            slidesPerView: 6,
+          },
+        },
+      });
+    });
+  </script>
+-->
