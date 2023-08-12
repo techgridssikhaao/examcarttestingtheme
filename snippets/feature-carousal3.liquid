@@ -58,26 +58,24 @@
     </div>
   </div>
   <div class="box-style">
-    <div class="tt-product">
-      <div class="tab-content">
-        <div
-          class="tab-container-{{section.id}} swiper-container tab-product-container"
-          id="tab-{{section.id}}0"
-        >
-          <div class="swiper-wrapper">
-            {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
-              <div class="swiper-slide">
-                <div class="row_items {% cycle 'odd','even' %}">
-                  {% include 'product-grid-item-list' %}
-                </div>
+  <div class="tt-product">
+    <div class="tab-content">
+      <div class="tab-container-{{section.id}} slick-slider tab-product-container" id="tab-{{section.id}}0">
+        <div class="slick-wrapper">
+          {% for product in collections[product_collection].products limit: section.settings.products_tab_count %}
+            <div class="slick-slide">
+              <div class="row_items {% cycle 'odd','even' %}">
+                {% include 'product-grid-item-list' %}
               </div>
-            {% endfor %}
-          </div>
-          <!-- Add Swiper pagination -->
+            </div>
+          {% endfor %}
         </div>
+        <!-- Add Slick slider navigation -->
       </div>
     </div>
   </div>
+</div>
+
   <div class="clearfix"></div>
 </div>
 
@@ -85,31 +83,32 @@
 
 <script async src="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.js"></script>
 <script>
-      	function initSwiper() {
-        var sectionId = "{{section.id}}";
-        var noOfProducts = {{ section.settings.no_of_products }};
-        var swiper = new Swiper(".swiper-container", {
-          slidesPerView: noOfProducts,
-          loop: false,
-           swipeToSlide: true,
-            freeMode: true,
-          effect: "slide",
-          speed: 600,
-    spaceBetween: 10,
-          breakpoints: {
-            1600: { slidesPerView: noOfProducts },
-            1200: { slidesPerView: noOfProducts },
-            992: { slidesPerView: 6 },
-            768: { slidesPerView: 5, navigation: false },
-            500: { slidesPerView: 4, navigation: false },
-            0: { slidesPerView: 3, navigation: false },
-          },
+ 
+  $(document).ready(function() {
+    $('.slick-wrapper').slick({
+      slidesToShow: 3, // Number of slides to show at once
+      slidesToScroll: 1, // Number of slides to scroll at a time
+      responsive: [
+        {
+          breakpoint: 500, // Screen width at which this breakpoint applies
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 0,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+        // Add more breakpoints and settings as needed
+      ]
+    });
+  });
 
-        });
-      }
 
-      // Initialize Swiper on page load
-      initSwiper();
 
       // Reinitialize Swiper when the window is resized
     function updateSwiper() {
