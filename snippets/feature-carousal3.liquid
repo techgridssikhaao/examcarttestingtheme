@@ -92,7 +92,10 @@
   $(document).ready(function() {
     $('.slick-wrapper').slick({
       slidesToShow: 6, 
-      slidesToScroll: 1, // Number of slides to scroll at a time
+      slidesToScroll: 1, 
+        speed: 500, // Transition speed in milliseconds
+      easing: 'ease-in-out',
+      // Number of slides to scroll at a time
       responsive: [
         {
           breakpoint: 780, // Screen width at which this breakpoint applies
